@@ -1,4 +1,4 @@
-# algebra-chapter-0-solutions
+# Algebra-chapter-0-solutions
 The solution to Algebra : Chapter 0 by Paolo Aluffi.
 
 Here is the (unoffical) solution to Algebra : Chapter 0. There are a few important points to note here:
