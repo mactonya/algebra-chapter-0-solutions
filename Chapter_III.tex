@@ -1,8 +1,19 @@
-Unless otherwise specified, in the following $R = (R,+,\cdot)$ denotes an arbitrary ring, $0, 1$ denotes the additive and multiplicative identity of $R$, respectively. In the case of possible confusion, I will use $0_R, 1_R$ instead. 
+Unless otherwise specified, in the following $R = (R,+,\cdot)$ denotes an arbitrary ring \emph{with identity}, $0, 1$ denotes the additive and multiplicative identity of $R$, respectively. In the case of possible confusion, I will use $0_R, 1_R$ instead. 
 
 Some description and hints are omitted for simplicity.
 
 \section{}
+
+\begin{problem}{III.1.1}
+Prove that if $0 = 1$ in a ring $R$, then $R$ is a zero ring.
+\end{problem}
+\begin{pf}
+If $r$ is any nonzero element in $R$, then
+\[
+r = r \cdot 1 = r \cdot 0 = 0  
+\]
+showing that $R = 0$.
+\end{pf}
 \begin{problem}{III.1.6}
 Prove that if $a$ and $b$ are nilpotent in $R$ and $ab = ba$, then so is $a+b$.
 \end{problem}
@@ -52,7 +63,7 @@ $(\Leftarrow)$ If $n = p_1^{a_1} \cdots p_n^{a_n}$ where $p_i$ are primes, and $
 \[
 m = p_1^{b_1} \cdots p_n^{b_n} d
 \] 
-where $b_i, d$ are positive integers, and $p_i \nmid d$ for all $i$. Then let 
+where $b_i, d$ are positive integers, and $p_i \nmid d$ for all $i$. Define 
 \[
 f = \text{floor}\left(\max\left\{ \frac{a_1}{b_1}, \cdots \frac{a_n}{b_n}\right\} \right)    
 \]
@@ -85,10 +96,33 @@ Prove that $R[x]$ is a domain \iffw $R$ is a domain.
 \begin{pf}
 
 \noindent $(\Rightarrow)$ Trivial since $R \subset R[x]$. \\
-$(\Leftarrow)$ Assume the contrary that $R[x]$ is not a domain. Then we can find $f = \sum_{i=0}^n a_ix^i, \: g = \sum_{j=0}^m b_jx^j$, $f \neq 0, g \neq 0$ such that $fg = 0$. Then we would have $a_nb_m = 0$, and since $R$ is a domain, either $a_n$ or $b_m$ is zero. Without loss of generality, we can reduce the case to $f = a_0$. Then by the same argument, we would arrive at $a_0b_0 = 0$, since all higher terms must be zero. But this contradict to the assumption that $R$ is a domain, since $f = a_0$ and $g = b_0$ are nonzero. Hence $R[x]$ must be a domain.
+$(\Leftarrow)$ Assume the contrary that $R[x]$ is not a domain. Then we can find $f = \sum_{i=0}^n a_ix^i, \: g = \sum_{j=0}^m b_jx^j$, $f \neq 0, g \neq 0$ such that $fg = 0$. Then we would have $a_nb_m = 0$, and since $R$ is a domain, either $a_n$ or $b_m$ is zero. Without loss of generality, we can reduce the case to $f = a_0 \neq 0$. Then by the same argument, we would arrive at $a_0b_0 = 0$, since all higher terms must be zero. But this contradict to the assumption that $R$ is a domain, since $f = a_0$ and $g = b_0$ are nonzero. Hence $R[x]$ must be a domain.
 \end{pf}
 
 \section{}
+\begin{problem}{III.2.1}
+Prove that if there is a homomorphism from a zero ring to a ring $R$, then $R$ is a zero ring.
+\end{problem}
+\begin{pf}
+If $1_R$ is the multiplicative identity of $R$, then for any homomorphism $\varphi : 0 \to R$, 
+\[
+0_R = \varphi(0) = \varphi(1) = 1_R
+\]
+and by III.1.1, $R$ is a zero-ring.
+\end{pf}
+
+\begin{problem}{III.2.6}
+Verify the 'extension property' of polynomial ring:
+
+Let $\alpha : R \to S$ be a fixed ring homomorphism, and let $s \in S$ be an element commuting with $\alpha(r)$ for all $r \in R$. Then there is a unique ring homomorphism $\bar{\alpha} : R[x] \to S$ extending $\alpha$ and sending $x$ to $s$.
+\end{problem}
+\begin{pf}
+Indeed, for $\sum_{i \geq 0} a_ix^i \in R[x]$, we have no choice but to define
+\[
+\bar{\alpha}\left(\sum_{i \geq 0} a_ix^i\right) = \sum_{i \geq 0}\alpha(a_i)s^{i}  \tag{1}
+\]
+so that $\bar{\alpha}(r) = \alpha(r)$ and $x$ sends to $s$ in this map. It is clearly a homomorphism (note that the commutativity of $s$ is used in the proof of $\bar{\alpha}(fg) = \bar{\alpha}(f)\bar{\alpha}(g)$), so it suffices to check that $\bar{\alpha}$ is unique. But it is clear by the fact that any map that extends $\alpha$ and send $x$ to $s$ must have the same value evaluated as in $(1)$.
+\end{pf}
 
 \begin{problem}{III.2.9}
 Prove that the center of $R$ is a subring. Moreover, prove that the center of a division ring is a field.
@@ -147,48 +181,105 @@ Prove that a division ring $R$ which consists of $p^2$ elements where $p$ is a p
 Suppose the contrary that $R$ is not commutative. Then the center $C$ must be a proper subring, which can only consist of $p$ elements by Lagrange. Now let $r \in R \backslash C$. Then the centralizer of $r$ will contain at least $r$ and $C$ by III.2.10, therefore the centralizer of $r$ must be $R$ itself (again by Lagrange), for every $r \in R \backslash C$. But then the intersection of all centralizer are now $R$ (element of center has centralizer $R$ clearly), which is a contradiction to that $C$ is proper. Therefore $R$ must be commutative, i.e. a field.
 \end{pf}
 
+\begin{problem}{III.2.12}
+Consider the inclusion map $\iota : \Z \xhookrightarrow{} \Q$. Describe the cokernel of $\iota$ in \textsf{Ab} and its cokernel in \textsf{Ring}.
+\end{problem}
+\begin{sol}
+In \textsf{Ab}, this is easy: it is just $\Q/\im \iota = \Q / \Z$. However in \textsf{Ring}, we notice that for any map $\alpha : \Q \to F$ that satisfy $\alpha \circ \iota = 0$, we have
+\[
+0_F = \alpha (1) = \alpha \circ \iota (1) = \alpha (1) = 1_F  
+\] 
+which shows that $F$ must be the zero ring by III.1.1. Now the unique homomorphism $\bar{\alpha} :\text{coker } \iota \to F$ must also be the zero map, and by the requirement $\bar{\alpha} \circ \pi \circ \iota = 0$, we finally have $\pi \circ \iota = 0$, and by the same argument as above, we have that the codomain of $\pi$ is the zero ring, i.e. $\text{coker } \iota = 0$.
+\end{sol}
+
 \section{}
 
 \begin{problem}{III.3.2}
 Let $\varphi:R \to S$ be a ring homomorphism, and let $J$ be an ideal of $S$. Prove that $\varphi^{-1}(J)$ is an ideal.
 \end{problem}
 \begin{pf}
-For any $x \in R$, 
-\[
-x \varphi^{-1}(J) = \varphi^{-1}(\varphi(x))\varphi^{-1}(J) = \varphi^{-1}(\varphi(x) \: J) \subseteq \varphi^{-1}(J)
-\]
-as desired.
+The ideal is clearly nonempty, so it suffices to check that $\varphi^{-1}(J)$ is a additive subgroup and satisfies the absorption property. For $x, y \in \varphi^{-1}(J)$, we have $\varphi(x), \varphi(y) \in J$, so $\varphi(x)-\varphi(y) = \varphi(x-y) \in J$, therefore $x-y \in \varphi^{-1}(J)$, showing that it is a subgroup of $(R,+)$.
+
+Now for any $r \in R, a \in \varphi^{-1}(J)$, we have $\varphi(a) \in J$, so $\varphi(r)\varphi(a) = \varphi(ra) \in J$, and hence $ra \in \varphi^{-1}(J)$, showing the left-absorption property. The right case is the same.
+\end{pf}
+
+\begin{problem}{III.3.7}
+Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a left-ideal of $R$ and $aR$ is a right-ideal of $R$. Prove that $a$ is a left-, resp. right-, unit if and only if $R = aR$, resp. $R = Ra$.
+\end{problem}
+\begin{pf}
+We prove only the left-ideal case since the same argument holds for right-ideal case. $Ra$ is a subgroup of $(R,+)$ since for $ra, sa \in Ra$, $ra - sa = (r-s)a \in Ra$. The absorption property follows easily since $rsa = (rs)a \in Ra$.
+
+If $a$ is a right unit, then there exists $u$ such that $ua = 1$. Then $1$ is contained in $Ra$, and since for all $r\in R$, $r \cdot 1 \in Ra$, we conclude that $R = Ra$.   
 \end{pf}
 
 \begin{problem}{III.3.8}
 Prove that $R$ is a division ring \iffw its only left-ideals and right-ideals are $\{0\}$ and $R$.
+
+In particular, a commutative ring $R$ is a field if and only if the only ideals of $R$ are $\{0\}$ and $R$.
 \end{problem}
 \begin{pf}
 
-\noindent $(\Rightarrow)$ If a nonzero element $a$ is in the left-ideal $I$, then so is $1_R$ since $1_R \in a^{-1}I \subseteq I$. Therefore any nonzero left-ideals are automatically $R$ itself. The right-ideal case is the same.
+\noindent $(\Rightarrow)$ If a nonzero element $a$ is in the left-ideal $I$, then so is $1$ since 
+\[
+1 = a^{-1}a \in I \text{ by definition}
+\] 
+Therefore any nonzero left-ideals are automatically $R$ itself. The right-ideal case is the same.
 
-\noindent $(\Leftarrow)$ If a nonzero element $a$ does not have a multiplicative inverse, then $aR$ would be a proper right ideal: It is nonzero, and it does not contain $1_R$. Clearly it is an ideal.
+\noindent $(\Leftarrow)$ If a nonzero element $a$ does not have a left inverse, then $aR$ would be a proper right-ideal by III.3.7. Therefore all elements must have left(and hence right) inverse.
 \end{pf}
 
-\begin{problem}{III.3.12}
-Let $R$ be \emph{commutative}. Prove that the set of nilpotent elements forms an ideal of $R$.
+\begin{problem}{III.3.10}
+Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field and $R$ is a nonzero ring. Prove that $\varphi$ is \emph{injective}.
 \end{problem}
 \begin{pf}
-From III.1.6 we already know that it forms a subgroup of $(R,+)$, so it remains to check that it is an ideal. If $a \in R, r \in I$ and $r^n = 0$, then $ar \in I$ since $R$ is commutative, so $(ar)^n = a^nr^n = 0$.
+$\varphi$ is injective if and only if $\ker \varphi = \{0\}$ by Proposition III.2.4. Also, the ideals of $k$ are only $\{0\}$ and $k$ by III.3.8. If $\ker \varphi = \{0\}$ then there is nothing to prove, so let $\ker \varphi = k$. But this means that $\varphi = 0$, so we have
+\[
+1_R = \varphi(1) = 0 = \varphi(0) = 0_R    
+\]
+and by III.1.1, $R$ is a zero ring, a contradiction to the hypothesis. Therefore $\ker \varphi = \{0\}$, showing that $\varphi$ is injective.
+\end{pf}
+
+
+\begin{problem}{III.3.12}
+Let $R$ be a \emph{commutative} ring. Prove that the set of nilpotent elements forms an ideal of $R$. This ideal is called the \emph{nilradical} of $R$.
+\end{problem}
+\begin{pf}
+From III.1.6 we already know that it forms a subgroup of $(R,+)$ by relpacing b with $-b$, so it remains to check that it is an ideal. Let $I$ be such ideal. If $a \in R, r \in I$ and $r^n = 0$, then since
+\[
+(ar)^n \overset{!}{=} a^nr^n = 0    
+\]
+in which ! is where commutative is used. Therefore $ar \in I$, proving the absorption property.
 
 For an counter-example where $R$ is not commutative, simply consider the example of III.1.6: it is not even a subgroup of $(R, +)$.
 \end{pf}
 
+\begin{problem}{III.3.13}
+Let $R$ be a commutative ring, and let $N$ be its nilradical. Prove that $R/N$ contains no nonzero nilpotent elements. Such a ring is said to be \emph{reduced}.
+\end{problem}
+\begin{pf}
+Pick an element $a \in R \backslash N$. Then for every integer $n > 0$, 
+\[
+(a + N)^n = a^n + \binom{n}{1} a^{n-1} N + \cdots + N^n = a^n + N
+\]
+Since $a$ is not nilpotent, $a^n \neq 0$ for every $n$, showing that $a + N$ is not nilpotent for $a \in R \backslash N$.
+\end{pf}
+
 \section{}
+\begin{problem}{III.4.1}
+Let $R$ be a ring, 
+\end{problem}
 
 \begin{problem}{III.4.2}
 Prove that the homomorphic image of a Noetherian ring is Noetherian.
 \end{problem}
 \begin{pf}
-Let $R$ be Noetherian, $S$ be any ring, $\varphi:R \to S$ be a surjective ring homomorphism.
-Let $J$ be an ideal of $S$. By III.3.2, the preimage is an ideal, which we call $I = \langle a_1, ... a_n \rangle$. We claim that $J = \langle \varphi(a_1), ... \varphi(a_n) \rangle$, so every finitely generated ideal will map to a finitely generated ideal, proving that $S$ is Noetherian. 
+Let $R$ be Noetherian, $S$ be any ring, $\varphi:R \to S$ be a surjective ring homomorphism. Let $J$ be an ideal of $S$. By III.3.2, the preimage is an ideal, which we call $I = \langle a_1, ... a_n \rangle$. We claim that $J = \langle \varphi(a_1), ... \varphi(a_n) \rangle$, so every finitely generated ideal will map to a finitely generated ideal, proving that $S$ is Noetherian. 
 
-Indeed, since $a_i \in \varphi^{-1}(J)$, $\varphi(a_i) \in J$ for $i = 1,...,n$, so $\langle \varphi(a_1), ... \varphi(a_n) \rangle \subseteq J$. On the other hand, for an element $j \in J$, there exists $i \in R$ such that $\varphi(i) = j$ by surjectivity, therefore $i \in I$, so $i$ is generated by elements $a_1, ... ,a_n$, i.e. $i = r_1a_1 + ... + r_na_n$. Then $\varphi(i) = j = \varphi(r_1a_1 + ... + r_na_n) = s_1\varphi(a_1) + ... + s_n\varphi(a_n)$, so $J \subseteq \langle \varphi(a_1), ... \varphi(a_n) \rangle$, and the claim is proved.
+Indeed, since $a_i \in \varphi^{-1}(J)$, $\varphi(a_i) \in J$ for $i = 1,...,n$, so $\langle \varphi(a_1), ... \varphi(a_n) \rangle \subseteq J$. On the other hand, for an element $j \in J$, there exists $i \in R$ such that $\varphi(i) = j$ by surjectivity, therefore $i \in I$, so $i$ is generated by elements $a_1, ... ,a_n$, i.e. $i = r_1a_1 + ... + r_na_n$. Then since $\varphi$ is a homomorphism, 
+\[
+\varphi(i) = j = \varphi(r_1a_1 + ... + r_na_n) = s_1\varphi(a_1) + ... + s_n\varphi(a_n)
+\]
+so $J \subseteq \langle \varphi(a_1), ... \varphi(a_n) \rangle$, and the claim is proved.
 \end{pf}
 
 \el

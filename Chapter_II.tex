@@ -17,7 +17,7 @@ The order of $g^2$ is $|g|$ since the only number that divides $|g|$ and in $\{2
 \end{sol}
 
 \begin{problem}{II.1.11}
-Prove that for all $g, h \in G$, $|gh| = |hg|$.
+Prove that for all $g, h$ in a group $G$, $|gh| = |hg|$.
 \end{problem}
 \begin{pf}
 Simply observe that $e = (gh)^{|gh|} = g(hg)^{(|gh|-1)}h$, therefore 
@@ -48,7 +48,7 @@ so we have $|g|$ divides $N|h|$, which implies $|g|$ divides $N$ since $\text{gc
 \end{pf}
 
 \begin{problem}{II.1.15}
-Let $G$ be commutative and let $g\in G$ be an element of maximal \textit{finite} order. Prove that if $h$ has finite order in $G$, then $|h|$ \textit{divides} $|g|$.
+Let $G$ be a commutative group, and let $g\in G$ be an element of maximal \emph{finite} order. Prove that if $h$ has finite order in $G$, then $|h|$ \emph{divides} $|g|$.
 \end{problem}
 \begin{pf}
 Suppose that $|h|$ does not divide $|g|$, then we can assume that $|g| = p^mr, |h| = p^ns$, where $p$ is a prime and $r, s$ relatively prime to $p$ and $m<n$. Then by the previous problem we can calculate the order of $g^{p^m}h^s$, which is $p^nr$. But this element has order bigger than $g$, contradict to the maximality of g. Hence $|h|$ must divide $|g|$.
