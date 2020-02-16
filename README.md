@@ -1,5 +1,7 @@
 # Algebra-chapter-0-solutions
-The solution to Algebra : Chapter 0 by Paolo Aluffi.
+The solution to Algebra : Chapter 0 by Paolo Aluffi. 
+
+**To download the solution, go to https://github.com/macyayaya/algebra-chapter-0-solutions/releases**.
 
 Here is the (unoffical) solution to Algebra : Chapter 0. There are a few important points to note here:
 * The solution is only hosted on my GitHub page https://github.com/macyayaya/algebra-chapter-0-solutions. If you find this document outside this page, you might have an outdated version of the solution which might have errors, so please be aware.
