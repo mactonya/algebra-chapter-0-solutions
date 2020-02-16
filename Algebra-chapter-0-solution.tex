@@ -1,0 +1,119 @@
+\documentclass[12pt,a4paper,dvipsnames,oneside]{book}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{faktor}
+\usepackage{relsize}
+\usepackage{geometry}
+\usepackage[all]{xy}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{extarrows}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{green},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\geometry{a4paper,margin=0.7in}
+\newcommand{\dl}{\vspace{12pt}}
+\newcommand{\dt}{$\bullet \:$}
+\newcommand{\nl}{\noindent\textbf}
+\newcommand{\el}{\textcolor{White}{a}}
+\newcommand{\iffw}{if and only if }
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thesection{\thechapter.\arabic{section}}
+\newcommand\myeq{}
+\usepackage{indentfirst}
+
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{pf}
+	{\emph{Proof.}
+	}
+	{
+	\qed
+	}
+\newenvironment{sol}
+	{\emph{Solution.}
+	}
+	{
+	\qed
+	}
+	
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\tr}{tr}
+%\DeclareMathOperator{\dim}{dim}
+
+\title{Solution to Algebra : Chapter 0 by Paolo Aluffi}
+\author{macyayaya\thanks{\href{https://github.com/macyayaya/}{https://github.com/macyayaya/}}}
+\date{Last updated at \today}
+
+
+\begin{document}
+\setcounter{chapter}{1}
+\frontmatter
+\maketitle
+\input{Prologue}
+\tableofcontents
+\mainmatter
+\chapter{Groups, first encounter}
+\input{Chapter_II}
+\newpage
+\chapter{Rings and modules}
+\input{Chapter_III}
+\newpage
+
+\backmatter
+\chapter{}
+\thispagestyle{empty}
+\begin{center}
+\large{
+This is the end of the solution as of \date{\today}. \\
+Please revisit \href{https://github.com/macyayaya/algebra-chapter-0-solutions}{https://github.com/macyayaya/algebra-chapter-0-solutions} \\
+for possible updates. \\
+Thanks for your reading.
+}
+\end{center}
+
+\end{document}

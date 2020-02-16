@@ -1,0 +1,236 @@
+Unless otherwise specified, in the following $R = (R,+,\cdot)$ denotes an arbitrary ring, $0, 1$ denotes the additive and multiplicative identity of $R$, respectively. In the case of possible confusion, I will use $0_R, 1_R$ instead. 
+
+Some description and hints are omitted for simplicity.
+
+\section{}
+\begin{problem}{III.1.6}
+Prove that if $a$ and $b$ are nilpotent in $R$ and $ab = ba$, then so is $a+b$.
+\end{problem}
+\begin{pf}
+If $a^n = 0, b^m = 0$, then
+\[
+(a+b)^{n+m} = a^{n+m} +\binom{n+m-1}{1} a^{n+m-1}b + ... + b^{n+m}
+\]
+and all terms are zeros since every term either have $a^n$ or $b^m$. If we do not assume that $ab = ba$, then the statement would be false, for example, in $M_n(\mathbb{Z})$,
+\[
+\begin{pmatrix} 
+1 & 0 \\
+1 & 0
+\end{pmatrix}
+\quad \text{and} \quad
+\begin{pmatrix} 
+0 & 1 \\
+0 & 1 
+\end{pmatrix}
+\]
+are nilpotent of degree $3$, but
+$\begin{pmatrix} 
+1 & 0 \\
+1 & 0
+\end{pmatrix} + 
+\begin{pmatrix} 
+0 & 1 \\
+0 & 1 
+\end{pmatrix} = 
+\begin{pmatrix} 
+1 & 1 \\
+1 & 1
+\end{pmatrix}$, which is not nilpotent.
+\end{pf}
+
+\begin{problem}{III.1.7}
+Prove that $[m]$ is nilpotent in $\Z/n\Z$ if and only if $m$ is divisible by all prime factors of $n$. 
+\end{problem}
+\begin{pf}
+
+\noindent $(\Rightarrow)$ If $[m]^k = [0]$ for some integer $k$, then this implies $m^k = dn$ for some integer $d$. Now we write $n = p_1^{a_1} \cdots p_n^{a_n}$, where $p_i$ are primes, and $a_i$ are positive integers. Then
+\[
+m^k = d p_1^{a_1} \cdots p_n^{a_n}
+\]
+and it is clear to see that $m$ must contain each $p_i$ at least once. \\
+$(\Leftarrow)$ If $n = p_1^{a_1} \cdots p_n^{a_n}$ where $p_i$ are primes, and $a_i$ are positive integers, then we can write 
+\[
+m = p_1^{b_1} \cdots p_n^{b_n} d
+\] 
+where $b_i, d$ are positive integers, and $p_i \nmid d$ for all $i$. Then let 
+\[
+f = \text{floor}\left(\max\left\{ \frac{a_1}{b_1}, \cdots \frac{a_n}{b_n}\right\} \right)    
+\]
+then let $r = m^f/n$, which is an integer larger than 0 by the choice of $f$. Finally
+\[
+m^f = nr = 0 \mod n
+\]
+showing that $m$ is nilpotent in $\Z/n\Z$.
+\end{pf}
+
+\begin{problem}{III.1.9}
+Prove Proposition 1.12, that is:
+\begin{itemize}
+    \setlength\itemsep{0pc}
+    \item The inverse of a two-sided unit is unique;
+    \item two-sided units form a group under multiplication.
+\end{itemize}
+\end{problem}
+\begin{pf}
+For a two-sided unit $v$, we have $uv = 1$ and $vw = 1$ for some $u,w \in R$. Then 
+\[
+w = 1 \cdot w = uvw = u \cdot 1 = u    
+\]
+showing that $w = u$, so the inverse can be uniquely defined as $v^{-1} = u$. Now as the inverse is unique, we can properly define a group structure, using the multiplication from the ring $R$.
+\end{pf}
+
+\begin{problem}{III.1.15}
+Prove that $R[x]$ is a domain \iffw $R$ is a domain.
+\end{problem}
+\begin{pf}
+
+\noindent $(\Rightarrow)$ Trivial since $R \subset R[x]$. \\
+$(\Leftarrow)$ Assume the contrary that $R[x]$ is not a domain. Then we can find $f = \sum_{i=0}^n a_ix^i, \: g = \sum_{j=0}^m b_jx^j$, $f \neq 0, g \neq 0$ such that $fg = 0$. Then we would have $a_nb_m = 0$, and since $R$ is a domain, either $a_n$ or $b_m$ is zero. Without loss of generality, we can reduce the case to $f = a_0$. Then by the same argument, we would arrive at $a_0b_0 = 0$, since all higher terms must be zero. But this contradict to the assumption that $R$ is a domain, since $f = a_0$ and $g = b_0$ are nonzero. Hence $R[x]$ must be a domain.
+\end{pf}
+
+\section{}
+
+\begin{problem}{III.2.9}
+Prove that the center of $R$ is a subring. Moreover, prove that the center of a division ring is a field.
+\end{problem}
+\begin{pf}
+A subset of a ring $S$ is a subring if it is a subgroup of $(R,+)$, closed under multiplication, and $1$ is in it. So we check that:
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item it is a subgroup of $(R,+)$: for $a,b \in C$, for all $r \in R$,
+    \[
+    (a-b)r = ar - br = ra - rb = r(a-b)    
+    \]
+    showing that $a-b \in C$, hence a subgroup;
+    \item closed under multiplication: for $a,b \in C$, for all $r \in R$,
+    \[
+    abr = a(br) = a(rb) = (ar)b = (ra)b = rab     
+    \]
+    showing that $ab \in C$;
+    \item finally, $1$ is in $C$ since $1r = r1$ for all $r \in R$.
+\end{itemize}
+
+
+Clearly the center forms a commutative ring since for $a,b \in C$, $ab = ba$. Then it follows by definition that a commutative division ring is a field. 
+\end{pf}
+
+\begin{problem}{III.2.10}
+Prove that the centralizer of $a$ is a subring for every $a \in R$. Prove that the center is the intersection of all its centralizers, and prove that every centralizer of a division ring is a division ring.
+\end{problem}
+\begin{pf}
+We use the same test as above. Let $C_x$ denotes the centralizer of $x$.
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item It is a subgroup of $(R,+)$: for $a,b \in C_x$,
+    \[
+    (a-b)x = ax - bx = xa - xb = x(a-b)    
+    \]
+    showing that $a-b \in C_x$, hence a subgroup;
+    \item closed under multiplication: for $a,b \in C_x$,
+    \[
+    abx = a(bx) = a(xb) = (ax)b = (xa)b = xab     
+    \]
+    showing that $ab \in C_x$;
+    \item finally, $1$ is in $C_x$ since $1x = x1$.
+\end{itemize}
+It is easy that the center is the intersection of all its centralizers, since such elemet in the intersection must commute with the whole ring $R$. Finally, if $R$ is a division ring, then for every element $a \in C_x$, then we show that $a^{-1} \in C_x$:
+\[
+ax = xa \Rightarrow axa^{-1} = x \Rightarrow xa^{-1} = a^{-1}x
+\]
+as desired.
+\end{pf}
+
+\begin{problem}{III.2.11}
+Prove that a division ring $R$ which consists of $p^2$ elements where $p$ is a prime, is commutative. 
+\end{problem}
+\begin{pf}
+Suppose the contrary that $R$ is not commutative. Then the center $C$ must be a proper subring, which can only consist of $p$ elements by Lagrange. Now let $r \in R \backslash C$. Then the centralizer of $r$ will contain at least $r$ and $C$ by III.2.10, therefore the centralizer of $r$ must be $R$ itself (again by Lagrange), for every $r \in R \backslash C$. But then the intersection of all centralizer are now $R$ (element of center has centralizer $R$ clearly), which is a contradiction to that $C$ is proper. Therefore $R$ must be commutative, i.e. a field.
+\end{pf}
+
+\section{}
+
+\begin{problem}{III.3.2}
+Let $\varphi:R \to S$ be a ring homomorphism, and let $J$ be an ideal of $S$. Prove that $\varphi^{-1}(J)$ is an ideal.
+\end{problem}
+\begin{pf}
+For any $x \in R$, 
+\[
+x \varphi^{-1}(J) = \varphi^{-1}(\varphi(x))\varphi^{-1}(J) = \varphi^{-1}(\varphi(x) \: J) \subseteq \varphi^{-1}(J)
+\]
+as desired.
+\end{pf}
+
+\begin{problem}{III.3.8}
+Prove that $R$ is a division ring \iffw its only left-ideals and right-ideals are $\{0\}$ and $R$.
+\end{problem}
+\begin{pf}
+
+\noindent $(\Rightarrow)$ If a nonzero element $a$ is in the left-ideal $I$, then so is $1_R$ since $1_R \in a^{-1}I \subseteq I$. Therefore any nonzero left-ideals are automatically $R$ itself. The right-ideal case is the same.
+
+\noindent $(\Leftarrow)$ If a nonzero element $a$ does not have a multiplicative inverse, then $aR$ would be a proper right ideal: It is nonzero, and it does not contain $1_R$. Clearly it is an ideal.
+\end{pf}
+
+\begin{problem}{III.3.12}
+Let $R$ be \emph{commutative}. Prove that the set of nilpotent elements forms an ideal of $R$.
+\end{problem}
+\begin{pf}
+From III.1.6 we already know that it forms a subgroup of $(R,+)$, so it remains to check that it is an ideal. If $a \in R, r \in I$ and $r^n = 0$, then $ar \in I$ since $R$ is commutative, so $(ar)^n = a^nr^n = 0$.
+
+For an counter-example where $R$ is not commutative, simply consider the example of III.1.6: it is not even a subgroup of $(R, +)$.
+\end{pf}
+
+\section{}
+
+\begin{problem}{III.4.2}
+Prove that the homomorphic image of a Noetherian ring is Noetherian.
+\end{problem}
+\begin{pf}
+Let $R$ be Noetherian, $S$ be any ring, $\varphi:R \to S$ be a surjective ring homomorphism.
+Let $J$ be an ideal of $S$. By III.3.2, the preimage is an ideal, which we call $I = \langle a_1, ... a_n \rangle$. We claim that $J = \langle \varphi(a_1), ... \varphi(a_n) \rangle$, so every finitely generated ideal will map to a finitely generated ideal, proving that $S$ is Noetherian. 
+
+Indeed, since $a_i \in \varphi^{-1}(J)$, $\varphi(a_i) \in J$ for $i = 1,...,n$, so $\langle \varphi(a_1), ... \varphi(a_n) \rangle \subseteq J$. On the other hand, for an element $j \in J$, there exists $i \in R$ such that $\varphi(i) = j$ by surjectivity, therefore $i \in I$, so $i$ is generated by elements $a_1, ... ,a_n$, i.e. $i = r_1a_1 + ... + r_na_n$. Then $\varphi(i) = j = \varphi(r_1a_1 + ... + r_na_n) = s_1\varphi(a_1) + ... + s_n\varphi(a_n)$, so $J \subseteq \langle \varphi(a_1), ... \varphi(a_n) \rangle$, and the claim is proved.
+\end{pf}
+
+\el
+
+In the following, let $M$ be a (left-)module over $R$.
+
+\section{}
+
+\begin{problem}{III.5.3}
+Prove that $0\cdot m = 0$ and that $(-1) \cdot m = -m$ for all $m \in M$. 
+\end{problem}
+\begin{pf}
+Since $0m = (0+0)m = 0m + 0m, 0m = 0$. Since $0 = 0m = (-1+1)m = (-1)m+m, (-1)m = -m$.
+\end{pf}
+
+\begin{problem}{III.5.11}
+Let $R$ be commutative. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\text{End}_{R-\textsf{Mod}}(M)$.
+\end{problem}
+\begin{pf}
+If $f$ is a $R$-endomorphism $f:M \to M$, then we have to show that there are some suitable maps
+\begin{align*}
+    R[x] \times M &\to M \\
+    (g(x), \:m) &\to \: ?
+\end{align*}
+that makes $M$ into a module. We consider $(g(x),m) \to g(f)(m)$, where if $g(x) = \sum_i a_i x^i$, then
+\[
+g(f)(m) = \sum_{i} a_i f^i(m) \text{ where } f^i = \underbrace{f \circ \cdots \circ f}_{i\text{ times}}
+\]
+We can easily check by definition that $M$ satisfies the property of $R[x]$-module, so this gives the injectivity of $R[x]$-modules to $\text{End}_{R-\textsf{Mod}}(M)$. To prove surjectivity, if $M$ is a $R[x]$-module, then define $f(m) = xm$. Then $M$ is indeed an endomorphism, proving the statement.
+\end{pf}
+
+\begin{problem}{III.5.12}
+Let $M,N$ be $R$-modules, and let $\varphi:M \to N$ be a homomorphism of $R$-modules which has a inverse (therefore a bijection). Prove that $\varphi^{-1}$ is also a homomorphism of $R$-modules. Conclude that a bijective $R$-module homomorphism is a $R$-module isomorphism.
+\end{problem}
+\begin{pf}
+Since
+\[
+\varphi(\varphi^{-1}(m) + \varphi^{-1}(n)) = m + n = \varphi(\varphi^{-1}(m + n))
+\]
+we have $\varphi^{-1}(m) + \varphi^{-1}(n) = \varphi^{-1}(m + n)$. And
+\[
+\varphi(r\varphi^{-1}(m)) = r\varphi(\varphi^{-1}(m)) = rm = \varphi(\varphi^{-1}(rm))
+\]
+so $r\varphi^{-1}(m) = \varphi^{-1}(rm)$ indeed. 
+\end{pf}
