@@ -77,9 +77,9 @@ showing that $m$ is nilpotent in $\Z/n\Z$.
 \begin{problem}{III.1.9}
 Prove Proposition 1.12, that is:
 \begin{itemize}
-    \setlength\itemsep{0pc}
-    \item The inverse of a two-sided unit is unique;
-    \item two-sided units form a group under multiplication.
+\setlength\itemsep{0pc}
+\item The inverse of a two-sided unit is unique;
+\item two-sided units form a group under multiplication.
 \end{itemize}
 \end{problem}
 \begin{pf}
@@ -130,18 +130,18 @@ Prove that the center of $R$ is a subring. Moreover, prove that the center of a 
 \begin{pf}
 A subset of a ring $S$ is a subring if it is a subgroup of $(R,+)$, closed under multiplication, and $1$ is in it. So we check that:
 \begin{itemize}
-    \setlength\itemsep{0pt}
-    \item it is a subgroup of $(R,+)$: for $a,b \in C$, for all $r \in R$,
-    \[
-    (a-b)r = ar - br = ra - rb = r(a-b)    
-    \]
-    showing that $a-b \in C$, hence a subgroup;
-    \item closed under multiplication: for $a,b \in C$, for all $r \in R$,
-    \[
-    abr = a(br) = a(rb) = (ar)b = (ra)b = rab     
-    \]
-    showing that $ab \in C$;
-    \item finally, $1$ is in $C$ since $1r = r1$ for all $r \in R$.
+\setlength\itemsep{0pt}
+\item it is a subgroup of $(R,+)$: for $a,b \in C$, for all $r \in R$,
+\[
+(a-b)r = ar - br = ra - rb = r(a-b)    
+\]
+showing that $a-b \in C$, hence a subgroup;
+\item closed under multiplication: for $a,b \in C$, for all $r \in R$,
+\[
+abr = a(br) = a(rb) = (ar)b = (ra)b = rab     
+\]
+showing that $ab \in C$;
+\item finally, $1$ is in $C$ since $1r = r1$ for all $r \in R$.
 \end{itemize}
 
 
@@ -154,18 +154,18 @@ Prove that the centralizer of $a$ is a subring for every $a \in R$. Prove that t
 \begin{pf}
 We use the same test as above. Let $C_x$ denotes the centralizer of $x$.
 \begin{itemize}
-    \setlength\itemsep{0pt}
-    \item It is a subgroup of $(R,+)$: for $a,b \in C_x$,
-    \[
-    (a-b)x = ax - bx = xa - xb = x(a-b)    
-    \]
-    showing that $a-b \in C_x$, hence a subgroup;
-    \item closed under multiplication: for $a,b \in C_x$,
-    \[
-    abx = a(bx) = a(xb) = (ax)b = (xa)b = xab     
-    \]
-    showing that $ab \in C_x$;
-    \item finally, $1$ is in $C_x$ since $1x = x1$.
+\setlength\itemsep{0pt}
+\item It is a subgroup of $(R,+)$: for $a,b \in C_x$,
+\[
+(a-b)x = ax - bx = xa - xb = x(a-b)    
+\]
+showing that $a-b \in C_x$, hence a subgroup;
+\item closed under multiplication: for $a,b \in C_x$,
+\[
+abx = a(bx) = a(xb) = (ax)b = (xa)b = xab     
+\]
+showing that $ab \in C_x$;
+\item finally, $1$ is in $C_x$ since $1x = x1$.
 \end{itemize}
 It is easy that the center is the intersection of all its centralizers, since such elemet in the intersection must commute with the whole ring $R$. Finally, if $R$ is a division ring, then for every element $a \in C_x$, then we show that $a^{-1} \in C_x$:
 \[
@@ -201,6 +201,46 @@ Let $\varphi:R \to S$ be a ring homomorphism, and let $J$ be an ideal of $S$. Pr
 The ideal is clearly nonempty, so it suffices to check that $\varphi^{-1}(J)$ is a additive subgroup and satisfies the absorption property. For $x, y \in \varphi^{-1}(J)$, we have $\varphi(x), \varphi(y) \in J$, so $\varphi(x)-\varphi(y) = \varphi(x-y) \in J$, therefore $x-y \in \varphi^{-1}(J)$, showing that it is a subgroup of $(R,+)$.
 
 Now for any $r \in R, a \in \varphi^{-1}(J)$, we have $\varphi(a) \in J$, so $\varphi(r)\varphi(a) = \varphi(ra) \in J$, and hence $ra \in \varphi^{-1}(J)$, showing the left-absorption property. The right case is the same.
+\end{pf}
+
+\begin{problem}{III.3.3}
+Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an ideal of $R$.
+\end{problem}
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item Show that $\varphi(J)$ need not be an ideal of $S$.
+\item Assume that $\varphi$ is surjective; then prove that $\varphi(J)$ \emph{is} an ideal of $S$.
+\item Assume that $\varphi$ is surjective, and let $I = \ker \varphi$. Let $\bar{J} = \varphi(J)$. Prove that 
+\[
+\frac{R/I}{\bar{J}} \cong \frac{R}{I+J}.	
+\]
+\end{itemize}
+\begin{pf}
+Let $\varphi : \Z \xhookrightarrow{} \R$ be inclusion (and clearly a homomorphism). Then every ideal of $\Z$ will be directly transformed into $\R$. But since $\R$ is a field, by III.3.8 (which will be proved later) the possible ideal of $\R$ are only $\{0\}$ and $\R$ itself, so the image of a homomorphism need not to be an ideal.
+
+However, If $\varphi$ is surjective, Then $\varphi(J)$ is indeed an ideal: if $\varphi(x), \varphi(y) \in \varphi(J)$, then so is $\varphi(x) - \varphi(y) = \varphi(x-y) \in \varphi(J)$. The absorption property is also true since $\varphi(r)\varphi(x) = \varphi(rx) \in \varphi(J)$.
+
+Finally, we consider the homomorphism
+\[
+\phi : R/I \to R/(I+J), \quad \phi(a + I) = a + I + J
+\]
+$\phi$ is clearly a surjective homomorphism, and by first isomorphism theorem
+\[
+\frac{R/I}{\ker \phi} \cong \frac{R}{I+J}	
+\]
+so it remains to solve $\ker \phi$, which is
+\begin{align*}
+\ker \phi &= \{a + I : a + I + J = I + J\} \\
+&= \{a +b + I : a \in I, b \in J\} \\
+&= \{b + I : b \in J\} \\
+&= \{\varphi(b) \in S : b \in J\} \quad \text{(regarding } R/I \text{ as } S)\\
+&= \varphi(J) = \bar{J}
+\end{align*}
+therefore
+\[
+\frac{R/I}{\bar{J}} \cong \frac{R}{I+J}
+\]
+as required.
 \end{pf}
 
 \begin{problem}{III.3.7}
@@ -266,8 +306,19 @@ Since $a$ is not nilpotent, $a^n \neq 0$ for every $n$, showing that $a + N$ is 
 
 \section{}
 \begin{problem}{III.4.1}
-Let $R$ be a ring, 
+Let $R$ be a ring, and let $\{I_\alpha\}_{\alpha \in A}$ be a family of ideals of $R$. We let 
+\[
+\sum_{\alpha \in A} I_\alpha := \left\{ \sum_{\alpha \in A}r_\alpha \text{ such that } r_\alpha \in I_\alpha \text{ and } r_\alpha = 0 \text{ for all but finitely many } \alpha \right\}.  
+\]
+Prove that $\{I_\alpha\}_{\alpha \in A}$ is an ideal of $R$ and that it is the smallest ideal containing all of the ideals $I_\alpha$.
 \end{problem}
+\begin{pf}
+We only consider the case when $A = \{1,2\}$: Any other $A$ follows the same exact argument. 
+
+Let $I = I_1 + I_2$. $I$ is a subgroup of $(R,+)$ : the two elements in $I$ can be represented as $r_1 + r_2$ and $r'_1 + r'_2$, and clearly $(r_1 - r'_1) + (r_2 - r'_2)$ is in $I$. The absorption property is also clear, since $r (r_1 + r_2) = (rr_1 + rr_2) \in I$. 
+
+Now it suffice to show that $I$ is minimal. For every ideal that contains $I_1$ and $I_2$, they must also contain $r_1 + r_2$ for $r_1 \in I_1$ and $r_2 \in I_2$, since ideal is a subgroup of $(R,+)$. Therefore every such ideal must also contain $I$, proving the minimality of $I$.
+\end{pf}
 
 \begin{problem}{III.4.2}
 Prove that the homomorphic image of a Noetherian ring is Noetherian.
@@ -280,6 +331,100 @@ Indeed, since $a_i \in \varphi^{-1}(J)$, $\varphi(a_i) \in J$ for $i = 1,...,n$,
 \varphi(i) = j = \varphi(r_1a_1 + ... + r_na_n) = s_1\varphi(a_1) + ... + s_n\varphi(a_n)
 \]
 so $J \subseteq \langle \varphi(a_1), ... \varphi(a_n) \rangle$, and the claim is proved.
+\end{pf}
+
+\begin{problem}{III.4.4}
+Prove that if $k$ is a field, then $k[x]$ is a PID.
+\end{problem}
+\begin{pf}
+Let $I$ be any ideal of $k[x]$. If $I = (0)$, then there is nothing to prove. Otherwise, there is some polynomial $f\in I$ that has minimal degree in $I$ and is monic (since you can do scalar division). We claim that $I = (f)$. Indeed, for $g \in I$, we can use division algorithm to write
+\[
+g(x) = f(x)q(x) + r(x)  
+\]  
+where $\deg r(x) < \deg f(x)$. Since $k[x]$ is a subgroup, $r = g - fq \in I$, and by the minimality of $f$, $r(x) = 0$, so every element of $I$ can be written as $g(x)f(x)$ for some $g \in k[x]$, showing that $k[x]$ is a PID.
+\end{pf}
+
+\begin{problem}{III.4.5}
+Let $I, J$ be ideals in a commutative ring $R$, such that $I+J = (1)$. Prove that $IJ = I \cap J$.
+\end{problem}
+\begin{pf}
+If $x \in IJ$, then it can be represented as $ij$ for some $i \in I, j \in J$, and by the property of ideal, $ji \in I, ij \in J$, so $ij \in I \cap J$. Conversely, we have
+\[
+I \cap J = (I \cap J) (1) = (I\cap J)(I+J) = (I \cap J)I + (I \cap J)J \subseteq IJ + IJ = IJ 
+\]
+showing the identity.
+\end{pf}
+
+\begin{problem}{III.4.7}
+Let $R = k$ be a field. Prove that every nonzero (principle) ideal in $k[x]$ is generated by a unique \emph{monic} polynomial.
+\end{problem}
+\begin{pf}
+From III.4.4 we already know that every ideal is generated by a single polynomial $f$. Since $k$ is a field, we can do division, so there is a monic polynomial $f(x)/a$ where $a$ is the coefficient of the largest degree in $f$. Then it's trivial that $(f) = (f/a)$.
+\end{pf}
+
+\begin{problem}{III.4.11}
+Let $R$ be a commutative ring, $a \in R$, and $f_1(x),\dotsc,f_r(x) \in R[x]$.
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item Prove the equality of ideals
+\[
+(f_1(x),\dotsc,f_r(x),x-a) = (f_1(a),\dotsc,f_r(a),x-a).
+\]
+\item Prove the useful substitution trick
+\[
+\frac{R[x]}{(f_1(x),\dotsc,f_r(x),x-a)} \cong \frac{R}{(f_1(a),\dotsc,f_r(a))}
+\]
+\end{itemize}
+\end{problem}
+\begin{pf}
+We consider only the case $k = 1$; the other cases are just extending the same argument. We are required to prove that 
+\[
+(f(x), x-a) = (f(a), x-a)
+\]
+For $f(x)$, we can apply division algorithm to get
+\[
+f(x) = q(x)(x-a) + r
+\]
+where $q(x) \in R[x], r \in R$. By plug in $x = a$, we obtain $r = f(a)$. Therefore $f(x)$ is generated by $f(a)$ and $(x-a)$, showing $f(x)\in (f(a), x-a)$. On the other hand, note the division algorithm also implies
+\[
+f(a) = f(x) - q(x)(x-a) \in (f(x), x-a)
+\]
+therefore $f(a) \in (f(x), x-a)$, so $(f(x), x-a) = (f(a), x-a)$. Now since $R[x]/(x-a) \cong R$, by III.3.3
+\[
+\frac{R}{\varphi(J)} \cong \frac{R[x]}{\ker \varphi + J}	
+\]
+for an ideal $J \in R[x]$, $\varphi : R[x] \to R$ a surjective homomorphism. It is clear that how should we choose these: by taking
+\[
+J = (f_1(x),\dotsc,f_r(x)), \quad \varphi(f(x)) = f(a)	
+\]
+we have
+\[
+\frac{R}{(f_1(a),\dotsc,f_r(a))} \cong \frac{R[x]}{(f_1(x),\dotsc,f_r(x),x-a)} 
+\]
+as desired (note that $\varphi$ is surjective).
+\end{pf}
+
+\begin{problem}{III.4.13}
+Let $R$ be an integral domain. For all $k = 1,\dotsc, n$, prove that $(x_1,\dotsc, x_k)$ is prime in $R[x_1,\dotsc, x_n]$.
+\end{problem}
+\begin{pf}
+We proceed by induction. For the case $k = 1$, we have
+\[
+\frac{R[x]}{(x)} \cong R	\quad \text{(p.p.151)}
+\]
+and since $R$ is a domain, it follows by definition that $(x)$ is a prime ideal. Suppose that for $k < n$, the argument holds. Then for $k = n$, choose
+\[
+J = (x_1,\dotsc,x_{n-1}), \quad \varphi : R[x_1,\dotsc,x_{n}] \xhookrightarrow{} R[x_1,\dotsc,x_{n-1}]
+\]
+where $\varphi$ is the inclusion map and $\ker \varphi = (x_n)$. Then by III.3.3
+\[
+\frac{R[x_1,\dotsc,x_{n}]/(x_n)}{(x_1,\dotsc,x_{n-1})} \cong \frac{R[x_1,\dotsc,x_{n}]}{(x_1,\dotsc,x_{n-1})+(x_n)}
+\]
+which simplifies to
+\[
+\frac{R[x_1,\dotsc,x_{n-1}]}{(x_1,\dotsc,x_{n-1})} \cong \frac{R[x_1,\dotsc,x_{n}]}{(x_1,\dotsc,x_n)}	
+\]
+By induction hypothesis, the quotient on the left is a domain since $(x_1,\dotsc,x_{n-1})$ is a prime ideal, therefore by definition, $(x_1,\dotsc,x_n)$ is a prime ideal.
 \end{pf}
 
 \el
@@ -301,8 +446,8 @@ Let $R$ be commutative. Prove that there is a natural bijection between the set 
 \begin{pf}
 If $f$ is a $R$-endomorphism $f:M \to M$, then we have to show that there are some suitable maps
 \begin{align*}
-    R[x] \times M &\to M \\
-    (g(x), \:m) &\to \: ?
+R[x] \times M &\to M \\
+(g(x), \:m) &\to \: ?
 \end{align*}
 that makes $M$ into a module. We consider $(g(x),m) \to g(f)(m)$, where if $g(x) = \sum_i a_i x^i$, then
 \[
