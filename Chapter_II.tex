@@ -24,7 +24,7 @@ Simply observe that $e = (gh)^{|gh|} = g(hg)^{(|gh|-1)}h$, therefore
 \[
 g^{-1}h^{-1} = (hg)^{-1} = (hg)^{|gh|-1}
 \]
-hence $(hg)^{|gh|} = e$. The other case is the same.
+hence $(hg)^{|gh|} = e$. The other case ($(gh)^{|hg|} = e$)is the same.
 \end{pf}
 
 \begin{problem}{II.1.13}
@@ -38,13 +38,11 @@ In $C_4$, $|1 + 3| = |0| = 1$ but $\text{lcm}(|1|, |3|) = 4$. Clearly $C_4$ is a
 As a counterpoint of II.1.13, prove that if $g$ and $h$ commute and gcd$(|g|, |h|) = 1$, then $|gh| = |g||h|$. 
 \end{problem}
 \begin{pf}
-One has $|gh|$ divides $\text{lcm}(|g|, |h|) = |g||h|$ by Proposition II.1.14, so it suffices to prove that $|g||h|$ divides $|gh|$. 
-
-Let $N = |gh|$. Then one sees that $(gh)^N = g^Nh^N$ since $g$ and $h$ commutes. Then
+One has $|gh|$ divides $\text{lcm}(|g|, |h|) = |g||h|$ by Proposition II.1.14, so it suffices to prove that $|g||h|$ divides $|gh|$. Let $N = |gh|$. By noting that $(gh)^N = g^Nh^N$ since $g$ and $h$ commutes, we have
 \[
 (gh)^{N|h|} = e^{|h|} = g^{N|h|}h^{N|h|} = g^{N|h|}
 \]
-so we have $|g|$ divides $N|h|$, which implies $|g|$ divides $N$ since $\text{gcd}(|g|, |h|) = 1$. Similarly $|h|$ divides $N$, therefore $|g||h|$ divides $N = |gh|$, as desired.
+so $|g|$ divides $N|h|$, which implies $|g|$ divides $N$ since $\text{gcd}(|g|, |h|) = 1$. Similarly $|h|$ divides $N$, therefore $|g||h|$ divides $N = |gh|$, as desired.
 \end{pf}
 
 \begin{problem}{II.1.15}
@@ -98,13 +96,11 @@ Show that if $G, H$ are abelian groups, then $G \times H$ satisfies the universa
 \begin{pf} 
 Let $A$ be an arbitrary abelian group, $f_G, f_H$ be homomorphisms, $i_G, i_H$ be inclusions.
 \[
-\xymatrixcolsep{4pc}
-\xymatrix
-{
-G \ar[dr]^{i_G} \ar@/^/[drr]^{f_G}\\
-& G \times H \ar[r]^{\exists \: ! \: \varphi} &A \\
-H \ar[ur]_{i_H} \ar@/_/[urr]_{f_H}
-}
+\begin{tikzcd}
+G \arrow[rrrd, "f_G"', bend left] \arrow[rd, "i_G"'] &                                          &  &   \\
+& G \times H \arrow[rr, "\exists!\varphi"] &  & A \\
+H \arrow[rrru, "f_H", bend right] \arrow[ru, "i_H"]  &                                          &  &  
+\end{tikzcd}
 \]
 To check the universal property, define $\varphi(g,h) := f_G(g)f_H(h)$. Now $\varphi$ is a homomorphism since for $g_1,g_2 \in G, h_1,h_2 \in H$,
 \[
@@ -125,7 +121,7 @@ If $C_2 \times C_3$ is a coproduct, then take $A = S_3$. Although there are inje
 &\varphi_1:C_2 \to S_3 \text{ by } \varphi_1(1) = (12) \text{ or other two cycle}\\
 &\varphi_2:C_3 \to S_3 \text{ by } \varphi_2(1) = (123)\text{ or other three cycle} 
 \end{align*}
-but there are no homomorphisms $\varphi:C_2 \times C_3 \to S_3$ that satisfies the universal property of coproducts: Observe that any choice of cycles in $\varphi_1$ and $\varphi_2$ will exhaust all possible element of $S_3$, hence force $\varphi$ to be an isomorphism. But the element $\varphi(1,1)$ must be either a 2(or 3)-cycle, and neither $(1,1)^2$ nor $(1,1)^3$ are $(0,0)$, and $\varphi$ will map a non-identity element to the identity, a contradiction.
+but there are no homomorphisms $\varphi:C_2 \times C_3 \to S_3$ that satisfies the universal property of coproducts: Observe that any choice of cycles in $\varphi_1$ and $\varphi_2$ will exhaust all possible element of $S_3$, hence forces $\varphi$ to be an isomorphism. But the element $\varphi(1,1)$ must be either a 2(or 3)-cycle (i.e. $\varphi^2(1,1)$ (or $\varphi^3(1,1)$) is zero), and neither $(1,1)^2$ nor $(1,1)^3$ are $(0,0)$, and $\varphi$ will map a non-identity element to the identity, a contradiction (since $\varphi$ is an isomorphism and must map $(0,0)$ to the trivial cycle).
 \end{pf}
 
 \section{}
@@ -162,7 +158,7 @@ is a homomorphism and a bijection.
 Assuming the fact that the equation $x^d = 1$ can have at most $d$ solutions in $\mathbb{Z}/p\mathbb{Z}$ for a prime $p$, prove that $(\mathbb{Z}/p\mathbb{Z})^*$ is cyclic.
 \end{problem}
 \begin{pf}
-Let $g$ be an element of maximal order, and by 1.15, all elements have degree that divides $|g|$, i.e. $|h|^{|g|} = 1 \: \forall h \in G$. Using the fact, we have $|G| \leq |d|$, since only at most $|g|$ elements can be the solution to $h^{|g|} = 1$. Clearly we also have $|G| \geq |d|$, so $|G| = |d|$. Thus the proof is complete by II.4.3.
+Let $g$ be an element of maximal order, and by II.1.15, all elements have degree that divides $|g|$, i.e. $|h|^{|g|} = 1$ for all $h \in G$. Using the fact, we have $|G| \leq |d|$, since only at most $|g|$ elements can be the solution to $h^{|g|} = 1$. Clearly we also have $|G| \geq |d|$, so $|G| = |d|$. Thus the proof is complete by II.4.3.
 \end{pf}
 
 \begin{problem}{II.4.13}

@@ -1,4 +1,4 @@
-Unless otherwise specified, in the following $R = (R,+,\cdot)$ denotes an arbitrary ring \emph{with identity}, $0, 1$ denotes the additive and multiplicative identity of $R$, respectively. In the case of possible confusion, I will use $0_R, 1_R$ instead. 
+Unless otherwise specified, in the following $R = (R,+,\cdot)$ denotes an arbitrary ring \emph{with identity} (the book assumes this throughout this book), $0, 1$ denotes the additive and multiplicative identity of $R$, respectively. In the case of possible confusion, I will use $0_R, 1_R$ instead. 
 
 Some description and hints are omitted for simplicity.
 
@@ -46,7 +46,7 @@ $\begin{pmatrix}
 \begin{pmatrix} 
 1 & 1 \\
 1 & 1
-\end{pmatrix}$, which is not nilpotent.
+\end{pmatrix}$ is not nilpotent.
 \end{pf}
 
 \begin{problem}{III.1.7}
@@ -76,11 +76,13 @@ showing that $m$ is nilpotent in $\Z/n\Z$.
 
 \begin{problem}{III.1.9}
 Prove Proposition 1.12, that is:
+\textit{
 \begin{itemize}
 \setlength\itemsep{0pc}
 \item The inverse of a two-sided unit is unique;
 \item two-sided units form a group under multiplication.
 \end{itemize}
+}
 \end{problem}
 \begin{pf}
 For a two-sided unit $v$, we have $uv = 1$ and $vw = 1$ for some $u,w \in R$. Then 
@@ -167,11 +169,11 @@ abx = a(bx) = a(xb) = (ax)b = (xa)b = xab
 showing that $ab \in C_x$;
 \item finally, $1$ is in $C_x$ since $1x = x1$.
 \end{itemize}
-It is easy that the center is the intersection of all its centralizers, since such elemet in the intersection must commute with the whole ring $R$. Finally, if $R$ is a division ring, then for every element $a \in C_x$, then we show that $a^{-1} \in C_x$:
+It is easy that the center is the intersection of all its centralizers, since such elemet in the intersection must commute with the whole ring $R$. Finally, if $R$ is a division ring, then for every element $a \in C_x$, we can show that $a^{-1} \in C_x$:
 \[
 ax = xa \Rightarrow axa^{-1} = x \Rightarrow xa^{-1} = a^{-1}x
 \]
-as desired.
+Therefore every element in $C_x$ has a inverse, and by definition, $C_x$ is a division ring.
 \end{pf}
 
 \begin{problem}{III.2.11}
@@ -560,7 +562,7 @@ it is surjective since for every $(n+p)N$, there is a corresponding $p$. Then
 \[
 \ker \varphi = \{p \in P : p \in N\} = P \cap N	
 \]
-then it follows by first isomorphism theorem that 
+finally it follows by first isomorphism theorem that 
 \[
 \frac{N+P}{N} \cong \frac{P}{N \cap P}.
 \]
@@ -592,7 +594,7 @@ then the diagram clearly commutes (and is unique). Finally, $\varphi$ is a $R\ma
 \varphi\left(\sum_{a \in A}r_a \chi(a)\right) + \varphi\left(\sum_{a \in A}r_a' \chi(a)\right) = \sum_{a \in A}r_a f(a) + \sum_{a \in A}r_a' f(a)\overset{\checkmark}{=} \sum_{a \in A}(r_a+r_a') f(a) \\
 = \varphi\left(\sum_{a \in A}(r_a+r_a') \chi(a)\right) = \varphi\left(\sum_{a \in A}r_a \chi(a) + \sum_{a \in A}r_a' \chi(a)\right)	
 \end{align*}
-Note that $R$-module's definition gurantees the commutative of $\checkmark$.
+Note that $R$-module's definition gurantees the commutative of $\checkmark$ (scalar multiplication is direct).
 \end{pf}
 
 \begin{problem}{III.6.3}
@@ -643,8 +645,172 @@ The surjective map
 \[
 (r_1,\dotsc,r_{n-1}, r_n) \twoheadrightarrow r_n.
 \]
-has kernel precisely to $R^{\oplus (n-1)}$, therefore by first isomorphism theorem
+has kernel precisely $R^{\oplus (n-1)}$, therefore by first isomorphism theorem
 \[
 \frac{R^{\oplus n}}{R^{\oplus (n-1)}} \cong R.	
 \]  
+\end{pf}
+
+\begin{problem}{III.6.5}
+For any ring $R$ and any two sets $A_1, A_2$, prove that $(R^{\oplus A_1})^{\oplus A_2} \cong R^{\oplus(A_1 \times A_2)}$.
+\end{problem}
+\begin{pf}
+By III.6.1, it is equivalent to prove the following diagram commutes:
+\[
+\xymatrix{
+&(R^{\oplus A_1})^{\oplus A_2} \ar[r]^(0.6){\exists ! \varphi} &M \\
+&A_1 \times A_2 \ar[u]^j \ar[ur]_f
+}
+\]
+To do this, note that an element in $(R^{\oplus A_1})^{\oplus A_2}$ is a function $g : A_2 \to R^{\oplus A_1}$, in which we send an element $a_2 \in A_2$ to 
+\[
+j_{a_1, a_2}(x) := \begin{cases}
+1 &\text{ if } x = a_1 \\
+0 &\text{ if } x \neq a_1 
+\end{cases}	\quad \text{(p.p.168)}
+\]
+this suggests us to define
+\[
+j(a_1,a_2) \mapsto (j_{a_1,a_2}(b_2))(b_1) = \chi_{a_1}(b_1)\chi_{a_2}(b_2)	
+\]
+where $\chi$ is the indicator function. Then it follows the same pattern as in III.6.1: for $f : A_1 \times A_2 \to M$ given and any element $\sum_{a_1 \in A_1, a_2 \in A_2} r_{a_1,a_2} (j_{a_1,a_2}(b_2))(b_1) \in (R^{\oplus A_1})^{\oplus A_2}$, define
+\[
+\varphi \left(\sum_{a_1 \in A_1, a_2 \in A_2} r_{a_1,a_2} (j_{a_1,a_2}(b_2))(b_1)\right) = \sum_{a_1 \in A_1, a_2 \in A_2} r_{a_1,a_2} f(a_1,a_2)
+\]
+The commutative of diagram is direct. Finally, the check for $\varphi$ is a $R-\mathsf{Mod}$ homomorphism is the same as in III.6.1.
+\end{pf}
+
+\begin{problem}{III.6.7}
+Let $A$ be any set, and for any module $M$ over a ring $R$, define 
+\[
+M^A	:= \prod_{a \in A}M, \quad M^{\oplus A} := \bigoplus_{a \in A}M.
+\]
+Prove that $\Z^\N \ncong \Z^{\oplus \N}$.
+\end{problem}
+\begin{pf}
+Note that $\Z^\N$ can be regarded as the collection of functions
+\[
+f: \Z \to \N 
+\]
+which is the collection of all infinite sequences in $\Z$. This set has uncountably many elements (as one can argue using Cantor's diagonal argument). On the other hand, $\Z^{\oplus \N}$ is also the collection of these function, but with the additional criterion that
+\[
+f(n) = 0 \text{ for all but finitely many }	n \in Z
+\]
+which says that this set collects all finite sequence in $\Z$, and as we know (i.e. can construct a bijection to $\Z$), this set is countable. As the cardinality does not match, $\Z^\N \ncong \Z^{\oplus \N}$, as required.
+\end{pf}
+
+\begin{problem}{III.6.14}
+Prove that the ideal $(x_1,x_2,\dotsc)$ of the ring $R = \Z[x_1,x_2,\dotsc]$ is not finitely generated (as an ideal, i.e. as an $R$-module).
+\end{problem}
+\begin{pf}
+If it were, then there exists a surjective $R-\mathsf{Mod}$ homomorphism
+\[
+\varphi : R^{\oplus n} \twoheadrightarrow (x_1,x_2,\dotsc).
+\]
+Then we collect the polynomials 
+\[
+\{\varphi(0,\dotsc,\underset{i\text{-th place}}{1},\dotsc,0)\}_{i = 1}^n	
+\]
+Since each polynomials can only contain finitely many indeterminates, and there are only finite polynomials, there must be some indeterminates $x_j$ that is not in the domain of $\varphi$ (as there are countably many indeterminates in the ideal), contradicting to the surjectivity of $\varphi$. Therefore $(x_1,x_2,\dotsc)$ is not finitely generated.
+\end{pf}
+
+\begin{problem}{III.6.18}
+Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove that if $N$ and $M/N$ are both finitely generated, then $M$ is finitely generated.
+\end{problem}
+\begin{pf}
+Let $\{a_i + N\}_{i = 1}^m$ be generators of $M/N$, and $\{b_i\}_{i = 1}^n$ be generators of $N$. Then for every $m \in M$, we consider
+\[
+m + N = \sum_{i=1}^m r_i (a_i + N) = \sum_{i=1}^m r_i a_i + N
+\]
+this says that $m - \sum_{i=1}^m r_i a_i \in N$, and therefore we can again write $m - \sum_{i=1}^m r_i a_i = \sum_{j=1}^n s_i b_i$. To this point we showed that every element in $M$ can be generated by $\{a_i,b_j\}_{1 \leq i \leq m, 1 \leq j \leq n}$, showing that $M$ is finitely generated.
+\end{pf}
+
+\section{}
+
+\begin{problem}{III.7.1}
+Assume that the complex
+\[
+\begin{tikzcd}
+\cdots \arrow[r] &0 \arrow[r] &M \arrow[r] &0 \arrow[r] &\cdots 
+\end{tikzcd}
+\]
+is exact. Prove that $M \cong 0$.
+\end{problem}
+\begin{pf}
+\[
+0 = \im (0 \longrightarrow M) = \ker (M \longrightarrow 0) = M.
+\]
+\end{pf}
+
+\begin{problem}{III.7.2}
+Assume that the complex
+\[
+\begin{tikzcd}
+\cdots \arrow[r] &0 \arrow[r] &M \arrow[r] &M' \arrow[r] &0 \arrow[r] &\cdots 
+\end{tikzcd}
+\]
+is exact. Prove that $M \cong M'$.
+\end{problem}
+\begin{pf}
+The map $(M \longrightarrow M')$ is both a monomorphism and an epimorphism by Example III.7.1 and Example III.7.2. By definition, the map is an isomorphism. 
+\end{pf}
+
+\begin{problem}{III.7.3}
+Assume that the complex
+\[
+\begin{tikzcd}
+\cdots \arrow[r] & 0 \arrow[r] & L \arrow[r] & M \arrow[r, "\varphi"] & M' \arrow[r] & N \arrow[r] & 0 \arrow[r] & \cdots
+\end{tikzcd}	
+\]
+is exact. Show that, up to natural identifications, $L = \ker \varphi$ and $N = \text{coker }\varphi$.
+\end{problem}
+\begin{pf}
+The map $(L \longrightarrow M)$ is a monomorphism, so by canonical decomposition 
+\[
+L = \frac{L}{\ker (L \longrightarrow M)} \cong \im(L \longrightarrow M) = \ker (M \longrightarrow M') = \ker \varphi.
+\]
+The map $(M' \longrightarrow N)$ is an epimorphism, so it follows by first isomorphism theorem that
+\[
+\text{coker }\varphi=\frac{M'}{\im \varphi}=\frac{M'}{\im(M \longrightarrow M')}= \frac{M'}{\ker(M' \longrightarrow N)} \cong N.
+\]
+\end{pf}
+
+\begin{problem}{III.7.6}
+Prove the 'split epimorphism part pf Proposition 7.5, that is,
+
+\textit{$\varphi$ has a right-inverse if and only if the sequence} 
+\[
+\begin{tikzcd}
+0 \arrow[r] & \ker \varphi \arrow[r] & M \arrow[r, "\varphi"] & N \arrow[r] & 0
+\end{tikzcd}	
+\textit{ splits.}
+\]
+\end{problem}
+\begin{pf}
+
+\noindent $(\Leftarrow)$ If the sequence splits, then by identifying $\varphi$ with the projection map from $\ker \varphi \oplus N$ to $N$, we can let $\psi : N \to \ker \varphi \oplus N $ to be the inclusion, and it gives a right-inverse. \\
+$(\Rightarrow)$ Assume that $\varphi$ has a right inverse, which says that 
+\[
+\begin{tikzcd}
+N \arrow[r, "\psi"] \arrow[rd, "id"'] & M \arrow[d, "\varphi"] \\
+& N
+\end{tikzcd}	
+\]
+To prove the statement, we claim that $M \cong \ker \varphi \oplus N$. This isomorphism is given by 
+\[
+(k,n) \mapsto k + \psi (n)
+\]
+it has inverse
+\[
+m \mapsto (m-\psi\varphi(m), \varphi(m))	
+\]
+Indeed, we check
+\[
+m \mapsto (m-\psi\varphi(m), \varphi(m)) \mapsto m-\psi\varphi(m) + \psi\varphi(m) = m
+\]
+and $m-\psi\varphi(m)$ is in $\ker \varphi$ since
+\[
+\varphi(m-\psi\varphi(m)) = \varphi(m) - \varphi\psi\varphi(m) = 0
+\]
+and the claim is proved.
 \end{pf}
