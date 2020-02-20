@@ -1,0 +1,274 @@
+Throughout this solution manual, we will use thee same notation (and convention) as in the book, with probably a little to none changes.
+
+For your convenience, it is recommended to search your question via whatever your browser provides (e.g. F3). The format of questions are \textit{Chapter}(in roman).\textit{Section.Question}.
+
+In the following, categories are denoted using the \textsf{Sans-serif} font, e.g. $\mathsf{Set}$.
+
+\section{}
+\begin{problem}{I.1.1}
+Locate a discussion of Russel's paradox, and understand it.
+\end{problem}
+
+\begin{problem}{I.1.2}
+Prove that if $\sim$ is an equivalence relation on a set $S$, then the corresponding family $\mathscr{P}_\sim$ defined in $\S 1.5$ is indeed a partition of $S$.
+\end{problem}
+\begin{pf}
+The union of such class must contain $S$ by definition, as at worse the elements can be in the equivalence class formed by themselves. It suffices to check disjointness: If $a \in [x], a \in [y]$ but $x \nsim y$, then transitivity implies $x \sim a, a \sim y \Rightarrow x \sim y$, a contradiction. 
+\end{pf}
+
+\section{}
+\begin{problem}{I.2.1}
+How many different bijection are there between a set $S$ with $n$ elements and itself?
+\end{problem}
+\begin{sol}
+The first number has $n$ choices; to make the map a bijection, the next number has only $(n-1)$ choices remaining. By continuing choosing, we have $n!$ different bijections.
+\end{sol}
+
+\section{}
+\begin{problem}{I.3.1}
+Let \textsf{C} be a category. Consider a structure $\mathsf{C}^{op}$ with
+\begin{itemize}
+\setlength\itemsep{0pc}
+\item $\text{Obj}(\mathsf{C}^{op}) = \text{Obj}(\mathsf{C})$;
+\item for $A, B$ objects of $\mathsf{C}^{op}$, $\Hom_{\mathsf{C}^{op}}(A,B) := \Hom_\mathsf{C}(B,A)$.
+\end{itemize}
+Show how to make this into a category.
+\end{problem}
+\begin{sol}
+For $f \in \Hom_{\mathsf{C}^{op}}(A,B), g \in \Hom_{\mathsf{C}^{op}}(B,C)$, define the composite of morphisms by
+\[
+g \circ f := fg     
+\]
+where $fg$ is defined in the sense of the category $\mathsf{C}$. Now we check the definition of category:
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item $1_A$ exists as $\Hom_{\mathsf{C}^{op}}(A,A) := \Hom_\mathsf{C}(A,A) \ni 1_A$; 
+\item The composition works as intended: the map on the right is a morphism from $C$ to $A$;
+\item The composite law is checked as
+\[
+(h \circ g) \circ f = gh \circ f = f(gh) = (fg)h = h \circ fg = h \circ (g \circ f);
+\]
+\item Idenitity morphism work as intended:
+\[
+1_A \circ f = f1_A = f, \quad f \circ 1_A = 1_Af = f.	
+\]
+\end{itemize}
+\end{sol}
+
+\begin{problem}{I.3.11}
+Draw the relevant diagrams and define composition and identities for the category $\mathsf{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category $\mathsf{C}^{\alpha, \beta}$ mentioned in Example 3.10. 
+\end{problem}
+\begin{sol}
+By reversing the arrow of $\mathsf{C}_{A,B}$, we obtain:
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item Objects of this category are diagrams
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+A \arrow[dr, "f"] \\
+& Z \\
+B \arrow[ur, "g"']
+\end{tikzcd}
+\]
+\item morphisms are 
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+A \arrow[dr, "f_1"] \\
+& Z_1 \\
+B \arrow[ur, "g_1"']
+\end{tikzcd}
+\longrightarrow
+\begin{tikzcd}[column sep=small, row sep=small]
+A \arrow[dr, "f_2"] \\
+& Z_2 \\
+B \arrow[ur, "g_2"']
+\end{tikzcd}    
+\]
+which are commutative diagrams
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+A \arrow[dr, "f_2"] \arrow[drr, bend left, "f_1"] \\
+&Z_1 \arrow[r, "\sigma"] &Z_2 \\
+B \arrow[ur, "g_2"'] \arrow[urr, bend right, "g_1"']
+\end{tikzcd}.
+\]
+\end{itemize}
+For the case $\mathsf{C}^{\alpha, \beta}$:
+\begin{itemize}
+\item Objects are diagrams
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+&A \arrow[dr, "f"] \\
+C\arrow[ur, "\alpha"]\arrow[dr, "\beta"'] & &Z \\
+&B \arrow[ur, "g"']
+\end{tikzcd}  
+\]
+\item morphisms are 
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+&A \arrow[dr, "f_1"] \\
+C\arrow[ur, "\alpha"]\arrow[dr, "\beta"'] & &Z_1 \\
+&B \arrow[ur, "g_1"']
+\end{tikzcd}     
+\longrightarrow
+\begin{tikzcd}[column sep=small, row sep=small]
+&A \arrow[dr, "f_2"] \\
+C\arrow[ur, "\alpha"]\arrow[dr, "\beta"'] & &Z_2 \\
+&B \arrow[ur, "g_2"']
+\end{tikzcd}  
+\]
+which are commutative diagrams
+\[
+\begin{tikzcd}[column sep=small, row sep=small]
+& A \arrow[rd, "f_1"] \arrow[rrd, bend left, "f_2"]  &  &   \\
+C \arrow[ru, "\alpha"] \arrow[rd, "\beta"'] &  & Z_1 \arrow[r, "\sigma"] & Z_2 \\
+& B \arrow[ru, "g_1"'] \arrow[rru, bend right, "g_2"'] &  &    
+\end{tikzcd}.
+\]
+\end{itemize}
+composition and identity are defined analogously as in Example 3.5. 
+\end{sol}
+
+
+\section{}
+\begin{problem}{I.4.3}
+Let $A,B$ be objects of a category \textsf{C}, and let $f \in \Hom_\mathsf{C}(A,B)$ be a morphism.
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item Prove that if $f$ has a right-inverse, then $f$ is an epimorphism.
+\item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
+\end{itemize}
+\end{problem}
+\begin{pf}
+Let $g$ be the right inverse of $f$, i.e. $fg = 1$. Then for any morphism $h, h' \in \Hom_\mathsf{C}(B,Z)$,
+\[
+h \circ f = h' \circ f \Rightarrow h \circ f \circ g = h' \circ f \circ g \Rightarrow h \circ 1 = h' \circ 1 \Rightarrow h = h'
+\]
+showing that $f$ is an epimorphism. For a counterexample in which the converse does not hold, consider $\mathsf{C} = \Z$, objects are integers, and morphisms are the relation $\leq$ (c.f. p.p.27). Then
+\[
+f : 1 \to 2	
+\]
+is an epimorphism, but there are no right inverse for $f$, since there are no morphisms in $\Hom_\mathsf{C}(2,1)$.
+\end{pf}
+
+\section{}
+
+\begin{problem}{I.5.1}
+Prove that a final object in a category \textsf{C} is initial in the opposite category $\mathsf{C}^{op}$ (I.3.1).	
+\end{problem}
+\begin{pf}
+Let $F$ be a final object in \textsf{C}, which means that the set $\Hom_\mathsf{C}(A, F)$ is a singleton for all $A \in \text{Obj}(\mathsf{C})$. Since
+\[
+\Hom_\mathsf{C}(A, F) = \Hom_\mathsf{C^{op}}(F, A)
+\]
+we have that $F$ is initial in $\mathsf{C}^{op}$.
+\end{pf}
+
+
+\begin{problem}{I.5.12}
+Define the notions of \emph{fibered products} and \emph{fibered coproducts}, as terminal objects of the categories $\mathsf{C}_{\alpha, \beta}, \mathsf{C}^{\alpha, \beta}$ considered in Example 3.10 (cf. also I.3.11), by stating carefully the corresponding universal properties. 
+
+As it happens, \textsf{Set} has both fibered products and fibered coproducts. Define these objects 'concretely', in terms of naive set theory.
+\end{problem}
+\begin{sol}
+Fibered product is \emph{final} in $\mathsf{C}_{\alpha, \beta}$; that is, there are only one morphism in 
+\[
+\Hom\left(
+\begin{tikzcd}[column sep=small, row sep=small]
+& A \arrow[rd, "\alpha"] &   \\
+Z \arrow[ru, "f_a"] \arrow[rd, "f_b"'] &  & C \\
+& B \arrow[ru, "\beta"'] &  
+\end{tikzcd},
+\begin{tikzcd}[column sep=small, row sep=small]
+& A \arrow[rd, "\alpha"] &   \\
+F \arrow[ru, "i_a"] \arrow[rd, "i_b"'] &  & C \\
+& B \arrow[ru, "\beta"'] &  
+\end{tikzcd}
+\right)    
+\]
+for any choice of the triple $(Z,f_a,f_b)$. Expand this to a diagram leads to the following universal property:
+
+\textit{
+The triple $(F, i_a:F \to A, i_b:F \to B)$ is universal in the sense that for every triple $(Z,f_a:Z \to A,f_b:Z \to B)$, there exists a unique morphism $\varphi: Z \to F$ such that the diagram}
+\[
+\begin{tikzcd}
+Z \arrow[rd, "\exists!\varphi", dashed] \arrow[rdd, "f_b"', bend right] \arrow[rrd, "f_a", bend left] & & \\
+& F \arrow[d, "i_b"] \arrow[r, "i_a"'] & A \arrow[d, "\alpha"] \\
+& B \arrow[r, "\beta"']  & C                    
+\end{tikzcd}    
+\]
+\textit{commutes.} Fibered product are also called \emph{pullback}.
+
+Fibered coproduct is \emph{initial} in $\mathsf{C}^{\alpha, \beta}$. Following the same argument as above, we have the following universal property:
+
+\textit{
+The triple $(I, i_a:A \to I, i_b:B \to I)$ is universal in the sense that for every triple $(Z,f_a:A \to Z,f_b:B \to Z)$, there exists a unique morphism $\varphi: I \to Z$ such that the diagram}
+\[
+\begin{tikzcd}
+C \arrow[r, "\alpha"] \arrow[d, "\beta"']         & A \arrow[d, "i_A"'] \arrow[rdd, "f_A", bend left] &   \\
+B \arrow[r, "i_B"] \arrow[rrd, "f_B", bend right] & I \arrow[rd, "\exists!\varphi", dashed]   &   \\
+& & Z
+\end{tikzcd}    
+\]
+\textit{commutes}. Fibered coproduct are also called \emph{pushout}.
+
+\textsf{Set} has fibered products: Let us define
+\[
+A \times_C B := I = \{(a,b):a\in A, b \in B, \alpha(a) = \beta(b)\}    
+\]
+with projections $i_A, i_B$. We check that this satisfy the universal property: define
+\[
+\varphi(z) := (f_a(z),f_b(z))    
+\]
+we check:
+\begin{itemize}
+\item $i_b \varphi = f_b$ (resp. $i_a \varphi = f_a$):
+\[
+i_b \varphi (z) = i_b (f_a(z),f_b(z)) = f_b(z)    
+\]
+\item $\alpha i_a = \beta i_b$:
+\[
+\alpha i_a (a,b) = \alpha(a) \overset{!}{=} \beta(b) = \beta i_b(a,b).
+\]
+note that ! is true since $I$ gurantees the existence of $b$.
+\end{itemize}
+
+\textsf{Set} also has fibered coproducts, but it's more complicated. We first define an equivalence relation: define
+\[
+R = \{(\alpha(x), 0) \sim (\beta(x), 1) : x \in C\}
+\]
+This gives an equivalence relation on $A \amalg B$, which gives a new structure $I = (A \amalg B)/\sim$. Let $i_A(a) = (a,0), i_B(b) = (b,1)$, then it is direct that $i_B \beta = i_A \alpha$. Now we define
+\[
+\varphi[i = (x,c)] = \begin{cases}
+f_A(x) &\text{ if } c = 0 \\
+f_B(x) &\text{ if } c = 1
+\end{cases}    
+\]
+We need to check that it is well-defined, then it is direct that $\varphi \beta = f_B$ (resp. $\varphi \alpha = f_A$), proving the universal property. There are two cases to consider:
+\begin{itemize}
+\item Case $[(a,0)] = [(a',0)]$ (resp. $[(b,1)] = [(b',1)]$): If there are relations
+\[
+a = \alpha(x) \sim \beta(x) = \beta(x') \sim \alpha(x') = a'   
+\]
+then they evaluated to the same value since
+\end{itemize}
+\[
+\varphi[(a,0)] = \varphi i_A(a) = \varphi i_A(\alpha(x)) = \varphi i_B(\beta(x)) = \varphi i_B(\beta(x')) = \varphi i_A(\alpha(x')) = \varphi i_A(a') = \varphi[(a',0)]
+\]
+\begin{itemize}	
+\item Case $[(a,0)] = [(b,1)]$: If there are relations
+\[
+a = \alpha(x) \sim \beta(x) = b    
+\]
+then 
+\[
+\varphi[(a,0)] = \varphi i_A(a) = \varphi i_A(\alpha(x)) = \varphi i_B(\beta(x)) = \varphi i_B(b) = \varphi[(b,1)]	
+\]
+as desired.
+\end{itemize}
+By the above analysis, as all elements in the same equivalence class connects to the other by some chain
+\[
+a = \alpha(x_1) \sim \beta(x_1) = \beta(x_2) \sim \alpha(x_2) = \alpha(x_3) \cdots = b,
+\]
+and since every $\sim$ preserves the result, $\varphi$ is well-defined.
+\end{sol}

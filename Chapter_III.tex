@@ -116,7 +116,9 @@ and by III.1.1, $R$ is a zero-ring.
 \begin{problem}{III.2.6}
 Verify the 'extension property' of polynomial ring:
 
+\textit{
 Let $\alpha : R \to S$ be a fixed ring homomorphism, and let $s \in S$ be an element commuting with $\alpha(r)$ for all $r \in R$. Then there is a unique ring homomorphism $\bar{\alpha} : R[x] \to S$ extending $\alpha$ and sending $x$ to $s$.
+}
 \end{problem}
 \begin{pf}
 Indeed, for $\sum_{i \geq 0} a_ix^i \in R[x]$, we have no choice but to define
@@ -445,7 +447,7 @@ Let $x^n = 0$ for some positive integer $n$, and $P$ a prime ideal. Then since $
 \[
 P \ni 0 = x^n = x \cdot x^{n-1}
 \]
-By the property of prime ideal, either $x \in P$ or $x^{n-1}$ in $P$. If the former case is true, then we are done; else, we can reduce to the case where either $x \in P$ or $x^{n-2} \in P$. By continuing this process, we finally arrived at either $x \in P$ or $x \in P$, showing that in any cases, $x \in P$. Therefore all nilpotent elements are in $P$, proving the statement. 
+By the property of prime ideal, either $x \in P$ or $x^{n-1}$ in $P$. If the former case is true, then we are done; else, we can reduce to the case where either $x \in P$ or $x^{n-2} \in P$. By continuing this process, we will arrive at either $x \in P$ or $x \in P$, showing that in any cases, $x \in P$. Therefore all nilpotent elements are in $P$, proving the statement. 
 \end{pf}
 
 \begin{problem}{III.4.21}
@@ -506,19 +508,19 @@ Since $0m = (0+0)m = 0m + 0m, 0m = 0$. Since $0 = 0m = (-1+1)m = (-1)m+m, (-1)m 
 \end{pf}
 
 \begin{problem}{III.5.11}
-Let $R$ be commutative. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ and $\text{End}_{R-\textsf{Mod}}(M)$.
+Let $R$ be commutative, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ (extending the given $R$-module structure) and $\text{End}_{R-\mathsf{Mod}}(M)$.
 \end{problem}
 \begin{pf}
-If $f$ is a $R$-endomorphism $f:M \to M$, then we have to show that there are some suitable maps
+If $f \in \text{End}_{R-\textsf{Mod}}(M)$, then we have to show that there are some suitable maps
 \begin{align*}
 R[x] \times M &\to M \\
 (g(x), \:m) &\to \: ?
 \end{align*}
-that makes $M$ into a module. We consider $(g(x),m) \to g(f)(m)$, where if $g(x) = \sum_i a_i x^i$, then
+that makes $M$ into a $R[x]$-module. We consider $(g(x),m) \to g(f)(m)$, where if $g(x) = \sum_i a_i x^i$, then
 \[
 g(f)(m) = \sum_{i} a_i f^i(m) \text{ where } f^i = \underbrace{f \circ \cdots \circ f}_{i\text{ times}}
 \]
-We can easily check by definition that $M$ satisfies the property of $R[x]$-module, so this gives the injectivity of $R[x]$-modules to $\text{End}_{R-\textsf{Mod}}(M)$. To prove surjectivity, if $M$ is a $R[x]$-module, then define $f(m) = xm$. Then $M$ is indeed an endomorphism, proving the statement.
+We can easily check by definition that $M$ is a $R[x]$-module. Conversely, if $M$ is a $R[x]$-module, then define $f(m) = xm$. Then $f$ is indeed an endomorphism (note that the commutativity of $R$ ensures that $rxm = xrm$ for $r \in R$, so $f$ is an endomorphism), proving the statement.
 \end{pf}
 
 \begin{problem}{III.5.12}
@@ -580,10 +582,10 @@ Observe that every element in $R^{\oplus A}$ can be uniquely written as
 \]
 where $\chi(a) = \chi_a(x)$, the indicator function of $a$, and $r_a \in R$ for $a \in A$. Then it suffices to check the universal property of free modules: given a function $f : A \to M$ where $M$ is a module, we show that the following diagram 
 \[
-\xymatrix{
-&R^{\oplus A} \ar[r]^{\exists ! \varphi} &M \\
-&A \ar[ur]^f \ar[u]^{\chi}
-}
+\begin{tikzcd}
+R^{\oplus A} \arrow[r, "\exists!\varphi"] & M \\
+A \arrow[u, "\chi"] \arrow[ru, "f"']      &  
+\end{tikzcd}
 \]
 commutes. Indeed, we define
 \[
@@ -603,13 +605,11 @@ Let $R$ be a ring, $M$ an $R$-module, and $p : M \to M$ an $R$-module homomorphi
 \begin{pf}
 We are required to prove that the diagram
 \[
-\xymatrixcolsep{4pc}
-\xymatrix
-{
-\ker p \ar[dr]^{i_k} \ar@/^/[drr]^{f_k}\\
-& M \ar[r]^{\exists!\varphi} &N \\
-\im p \ar[ur]_{i_m} \ar@/_/[urr]_{f_m}
-}
+\begin{tikzcd}[column sep=large]
+\ker p \arrow[rd, "i_k"] \arrow[rrd, "f_k", bend left]  &                                &   \\
+& M \arrow[r, "\exists!\varphi"] & N \\
+\im p  \arrow[ru, "i_m"'] \arrow[rru, "f_m"', bend right] &                                &  
+\end{tikzcd}
 \]
 commutes. Notice that for $x \in \ker p, p(x) = 0$, and
 \[
@@ -657,10 +657,10 @@ For any ring $R$ and any two sets $A_1, A_2$, prove that $(R^{\oplus A_1})^{\opl
 \begin{pf}
 By III.6.1, it is equivalent to prove the following diagram commutes:
 \[
-\xymatrix{
-&(R^{\oplus A_1})^{\oplus A_2} \ar[r]^(0.6){\exists ! \varphi} &M \\
-&A_1 \times A_2 \ar[u]^j \ar[ur]_f
-}
+\begin{tikzcd}
+(R^{\oplus A_1})^{\oplus A_2} \arrow[r, "\exists!\varphi"] & M \\
+A_1 \times A_2 \arrow[ru, "f"'] \arrow[u, "j"]             &  
+\end{tikzcd}
 \]
 To do this, note that an element in $(R^{\oplus A_1})^{\oplus A_2}$ is a function $g : A_2 \to R^{\oplus A_1}$, in which we send an element $a_2 \in A_2$ to 
 \[
@@ -698,6 +698,10 @@ f(n) = 0 \text{ for all but finitely many }	n \in Z
 \]
 which says that this set collects all finite sequence in $\Z$, and as we know (i.e. can construct a bijection to $\Z$), this set is countable. As the cardinality does not match, $\Z^\N \ncong \Z^{\oplus \N}$, as required.
 \end{pf}
+
+\begin{problem}{III.6.10}
+Let $M,N,$ and $Z$ be $R$-modules, and let $\mu:M \to Z, \nu:N \to Z$ be homomorphism of $R$-modules. Prove that $R-\mathsf{Mod}$ has 'fibered products'(I.5.12).
+\end{problem}
 
 \begin{problem}{III.6.14}
 Prove that the ideal $(x_1,x_2,\dotsc)$ of the ring $R = \Z[x_1,x_2,\dotsc]$ is not finitely generated (as an ideal, i.e. as an $R$-module).

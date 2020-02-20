@@ -49,7 +49,7 @@ so $|g|$ divides $N|h|$, which implies $|g|$ divides $N$ since $\text{gcd}(|g|, 
 Let $G$ be a commutative group, and let $g\in G$ be an element of maximal \emph{finite} order. Prove that if $h$ has finite order in $G$, then $|h|$ \emph{divides} $|g|$.
 \end{problem}
 \begin{pf}
-Suppose that $|h|$ does not divide $|g|$, then we can assume that $|g| = p^mr, |h| = p^ns$, where $p$ is a prime and $r, s$ relatively prime to $p$ and $m<n$. Then by the previous problem we can calculate the order of $g^{p^m}h^s$, which is $p^nr$. But this element has order bigger than $g$, contradict to the maximality of g. Hence $|h|$ must divide $|g|$.
+Suppose that $|h|$ does not divide $|g|$, then we can assume that $|g| = p^mr, |h| = p^ns$, where $p$ is a prime, $r, s$ relatively prime to $p$ and $m<n$. Since $|h|$ does not divide $|g|$, $\text{gcd}(h,g) = 1$. Then by II.1.14 we can calculate the order of $g^{p^m}h^s$, which is $p^nr$. But this element has order bigger than $g$, which contradicts to the maximality of $g$. Hence $|h|$ must divide $|g|$.
 \end{pf}
 
 \section{}
@@ -94,7 +94,7 @@ We can write $m = nk + m'$ for $n \in \mathbb{Z}$ and use Euclidean Algorithm to
 Show that if $G, H$ are abelian groups, then $G \times H$ satisfies the universal property for coproducts in \textsf{Ab}.
 \end{problem}
 \begin{pf} 
-Let $A$ be an arbitrary abelian group, $f_G, f_H$ be homomorphisms, $i_G, i_H$ be inclusions.
+Let $A$ be an arbitrary abelian group, $f_G, f_H$ be homomorphisms, $i_G, i_H$ be inclusions. We are required to prove the commutativity of the diagram
 \[
 \begin{tikzcd}
 G \arrow[rrrd, "f_G"', bend left] \arrow[rd, "i_G"'] &                                          &  &   \\
@@ -102,7 +102,7 @@ G \arrow[rrrd, "f_G"', bend left] \arrow[rd, "i_G"'] &                          
 H \arrow[rrru, "f_H", bend right] \arrow[ru, "i_H"]  &                                          &  &  
 \end{tikzcd}
 \]
-To check the universal property, define $\varphi(g,h) := f_G(g)f_H(h)$. Now $\varphi$ is a homomorphism since for $g_1,g_2 \in G, h_1,h_2 \in H$,
+To check the universal property, define $\varphi(g,h) := f_G(g)f_H(h)$. It is direct that the diagram commutes. Finally, $\varphi$ is a homomorphism since for $g_1,g_2 \in G, h_1,h_2 \in H$,
 \[
 \begin{split}
 \varphi((g_1,h_1)(g_2,h_2)) = \varphi(g_1g_2,h_1h_2) = f_G(g_1g_2)f_H(h_1h_2) = f_G(g_1)f_G(g_2)f_H(h_1)f_H(h_2) \\ 
@@ -207,25 +207,21 @@ Prove that the group $F(\{x,y\})$ is a coproduct $\mathbb{Z} * \mathbb{Z}$ of $\
 \begin{pf}
 We are given the universal property of free group: for $j:\{x,y\} \to F(\{x,y\})$, $\exists G, f$ such that the diagram
 \[
-\xymatrixcolsep{3pc}
-\xymatrix
-{
-&F(\{x,y\}) \ar[r]^{\exists \: ! \; \varphi}  &G \\
-&\{x,y\} \ar[u]^j \ar[ur]^g
-}
+\begin{tikzcd}
+{F(\{x,y\})} \arrow[r, "\exists ! \varphi"] & G \\
+{\{x,y\}} \arrow[u, "j"] \arrow[ru, "f"']   &  
+\end{tikzcd}
 \]
 commutes. To check that it is a coproduct, consider the coproduct diagram composed with above. Let $i(0)=x$, $j$ be the inclusion, then we have the following diagram:
 \[
-\xymatrixcolsep{3pc}
-\xymatrix
-{
-& &\mathbb{Z} \ar@/^/[drr]^f \ar[dr]^i \\
-&\{x,y\} \ar@/_6pc/[rrr]^g \ar[rr]^{j} \ar[ru]^\gamma \ar[rd]^\gamma & &F\{x,y\} \ar[r]^{\exists \: !\; \varphi \:} &G\\
-& &\mathbb{Z} \ar@/_/[urr]^f \ar[ur]_i 
-}
+\begin{tikzcd}
+& \Z \arrow[rd, "i"] \arrow[rrd, "f", bend left=20] &  &   \\
+{\{x,y\}} \arrow[rr, "j"] \arrow[ru, "\gamma"] \arrow[rd, "\gamma"'] \arrow[rrr, "g"', bend right=80] &  & {F(\{x,y\})} \arrow[r, "\exists ! \varphi"] & G \\
+& \Z \arrow[ru, "i"'] \arrow[rru, "g"', bend right=20]
+\end{tikzcd}
 \]
 Note that the arrows $j, g, \varphi$ comes from the free group diagram. From this, we have $f \circ \gamma = \varphi \circ j$.
-To check the coproduct diagram commutes, it suffices to check $f = \varphi \circ i$. To do this, define $\gamma(x) = 0, \gamma(y) = 1$. Then 
+To check the coproduct diagram commutes, it suffices to check $f = \varphi \circ i$ (the case $g = \varphi \circ i$ is identical). To do this, define $\gamma(x) = 0, \gamma(y) = 1$. Then 
 \[
 f \circ \gamma (x) = f(0) = \varphi (x) = \varphi \circ j(x), \quad f \circ \gamma (y) = f(1) = \varphi (y) = \varphi \circ j(y)
 \]
@@ -235,7 +231,7 @@ Since $f(1) = \varphi \circ i (1) = \varphi (y)$, the homomorphisms agree on the
 \section{}
 
 \begin{problem}{II.6.5}
-Let $G$ be a \emph{commutative} group, and let $n>0$ be an integer. Prove that $\{g^n : g \in G\}$ is a subgroup of G. Prove that this is not necessarily the case if $G$ is not commutative. 
+Let $G$ be a \emph{commutative} group, and let $n>0$ be an integer. Prove that $\{g^n : g \in G\}$ is a subgroup of $G$. Prove that this is not necessarily the case if $G$ is not commutative. 
 \end{problem}
 \begin{pf}
 For any two elements $a,b$ in the set, they can be represented as $g^n$ and $h^n$ respectively. Now 
@@ -277,21 +273,18 @@ where $p_i\in \mathbb{Z}, \; i = 1, \cdots n$. Therefore we can explictly write 
 as desired. \\
 $(\Leftarrow)$ By the universal property of $\Z^{\oplus n}$ we have the following diagram that commutes:
 \[
-\xymatrix
-{
-&\Z^{\oplus n} \ar@{>>}[r]^{\exists ! \varphi} &G \\
-&\{1,\cdots,n\} \ar[u]^{j} \ar[ur]^{f}
-} \tag{*} 
+\begin{tikzcd}[row sep=large]
+\Z^{\oplus n} \arrow[r, "\exists ! \varphi"] &G \\
+\{1,\cdots,n\} \arrow[u, "j"] \arrow[ur, "f"']
+\end{tikzcd}
+\tag{*} 
 \]
 To prove, it suffices to "replace" the set $\{1,\cdots,n\}$ by a subset of $G$.
-
 \[
-\xymatrixcolsep{3pc}
-\xymatrix
-{
-&&\Z^{\oplus n} \ar@{>>}[r]^{\exists ! \varphi} &G \\
-&\{1,\cdots,n\} \ar[ur]^{j} \ar[r]^{f} &A \ar[ur]^i \ar[u]^{\tilde{j}}
-}    
+\begin{tikzcd}[row sep=large]
+& \Z^{\oplus n} \arrow[r, "\exists ! \varphi"] & G \\
+{\{1,\cdots,n\}} \arrow[r, "f"] \arrow[ru, "j"] & A \arrow[u, "\tilde{j}"] \arrow[ru, "i"']    &  
+\end{tikzcd}
 \]
 By the diagram $(^*)$, we have $i \circ f = \varphi \circ j$. It is a fast check that the diagram formed by $\tilde{j}, i$ and $\varphi$ commutes. Finally since $A$ is a finite set and $\im \varphi = G$, it follows by definition that $G$ is finitely generated.
 \end{pf}
@@ -307,7 +300,7 @@ Let $\langle x \rangle = C_n$. We have the trivial equation
 \[
 \sum_{g \in C_n} 1 = n
 \]
-Now note that every element in $C_n$ generates a cyclic subgroup. To establish the result, we show that for every $d > 0$ that is a division of $n$, the subgroup of order $d$ is \emph{unique}, i.e. the unique subgroup is given by
+Now note that every element in $C_n$ generates a cyclic subgroup. To establish the result, we show that for every $d > 0$ that is a divisor of $n$, the subgroup of order $d$ is \emph{unique}, i.e. the unique subgroup is given by
 \[
 \langle x^{n/d} \rangle = \{g \in G : g^d = 1\}
 \]
@@ -350,7 +343,7 @@ Prove that the commutator subgroup $[G,G]$ is normal, and the quotient $G/[G,G]$
 \begin{pf}
 Observe
 \[
-gaba^{-1}b^{-1} = (gag^{-1})(gbg^{-1})(ga^{-1}g^{-1})(gb^{-1}g^{-1}) = xyx^{-1}y^{-1} \in [G,G]
+gaba^{-1}b^{-1}g^{-1} = (gag^{-1})(gbg^{-1})(ga^{-1}g^{-1})(gb^{-1}g^{-1}) = xyx^{-1}y^{-1} \in [G,G]
 \]
 for $x = gag^{-1}, y = gbg^{-1}$. The quotient is commutative since $aba^{-1}b^{-1}[G,G] = [G,G]$ implies $ab[G,G] = ba[G,G]$.
 \end{pf}
@@ -366,10 +359,10 @@ satisfies the universal property for the coproduct of $G$ and $G'$ in \textsf{Gr
 \end{problem}
 \begin{pf} Write $H = \mathscr{R} \cup \mathscr{R'}$. Let us construct a homomorphism from $G$ to $G * G'$. As $G = F(A)/R$, by the universal property of quotient we have a commutative diagram
 \[
-\xymatrix{
-&F(A) \ar[rr]^f \ar[dr]^\pi & &G * G \\
-& &F(A)/\mathscr{R} \ar[ur]^{\exists ! \varphi_1}
-}
+\begin{tikzcd}
+F(A) \arrow[rr, "f"] \arrow[rd, "\pi"] &                                                   & G * G' \\
+& F(A)/\mathscr{R} \arrow[ru, "\exists!\varphi_1"'] &       
+\end{tikzcd}
 \]
 In particular, we let $f$ be an quotient map, i.e. $f(w) = wH$. Then naturally we have $\varphi_1(w\mathscr{R}) = wH$. Similarly, for $G'$ we have another homomorphism $\varphi_2(v\mathscr{R}') = vH$.
 
@@ -493,11 +486,10 @@ Prove 'by hand' that that for all subgroups $H$ of a group $G$ and $\forall g \i
 \begin{pf}
 We want to find a \emph{bijection} function $\varphi : G/H \to G/gHg^{-1}$ such that the diagram
 \[
-\xymatrixcolsep{1pc}
-\xymatrix{
-&G\times G/H \ar[d]^{\rho} \ar[rr]^(0.45){id_G \times \varphi} & & G \times G/gHg^{-1} \ar[d]^{\rho'} \\
-&G/H \ar[rr]^(0.45){\varphi} & &G/gHg^{-1}
-}
+\begin{tikzcd}
+G\times G/H \arrow[rr, "id_G \times \varphi"] \arrow[d, "\rho"] &  & G \times G/gHg^{-1} \arrow[d, "\rho'"] \\
+G/H \arrow[rr, "\varphi"]                                       &  & G/gHg^{-1}                            
+\end{tikzcd}
 \]
 commutes. Indeed the most natural map would be $\varphi(xH) = (gxg^{-1})gHg^{-1}$. We check that this is well-defined; if $aH = bH$, then $gaHg^{-1} = gbHg^{-1}$ clearly.
 We now check that this is a bijection, by explicitly give the inverse

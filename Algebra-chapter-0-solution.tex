@@ -2,14 +2,10 @@
 
 \usepackage[dvipsnames]{xcolor}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{faktor}
 \usepackage{relsize}
 \usepackage{geometry}
-\usepackage[all]{xy}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{tikz}
@@ -84,21 +80,24 @@
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Hom}{Hom}
 %\DeclareMathOperator{\dim}{dim}
 
 \title{Solution to Algebra : Chapter 0 by Paolo Aluffi}
 \author{macyayaya\thanks{\href{https://github.com/macyayaya/}{https://github.com/macyayaya/}}}
 \date{Last updated at \today \\
-v0.3.7
+v0.3.7a
 }
 
 \begin{document}
-\setcounter{chapter}{1}
 \frontmatter
 \maketitle
 \input{Prologue}
 \tableofcontents
 \mainmatter
+\chapter{Preliminaries: Set theory and categories}
+\input{Chapter_I}
+\newpage
 \chapter{Groups, first encounter}
 \input{Chapter_II}
 \newpage  
