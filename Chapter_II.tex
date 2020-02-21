@@ -136,7 +136,7 @@ $(\Leftarrow)$ Let $g$ be an element of order $n$. Then consider a homomorphism 
 \end{pf}
 
 \begin{problem}{II.4.8}
-Let $g \in G$. Prove that the function $\gamma_g:G \to G$ defined by $\gamma_g(a)=gag^{-1}$ is an automorphism of G. Prove that the function $G \to \text{Aut}(G)$ defined by $g \to \gamma_g$ is a homomorphism, and show that this homomorphism is trivial \iffw $G$ is abelian.
+Let $g \in G$. Prove that the function $\gamma_g:G \to G$ defined by $\gamma_g(a)=gag^{-1}$ is an automorphism of $G$. Prove that the function $G \to \text{Aut}(G)$ defined by $g \to \gamma_g$ is a homomorphism, and show that this homomorphism is trivial \iffw $G$ is abelian.
 \end{problem}
 \begin{pf}
 $\gamma_g$ is injective since if $gag^{-1} = gbg^{-1}$ then $a = b$; it is surjective since for $k \in G$ we can find $g^{-1}kg$ so that $\gamma_g(g^{-1}kg) = k$; it is a homomorphism since \[\gamma_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = \gamma_g(a)\gamma_g(b).\]
@@ -166,6 +166,21 @@ Prove that $\text{Aut}_\textsf{Grp}(\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\m
 \end{problem}
 \begin{pf}
 To make an automorphism $\varphi$, $\varphi$ must fix $(0,0)$, leaving 6 possible permutations for elements $(0,1), (1,0), (1,1)$. It suffices to check that all permutations of these elements are homomorphisms(hence isomorphisms). 
+\end{pf}
+
+\begin{problem}{II.4.14}
+Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integers $r \leq n$ that are \emph{relatively prime} to $n$ (cf. II.6.14).	
+\end{problem}
+\begin{pf}
+We shall first show that every endomomorphism of cyclic group $C$ is of form $\varphi_n(x) = x^n$ for some $n$. Indeed, if $\sigma$ is a endomomorphism that $\sigma(x) = x^a = \varphi_a(x)$, then for every $x^b \in C$ we have
+\[
+\sigma(x^b) = \sigma(x)^b = (x^a)^b = (x^b)^a = \varphi(x^b)	
+\]
+so every endomomorphism is of form $\varphi_n : x \mapsto x^n$ for some $n$. Now to make this into an automorphism, if $k$ is not relatively prime to $n$, say $\gcd(n,k) = r > 1$, then for a generator $x \in C_n$, we have
+\[
+\varphi_k(x^{n/r}) = x^{n/r \cdot k} = x^{n \cdot k/r} = (x^{n})^{k/r} = e^{k/r} = e
+\]
+and since $n/r$ is not $n$, $\varphi_k$ maps a non-identity element to $e$, in which it is already mapped by $e \in C_n$, so $\varphi_k$ fails to be a bijection. Therefore the order of $\text{Aut}(C_n)$ is the number of positive integers that is relatively prime to $n$.
 \end{pf}
 
 \begin{problem}{II.4.16}
@@ -249,9 +264,14 @@ this set is not a subgroup, as $s^{-1}sr = r$ is not an element of this set.
 Show that inner automorphisms (the collection of $\gamma_g$ in II.4.8) form a subgroup $\text{Inn}(G)$ of $\text{Aut}(G)$, and show that $\text{Inn}(G)$ is cyclic \iffw $\text{Inn}(G)$ is trivial \iffw $G$ is abelian. Deduce that if $\text{Aut}(G)$ is cyclic, then $G$ is abelian.
 \end{problem}
 \begin{pf}
-$\text{Inn}(G)$ is a subgroup: clearly $g_{e}$ is the identity, inverse exists, and the associative clearly holds. 
+$\text{Inn}(G)$ is a subgroup since
+\[
+\gamma_g \circ \gamma_{h^{-1}} = gh^{-1}ahg^{-1} = (gh^{-1})a(gh^{-1})^{-1} \in \text{Inn}(G).
+\]
 
-If $\text{Inn}(G)$ is cyclic, then let $\gamma_g(a) = gag^{-1}$ be a generator of order $n$. Then $\forall b \in G$ we have $\gamma_b = \gamma_g^n$, i.e. $gbg^{-1} = b^nbb^{-n}$. This gives $gb = bg \:\: \forall b \in G$, so $\gamma_g$ is in fact trivial, and hence $G$ is abelian by II.4.8. The last statement follows from Proposition II.6.11 that every subgroup of cyclic group is cyclic.
+If $\text{Inn}(G)$ is cyclic, then let $\gamma_g(a) = gag^{-1}$ be a generator of order $n$. Then for any $b \in G$, we have $\gamma_b(x) = \gamma_g^n(x)$, for some integer $n$. Then by plug in $b$ into the homomorphism, we have $gbg^{-1} = b^nbb^{-n}$. This gives $gb = bg \:\: \forall b \in G$, so $\gamma_g$ is in fact trivial. Since the generator is trivial, we conclude that $\text{Inn}(G)$ is trivial. If $\text{Inn}(G)$ is trivial, then the function given in II.4.8 can only be the trivial map, so $G$ is abelian by II.4.8. Finally, if $G$ is abelian, then all inner automorphisms are trivial, and clearly trivial group is cyclic.
+
+The last statement follows from Proposition II.6.11 that every subgroup of cyclic group is cyclic.
 \end{pf}
 
 \begin{problem}{II.6.9}

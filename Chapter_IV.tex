@@ -1,0 +1,75 @@
+Unless otherwise specified, in the following $G$ denotes a group, $e$ denotes the identity of $G$. Some description and hints are omitted for simplicity.
+
+Unless otherwise specified, all groups in this chapter are \emph{finite}.
+
+\section{}
+
+
+\begin{problem}{IV.1.1}
+Let $p$ be a prime integer, let $G$ be a $p$-group, and let $S$ be a set such that $|S| \neq 0 \text{ mod } p$. If $G$ acts on $S$, prove that the action must have fixed points.
+\end{problem}
+\begin{pf}
+This is direct by Corollary IV.1.3: since $|S| \neq 0 \text{ mod }p $, then the set of fixed points $Z$ satisfies $|S| \equiv |Z| \neq 0$.	
+\end{pf}
+
+\begin{problem}{IV.1.4}
+Let $G$ be a group, and let $N$ be a subgroup of $Z(G)$. Prove that $N$ is normal in $G$. 	
+\end{problem}
+\begin{pf}
+For $g \in G$, $n \in N$,
+\[
+gng^{-1} = gg^{-1}n = n \in N.
+\]
+One should note that \emph{normal is not transitive}: if $G \unlhd H$ and $H \unlhd I$, it is in general not true that $G \unlhd I$.
+\end{pf}
+
+\begin{problem}{IV.1.5}
+Let $G$ be a group. Prove that $G/Z(G)$ is isomorphic to the group $\text{Inn}(G)$ (II.6.7). Then prove Lemma 1.5 again.
+\end{problem}
+\begin{pf}
+Let $\varphi : G \to \text{Inn}(G), \varphi(g) = \gamma_g(a) := gag^{-1}$ be a homomorphism (II.4.8). By construction it is clearly surjective, and the kernel is
+\[
+\ker \varphi = \{g: gag^{-1} = a\} \Rightarrow \{g : ga = ag \}	= Z(G)
+\]
+therefore by first isomorphism theorem, $G/Z(G) \cong \text{Inn}(G)$. If $G/Z(G)$ is cyclic, then by II.6.7 $G$ is commutative.
+\end{pf}
+
+\begin{problem}{IV.1.6}
+Let $p,q$ be prime integers, and let $G$ be a group of order $pq$. Prove that either $G$ is commutative or the center of $G$ is trivial. Conclude that every group of order $p^2$, for a prime $p$, is commutative.
+\end{problem}
+\begin{pf}
+The subgroups can only be of order $1,p,q$ or $pq$ by Lagrange, and $|Z(G)|$ can be only one of these four. If $|Z(G)| = 1$, then there is nothing to prove; if $|Z(G)| = p (\text{or }q)$, then the quotient is cyclic, so it follows by Lemma IV.1.5 that $G$ is commutative; if $|Z(G)| = pq$, then $G$ is clearly commutative.
+
+By Corollary IV.1.9, the center of a nontrivial $p$-group is nontrivial, so the order of the center for $|G| = p^2$ can not be $1$. Then by above, all the remaining cases will conclude that $G$ is commutative. 
+\end{pf}
+
+\begin{problem}{IV.1.8}
+Let $p$ be a prime number, and let $G$ be a $p$-group: $|G| = p^r$. Prove that $G$ contains a normal subgroup of order $p^k$ for every nonnegative $k \leq r$.
+\end{problem}
+\begin{pf}
+We proceed by induction. If $r = 1$ then there is nothing to prove, so we assume that for $n < r$, the $p$-group with order $p^n$ has a normal subgroup of order $p^k$ for $k \leq n$. 
+
+Now consider the center of $G$: it is abelian and is a nontrivial $p$-group by Corollary IV.1.9, so by II.8.20, there exists a (normal) subgroup $N$ that is of order $p$ in $Z(G)$. By IV.1.4, $N$ is normal in $G$, so we can consider the quotient $G/N$. The quotient is a $p$-group and has order $p^{n-1}$, so by induction hypothesis, $G/N$ has normal subgroups of order $p^k$ for $k \leq n-1$, which we name them $H_k$ for each $k$. By noting that $H_k$ contains $N$, we can identify each $H_k$ by $H_k/N$ via Proposition II.8.9. Finally, since $|H_k/N| = p^k$, $|H_k| = p^{k+1}$, so we've found normal subgroup of order $p^k$ for $k \leq r$, proving the statement.
+\end{pf}
+
+\begin{problem}{IV.1.21}
+Let $H,K$ be subgroups of a group $G$, with $H \subseteq N_G(K)$. Verify that the function $\gamma: H \to \text{Aut}_\mathsf{Grp}(K)$ defined by conjugation is a homomorphism of group and that $\ker \gamma = H \cap Z_G(K)$, where $Z_G(K)$ is the centralizer of $K$.	
+\end{problem}
+\begin{pf}
+Let $\gamma$ maps $h$ to a automorphism $\varphi_h(k) = hkh^{-1}$. It is a group homomorphism since
+\[
+\gamma(g)\gamma(h) \mapsto \varphi_g \varphi_h(k) = ghkh^{-1}g^{-1} = \varphi(gh) \mapsto \gamma(gh).
+\]
+The kernel of this map is 
+\[
+\ker \gamma = \{h \in H: hkh^{-1} = k \; \forall k \in K\} = \{h \in H: hk = kh \; \forall k \in K\} = H \cap Z_G(K).	
+\]
+\end{pf}
+
+\begin{problem}{IV.1.22}
+Let $G$ be a finite group, and let $H$ be a cyclic subgroup og $G$ of order $p$. Assume that $p$ is the smallest prime dividing the order of $G$ and that $H$ is normal in $G$. Prove that $H$ is contained in the center of $G$.
+\end{problem}
+\begin{pf}
+In the sense of IV.1.21, we have a homomorphism $\gamma:G \to \text{Aut}_\mathsf{Grp}(H)$ since $H \subseteq N_G(G) = G$. By II.4.14, $\text{Aut}_\mathsf{Grp}(H)$ has order $\phi(p)=p-1$. But since $G$ does \emph{not} contain an element of order $p-1$ by the minimality of $p$, $\gamma$ can only be the trivial homomorphism, so it has kernel equal to $G$. But by IV.1.21, $\ker \gamma = G \cap Z_G(H) = Z_G(H)$, so we must have $Z_G(H) = G$, which means that the element that commutes with $h$ are the whole $G$, i.e. $H \subseteq Z(G)$, as desired. 
+\end{pf}
+
