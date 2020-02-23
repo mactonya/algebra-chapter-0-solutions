@@ -8,7 +8,7 @@ Some description and hints are omitted for simplicity.
 Prove that if $0 = 1$ in a ring $R$, then $R$ is a zero ring.
 \end{problem}
 \begin{pf}
-If $r$ is any nonzero element in $R$, then
+If $r$ is any element in $R$, then
 \[
 r = r \cdot 1 = r \cdot 0 = 0  
 \]
@@ -335,6 +335,13 @@ Indeed, since $a_i \in \varphi^{-1}(J)$, $\varphi(a_i) \in J$ for $i = 1,...,n$,
 \varphi(i) = j = \varphi(r_1a_1 + ... + r_na_n) = s_1\varphi(a_1) + ... + s_n\varphi(a_n)
 \]
 so $J \subseteq \langle \varphi(a_1), ... \varphi(a_n) \rangle$, and the claim is proved.
+\end{pf}
+
+\begin{problem}{III.4.3}
+Prove that the ideal $(2,x)$ of $\Z[x]$ is not principal. 
+\end{problem}
+\begin{pf}
+Assume that $(f) = (2,x)$. Then there is some $q \in \Z[x]$ such that $fq = 2$. Then $f,q$ are constant and $f$ must be $2$ since $1$ is not in it. But we also have $fg = x$ for some $g \in Z[x]$, and there are no possible choice of $g$ such that $2g = x$. Hence $(2,x)$ is not principal.
 \end{pf}
 
 \begin{problem}{III.4.4}
@@ -741,7 +748,7 @@ Define a notion of \emph{fibered coproduct} of two $R$-modules $M, N$, along an 
 Prove that fibered coproducts exist in $R$-\textsf{Mod}. The fibered coproduct $M \oplus_A N$ is called the \emph{push-out} of $M$ along $\nu$ (or of $N$ along $\mu$).
 \end{problem}
 \begin{pf}
-The universal property is as the same stated in I.5.12, but by replacing every set with $R$-modules and every morphism with $R-\mathsf{Mod}$ homomorphisms. We now show that the fibered coproduct is almost the same in \textsf{Set}: define an equivalence relation
+The universal property is as the same stated in I.5.12, but by replacing every set with $R$-modules and every morphism with $R\mhyphen\mathsf{Mod}$ homomorphisms. We now show that the fibered coproduct is almost the same in \textsf{Set}: define an equivalence relation
 \[
 R = \{(\mu(x), \nu(x)) \in M \oplus N : x \in A\}
 \]
@@ -749,11 +756,11 @@ on $M \oplus N$, and let $M \oplus_A N := (M \oplus N)/R$. We show that $R$ is a
 \[
 r(m,n) = r(\mu(x),\nu(x)) = (r\mu(x), r\nu(x)) = (\mu(rx), \nu(rx)) \in R	
 \]
-which shows that the quotient is well-defined. Now define
+which shows that $R$ is indeed an $R$-module. Now define
 \[
 \varphi((m,n)+R) = f_M(m) + f_N(n)	
 \]
-It is a simple check that $\varphi$ is a $R$-module homomorphism, and $\varphi$ is well-defined (and is unique) by the universal property of quotient. This makes the following diagram 
+It is a simple check that $\varphi$ is a $R$-module homomorphism, and $\varphi$ is well-defined, using the same argument as in \textsf{Set}(I.5.12). This makes the following diagram 
 \[
 \begin{tikzcd}
 A \arrow[r, "\nu"] \arrow[d, "\mu"']       & N \arrow[d, "i_N"] \arrow[rdd, "f_N", bend left]          &   \\
@@ -780,7 +787,7 @@ i_N \nu (x) = (0, \nu(x)) + R = (\mu(x), 0) + R = i_M \mu(x)
 Prove that the ideal $(x_1,x_2,\dotsc)$ of the ring $R = \Z[x_1,x_2,\dotsc]$ is not finitely generated (as an ideal, i.e. as an $R$-module).
 \end{problem}
 \begin{pf}
-If it were, then there exists a surjective $R-\mathsf{Mod}$ homomorphism
+If it were, then there exists a surjective $R\mhyphen\mathsf{Mod}$ homomorphism
 \[
 \varphi : R^{\oplus n} \twoheadrightarrow (x_1,x_2,\dotsc).
 \]

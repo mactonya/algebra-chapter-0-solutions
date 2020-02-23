@@ -1,4 +1,4 @@
-Throughout this solution manual, we will use thee same notation (and convention) as in the book, with probably a little to none changes.
+Throughout this solution manual, we will use the same notation (and convention) as in the book, with probably a little to none changes.
 
 For your convenience, it is recommended to search your question via whatever your browser provides (e.g. F3). The format of questions are \textit{Chapter}(in roman).\textit{Section.Question}.
 
@@ -22,6 +22,40 @@ How many different bijection are there between a set $S$ with $n$ elements and i
 \end{problem}
 \begin{sol}
 The first number has $n$ choices; to make the map a bijection, the next number has only $(n-1)$ choices remaining. By continuing choosing, we have $n!$ different bijections.
+\end{sol}
+
+\begin{problem}{I.2.5}
+Formulate a notion of \emph{epimorphism}, in the style of the notion of \emph{monomorphism}, and prove a result analogous to Proposition 2.3, for epimorphisms and surjections.
+\end{problem}
+\begin{sol}
+Epimorphism are \emph{right-cancelable}; that is,
+\begin{center}
+A function $f : A \to B$ is a epimorphism if for all sets $Z$ and all functions $\beta, \beta' : Z \to A$, 
+\[
+\beta \circ f = \beta' \circ f \Longrightarrow \beta = \beta'.
+\]
+\end{center}
+We shall prove the following:
+
+\noindent \textbf{Proposition. }\textit{A function is surjective if and only if it is an epimorphism.} \\
+\textit{Proof. } \\
+$(\Rightarrow)$ Let $f$ be surjective. By Proposition I.2.1, a surjective function has a right-inverse, which we call it $g$. Then if $\beta, \beta' : B \to Z$ are arbitrary function such that $\beta \circ f = \beta' \circ f$, then by composion with $g$ we obtain
+\[
+(\beta \circ f) \circ g=  (\beta' \circ f) \circ g \Rightarrow \beta \circ (f \circ g)=  \beta' \circ  (f \circ g) \Rightarrow \beta \circ id_A = \beta' \circ id_A \Rightarrow \beta = \beta'
+\]
+as desired. \\
+$(\Leftarrow)$ Let $f$ be an epimorphism. We need to consider some special $\beta:B \to Z$ so we can prove the assertion. We done this by "labeling": define
+\[
+\beta(b) = \begin{cases}
+    1, &b \in \im f \\
+    0, &b \notin \im f
+\end{cases}, \quad \beta'(b) = 1
+\]
+Then since 
+\[
+\beta \circ f = \beta' \circ f  \Rightarrow \beta = \beta'
+\] 
+this implies that beta receives \emph{only} values in $\im f$, so $\im f \supseteq B$. Since we have $\im f \subseteq B$ clearly for any function $f$, we conclude that $\im f = B$, which is the definition of surjectivity.
 \end{sol}
 
 \section{}
@@ -202,7 +236,7 @@ Z \arrow[rd, "\exists!\varphi", dashed] \arrow[rdd, "f_b"', bend right] \arrow[r
 Fibered coproduct is \emph{initial} in $\mathsf{C}^{\alpha, \beta}$. Following the same argument as above, we have the following universal property:
 
 \textit{
-The triple $(I, i_a:A \to I, i_b:B \to I)$ is universal in the sense that for every triple $(Z,f_a:A \to Z,f_b:B \to Z)$, there exists a unique morphism $\varphi: I \to Z$ such that the diagram}
+The triple $(I, i_A:A \to I, i_B:B \to I)$ is universal in the sense that for every triple $(Z,f_A:A \to Z,f_B:B \to Z)$, there exists a unique morphism $\varphi: I \to Z$ such that the diagram}
 \[
 \begin{tikzcd}
 C \arrow[r, "\alpha"] \arrow[d, "\beta"']         & A \arrow[d, "i_A"'] \arrow[rdd, "f_A", bend left] &   \\
@@ -216,7 +250,7 @@ B \arrow[r, "i_B"] \arrow[rrd, "f_B", bend right] & I \arrow[rd, "\exists!\varph
 \[
 A \times_C B := I = \{(a,b):a\in A, b \in B, \alpha(a) = \beta(b)\}    
 \]
-with projections $i_A, i_B$. We check that this satisfy the universal property: define
+with projections $i_a, i_b$. We check that this satisfy the universal property: define
 \[
 \varphi(z) := (f_a(z),f_b(z))    
 \]

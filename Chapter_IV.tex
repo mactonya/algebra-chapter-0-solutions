@@ -49,7 +49,15 @@ Let $p$ be a prime number, and let $G$ be a $p$-group: $|G| = p^r$. Prove that $
 \begin{pf}
 We proceed by induction. If $r = 1$ then there is nothing to prove, so we assume that for $n < r$, the $p$-group with order $p^n$ has a normal subgroup of order $p^k$ for $k \leq n$. 
 
-Now consider the center of $G$: it is abelian and is a nontrivial $p$-group by Corollary IV.1.9, so by II.8.20, there exists a (normal) subgroup $N$ that is of order $p$ in $Z(G)$. By IV.1.4, $N$ is normal in $G$, so we can consider the quotient $G/N$. The quotient is a $p$-group and has order $p^{n-1}$, so by induction hypothesis, $G/N$ has normal subgroups of order $p^k$ for $k \leq n-1$, which we name them $H_k$ for each $k$. By noting that $H_k$ contains $N$, we can identify each $H_k$ by $H_k/N$ via Proposition II.8.9. Finally, since $|H_k/N| = p^k$, $|H_k| = p^{k+1}$, so we've found normal subgroup of order $p^k$ for $k \leq r$, proving the statement.
+Now consider the center of $G$: it is abelian and is a nontrivial $p$-group by Corollary IV.1.9, so by II.8.20, there exists a (normal) subgroup $N$ that is of order $p$ in $Z(G)$. By IV.1.4, $N$ is normal in $G$, so we can consider the quotient $G/N$. The quotient is a $p$-group and has order $p^{r-1}$, so by induction hypothesis, $G/N$ has normal subgroups of order $p^k$ for $k \leq r-1$, which we name them $H_k$ for each $k$. By noting that $H_k$ contains $N$, we can identify each $H_k$ by $H_k/N$ via Proposition II.8.9. Finally, since $|H_k/N| = p^k$, $|H_k| = p^{k+1}$, so we've found normal subgroup of order $p^k$ for $k \leq r$, proving the statement.
+\end{pf}
+
+
+\begin{problem}{IV.1.9}
+Let $p$ be a prime number, $G$ a $p$-group, and $H$ a nontrivial normal subgroup of $G$. Prove that $H \cap Z(G) \neq \{e\}$. 
+\end{problem}
+\begin{pf}
+Let $G$ act on itself by conjugation. Since $H$ is normal, it is the union of some conjugacy class and some element of $Z(G)$, with each conjugacy class of order $p^n$ for some $n$ by Corollary II.9.10. If $H \cap Z(G) = \{e\}$, then this means that $H$ only take $e$ from $Z(G)$, and since the order of all conjugacy classes in $H$ are divisible by $p$, we would arrive at $|H| \equiv 1 \mod p$, a contradiction since $|H|$ must be a multiple of $p$.
 \end{pf}
 
 \begin{problem}{IV.1.21}
@@ -73,3 +81,91 @@ Let $G$ be a finite group, and let $H$ be a cyclic subgroup og $G$ of order $p$.
 In the sense of IV.1.21, we have a homomorphism $\gamma:G \to \text{Aut}_\mathsf{Grp}(H)$ since $H \subseteq N_G(G) = G$. By II.4.14, $\text{Aut}_\mathsf{Grp}(H)$ has order $\phi(p)=p-1$. But since $G$ does \emph{not} contain an element of order $p-1$ by the minimality of $p$, $\gamma$ can only be the trivial homomorphism, so it has kernel equal to $G$. But by IV.1.21, $\ker \gamma = G \cap Z_G(H) = Z_G(H)$, so we must have $Z_G(H) = G$, which means that the element that commutes with $h$ are the whole $G$, i.e. $H \subseteq Z(G)$, as desired. 
 \end{pf}
 
+\section{}
+
+\begin{problem}{IV.2.1}
+Prove Claim 2.2: 
+\textit{Let G be a finite group, let p be a prime divisor of $|G|$, and let N be the number of cyclic subgroups of G of order p. Then $N \equiv 1 \mod p$.}
+\end{problem}
+\begin{pf}
+We proceed with the same argument as in Theorem IV.2.1. Let $S$ be a set that collects the $p$-tuple
+\[
+(a_1,\dotsc,a_p)	
+\]
+such that $a_1\cdots a_p = 1$. It is clear that $|S| = |G|^{p-1}$, and since $a_2\cdots a_p a_1 = 1$, we can consider the action of $\Z/p\Z$ on $S$, by 
+\[
+\alpha_m : (a_1,\dotsc,a_n) \mapsto (a_{m+1},\dotsc,a_p,a_1,\dotsc,a_m)	
+\]
+By Corollary IV.1.3, $|Z| \equiv |S| \mod 0$, where $Z$ is the fixed points under $\Z/p\Z$. The fixed points are of form $(a,\dotsc,a)$ for $a \in G$, and since $(e,\dotsc,e) \in Z$ and $p$ divides $|Z|$, $|Z| > 1$. Now notice that for each $a \in G$ such that $(a,\dotsc,a) \in Z$, $a$ is a generator for some cyclic group of order $p$, so there are $N(p-1) + 1$(identity) elements in $Z$. But since $|Z| \equiv 0 \mod p$, we have
+\[
+Np - N + 1 \equiv 0 \mod p  \Longrightarrow N \equiv 1 \mod p
+\]
+as desired.
+\end{pf}
+
+\begin{problem}{IV.2.2}
+Let $G$ be a group. A subgroup $H$ of $G$ is \emph{characteristic} if $\varphi(H) \subseteq H$ for every automorphism $\varphi$ of $G$.
+\begin{itemize}
+    \setlength\itemsep{0pc}
+    \item Prove that every characteristic subgroups are normal.
+    \item Let $H \subseteq K \subseteq G$, with $H$ characteristic in $K$ and $K$ normal in $G$. Prove that $H$ is normal in $G$. 
+    \item Let $G,K$ be groups, and assume that $G$ contains a single subgroup $H$ isomorphic to $K$. Prove that $H$ is normal in $G$.
+    \item Let $K$ be a normal subgroup of a finite group $G$, and assume that $|K|$ and $|G/K|$ are relatively prime. Prove that $K$ is characteristic in $G$.
+\end{itemize} 
+\end{problem}
+\begin{pf}
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Consider $\gamma_g(h) := ghg^{-1}$ for all $g \in G$. Then $gHg^{-1} \subseteq H$ by characteristic property of $H$, so $H$ is normal.
+    \item By normalness of $K$, we have $gKg^{-1} = K$, so $\gamma_g$ is an automorphism on $K$. Then since $\gamma_g(H) \subseteq H$, $gHg^{-1} \subseteq H$, so $H$ is normal.
+    \item Let $\varphi$ be any automorphism of $G$. Then $\varphi(H) \cong H \cong K$ since $\varphi$ is an isomorphism. But since $H$ is the only subgroup that is isomorphic to $K$, $\varphi(H) = H$, so $H$ is characteristic, hence normal. 
+    \item Let $\varphi$ be any automorphism of $G$, and let $\pi : G \to G/K$ be the quotient homomorphism.	Let $K' = \varphi(K)$. Then $\pi(K')$ is a subgroup of $G/K$, so $|\pi(K')|$ divides $|G/K|$. Also, by first isomorphism theorem, $K'/\ker \pi \cong \im \pi = \pi(K')$, so $|\pi(K')|$ divides $|K'| = |K|$. Since $|K|$ and $|G/K|$ are relatively prime, we can only have $|\pi(K')| = 1$, i.e. $\pi(K') = e_{G/H}$. Combining with $\ker \pi = K$, we have
+    \[
+    \varphi(K) = K' \subseteq \ker \pi = K
+    \]
+    as desired.
+\end{itemize}
+\end{pf}
+
+\begin{problem}{IV.2.4}
+Prove that a nontrivial group $G$ is simple if and only if its only homomorphic image are the trivial group and $G$ itself (up to isomorphism).
+\end{problem}
+\begin{pf}
+
+\noindent $(\Rightarrow)$ Let $\varphi : G \to G'$ be a surjective homomorphism. By first isomorphism theorem, $G/\ker \varphi \cong G'$. But since kernel is a normal subgroup, the only possibility of $G'$ are $G/\{e\} = G$ or $G/G = \{e\}$. \\
+$(\Leftarrow)$ If $G$ is not simple, i.e. there are some nontrivial normal subgroup of $G$, which we call it $H$, then $\varphi : G \to G/H,g \mapsto gH$ is a surjective homomorphism, and $G/H$ is neither $\{e\}$ nor $G$(up to isomorphism), a contradiction. 
+\end{pf}
+
+\begin{problem}{IV.2.5}
+Let $G$ be a \emph{simple} group, and assume $\varphi: G \to G'$ is a nontrivial group homomorphism. Prove that $\varphi$ is injective.
+\end{problem}
+\begin{pf}
+$\ker \varphi$ can only be $\{0\}$ or $G$ by simpleness. If $\ker \varphi = \{0\}$ the we are done; if $\ker \varphi = G$ then $\varphi = 0$, which can't be by hypothesis.
+\end{pf}
+
+\begin{problem}{IV.2.6}
+Prove that there are no simple groups of order $4, 8, 9, 16, 25, 27, 32$ or $49$. In fact, prove that no $p$-group of order $\geq p^2$ is simple.
+\end{problem}
+\begin{pf}
+The center of $p$-group, by Corollary IV.1.9, is nontrivial. Since center is a normal subgroup, no group of order $p^n, n \geq 2$ is simple.    
+\end{pf}
+
+\begin{problem}{IV.2.9}
+Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and let $H \subseteq G$ be a $p$-subgroup. Assume $H \subseteq N_G(P)$. Prove that $H \subseteq P$.
+\end{problem}
+\begin{pf}
+By noting that $P$ is normal in $N_G(P)$ (Remark IV.1.12), we consider $PH$, which is a subgroup of $N_G(P)$ by Proposition II.8.11. Then by second isomorphism theorem
+\[
+\frac{PH}{P} \cong \frac{H}{P \cap H}	
+\]
+Now $|PH| = \frac{|P||H|}{|P \cap H|}$ by II.8.21, and since either $|P \cap H| = 1$ or $|H|$ by Sylow II, $PH$ is a $p$-group, and it must be $P$ since $P$ is the maximal $p$-subgroup of $G$. Then we have $H \subseteq P$ since $PH = P \Leftrightarrow H \subseteq P$.
+\end{pf}
+
+
+
+\begin{problem}{IV.2.10}
+Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and act with $P$ by conjugation on the set of $p$-Sylow subgroups of $G$. Show that $P$ is the unique fixed point of this action.
+\end{problem}
+\begin{pf}
+Let $S$ be the collection of $p$-Sylow subgroups of $G$, and let $P$ act on $S$ by conjugation. If $H$ is any $p$-Sylow that is fixed by $P$, then we have $H \subseteq N_G(P)$ ($PHP^{-1} = H \Rightarrow HPH^{-1} = P$), so we can apply IV.2.9 and obtain $H \subseteq P$. But by Sylow II, $H$ must be $P$, proving the statement. 
+\end{pf}
