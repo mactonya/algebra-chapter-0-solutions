@@ -254,11 +254,11 @@ commutes. To check that it is a coproduct, consider the coproduct diagram compos
 \[
 \begin{tikzcd}
 & \Z \arrow[rd, "i"] \arrow[rrd, "f", bend left=20] &  &   \\
-{\{x,y\}} \arrow[rr, "j"] \arrow[ru, "\gamma"] \arrow[rd, "\gamma"'] \arrow[rrr, "g"', bend right=80] &  & {F(\{x,y\})} \arrow[r, "\exists ! \varphi"] & G \\
+{\{x,y\}} \arrow[rr, "j"] \arrow[ru, "\gamma"] \arrow[rd, "\gamma"'] \arrow[rrr, "h"', bend right=80] &  & {F(\{x,y\})} \arrow[r, "\exists ! \varphi"] & G \\
 & \Z \arrow[ru, "i"'] \arrow[rru, "g"', bend right=20]
 \end{tikzcd}
 \]
-Note that the arrows $j, g, \varphi$ comes from the free group diagram. From this, we have $f \circ \gamma = \varphi \circ j$.
+Note that the arrows $j, h, \varphi$ comes from the free group diagram. From this, we have $f \circ \gamma = \varphi \circ j$.
 To check the coproduct diagram commutes, it suffices to check $f = \varphi \circ i$ (the case $g = \varphi \circ i$ is identical). To do this, define $\gamma(x) = 0, \gamma(y) = 1$. Then 
 \[
 f \circ \gamma (x) = f(0) = \varphi (x) = \varphi \circ j(x), \quad f \circ \gamma (y) = f(1) = \varphi (y) = \varphi \circ j(y)
@@ -406,7 +406,41 @@ gaba^{-1}b^{-1}g^{-1} = (gag^{-1})(gbg^{-1})(ga^{-1}g^{-1})(gb^{-1}g^{-1}) = xyx
 for $x = gag^{-1}, y = gbg^{-1}$. The quotient is commutative since $aba^{-1}b^{-1}[G,G] = [G,G]$ implies $ab[G,G] = ba[G,G]$.
 \end{pf}
 
+\begin{problem}{II.7.12}
+Let $F=F(A)$ be a free group, and let $f:A \to G$ be a set-function from the set $A$ to a \emph{commutative} group $G$. Prove that $f$ induces a unique homomorphism $F/[F,F] \to G$, where $[F,F]$ is the commutator subgroup of $F$ defined in Exercise 7.11. Conclude that $F/[F,F] \cong F^{ab}(A)$.	
+\end{problem}
+\begin{pf}
+We need to define a proper homomorphism $\tilde{f} : F/[F,F] \to G$. By the universal property of free group, we have a unique homomorphism $\varphi : F \to G$ induced from $f$. Now observe that for $g,h \in A$, 
+$$
+\varphi(g)\varphi(h)\varphi(g)^{-1}\varphi(h)^{-1} = \varphi(ghg^{-1}h^{-1}) = e
+$$
+as $G$ is commutative, we know that $\varphi$ vanish on $[F,F]$. Now we just define
+$$
+\tilde{f} : F/[F,F] \to G \quad \text{ by } \quad \tilde{f}(x[F,F]) = \varphi(x).
+$$
+It is a fast check that $\tilde{f}$ is the required homomorphism. This gives the following diagram.
+\[
+\begin{tikzcd}[column sep=small]
+& {F/[F,F]} \arrow[rd, "\exists ! \tilde{f}"] &   \\
+F^{ab}(A) \arrow[ru, "\pi"] \arrow[rr, "\exists ! \varphi"] &                                             & G \\
+A \arrow[rru, "f"] \arrow[u, "j"]                           &                                             &  
+\end{tikzcd}	
+\]
+Since both triangles commutes, the "triangle" formed by the edges $\pi \circ j, f$ and $\tilde{f}$ also commutes. By general nonsense (Proposition I.5.4), we conclude that $F/[F,F] \cong F^{ab}(A)$.
+\end{pf}
+
 \section{}
+
+\begin{problem}{II.8.2}
+Extend Example 8.6 as follows. Suppose $G$ is a group and $H \subseteq G$ is a subgroup of \emph{index} $2$, that is, such that there are precisely two (say, left-) cosets of $H$ in $G$. Prove that $H$ is normal in $G$.
+\end{problem}
+\begin{pf}
+Let $x \in H$, and we need to prove that $gxg^{-1} \in H$ for all $g \in G$. If $g \in H$ then there is nothing to prove, so assume that $g \in aH$, another coset of $H$ in $G$. We can write $g = ah$ for some $h$, so it remains to study $ahxh^{-1}a^{-1}$. By noting that $ahxh^{-1} \in aH$, we know that $ahxh^{-1}$ does not belong to $H$, and in the sense of right cosets, $ahxh^{-1}$ must belong to $Ha$, so there exists $h' \in H$ such that $ahxh^{-1} = h'a$. Finally
+\[
+gxg^{-1} = ahxh^{-1}a^{-1} = h'aa^{-1} = h' \in H	
+\]
+which shows that $H$ is normal.
+\end{pf}
 
 \begin{problem}{II.8.7}
 Let $(A|\mathscr{R}), (A'|\mathscr{R'})$, be the presentation for groups $G, G'$, respectively, and assume that $A$ and $A'$ are disjoint. Prove that
@@ -442,7 +476,7 @@ g = g \cdot g^{2n-1} = g^{2n} = (g^n)^2
 which implies that every element in $G$ is a square.
 \end{pf}
 
-\begin{problem}{II.8.13}
+\begin{problem}{II.8.14}
 Generalize the result of II.8.13: if $G$ is a group of order $n$ and k is an integer relatively prime to $n$, then the function $G \to G, g \to g^k$ is surjective.
 \end{problem}
 \begin{pf}

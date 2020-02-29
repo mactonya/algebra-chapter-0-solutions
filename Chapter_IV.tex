@@ -1,4 +1,4 @@
-Unless otherwise specified, in the following $G$ denotes a group, $e$ denotes the identity of $G$. Some description and hints are omitted for simplicity.
+Unless otherwise specified, in the following $G$ denotes a group, $e$ denotes the identity of $G$. The conjugacy class of an element $g$ is denoted by $[g]$. Some description and hints are omitted for simplicity.
 
 Unless otherwise specified, all groups in this chapter are \emph{finite}.
 
@@ -9,7 +9,7 @@ Unless otherwise specified, all groups in this chapter are \emph{finite}.
 Let $p$ be a prime integer, let $G$ be a $p$-group, and let $S$ be a set such that $|S| \neq 0 \text{ mod } p$. If $G$ acts on $S$, prove that the action must have fixed points.
 \end{problem}
 \begin{pf}
-This is direct by Corollary IV.1.3: since $|S| \neq 0 \text{ mod }p $, then the set of fixed points $Z$ satisfies $|S| \equiv |Z| \neq 0$.	
+This is direct by Corollary IV.1.3: since $|S| \neq 0 \text{ mod }p $, the set of fixed points $Z$ satisfies $|S| \equiv |Z| \neq 0$.	
 \end{pf}
 
 \begin{problem}{IV.1.4}
@@ -59,6 +59,45 @@ Let $p$ be a prime number, $G$ a $p$-group, and $H$ a nontrivial normal subgroup
 \begin{pf}
 Let $G$ act on itself by conjugation. Since $H$ is normal, it is the union of some conjugacy class and some element of $Z(G)$, with each conjugacy class of order $p^n$ for some $n$ by Corollary II.9.10. If $H \cap Z(G) = \{e\}$, then this means that $H$ only take $e$ from $Z(G)$, and since the order of all conjugacy classes in $H$ are divisible by $p$, we would arrive at $|H| \equiv 1 \mod p$, a contradiction since $|H|$ must be a multiple of $p$.
 \end{pf}
+
+\begin{problem}{IV.1.10}
+Prove that if $G$ is a group of odd order and $g \in G$ is conjugate to $g^{-1}$, then $g = e$.
+\end{problem}
+\begin{pf}
+Suppose $g \neq e$. Since $[g]$ contains $g^{-1}$, there are two cases:
+\begin{itemize}
+    \item If $g = g^{-1}$, then $g^2 = 1$, so $|g| = 2$. But this is impossible since $|g|$ does not divide $|G|$, a contradiction.
+    \item If $g \neq g^{-1}$, then since $[g]$ must be odd order, there is some $y \in [g]$ such that $g = xyx^{-1}$. But this implies $g^{-1} = xy^{-1}x^{-1}$, so $y^{-1} \in [g]$, and $y \neq y^{-1}$ by above. So this says that $[g]$ must contain even number of elements(so must have even order), which again is impossible. 
+\end{itemize} 
+By above, we must have $g = e$, proving the assertion.
+\end{pf}
+
+\begin{problem}{IV.1.14}
+Let $G$ be a group, and assume $[G : Z(G)] = n$ is finite. Let $A \subseteq G$ be any subset. Prove that the number of conjugates of $A$ is at most $n$.
+\end{problem}
+\begin{pf}
+We claim that there is a surjective set function from $G/Z(G)$ to $\{gAg^{-1}\}_{g \in G}$. Define
+\[
+\varphi : G/Z(G) \to \{gAg^{-1}\}_{g \in G}, \quad \varphi(gZ) = gAg^{-1}
+\]
+We check that it is well defined: If $gZ = hZ$, then $gh^{-1} \in Z$. Now for any element $\alpha = gAg^{-1}$ we have $\alpha = gag^{-1}$ for some $a \in A$, so we have $g^{-1}\alpha g = a$, and $hg^{-1} \alpha gh^{-1} = hah^{-1}$. Since $gh^{-1} \in Z$, $hg^{-1} \alpha gh^{-1} = hg^{-1} gh^{-1} \alpha = \alpha$, so $\alpha \in hAh^{-1}$, hence $gAg^{-1} = hAh^{-1}$, which showed the well-definedness. Clearly the map is surjective by construction, and by above, there can be only at most $[G:Z(G)] = n$ distinct conjugates of $A$, which proved the assertion.
+\end{pf}
+
+
+\begin{problem}{IV.1.17}
+Let $H$ be a proper subgroup of a finite group $G$. Prove that $G$ is \emph{not} the union of the conjugates of $H$.
+\end{problem}
+\begin{pf}
+By Lemma IV.1.13, the numbers of conjugates of $H$ is $[G:N_G(H)]$. Since $H \subseteq N_G(H)$, $[G:N_G(H)]|H| \leq [G:H]|H| = |G|$. Even if the equality might hold, by noting that every conjugate is a subgroup and $e$ is a common element for all subgroup, there are in fact at most $([G:N_G(H)]|H| - |H| + 1)$ distinct elements in the union of all conjugates of $H$. Since this number is strictly less than $G$, $G$ will never be the union of conjugates of $H$.
+\end{pf}
+
+\begin{problem}{IV.1.18}
+Let $S$ be a set endowed with a transitive action of finite group $G$, and assume $|S| \geq 2$. Prove that there exists a $g \in G$ without fixed points in $S$, that is, such that $gs \neq s$ for all $s \in S$.
+\end{problem}
+\begin{pf}
+In the sense of Proposition II.9.9, we can assume that $S = G/H$ (\emph{left cosets, not quotient!}) where $H = \text{Stab}_G(s)$ for some $s \in S$, with $H$ proper in $G$ (as $|S| \geq 2$). Suppose the contrary, i.e. every $g$ satisfies $gkH = kH$ for some $k$. This means $k^{-1}gk \in H$, or equivalently, $g \in kHk^{-1}$. So every element in $G$ is in some conjugacy class of $H$, which is a contradiction to IV.1.17 that $G$ cannot be exhausted by conjugates of $H$. Hence $G$ must have some elements that has no fixed points on $S$, as desired.
+\end{pf}
+
 
 \begin{problem}{IV.1.21}
 Let $H,K$ be subgroups of a group $G$, with $H \subseteq N_G(K)$. Verify that the function $\gamma: H \to \text{Aut}_\mathsf{Grp}(K)$ defined by conjugation is a homomorphism of group and that $\ker \gamma = H \cap Z_G(K)$, where $Z_G(K)$ is the centralizer of $K$.	
@@ -147,7 +186,14 @@ $\ker \varphi$ can only be $\{0\}$ or $G$ by simpleness. If $\ker \varphi = \{0\
 Prove that there are no simple groups of order $4, 8, 9, 16, 25, 27, 32$ or $49$. In fact, prove that no $p$-group of order $\geq p^2$ is simple.
 \end{problem}
 \begin{pf}
-The center of $p$-group, by Corollary IV.1.9, is nontrivial. Since center is a normal subgroup, no group of order $p^n, n \geq 2$ is simple.    
+The center of $p$-group, by Corollary IV.1.9, is nontrivial. Since center is a normal subgroup, no group of order $p^n$ for $n \geq 2$ is simple.    
+\end{pf}
+
+\begin{problem}{IV.2.8}
+Let $G$ be a finite group, $p$ a prime integer, and let $N$ be the intersection of the $p$-Sylow subgroups of $G$. Prove that $N$ is a \emph{normal} $p$-subgroup of $G$ and that every normal $p$-subgroup of $G$ is contained in $N$.
+\end{problem}
+\begin{pf}
+Let $P$ be a $p$-Sylow, then we can let $N = \bigcap_{g \in G}gPg^{-1}$. The conjugate of $N$ is $pNp^{-1} = \bigcap_{g \in G}pgP(pg)^{-1}$, which is again $N$, so $N$ is normal. Now if $N'$ is a normal $p$-subgroup, then by Sylow II we can assume that $N \subseteq P$. Then for all $g \in G$, $N' = gN'g^{-1} \subseteq gPg^{-1}$, so $N' \subseteq \bigcap_{g \in G}gPg^{-1} = N$, and $N'$ is in $N$, as required. 
 \end{pf}
 
 \begin{problem}{IV.2.9}
@@ -168,4 +214,37 @@ Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and act with $P$ by conju
 \end{problem}
 \begin{pf}
 Let $S$ be the collection of $p$-Sylow subgroups of $G$, and let $P$ act on $S$ by conjugation. If $H$ is any $p$-Sylow that is fixed by $P$, then we have $H \subseteq N_G(P)$ ($PHP^{-1} = H \Rightarrow HPH^{-1} = P$), so we can apply IV.2.9 and obtain $H \subseteq P$. But by Sylow II, $H$ must be $P$, proving the statement. 
+\end{pf}
+
+\begin{problem}{IV.2.12}
+Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and let $H \subseteq G$ be a subgroup containing the normalizer $N_G(P)$. Prove that $[G:H] \equiv 1 \mod p$.
+\end{problem}
+\begin{pf}
+By Sylow III, $[G : N_G(P)] \equiv 1 \mod p $. Since $H$ contains $P$, $P$ is also a $p$-Sylow of $H$. Since $H \supseteq N_G(P)$, the normalizer of $P$ in $H$ is also $N_G(P)$, so $N_H(P) = N_G(P)$. Then clearly $[G : N_G(P)] = [G : N_H(P)] \equiv 1 \mod p$. Finally
+\[
+[G : H] = \frac{[G : N_G(P)]}{[H : N_G(P)]}	= \frac{[G : N_G(P)]}{[H : N_H(P)]}
+\]
+and since both numerator and the denominator are both congruent to 1 mod $p$, $[G:H] \equiv 1 \mod p$.
+\end{pf}
+
+\begin{problem}{IV.2.13}
+Let $P$ be a $p$-Sylow subgroup of a finite group $G$.
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Prove that if $P$ is normal in $G$, then it is in fact characteristic in $G$.
+    \item Let $H \subseteq G$ be a subgroup containing the Sylow subgroup $P$. Assume $P$ is normal in $H$ and $H$ is normal in $G$. Prove that $P$ is normal in $G$.
+    \item Prove that $N_G(N_G(P)) = N_G(P)$.
+\end{itemize}
+\end{problem}
+\begin{pf}
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Since $\gcd(|P|, |G/P|) = 1$ as $P$ is Sylow, by the 4th point of IV.2.2, $P$ is characteristic in $G$.
+    \item By above, $P$ is characteristic in $H$, so by 2nd point of IV.2.2, $P$ is normal in $G$.
+    \item We have the normal chain
+    \[
+    P \trianglelefteq N_G(P) \trianglelefteq N_G(N_G(P))	
+    \]
+    and by above, $P$ is normal in $N_G(N_G(P))$, so for any $g \in N_G(N_G(P)), gPg^{-1} = P$, i.e. $g \in N_G(P)$. Since the other inclusion is clear, we conclude that $N_G(N_G(P)) = N_G(P)$. 
+\end{itemize}
 \end{pf}

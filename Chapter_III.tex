@@ -476,7 +476,7 @@ and by Proposition III.4.11, either $J = (x-c)$ or $J = k[x]$. The latter case c
 
 \el
 
-In the following, let $M$ be a (left-)module over $R$.
+Unless otherwise specified, in the following $M$ denotes a (left-)module over $R$.
 
 \section{}
 
@@ -750,13 +750,13 @@ Prove that fibered coproducts exist in $R$-\textsf{Mod}. The fibered coproduct $
 \begin{pf}
 The universal property is as the same stated in I.5.12, but by replacing every set with $R$-modules and every morphism with $R\mhyphen\mathsf{Mod}$ homomorphisms. We now show that the fibered coproduct is almost the same in \textsf{Set}: define an equivalence relation
 \[
-R = \{(\mu(x), \nu(x)) \in M \oplus N : x \in A\}
+S = \{(\mu(x), \nu(x)) \in M \oplus N : x \in A\}
 \]
-on $M \oplus N$, and let $M \oplus_A N := (M \oplus N)/R$. We show that $R$ is a submodule, so the quotient make sense. For $(m,n) \in R$,
+on $M \oplus N$, and let $M \oplus_A N := (M \oplus N)/S$. We show that $R$ is a submodule, so the quotient make sense. For $(m,n) \in S$,
 \[
-r(m,n) = r(\mu(x),\nu(x)) = (r\mu(x), r\nu(x)) = (\mu(rx), \nu(rx)) \in R	
+r(m,n) = r(\mu(x),\nu(x)) = (r\mu(x), r\nu(x)) = (\mu(rx), \nu(rx)) \in S	
 \]
-which shows that $R$ is indeed an $R$-module. Now define
+which shows that $S$ is indeed an $R$-module. Now define
 \[
 \varphi((m,n)+R) = f_M(m) + f_N(n)	
 \]
@@ -772,11 +772,11 @@ commutes, as we check:
 \begin{itemize}
 \item $i_N \nu = i_M \mu$:
 \[
-i_N \nu (x) = (0, \nu(x)) + R = (\mu(x), 0) + R = i_M \mu(x)
+i_N \nu (x) = (0, \nu(x)) + S = (\mu(x), 0) + S = i_M \mu(x)
 \]
 \item $f_M = \varphi i_M $ (resp. $f_N = \varphi i_N$):
 \[
-\varphi	i_M (m) = \varphi((m,0)+R) = f_M(m).
+\varphi	i_M (m) = \varphi((m,0)+S) = f_M(m).
 \]
 \end{itemize}
 \end{pf}
