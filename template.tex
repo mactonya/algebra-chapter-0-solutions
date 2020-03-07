@@ -1,18 +1,16 @@
-\documentclass[12pt,a4paper,dvipsnames]{book}
+\documentclass[12pt,a4paper,dvipsnames,oneside]{book}
 
+\usepackage{bookmark}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{amssymb}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage{faktor}
 \usepackage{relsize}
 \usepackage{geometry}
-\usepackage[all]{xy}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usepackage{listings}
 \usepackage{extarrows}
 \usepackage{hyperref}
@@ -20,7 +18,7 @@
 \hypersetup{
 	colorlinks=true,
 	linkcolor=blue,
-	filecolor=magenta,      
+	filecolor=magenta,
 	urlcolor=cyan,
 }
 \lstset{frame=tb,
@@ -60,6 +58,8 @@
 \newtheorem{definition}[theorem]{Definition}
 
 \renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand\thechapter{\Roman{chapter}}
+\renewcommand\thesection{\thechapter.\arabic{section}}
 \newcommand\myeq{}
 \usepackage{indentfirst}
 
@@ -81,4 +81,11 @@
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Hom}{Hom}
+\mathchardef\mhyphen="2D
 %\DeclareMathOperator{\dim}{dim}
+
+\begin{document}
+
+
+\end{document}

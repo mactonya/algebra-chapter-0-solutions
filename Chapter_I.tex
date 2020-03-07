@@ -39,7 +39,7 @@ We shall prove the following:
 
 \noindent \textbf{Proposition. }\textit{A function is surjective if and only if it is an epimorphism.} \\
 \textit{Proof. } \\
-$(\Rightarrow)$ Let $f$ be surjective. By Proposition I.2.1, a surjective function has a right-inverse, which we call it $g$. Then if $\beta, \beta' : B \to Z$ are arbitrary function such that $\beta \circ f = \beta' \circ f$, then by composion with $g$ we obtain
+$(\Rightarrow)$ Let $f$ be surjective. By Proposition I.2.1, a surjective function has a right-inverse, which we call it $g$. Then if $\beta, \beta' : B \to Z$ are arbitrary function such that $\beta \circ f = \beta' \circ f$, then by composition with $g$ we obtain
 \[
 (\beta \circ f) \circ g=  (\beta' \circ f) \circ g \Rightarrow \beta \circ (f \circ g)=  \beta' \circ  (f \circ g) \Rightarrow \beta \circ id_A = \beta' \circ id_A \Rightarrow \beta = \beta'
 \]
@@ -82,7 +82,7 @@ where $fg$ is defined in the sense of the category $\mathsf{C}$. Now we check th
 \[
 (h \circ g) \circ f = gh \circ f = f(gh) = (fg)h = h \circ fg = h \circ (g \circ f);
 \]
-\item Idenitity morphism work as intended:
+\item Identity morphism work as intended:
 \[
 1_A \circ f = f1_A = f, \quad f \circ 1_A = 1_Af = f.	
 \]
@@ -264,7 +264,7 @@ i_b \varphi (z) = i_b (f_a(z),f_b(z)) = f_b(z)
 \[
 \alpha i_a (a,b) = \alpha(a) \overset{!}{=} \beta(b) = \beta i_b(a,b).
 \]
-note that ! is true since $I$ gurantees the existence of $b$.
+note that ! is true since $I$ guarantees the existence of $b$.
 \end{itemize}
 
 \textsf{Set} also has fibered coproducts, but it's more complicated. We first define an equivalence relation: define

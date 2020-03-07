@@ -38,7 +38,7 @@ therefore by first isomorphism theorem, $G/Z(G) \cong \text{Inn}(G)$. If $G/Z(G)
 Let $p,q$ be prime integers, and let $G$ be a group of order $pq$. Prove that either $G$ is commutative or the center of $G$ is trivial. Conclude that every group of order $p^2$, for a prime $p$, is commutative.
 \end{problem}
 \begin{pf}
-The subgroups can only be of order $1,p,q$ or $pq$ by Lagrange, and $|Z(G)|$ can be only one of these four. If $|Z(G)| = 1$, then there is nothing to prove; if $|Z(G)| = p (\text{or }q)$, then the quotient is cyclic, so it follows by Lemma IV.1.5 that $G$ is commutative; if $|Z(G)| = pq$, then $G$ is clearly commutative.
+The subgroups can only be of order $1,p,q$ or $pq$ by Lagrange, and $|Z(G)|$ can be one of these four. If $|Z(G)| = 1$, then there is nothing to prove; if $|Z(G)| = p (\text{or }q)$, then the quotient is cyclic, so it follows by Lemma IV.1.5 that $G$ is commutative; if $|Z(G)| = pq$, then $G$ is clearly commutative.
 
 By Corollary IV.1.9, the center of a nontrivial $p$-group is nontrivial, so the order of the center for $|G| = p^2$ can not be $1$. Then by above, all the remaining cases will conclude that $G$ is commutative. 
 \end{pf}
@@ -247,4 +247,64 @@ Let $P$ be a $p$-Sylow subgroup of a finite group $G$.
     \]
     and by above, $P$ is normal in $N_G(N_G(P))$, so for any $g \in N_G(N_G(P)), gPg^{-1} = P$, i.e. $g \in N_G(P)$. Since the other inclusion is clear, we conclude that $N_G(N_G(P)) = N_G(P)$. 
 \end{itemize}
+\end{pf}
+
+\section{}
+
+\begin{problem}{IV.3.1}
+Prove that $\Z$ has normal series of arbitrary length.
+\end{problem}
+\begin{pf}
+If $\Z$ has a normal series $\Z \supsetneq \cdots \supsetneq n\Z$, then we have an extended normal series $\Z \supsetneq \cdots \supsetneq n\Z \supsetneq 2n\Z$, which can be further extended by infinitely times.
+\end{pf}
+
+\begin{problem}{IV.3.3}
+Prove that every finite group has a composition series. Prove that $\Z$ does not have a composition series. 
+\end{problem}
+\begin{pf}
+Proceed by induction, since groups of order $1$ has a composition series, assume that for a given positive integer $n$, all groups that has order less than $n$ admits a composition series. Then for $|G|=n$, it suffices to show that there exists some normal subgroup $H$ such that $G/H$ is simple, and the rest follows from induction. 
+
+Indeed, we can let $H$ be the \emph{largest} normal subgroup (in the sense that if $H$ is normal in $H'$, then $H' = H$, assuming $H'$ proper). Then in view of Proposition II.8.9, $G/H$ is simple if and only if $H$ is the largest normal subgroup of $G$, as required.
+
+$\Z$ does not have a composition series: If there were one, then all decomposition factors are of the form $d\Z/dp\Z \cong \Z/p\Z$ where $p$ is a prime. Then we can clearly write 
+\[
+\{0\} = \prod_{i = 1}^n p_i\Z \subsetneq \cdots \subsetneq p_1p_2p_3\Z  \subsetneq p_1p_2\Z \subsetneq p_1\Z \subsetneq 1\Z = \Z
+\]
+for $p_i$ being primes. But this is absurd since product of primes will never be zero.
+\end{pf}
+
+\begin{problem}{IV.3.4}
+Find an example of two nonisomorphic groups with the same decomposition factors.
+\end{problem}
+\begin{sol}
+The groups $D_8$ and $C_8$ both has $C_2$ and $C_4$ as their normal subgroups, so there are series 
+\begin{align*}
+D_8 \triangleright C_4 \triangleright C_2 \triangleright \{e\} \\
+C_8 \triangleright C_4 \triangleright C_2 \triangleright \{e\}
+\end{align*}
+\end{sol}
+
+\begin{problem}{IV.3.5}
+Show that if $H, K$ are \emph{normal} subgroups of a group $G$, then $HK$ is a normal subgroup of $G$. 
+\end{problem} 
+\begin{pf}
+For $hk \in HK$, $g \in G$,
+\[
+ghkg^{-1} = ghg^{-1}gkg^{-1} \in (gHg^{-1})(gKg^{-1}) = HK
+\]
+so $gHKg^{-1} = HK$, hence normal.
+\end{pf}
+
+\begin{problem}{IV.3.8}
+Prove Lemma 3.7: \emph{Let $\varphi:G_1 \to G_2$ be a group homomorphism. Then $\forall g,h \in G_1$ we have}
+\[
+\varphi([g,h]) = [\varphi(g),\varphi(h)]
+\]
+and $\varphi(G_1') \subseteq G_2'$.
+\end{problem}
+\begin{pf}
+\[
+\varphi([g,h]) = \varphi(ghg^{-1}h^{-1}) = \varphi(g)\varphi(h)\varphi(g^{-1})\varphi(h^{-1}) = [\varphi(g), \varphi(h)].	
+\]
+The subgroup inclusion is immediate.
 \end{pf}

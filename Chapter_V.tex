@@ -1,0 +1,39 @@
+Unless otherwise stated, all rings in this chapter are \emph{commutative}.
+
+\section{}
+
+
+\begin{problem}{V.1.1}
+Let $R$ be an Notherian ring, and let $I$ be an ideal of $R$. Prove that $R/I$ is a Notherian ring.
+\end{problem}
+\begin{pf}
+The projection $\varphi: R \to R/I$ is clearly an surjective homomorphism, and by III.4.2 $R/I$ is Notherian.
+\end{pf}
+
+\begin{problem}{V.1.2}
+Prove that if $R[x]$ is Notherian, then so is $R$.
+\end{problem}
+\begin{pf}
+\[
+\pi: R[x] \to R[x]/(x) \cong R
+\]
+is surjective, and by V.1.1 $R$ is Notherian.
+\end{pf}
+
+\begin{problem}{V.1.6}
+Let $I$ be an ideal of $R[x]$, and let $A \subseteq R$ be the set defined in the proof of Theorem 1.2. Prove that $A$ is an ideal of $R$.
+\end{problem}
+\begin{pf}
+$A$ is a subgroup of $(R,+)$: For $a, b \in A$, there is some $f, g \in I$ so that the leading coefficient of $f$ (resp. $g$) is $a$ (resp. $b$). Assume that $\deg(f) \geq \deg(g)$. Then $f - x^{\deg(f)-\deg(g)}g$ is an element of $I$, and it has leading coefficient $a-b$, which is in $A$, so $A$ is a subgroup.
+
+$A$ satisfies absorption property: If $a \in R$, then there is some $f \in I$ such that $a$ is the leading coefficient of $f$. Then $rf$ has leading coefficient $ra$, which is in $A$, so $ra \in A$ for all $r \in R$. Therefore $A$ is an ideal.   
+\end{pf}
+
+\begin{problem}{V.1.12}
+Let $R$ be an integral domain. Prove that a nonzero $a$ is irreducible if and only if $(a)$ is maximal among proper principle ideal of $R$.
+\end{problem}
+\begin{pf}
+
+\noindent $(\Rightarrow)$ If $a$ is irreducible but there is some $b \in R$ such that $(a) \subseteq (b)$, then we can write $a = bc$ for some $c \in R$. Then either $b$ is a unit, or $c$ is a unit. The former would lead to that $(b) = R$, and the latter says that there is also $c^{-1}$ such that $ac^{-1} = b$, so $(a)\supseteq (b)$, so $(a) = (b)$. Either way, $(a)$ is the maximal amongst all principle ideals. \\
+$(\Leftarrow)$ If $a = bc$, then $(a) \subseteq (b)$. Since $(a)$ is maximal amongst all principle ideal, we must have $(b) = R$ or $(b) = (a)$. In the former we have that $b$ is a unit, and the latter implies that $c$ is a unit. In both cases at least one of $b$ and $c$ is a unit, so $a$ is irreducible. 
+\end{pf}

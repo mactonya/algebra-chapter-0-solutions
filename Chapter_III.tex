@@ -514,6 +514,25 @@ Prove that $0\cdot m = 0$ and that $(-1) \cdot m = -m$ for all $m \in M$.
 Since $0m = (0+0)m = 0m + 0m, 0m = 0$. Since $0 = 0m = (-1+1)m = (-1)m+m, (-1)m = -m$.
 \end{pf}
 
+\begin{problem}{III.5.4}
+Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or \emph{irreducible}) if its only 
+submodules are $\{0\}$ and $M$. Let $M, N$ be simple modules, and let $\varphi: M \to N$ be 
+a homomorphism of $R$-modules. Prove that either $\varphi = 0$ or $\varphi$ is an isomorphism. 
+\end{problem}
+\begin{pf}
+The kernel of a $R$-module homomorphism is a submodule of $M$, which can only be $\{0\}$ or $M$. If $\ker \varphi = M$ then $\varphi = 0$, and if $\ker \varphi = \{0\}$ then $\varphi$ is injective. The image of a $R$-module homomorphism is a submodule of $N$, which again can only be $\{0\}$ or $M$. if $\im \varphi = \{0\}$ then $\varphi = 0$, and if $\im \varphi = N$ then $\varphi$ is surjective. 
+
+So there are four different combination of images and kernels:
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item $\ker \varphi = M, \im \varphi = \{0\} \Rightarrow \varphi = 0$;
+    \item $\ker \varphi = M, \im \varphi = N \Rightarrow \varphi = 0, N = 0$, which can't be by hypothesis;
+    \item $\ker \varphi = \{0\}, \im \varphi = \{0\} \Rightarrow \varphi = 0, M = 0$, which can't be by hypothesis;
+    \item $\ker \varphi = \{0\}, \im \varphi = N \Rightarrow \varphi$ is an isomorphism.
+\end{itemize}
+so either $\varphi = 0$ or $\varphi$ is an isomorphism. 
+\end{pf}
+
 \begin{problem}{III.5.11}
 Let $R$ be commutative, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ (extending the given $R$-module structure) and $\text{End}_{R-\mathsf{Mod}}(M)$.
 \end{problem}
@@ -798,6 +817,47 @@ Then we collect the polynomials
 Since each polynomials can only contain finitely many indeterminates, and there are only finite polynomials, there must be some indeterminates $x_j$ that is not in the domain of $\varphi$ (as there are countably many indeterminates in the ideal), contradicting to the surjectivity of $\varphi$. Therefore $(x_1,x_2,\dotsc)$ is not finitely generated.
 \end{pf}
 
+\begin{problem}{III.6.16}
+Let $R$ be a ring. A (left-)$R$-module $M$ is \emph{cyclic} if $M = \langle m \rangle$ for some $m \in M$. Prove that simple modules (cf. Exercise III.5.4) are cyclic. Prove that an $R$-module $M$ is cyclic if and only if $M \cong R/I$ for some (left-)ideal $I.$ Prove that 
+every quotient of a cyclic module is cyclic. 
+\end{problem}
+\begin{pf}
+By the universal property of free module there is a unique homomorphism of $R$-modules
+\[
+\varphi : R^{\{m\}} \to M	
+\]
+Since $M$ is simple, we can only have $\varphi(R^{\{m\}}) = 0$ or $\varphi(R^{\{m\}}) = M$. We definitely can't have $\varphi = 0$ unless $m = 0$, so $\varphi(R^{\{m\}}) = M = \langle m \rangle$ for $m \neq 0$. 
+
+If $M = \langle m \rangle$, then we define a $R$-module homomorphism $\varphi: R \to M$ by $\varphi(r) = rm$. It is surjective by construction, and we have $M \cong R/\ker \varphi$.
+Conversely if $M \cong R/I$, then there is a surjective $R$-module homomorphism $\varphi: R \to M$ such that its kernel is $I$. By identifing $R$ with $R^{\{m\}}$, the result is now clear.
+
+The last statement follows from that you can restrict a surjective map $\varphi: R \to M$ to another surjective map $\varphi': R \to M/N$. 
+\end{pf}
+
+\begin{problem}{III.6.17}
+Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a (left-)ideal $I$, and let $N$ be another $R$-module.
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Prove that $\Hom_{R\mhyphen \mathsf{Mod}}(M,N) \cong \{n \in N : (\forall a \in I), an = 0\}$.
+    \item For $a, b \in \Z$, prove that $\Hom_{R \mhyphen \mathsf{Mod}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
+\end{itemize}
+\end{problem}
+\begin{pf}
+Every homomorphism $\varphi: M \to N$ is begin fixed by the generator of $M$, so we only need to investigate $\varphi(m)$ where $M = \langle m \rangle$. To make $\varphi$ into an $R$-module homomorphism, we must have
+\[
+\varphi(a+I+b+I) = \varphi(a+I) + \varphi(b+I) \quad \text{ and } \quad  r\varphi(a+I) = \varphi(ra+rI)	
+\]
+In particular, let $\varphi(m+I) = n$, where $m+I$ is the element identified by the generator $m$. Clearly we must have $\varphi(I) = 0$, and for $r \in R$ we have
+\[
+r\varphi(m+I) = \varphi(rm + I) = rn	
+\]
+so if $rm \in I$, i.e. $r \in I$, then $rn = 0$. So the set of all possibe $\varphi(m)$ coincide with the set on the right, showing the isomorphism. Now
+\[
+\Hom_{R \mhyphen \mathsf{Mod}}(\Z/a\Z, \Z/b\Z) \cong \{n \in \Z/b\Z : (\forall a \in a\Z) an = 0\}
+\]
+which is precisely $Z/\gcd(a,b)\Z$.
+\end{pf}
+
 \begin{problem}{III.6.18}
 Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove that if $N$ and $M/N$ are both finitely generated, then $M$ is finitely generated.
 \end{problem}
@@ -860,7 +920,7 @@ The map $(M' \longrightarrow N)$ is an epimorphism, so it follows by first isomo
 \end{pf}
 
 \begin{problem}{III.7.6}
-Prove the 'split epimorphism part pf Proposition 7.5, that is,
+Prove the 'split epimorphism' part of Proposition 7.5, that is,
 
 \textit{$\varphi$ has a right-inverse if and only if the sequence} 
 \[
@@ -899,7 +959,98 @@ and $m-\psi\varphi(m)$ is in $\ker \varphi$ since
 and the claim is proved.
 \end{pf}
 
-
+\begin{problem}{III.7.7}
+Let
+\[
+\begin{tikzcd}
+0 \arrow[r] &M \arrow[r] &N \arrow[r] &P \arrow[r] &0
+\end{tikzcd}
+\]
+be a short exact sequence of $R$-modules, and let $L$ be an $R$-module.
+\begin{enumerate}[label=(\roman*)]
+    \setlength\itemsep{0pt}
+    \item Prove that there is an exact sequence 
+    \[
+    \begin{tikzcd}
+    0 \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(P,L) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(N,L) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(M,L).
+    \end{tikzcd}
+    \]
+    \item Redo Exercise 6.17.
+    \item Construct an example showing that the rightmost homomorphism in (i) need not to be onto.
+    \item Show that if the original sequence splits, then the rightmost homomorphism in (i) is onto.
+\end{enumerate}
+\end{problem}
+\begin{pf}
+\begin{enumerate}[label=(\roman*)]
+    \setlength\itemsep{0pt}
+    \item     
+    \[
+    \begin{tikzcd}
+    0 \arrow[r] &M \arrow[r, "\beta"] &N \arrow[r, "\alpha"] &P \arrow[r] &0
+    \end{tikzcd} 
+    \]
+    \[
+    \begin{tikzcd}[column sep=huge]
+    0 \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(P,L) \arrow[r, "a(x) = x \circ \alpha"] &\Hom_\mathsf{R\mhyphen Mod}(N,L) \arrow[r, "b(y) = y \circ \beta"] &\Hom_\mathsf{R\mhyphen Mod}(M,L)
+    \end{tikzcd}	
+    \]
+    With definition as above, we show that 
+    \[
+    \ker a = 0 \quad \text{ and } \quad \im a = \ker b.
+    \]
+    Clearly $a$ is injective: if $a(x) = a(y)$, then $x \circ \alpha = y \circ \alpha$, and since $\alpha$ is an epimorphism by exactness, $x = y$. For the second part, note by exactness
+    \[
+    P \cong N/\ker\alpha = N/\im\beta = \text{coker }\beta	
+    \]
+    which leads us to consider the universal property of cokernels
+    \[
+    \begin{tikzcd}[column sep=small, row sep=large]
+    M \arrow[rr, "0", bend left=40] \arrow[r, "\beta"] & N \arrow[d, "\alpha", two heads] \arrow[r, "y"]                     & L \\
+    & P \cong \text{coker }\beta \arrow[ru, "\exists!\varphi"'] &  
+    \end{tikzcd}	
+    \]
+    so for $y \in \ker b$, i.e. $y \circ \beta = 0$, by universal property of cokernel, there is a unique $\varphi: P \to L$ such that $\varphi \circ \alpha = y$, which shows $\ker b \subseteq \im a$. Since the other inclusion is clear (by definition of chain complex), we conclude that $\im a = \ker b$.
+    \item The exact sequence
+    \[
+    \begin{tikzcd}
+    0 \arrow[r] & I \arrow[r, "i"] & R \arrow[r, "\pi"] & R/I \cong M \arrow[r] &0
+    \end{tikzcd}	
+    \]
+    with the target $R$-module $N$ yields another exact sequence
+    \[
+    \begin{tikzcd}
+    0 \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(M,N) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(R,N) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(I,N)
+    \end{tikzcd}
+    \]
+    by canonical decomposition
+    \[
+    G = \frac{G}{\ker a} \cong \im a = \ker b
+    \]
+    and $\ker b$ is
+    \[
+    \ker \varphi = \{\phi(x)=nx \in \Hom_\mathsf{R\mhyphen Mod}(R, N): \phi \circ i = 0_{\Hom_\mathsf{R\mhyphen Mod}(I, N)}\} \cong \{n \in R: (\forall a \in I)\; an = 0\}
+    \]
+    as required.
+    \item The example
+    \[
+    \begin{tikzcd}
+    0 \arrow[r] &\Z \arrow[r, "\cdot 2"] &\Z \arrow[r, "\pi"] &\Z/2\Z \arrow[r] &0
+    \end{tikzcd}
+    \]
+    yields the exact sequence (with target $\Z$)
+    \[
+    \begin{tikzcd}
+    0 \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(\Z/2\Z,\Z) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(\Z,\Z) \arrow[r, "\cdot 2"] &\Hom_\mathsf{R\mhyphen Mod}(\Z,\Z)
+    \end{tikzcd}
+    \]
+    but the last morphism is not surjective as all morphism that is of form $\varphi(x) = nx$ where $n$ is odd is missing in the first $\Hom_\mathsf{R\mhyphen Mod}(\Z,\Z)$.
+    \item The map
+    \[
+    \Hom_\mathsf{R\mhyphen Mod}(M\oplus P,L) \overset{\phi \circ i}{\longrightarrow} \Hom_\mathsf{R\mhyphen Mod}(M,L)
+    \]
+    is clearly surjective: for each $\varphi: M \to L$, we can find $\varphi': M\oplus P \to L$ defined by $\varphi'((m,p)) = \varphi(m)$, so that the restriction of $\varphi'$ on $M$ is precisely $\varphi$.
+\end{enumerate}
+\end{pf}
 
 \begin{problem}{III.7.8}
 Prove that every exact sequence
@@ -930,7 +1081,7 @@ showing that $f = 0$. Then $i(m) = 0$, so we must have $m = 0$. $h$ is surjectiv
 \[
 \varphi i(m) + \varphi \beta (f) = 0 + f = \varphi(n)	
 \]
-so we have the candidate of $f$. Now it remains to decide $m$ in which $i(m) = n - \beta(\varphi(n))$: notice that by exactness, $\im i = \ker \varphi$, so we check that $\varphi(n - \beta(\varphi(n))) = 0$ to gurantee the existence of $m$:
+so we have the candidate of $f$. Now it remains to decide $m$ in which $i(m) = n - \beta(\varphi(n))$: notice that by exactness, $\im i = \ker \varphi$, so we check that $\varphi(n - \beta(\varphi(n))) = 0$ to guarantee the existence of $m$:
 \[
 \varphi(n - \beta(\varphi(n)) = \varphi(n) - \varphi \circ \beta \circ \varphi(n) = \varphi(n) - \varphi(n) = 0
 \]

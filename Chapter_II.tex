@@ -195,11 +195,11 @@ To make an automorphism $\varphi$, $\varphi$ must fix $(0,0)$, leaving 6 possibl
 Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integers $r \leq n$ that are \emph{relatively prime} to $n$ (cf. II.6.14).	
 \end{problem}
 \begin{pf}
-We shall first show that every endomomorphism of cyclic group $C$ is of form $\varphi_n(x) = x^n$ for some $n$. Indeed, if $\sigma$ is a endomomorphism that $\sigma(x) = x^a = \varphi_a(x)$, then for every $x^b \in C$ we have
+We shall first show that every endomorphism of cyclic group $C$ is of form $\varphi_n(x) = x^n$ for some $n$. Indeed, if $\sigma$ is a endomomorphism that $\sigma(x) = x^a = \varphi_a(x)$, then for every $x^b \in C$ we have
 \[
 \sigma(x^b) = \sigma(x)^b = (x^a)^b = (x^b)^a = \varphi(x^b)	
 \]
-so every endomomorphism is of form $\varphi_n : x \mapsto x^n$ for some $n$. Now to make this into an automorphism, if $k$ is not relatively prime to $n$, say $\gcd(n,k) = r > 1$, then for a generator $x \in C_n$, we have
+so every endomorphism is of form $\varphi_n : x \mapsto x^n$ for some $n$. Now to make this into an automorphism, if $k$ is not relatively prime to $n$, say $\gcd(n,k) = r > 1$, then for a generator $x \in C_n$, we have
 \[
 \varphi_k(x^{n/r}) = x^{n/r \cdot k} = x^{n \cdot k/r} = (x^{n})^{k/r} = e^{k/r} = e
 \]
@@ -305,11 +305,11 @@ Prove that an \emph{abelian} group $G$ is finitely generated if and only if ther
 for some $n$.
 \end{problem}
 \begin{pf} \\
-$(\Rightarrow)$ As the group is abelian, for $G = \langle a_1, \cdots a_n \rangle$, we can represen an element $g$ uniquely as
+$(\Rightarrow)$ As the group is abelian, for $G = \langle a_1, \cdots a_n \rangle$, we can represent an element $g$ uniquely as
 \[
     g = a_1^{p_1} \cdots a_n^{p_n}    
 \]
-where $p_i\in \mathbb{Z}, \; i = 1, \cdots n$. Therefore we can explictly write down the surjective homomorphism
+where $p_i\in \mathbb{Z}, \; i = 1, \cdots n$. Therefore we can explicitly write down the surjective homomorphism
 \[
 \varphi : \underbrace{\mathbb{Z} \oplus \cdots \oplus \mathbb{Z}}_{n \text{ times}}\twoheadrightarrow G \quad \text{ by } \quad \varphi(p_1,\cdots ,p_n) = a_1^{p_1} \cdots a_n^{p_n} = g      
 \]
