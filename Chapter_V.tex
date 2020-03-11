@@ -83,3 +83,45 @@ $(\Leftarrow)$ If $a = bc$, then $(a) \subseteq (b)$. Since $(a)$ is maximal amo
     \item Since the factorization of $6$ is not unique, $\Z[\sqrt{-5}]$ is not a UFD.
 \end{itemize}
 \end{pf}
+
+\section{}
+
+\begin{problem}{V.2.1}
+Prove Lemma 2.1: 
+
+\textit{
+Let R be a UFD, and let a,b,c be nonzero elements of R. Then
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item $(a)\subseteq(b) \Longleftrightarrow$ the multiset of irreducible factors of b is contained in the multiset of irreducible factors of a;
+    \item a and b are associates $\Longleftrightarrow$ the two multiset coincide;
+    \item the irreducible factors of a product bc are the collection of all irreducible factors of b and c. 
+\end{itemize}
+}
+\end{problem}
+\begin{pf}
+\begin{itemize}	
+    \setlength\itemsep{0pt}
+    \item The inclusion on the right implies $a = bp$ for some $p$, so clearly the multiset of $a$ contains the multiset of $b$. Conversely, we can let $p$ be the product of difference of the multiset of $a$ and $b$. Then $a = pb$ (up to associates), so $(a)\subseteq(b)$.
+    \item A unit $u$ is \emph{not} a product of irreducibles by definition. Therefore if $(a) = (b)$, then $a = bn$ for some unit $n$, and since $n$ does not contain irreducibles, the multiset must coincide. The converse is just the reverse of this argument.
+    \item Direct by expanding $b$ and $c$.
+\end{itemize}
+\end{pf}
+
+\begin{problem}{V.2.5}
+Let $R$ be the subring of $\Z[t]$ consisting of polynomials with no term of degree 1.
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Prove that $R$ is indeed a subring of $\Z[t]$, and conclude that $R$ is an integral domain.
+    \item List all common divisor of $t^5$ and $t^6$ in $R$.
+    \item Prove that $t^5$ and $t^6$ have no gcd in $R$.
+\end{itemize}
+\end{problem}
+\begin{pf}
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Clearly $R$ is a subring since the difference of two polynomials in $R$ has no term of degree 1. It is a domain since you still can't have two nonzero polynomials that has product $0$.
+    \item If $(t^5, t^6) \subseteq (p)$, then $p$ can be $1, t, t^2, t^3, t^4$ or $t^5$.
+    \item gcd did not exist since for any $k \in \{0,1,2,3,4,5\}$, $t^{k-1} \mid t^5, t^{k-1} \mid t^6$, but $t^{k-1} \nmid t^k$ since $R$ does not contain $t$.
+\end{itemize}
+\end{pf}

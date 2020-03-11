@@ -66,8 +66,8 @@ Prove that if $G$ is a group of odd order and $g \in G$ is conjugate to $g^{-1}$
 \begin{pf}
 Suppose $g \neq e$. Since $[g]$ contains $g^{-1}$, there are two cases:
 \begin{itemize}
-    \item If $g = g^{-1}$, then $g^2 = 1$, so $|g| = 2$. But this is impossible since $|g|$ does not divide $|G|$, a contradiction.
-    \item If $g \neq g^{-1}$, then since $[g]$ must be odd order, there is some $y \in [g]$ such that $g = xyx^{-1}$. But this implies $g^{-1} = xy^{-1}x^{-1}$, so $y^{-1} \in [g]$, and $y \neq y^{-1}$ by above. So this says that $[g]$ must contain even number of elements(so must have even order), which again is impossible. 
+\item If $g = g^{-1}$, then $g^2 = 1$, so $|g| = 2$. But this is impossible since $|g|$ does not divide $|G|$, a contradiction.
+\item If $g \neq g^{-1}$, then since $[g]$ must be odd order, there is some $y \in [g]$ such that $g = xyx^{-1}$. But this implies $g^{-1} = xy^{-1}x^{-1}$, so $y^{-1} \in [g]$, and $y \neq y^{-1}$ by above. So this says that $[g]$ must contain even number of elements(so must have even order), which again is impossible. 
 \end{itemize} 
 By above, we must have $g = e$, proving the assertion.
 \end{pf}
@@ -145,24 +145,24 @@ as desired.
 \begin{problem}{IV.2.2}
 Let $G$ be a group. A subgroup $H$ of $G$ is \emph{characteristic} if $\varphi(H) \subseteq H$ for every automorphism $\varphi$ of $G$.
 \begin{itemize}
-    \setlength\itemsep{0pc}
-    \item Prove that every characteristic subgroups are normal.
-    \item Let $H \subseteq K \subseteq G$, with $H$ characteristic in $K$ and $K$ normal in $G$. Prove that $H$ is normal in $G$. 
-    \item Let $G,K$ be groups, and assume that $G$ contains a single subgroup $H$ isomorphic to $K$. Prove that $H$ is normal in $G$.
-    \item Let $K$ be a normal subgroup of a finite group $G$, and assume that $|K|$ and $|G/K|$ are relatively prime. Prove that $K$ is characteristic in $G$.
+\setlength\itemsep{0pc}
+\item Prove that every characteristic subgroups are normal.
+\item Let $H \subseteq K \subseteq G$, with $H$ characteristic in $K$ and $K$ normal in $G$. Prove that $H$ is normal in $G$. 
+\item Let $G,K$ be groups, and assume that $G$ contains a single subgroup $H$ isomorphic to $K$. Prove that $H$ is normal in $G$.
+\item Let $K$ be a normal subgroup of a finite group $G$, and assume that $|K|$ and $|G/K|$ are relatively prime. Prove that $K$ is characteristic in $G$.
 \end{itemize} 
 \end{problem}
 \begin{pf}
 \begin{itemize}
-    \setlength\itemsep{0pt}
-    \item Consider $\gamma_g(h) := ghg^{-1}$ for all $g \in G$. Then $gHg^{-1} \subseteq H$ by characteristic property of $H$, so $H$ is normal.
-    \item By normalness of $K$, we have $gKg^{-1} = K$, so $\gamma_g$ is an automorphism on $K$. Then since $\gamma_g(H) \subseteq H$, $gHg^{-1} \subseteq H$, so $H$ is normal.
-    \item Let $\varphi$ be any automorphism of $G$. Then $\varphi(H) \cong H \cong K$ since $\varphi$ is an isomorphism. But since $H$ is the only subgroup that is isomorphic to $K$, $\varphi(H) = H$, so $H$ is characteristic, hence normal. 
-    \item Let $\varphi$ be any automorphism of $G$, and let $\pi : G \to G/K$ be the quotient homomorphism.	Let $K' = \varphi(K)$. Then $\pi(K')$ is a subgroup of $G/K$, so $|\pi(K')|$ divides $|G/K|$. Also, by first isomorphism theorem, $K'/\ker \pi \cong \im \pi = \pi(K')$, so $|\pi(K')|$ divides $|K'| = |K|$. Since $|K|$ and $|G/K|$ are relatively prime, we can only have $|\pi(K')| = 1$, i.e. $\pi(K') = e_{G/H}$. Combining with $\ker \pi = K$, we have
-    \[
-    \varphi(K) = K' \subseteq \ker \pi = K
-    \]
-    as desired.
+\setlength\itemsep{0pt}
+\item Consider $\gamma_g(h) := ghg^{-1}$ for all $g \in G$. Then $gHg^{-1} \subseteq H$ by characteristic property of $H$, so $H$ is normal.
+\item By normalness of $K$, we have $gKg^{-1} = K$, so $\gamma_g$ is an automorphism on $K$. Then since $\gamma_g(H) \subseteq H$, $gHg^{-1} \subseteq H$, so $H$ is normal.
+\item Let $\varphi$ be any automorphism of $G$. Then $\varphi(H) \cong H \cong K$ since $\varphi$ is an isomorphism. But since $H$ is the only subgroup that is isomorphic to $K$, $\varphi(H) = H$, so $H$ is characteristic, hence normal. 
+\item Let $\varphi$ be any automorphism of $G$, and let $\pi : G \to G/K$ be the quotient homomorphism.	Let $K' = \varphi(K)$. Then $\pi(K')$ is a subgroup of $G/K$, so $|\pi(K')|$ divides $|G/K|$. Also, by first isomorphism theorem, $K'/\ker \pi \cong \im \pi = \pi(K')$, so $|\pi(K')|$ divides $|K'| = |K|$. Since $|K|$ and $|G/K|$ are relatively prime, we can only have $|\pi(K')| = 1$, i.e. $\pi(K') = e_{G/H}$. Combining with $\ker \pi = K$, we have
+\[
+\varphi(K) = K' \subseteq \ker \pi = K
+\]
+as desired.
 \end{itemize}
 \end{pf}
 
@@ -230,22 +230,22 @@ and since both numerator and the denominator are both congruent to 1 mod $p$, $[
 \begin{problem}{IV.2.13}
 Let $P$ be a $p$-Sylow subgroup of a finite group $G$.
 \begin{itemize}
-    \setlength\itemsep{0pt}
-    \item Prove that if $P$ is normal in $G$, then it is in fact characteristic in $G$.
-    \item Let $H \subseteq G$ be a subgroup containing the Sylow subgroup $P$. Assume $P$ is normal in $H$ and $H$ is normal in $G$. Prove that $P$ is normal in $G$.
-    \item Prove that $N_G(N_G(P)) = N_G(P)$.
+\setlength\itemsep{0pt}
+\item Prove that if $P$ is normal in $G$, then it is in fact characteristic in $G$.
+\item Let $H \subseteq G$ be a subgroup containing the Sylow subgroup $P$. Assume $P$ is normal in $H$ and $H$ is normal in $G$. Prove that $P$ is normal in $G$.
+\item Prove that $N_G(N_G(P)) = N_G(P)$.
 \end{itemize}
 \end{problem}
 \begin{pf}
 \begin{itemize}
-    \setlength\itemsep{0pt}
-    \item Since $\gcd(|P|, |G/P|) = 1$ as $P$ is Sylow, by the 4th point of IV.2.2, $P$ is characteristic in $G$.
-    \item By above, $P$ is characteristic in $H$, so by 2nd point of IV.2.2, $P$ is normal in $G$.
-    \item We have the normal chain
-    \[
-    P \trianglelefteq N_G(P) \trianglelefteq N_G(N_G(P))	
-    \]
-    and by above, $P$ is normal in $N_G(N_G(P))$, so for any $g \in N_G(N_G(P)), gPg^{-1} = P$, i.e. $g \in N_G(P)$. Since the other inclusion is clear, we conclude that $N_G(N_G(P)) = N_G(P)$. 
+\setlength\itemsep{0pt}
+\item Since $\gcd(|P|, |G/P|) = 1$ as $P$ is Sylow, by the 4th point of IV.2.2, $P$ is characteristic in $G$.
+\item By above, $P$ is characteristic in $H$, so by 2nd point of IV.2.2, $P$ is normal in $G$.
+\item We have the normal chain
+\[
+P \trianglelefteq N_G(P) \trianglelefteq N_G(N_G(P))	
+\]
+and by above, $P$ is normal in $N_G(N_G(P))$, so for any $g \in N_G(N_G(P)), gPg^{-1} = P$, i.e. $g \in N_G(P)$. Since the other inclusion is clear, we conclude that $N_G(N_G(P)) = N_G(P)$. 
 \end{itemize}
 \end{pf}
 
@@ -309,6 +309,97 @@ and $\varphi(G_1') \subseteq G_2'$.
 The subgroup inclusion is immediate.
 \end{pf}
 
+\begin{problem}{IV.3.15}
+Let $p,q$ be prime integers, and let $G$ be a group of order $p^2q$. Prove that $G$ is solvable.
+\end{problem}
+\begin{pf}
+If $p = q$ then there is nothing to prove ($G$ is a $p$-group), so assume two other cases:
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item $p > q$. By Sylow III, $G$ can only have $1$ $p$-Sylow: if there are $1+p$ $p$-Sylows, then we would have too much elements as $(p^2-1)(p+1) = p^3 + p^2 - p > p^3 > p^2q$. So there is a normal subgroup $H$ that has order $p^2$, and $[G:H] = q$. Since $H$ and $G/H$ are solvable, $G$ is solvable by Corollary IV.3.13.
+\item $p < q$. By Sylow III, the numbers of $q$-Sylows $n_q$ satisfies $n_q \mid p^2$ and $n_q \equiv 1 \mod q$. Since $p$ is a prime, $n_q$ can be one of $1, p$ and $p^2$. If $n_q = 1$, then we can find a normal subgroup $H$ such that $|H|=q$, and $[G:H]=p^2$, so $G$ is solvable; if $n_q = p$, then we would have $p \equiv 1 \mod q$, but this can't happen since $p < q$; if $n_q = p^2$, then there are 
+\[
+p^2q - p^2(q-1) = p^2 
+\]
+elements outside the union of $q$-Sylows (including $e$), which can precisely fit in a $p$-Sylow, so by the case $p>q$, $G$ is again solvable. 
+\end{itemize}
+Therefore for $|G|=p^2q$, $G$ is solvable. \emph{One should note that this is still true for all groups $G$ such that $|G|=p^nq$ where $n$ is a positive integer.} This can be proved by induction on $n$, and it follows the same pattern as above. 
+\end{pf}
+
+\begin{problem}{IV.3.16}
+Prove that every group of order $<120$ and $\neq 60$ is solvable.
+\end{problem}
+\begin{pf}
+There are several tests to check that a group is solvable:
+\begin{enumerate}[label=(\roman*)]
+\setlength\itemsep{0pt}
+\item \textcolor{BrickRed}{$p$-groups} (Example IV.3.12);
+\item \textcolor{green}{$pq$ groups} (Corollary IV.3.13);
+\item \textcolor{blue}{$p^nq$ groups} (IV.3.15);
+\item \textcolor{Plum}{$pqr$ groups}: we will give a proof later;
+\item "Exceptions": 36, 72, 84, 90, 100, 108.
+\end{enumerate}
+This gives the following fancy chart (60 has $A_5$ as an exception, and 120 has $S_5$). 
+\begin{center}
+\begin{tabular}{llllllllllll}
+\textcolor{BrickRed}{1} &\textcolor{BrickRed}{2} &\textcolor{BrickRed}{3} &\textcolor{BrickRed}{4} &\textcolor{BrickRed}{5} &\textcolor{green}{6} &\textcolor{BrickRed}{7} &\textcolor{BrickRed}{8} &\textcolor{BrickRed}{9} &\textcolor{green}{10} &\textcolor{BrickRed}{11} &\textcolor{blue}{12} \\
+\textcolor{BrickRed}{13} &\textcolor{green}{14} &\textcolor{green}{15} &\textcolor{BrickRed}{16} &\textcolor{BrickRed}{17} &\textcolor{blue}{18} &\textcolor{BrickRed}{19} &\textcolor{blue}{20} &\textcolor{green}{21} &\textcolor{green}{22} &\textcolor{BrickRed}{23} &\textcolor{blue}{24} \\
+\textcolor{BrickRed}{25} &\textcolor{green}{26} &\textcolor{BrickRed}{27} &\textcolor{blue}{28} &\textcolor{BrickRed}{29} &\textcolor{Plum}{30} &\textcolor{BrickRed}{31} &\textcolor{BrickRed}{32} &\textcolor{green}{33} &\textcolor{green}{34} &\textcolor{green}{35} &36 \\
+\textcolor{BrickRed}{37} &\textcolor{green}{38} &\textcolor{green}{39} &\textcolor{blue}{40} &\textcolor{BrickRed}{41} &\textcolor{Plum}{42} &\textcolor{BrickRed}{43} &\textcolor{blue}{44} &\textcolor{blue}{45} &\textcolor{green}{46} &\textcolor{BrickRed}{47} &\textcolor{blue}{48} \\
+\textcolor{BrickRed}{49} &\textcolor{blue}{50} &\textcolor{green}{51} &\textcolor{blue}{52} &\textcolor{BrickRed}{53} &\textcolor{blue}{54} &\textcolor{green}{55} &\textcolor{blue}{56} &\textcolor{green}{57} &\textcolor{green}{58} &\textcolor{BrickRed}{59} &\textbf{60 !} \\
+\textcolor{BrickRed}{61} &\textcolor{green}{62} &\textcolor{blue}{63} &\textcolor{BrickRed}{64} &\textcolor{green}{65} &\textcolor{Plum}{66} &\textcolor{BrickRed}{67} &\textcolor{blue}{68} &\textcolor{green}{69} &\textcolor{Plum}{70} &\textcolor{BrickRed}{71} &72 \\
+\textcolor{BrickRed}{73} &\textcolor{green}{74} &\textcolor{blue}{75} &\textcolor{blue}{76} &\textcolor{green}{77} &\textcolor{Plum}{78} &\textcolor{BrickRed}{79} &\textcolor{blue}{80} &\textcolor{BrickRed}{81} &\textcolor{green}{82} &\textcolor{BrickRed}{83} &84 \\
+\textcolor{green}{85} &\textcolor{green}{86} &\textcolor{green}{87} &\textcolor{blue}{88} &\textcolor{BrickRed}{89} &90 &\textcolor{green}{91} &\textcolor{blue}{92} &\textcolor{green}{93} &\textcolor{green}{94} &\textcolor{green}{95} &\textcolor{blue}{96} \\
+\textcolor{BrickRed}{97} &\textcolor{blue}{98} &\textcolor{blue}{99} &100 &\textcolor{BrickRed}{101} &\textcolor{Plum}{102} &\textcolor{BrickRed}{103} &\textcolor{blue}{104} &\textcolor{Plum}{105} &\textcolor{green}{106} &\textcolor{BrickRed}{107} &108 \\
+\textcolor{BrickRed}{109} &\textcolor{Plum}{110} &\textcolor{green}{111} &\textcolor{blue}{112} &\textcolor{BrickRed}{113} &\textcolor{Plum}{114} &\textcolor{green}{115} &\textcolor{blue}{116} &\textcolor{blue}{117} &\textcolor{green}{118} &\textcolor{green}{119} &\textbf{120 !} \\
+\end{tabular}
+\end{center}
+
+Now we handle the special cases. Let $n_p$ denotes the numbers of $p$-Sylow subgroup:
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item $36 = 2^2 \cdot 3^2$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $9 \times 4$, and for the latter we consider the action by conjugation on $3$-Sylows; this induces a homomorphism $\varphi : G \to S_4$, and hence a homomorphism $G/\ker \varphi \hookrightarrow S_4$. Finally $\ker \varphi$ is not trivial since $36 > 24$, so $|\ker \varphi|>1$, and $|G/\ker \varphi| \leq 18$. It then follows that the quotient (and the kernel) is solvable by the chart. 
+\item $72 = 2^3 \cdot 3^2$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $18 \times 4$, and the latter case is the same as in the case $36$.
+\item $84 = 2^2 \cdot 3 \cdot 7$: $n_7$ must be $1$ since $(1+7) \nmid 12$. 
+\item $90 = 2 \cdot 3^2 \cdot 5$: We only consider the cases where $n_3, n_5$ are not $1$. By simple calculation, we have $n_5 = 6, n_3 = 10$. But then if all $3$-Sylow intersects trivially, then sum of elements that has order $3$ or $5$ is $10(9-1)+6(5-1) = 104 > 90$, which is too much. \\
+So there is some $H,K$: $3$-Sylows such that $|H \cap K| = 3$ (can't be $9$: then $H = K$). Now
+\[
+\frac{|H||K|}{|H \cap K|} = |HK| = 27	
+\]
+and also 
+\[
+[H:H\cap K] = [K:H\cap K] = 3
+\]
+so $H\cap K$ is normal in $H$ and $K$ by II.9.11. We "claim" that $H \cap K$ is normal in $G$, by evaluate the normalizer $N = N_G(H \cap K)$ (cf. Remark IV.1.12). Note that this subgroup includes $HK$ by normalness ($HK(H \cap K)K^{-1}H^{-1} = H(H \cap K)H^{-1} = H \cap K$), so the order of $N$ satisfies
+\[
+|N| \geq 27, \quad |N| \mid 90, \quad 9 \mid |N| \; \text{(Lagrange on }H)
+\]
+and candidates of $|N|$ are $45$ and $90$. In the former case we have $[G : N] = 2$ so $N$ is normal by II.8.2, and the latter case implies $H \cap K$ is normal (Remark IV.1.12). Either way, the quotient with respect to normal subgroups has order $<45$, and by the chart, it is solvable.
+\item $100 = 2^2 \cdot 5^2$: We can only have $n_5 = 1$ since $(1+5) > 4$. 
+\item $108 = 2^2 \cdot 3^3$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $27 \times 4$, and the latter case is the same as in the case $36$.
+\end{itemize}
+
+Finally it suffices to prove the following lemma: \\
+\textbf{Lemma. }\textit{
+Let $p,q,r$ be primes such that $p > q > r$. Then a group that has order pqr is solvable.
+}\\
+\emph{Proof. \;\;}Let us investigate the possibility of different conbination of Sylow subgroups. 
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item For $n_p$, there is nothing to prove if $n_p = 1$, and since $p$ is the largest we cannot have $n_p = q$ or $r$, so we must have $n_p = qr$.
+\item For $n_q$, there is nothing to prove if $n_q = 1$, and we cannot have $n_q = r$, so at worse we have $n_q \geq p$.
+\item For $n_r$, there is nothing to prove if $n_r = 1$, so at worse we have $n_r \geq q$.
+\end{itemize}
+Now at worse, $G$ would contain way too much elements as
+\[
+qr(p-1) + p(q-1) + q(r-1) = pqr - qr + pq - p + qr - q > pqr.
+\]
+Therefore $n_k = 1$ for some $k \in \{p,q,r\}$, and the lemma is proved. \hfill\ensuremath{\square}
+
+All above finishes the proof.
+\end{pf}
+
+
 \section{}
 
 \begin{problem}{IV.4.1}
@@ -329,6 +420,42 @@ This permutation is of type $(5,2,1)$, so all permutation that is of type $(5,2,
 elements in the conjugacy class of this permutation.
 \end{sol}
 
+\begin{problem}{IV.4.5}
+Find the class formula for $S_n, n \leq 6$.
+\end{problem}
+\begin{sol}
+The case $n = 1,2,3,5$ has been done in the book, and the case $n=4$ will be done in the next problem, so we only do $n = 6$:
+\begin{center}
+\begin{tabular}{l|l|l|l}
+Cycle type & Counts &Cycle type & Counts \\
+(6) & $\dfrac{6!}{6} = 120$ &(3,1,1,1) &$\dfrac{6!}{3! \cdot 3} = 40$ \\[8pt]
+(5,1) &$\dfrac{6!}{1 \cdot 5} = 144$ & (2,2,2) &$\dfrac{6!}{4!\cdot 2} \cdot \dfrac{4!}{2!\cdot 2} \cdot \dfrac{2!}{2} \cdot \dfrac{1}{3!} = 15$ \\[8pt]
+(4,2) &$\dfrac{6!}{2! \cdot 4} \cdot \dfrac{2!}{2} = 90$ &(2,2,1,1) &$\dfrac{6!}{4!\cdot 2} \cdot \dfrac{4!}{2!\cdot 2} \cdot \dfrac{1}{2!} = 45$ \\[8pt]
+(4,1,1) &$\dfrac{6!}{2! \cdot 4} = 90$ &(2,1,1,1,1) &$\dfrac{6!}{4!\cdot 2} = 15$ \\[8pt]
+(3,3) &$\dfrac{6!}{3! \cdot 3} \cdot \dfrac{3!}{3} \cdot \dfrac{1}{2} = 40$ &(1,1,1,1,1,1) &$1$ \\[8pt]
+(3,2,1) &$\dfrac{6!}{3! \cdot 3} \cdot \dfrac{3!}{2} = 120$ &Sum &720
+
+\end{tabular}	
+\end{center}
+
+\end{sol}
+
+\begin{problem}{IV.4.6}
+Let $N$ be a \emph{normal} subgroup of $S_4$. Prove that $|N| = 1,4,12,$ or $24$. 
+\end{problem}
+\begin{pf}
+We only need to prove the case $|N|=4$ ($12$ follows from II.8.2). Note that normal subgroups are the union of conjugates, so by noting that the class formula 
+\[
+24 = \underbrace{1}_e + \underbrace{6}_{(a b)} + \underbrace{8}_{(a b c)} + \underbrace{3}_{(a b)(c d)} + \underbrace{6}_{(a b c d)}
+\]
+we can pick
+\[
+N = \{e, (1 2)(3 4), (1 3)(2 4), (1 4)(2 3)\}	
+\]
+and this is indeed normal and of order 4.
+\end{pf}
+
+
 \begin{problem}{IV.4.7}
 Prove that $S_n$ is generated by $(12)$ and $(12\dotsc n)$.
 \end{problem}
@@ -346,4 +473,28 @@ and replace $(1 2)$ by $(1 3)$ obtains $(1 4)$, so we have all transpositions of
 (m n) = (1 m)(1 n)(m 1)	
 \]
 therefore $S_n$ is generated by $(12)$ and $(12\dotsc n)$.
+\end{pf}
+
+\begin{problem}{IV.4.10} \el
+\begin{itemize}
+    \setlength\itemsep{0pt}
+    \item Prove that there are exactly $(n-1)!$ $n$-cycles in $S_n$.
+    \item More generally, find a formula for the size of the conjugacy class of a permutation of given type in $S_n$.
+\end{itemize}
+\end{problem}
+\begin{pf}
+There are $n!$ way to arrange $n$ elements in a line, but since cycles are invariant under "rotation", i.e.
+\[
+(1 2 \cdots n) = (n 1 2 \cdots n-1) = \cdots = (2 3 \cdots n 1)	
+\]
+and there are $n$ repeated cycles (including itself) for each distinct cycle in $S_n$, so there are $(n-1)!$ $n$-cycles.
+
+Now given a type $(t_1,\cdots ,t_k)$ where $t_1 \leq \cdots \leq t_k$, the first term has $n!/(n-t_1)!$ choices on elements, and the second term has $(n-t_1)!/(n-t_1-t_2)!$ choices on elements, etc. Then each $t_i$-cycle counts its repeated cycle, which is precisely $t_i$, and divide them. So the size is
+\[
+\frac{n!}{(n-t_1)!\;t_1} \cdot \frac{(n-t_1)!}{(n-t_1-t_2)!\;t_2} \cdots \frac{t_k!}{t_k} = \frac{n!}{t_1 t_2 \cdots t_k}
+\]
+Finally for repeated choice of cycles (i.e. $t_i = t_{i+1} = \cdots = t_{i+m}$), we need to divide them by $(m+1)!$. Let $c_i$ denotes the count of the number $i$ appearing in $(t_1,\cdots ,t_k)$, then the final size is
+\[
+\frac{n!}{t_1 t_2 \cdots t_k} \cdot \frac{1}{c_1! c_2! \cdots c_n!}.
+\]
 \end{pf}
