@@ -125,3 +125,105 @@ Let $R$ be the subring of $\Z[t]$ consisting of polynomials with no term of degr
     \item gcd did not exist since for any $k \in \{0,1,2,3,4,5\}$, $t^{k-1} \mid t^5, t^{k-1} \mid t^6$, but $t^{k-1} \nmid t^k$ since $R$ does not contain $t$.
 \end{itemize}
 \end{pf}
+
+\begin{problem}{V.2.7}
+Let $R$ be a Notherian domain, and assume that for all nonzero $a,b$ in $R$, the greatest common divisors of $a$ and $b$ are linear combinations of $a$ and $b$. Prove that $R$ is a PID.
+\end{problem}
+\begin{pf}
+We have the clear inclusion
+\[
+(a,b) \subseteq (\gcd(a,b))	
+\]
+and since $\gcd(a,b)$ is the linear combination of $a$ and $b$, we also have $(a,b) \ni \gcd(a,b)$, hence $(a,b) = (\gcd(a,b))$. It follows that by a simple induction, all finitely generated ideals $(p_1,\dotsc,p_n)$ is equal to the principle ideal
+\[
+(\gcd(p_1, \gcd(p_2, \gcd(\cdots,\gcd(p_{n-1}, p_n)))))
+\]
+Since $R$ is Notherian, all ideals are finitely generated, so $R$ is a PID.
+\end{pf}
+
+\begin{problem}{V.2.9}
+The \emph{height} of a prime ideal $P$ in a ring $R$ is (if finite) the maximum length $h$ of a chain of prime ideals $P_0 \subsetneq P_1 \subsetneq \cdots \subsetneq P_h = P$ in $R$. Prove that if $R$ is a UFD, then every prime ideal of height $1$ in $R$ is principle.
+\end{problem}
+\begin{pf}
+Let $P$ be a prime ideal that is of height 1. Since $P$ is prime and $R$ is a UFD, there is some irreducible element $p \in P$. Since irreducible implies prime, the ideal $(p)$ is prime. Then we would have a chain of prime ideals 
+\[
+0 \subseteq (p) \subseteq P
+\]
+but since this chain must be of height $1$, we must have $(p) = P$, showing that $P$ is principle.
+\end{pf}
+
+\begin{problem}{V.2.10}
+Assuming that every nonzero, nonunit element in a Notherian domain is contained in a prime ideal of height 1. Prove a converse of Exercise 2.9, and conclude that a Notherian domain $R$ is a UFD if and only if every prime ideal of height 1 in $R$ is principle.
+\end{problem}
+\begin{pf}
+Let $R$ be a Notherian domain, and assuming that every prime ideal of height 1 is principle in $R$. By Theorem V.2.5, we need to show that
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item the a.c.c for principle ideals holds in $R$: this is clear since $R$ is Notherian;
+	\item every irreducible element of $R$ is prime: let $x$ be irreducible, and by assumption, it is contained in a prime ideal of height 1 (hence principle), say $x \in P = (p)$. This says that $x = pa$ for some $a \in R$, and since $x$ is irreducible, either $p$ is a unit (then $P=R$, which can't be), or $a$ is a unit. Then we can write $p = xa^{-1}$, and since $p$ is prime, $x$ must be prime (a unit can't be prime).
+\end{itemize}
+Hence $R$ is a UFD.
+\end{pf}
+
+\begin{problem}{V.2.12}
+Prove that if $R[x]$ is a PID, then $R$ is a field.
+\end{problem}
+\begin{pf}
+Recall that $(x-c)$ is a prime ideal of $R[x]$ (cf. Example III.4.7), and PID implies prime $\Rightarrow$ maximal (Proposition III.4.13). Therefore the quotient
+\[
+\frac{R[x]}{(x-c)} \cong R
+\]
+is a field, by definition.
+\end{pf}
+
+\begin{problem}{V.2.15}
+Prove that if $R$ is a Euclidean domain, then $R$ admits a Euclidean valuation $\bar{v}$ such that $\bar{v}(ab) \geq \bar{v}(b)$ for all nonzero $a,b \in R$.
+\end{problem}
+\begin{pf}
+Let $v$ be a valuation on $R$. Define 
+\[
+\bar{v}(a) = \min\{v(ab): b \in R\}
+\]
+then it follows that $v(ab) \geq \bar{v}(b)$ for all $a \in R$, so $\bar{v}(ab) \geq \bar{v}(b)$. It suffices to check that it is a valuation with respect to $R$. Let $a,b \in R$ be such that $b \nmid a$, and choose $q,r$ such that $a = bq+r$. We claim that we must have $\bar{v}(r) < \bar{v}(b)$. Suppose not, that is, $\bar{v}(r) \geq \bar{v}(b)$. Let the minimum of $\bar{v}(b)$ be achieved at, say, $\bar{v}(b) = v(bc)$. Since we have $ac = bqc+rc$,
+\[
+\bar{v}(b) = v(bc) > v(rc) \geq \bar{v}(r) 
+\]
+a contradiction to our assumption. Therefore $\bar{v}(r) < \bar{v}(b)$, and $\bar{v}$ is indeed a Euclidean valuation.
+\end{pf}
+
+\begin{problem}{V.2.16}
+Let $R$ be a Euclidean domain with Euclidean valuation $v$; assume that $v(ab) \geq v(b)$ for all nonzero $a,b \in R$ (cf. Exercise 2.15). Prove that associate elements have the same valuation and that units have minimum valuation.
+\end{problem}
+\begin{pf}
+Let $a = ub$ with $u$ being a unit. Then $v(a) = v(ub) \geq v(b)$. We also have $v(b) = v(u^{-1}a) \geq v(a)$, so $v(a) = v(b)$. If $u$ is a unit, then $v(au) \geq v(u)$ for all nonzero $a$, and since $au$ exhaust all elements of $R$ ($Ru = R$), $u$ must be minimal.
+\end{pf}
+
+\begin{problem}{V.2.17}
+Let $R$ be a Euclidean domain that is not a field. Prove that there exists a nonzero, nonunit element $c \in R$ such that $\forall a \in R, \exists q,r \in R$ with $a = qc+r$ and either $r = 0$ or $r$ is a unit.
+\end{problem}
+\begin{pf}
+Let $c$ be irreducible in $R$ that is \emph{minimal} in the norm sense. Since $R$ is a ED, there is a valuation $v$ such that $v(ab) \geq v(b)$ for all nonzero $a,b \in R$ (V.2.15). Now for every $a \in R$, there exists $q,r \in R$ such that $a = qc+r$ and $v(r) < v(c)$. But then $r$ must be a unit, as all nonunit element admits a factorization $p_1\cdots p_np_0$ (up to associates), and we have
+\[
+v(p_1\cdots p_np_0) \geq v(p_2\cdots p_np_0) \geq \cdots v(p_np_0) \geq v(p_0) \geq v(c)
+\]
+Therefore $r$ must be a unit (V.2.16) or $0$.
+\end{pf}
+
+\begin{problem}{V.2.18}
+Prove that the subring of $\Q(\sqrt{-19})$, $\Z[(1+\sqrt{-19})/2]$, is not a Euclidean domain (cf. V.1.17).
+\end{problem}
+\begin{pf}
+Denote $\delta = (1+i\sqrt{19})/2$.
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item We have $N(a+b\delta) = (a+b/2)^2 + 19b^2/4$. There is no $z = a+b\delta$ such that $N(z) = 2$ or $3$ as $19b^2/4 > 4$ if $b \geq 1$, and there are no integers $a$ such that $a^2 = 2$ or $3$. On the other hand, $N(0) = 1, N(1) = 1, N(2) = 4, N(\delta) = 5$. Also $N(a+b\delta) \geq N(\delta) = 5$ if $b \neq 0$.
+	\item Units in this ring are $\pm 1$ by the same argument as in 4th point of V.1.17.
+	\item If $c$ satisfies the condition in V.2.17, then the remainder of the expression $a = qc + r$ can only be $\pm 1$ or $0$; in particular, c divides $2$ and $3$ since $2 = qc + r$ leads to $2 = qc$, $3 = qc$ and $1 = qc$(can't be as $c$ is not a unit). By multiplicative property of norm (cf. 5th point of V.1.17.) we can conclude that $c = \pm 2$ or $\pm 3$.
+	\item However, there is no $q$ such that $\delta = qc + r$ with $c = \pm 2, \pm 3$ and $r = 0, \pm 1$: This would give combinations
+	\[
+	\delta = \pm 2q(\pm 3q), \; -1+\delta = \pm 2q(\pm 3q), \; 1+\delta = \pm 2q(\pm 3q)
+	\]
+	Note that $N(\delta) = 5, N(-1+\delta) = 5, N(1+\delta) = 7$, and all of them are not divisible by 2 or 3, so such $q$ does not exist.
+\end{itemize}
+Since we can't find $q,r$ such that $\delta = qc+r$, the 'division with remainder' does not work in $R$, so we conclude that $R$ is not a Euclidean domain.
+\end{pf}

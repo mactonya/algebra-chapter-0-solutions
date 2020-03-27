@@ -103,7 +103,7 @@ In the sense of Proposition II.9.9, we can assume that $S = G/H$ (\emph{left cos
 Let $H,K$ be subgroups of a group $G$, with $H \subseteq N_G(K)$. Verify that the function $\gamma: H \to \text{Aut}_\mathsf{Grp}(K)$ defined by conjugation is a homomorphism of group and that $\ker \gamma = H \cap Z_G(K)$, where $Z_G(K)$ is the centralizer of $K$.	
 \end{problem}
 \begin{pf}
-Let $\gamma$ maps $h$ to a automorphism $\varphi_h(k) = hkh^{-1}$. It is a group homomorphism since
+Let $\gamma$ maps $h$ to an automorphism $\varphi_h(k) = hkh^{-1}$. It is a group homomorphism since
 \[
 \gamma(g)\gamma(h) \mapsto \varphi_g \varphi_h(k) = ghkh^{-1}g^{-1} = \varphi(gh) \mapsto \gamma(gh).
 \]
@@ -627,3 +627,37 @@ There are nontrivial maps $\varphi$ by sending $1$ to a given 3-cycle. However t
 \]
 we have that 3-cycles must also map to $0$. Therefore no nontrivial maps from $S_3$ to $C_3$ exists, and every nontrivial $\varphi$ can't have a left-inverse. 
 \end{sol}
+
+\begin{problem}{IV.5.6}
+Prove Lemma 5.8: 
+
+\textit{
+The structure $(N \times H, \bullet_\theta)$ is a group, with identity element $(e_N, e_H)$.
+}
+\end{problem}
+\begin{pf}
+The existence of inverse is already proven in Lemma 5.8; $(e_N, e_H)$ is indeed the identity since for $(n,h)\in (N \times H, \bullet_\theta)$,
+\[
+(n, h) \bullet_\theta (e_N, e_H) = (n\theta_h(e_N), he_H) = (n, h)
+\]
+the associativity holds: for $(n_i,h_i)\in (N \times H, \bullet_\theta), i = 1,2,3$, by noting that $\theta_{ab}(x) = \theta_a(\theta_b(x))$ ($\theta : H \to \text{Aut}_\mathsf{Grp}(N)$ is a homomorphism), 
+\begin{align*}
+((n_1, h_1) \bullet_\theta (n_2, h_2)) \bullet_\theta (n_3,h_3) &= (n_1 \theta_{h_1}(n_2), n_2h_2) \bullet_\theta (n_3,h_3) \\
+&= (n_1 \theta_{h_1}(n_2) \theta_{h_1h_2}(n_3), h_1h_2h_3) \\
+&= (n_1 \theta_{h_1}(n_2) \theta_{h_1}(\theta_{h_2}(n_3)), h_1h_2h_3) \\
+&= (n_1 \theta_{h_1}((n_2)\theta_{h_2}(n_3)), h_1h_2h_3) \\
+&= (n_1, h_1) \bullet_\theta (n_2\theta_{h_2}(n_3), h_2h_3) \\
+&= (n_1, h_1) \bullet_\theta ((n_2, h_2) \bullet_\theta (n_3,h_3))
+\end{align*}
+\end{pf}
+
+\begin{problem}{IV.5.8}
+Prove that if $G = N \rtimes H$ is commutative, then $G \cong N \times H$.
+\end{problem}
+\begin{pf}
+It suffices to show that the action $\theta_h$ is trivial for each $h$, i.e. $\theta_h(n) = n$ for all $n \in N, h \in H$. This can be shown by the identity
+\[
+(n,h) = (n\theta_{e_H}(e_N), h) = (n,e_H)(e_N,h) \overset{!}{=} (e_N,h)(n,e_H) = (e_N\theta_h(n), h) = (\theta_h(n), h)
+\]
+Abelian property is used in !.
+\end{pf}
