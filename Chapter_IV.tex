@@ -249,6 +249,53 @@ and by above, $P$ is normal in $N_G(N_G(P))$, so for any $g \in N_G(N_G(P)), gPg
 \end{itemize}
 \end{pf}
 
+\begin{problem}{IV.2.16}
+Let $G$ be a noncommutative group of order 8. Prove that $G \cong D_8$ or $G \cong Q_8$.
+\end{problem}
+\begin{pf}
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item $G$ does not contain an element of order $8$ as it would be $C_8$ by II.4.3; if all nonidentity element are of order $2$, then 
+	\[
+	gh = {(gh)}^{-1} = h^{-1}g^{-1} = hg
+	\]
+	so $G$ is commutative.
+	\item Let $y$ be an element of order 4: note that $\langle y \rangle$ must be normal (II.8.2). So pick an element $x \notin \langle y \rangle$, and since $\langle y \rangle \subsetneq \langle x,y \rangle$, we must have $\langle x,y \rangle = G$ by order consideration. Also $G/\langle y \rangle$ has order 2, so $x^2 \in \langle y \rangle$, and $x$ can be order 4 (which implies $x^2 = y^2$) or order 2 ($x^2 = 1$).
+	\item Let $G = \{e,y,y^2,y^3,x,yx,y^2x,y^3x\}$. We can determine the multiplication table of $G$ by directly computing all possible products of any two elements.
+	\item $xyx^{-1}$ is an element of order 4, and by normalness
+	\[
+	xyx^{-1} \in \{e,y,y^2,y^3\}
+	\]
+	so we must have $xyx^{-1} = y^3$ by order consideration ($xyx^{-1} = y$ would imply that $xy = yx$, which clearly isn't), and rearrangement gives $xy = y^3x$.
+	\item If we set $x^2 = e$, then there is isomorphism
+	\[
+	\varphi: G \to D_8, \quad \varphi(y^ax^b) = r^as^b	
+	\]
+	if we set $x^2 = y^2$, then there is isomorphism
+	\[
+	\varphi: G \to Q_8, \quad \varphi(y^ax^b) = i^aj^b
+	\]
+	It is a routine check that both are indeed homomorphisms and bijections.
+\end{itemize}
+\end{pf}
+
+\begin{problem}{IV.2.17}
+Let $R$ be a \emph{division ring}, and assume that $|R| = 64$. Prove that $R$ is necessarily commutative (hence, a field).
+\end{problem}
+\begin{pf}
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item By excluding $0$, the units of $R$ form a group of order 63, and it contains a $3$-Sylow which is of order $9$. Note that such subgroup is commutative since $p^2$ groups are commutative (IV.1.6). Call this group $G$.
+\item The possible order of subrings of $R$ are $1,2,4,8,16,32,64$. Since it contains $G$, such sub-division ring must contain $G$ as its subgroup. But by excluding $0$, the possible order of subgroups formed by units are 
+\[
+1,3,7,15,31,63
+\]
+and only $63$ divides $9$. So the only subring that contains $G$ is $R$.
+\item However, every centralizer of a division ring forms a division ring (III.2.10), so all elements that commutes with $G$ must form a sub-division ring.
+\item Since the only sub-division ring of $R$ is $R$ itself, $G$ commutes with all elements of $R$, hence contained in the center of $R$. But again since center forms a subring (III.2.9), center must also be $R$ itself since it contains $G$. This shows that $R$ is commutative, proving the assertion. 
+\end{itemize}
+\end{pf}
+
 \section{}
 
 \begin{problem}{IV.3.1}
@@ -661,3 +708,59 @@ It suffices to show that the action $\theta_h$ is trivial for each $h$, i.e. $\t
 \]
 Abelian property is used in !.
 \end{pf}
+
+\begin{problem}{IV.5.15}
+Let $G$ be a group of order 28. Prove that there are four groups of order 28 up to isomorphism.
+\end{problem}
+\begin{pf}
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item Notice that there can be only one $7$-Sylow as $(1+2)\nmid 4$ and $1 + 4 > 4$. Such group (call it $N$) must be normal.
+	\item Note $\text{Aut}_\mathsf{Grp}(N) \cong C_6 $. There are two possibility for homomorphisms $\varphi : C_4 \to \text{Aut}_\mathsf{Grp}(N)$: One being the trivial map, and another being $\varphi(1) = (1 \to 4)$ or $\varphi(3) = (1 \to 4)$ ($|\varphi(1)| = |(1 \to 4)| = 2$ must divide $|1| = 4$). For the case $\varphi : C_2 \times C_2 \to \text{Aut}_\mathsf{Grp}(N)$, there is trivial map, and another map $\varphi((1,0)) = (1 \to 4)$ or $\varphi((0,1)) = (1 \to 4)$.
+	\item Each automorphism determines a groups structure up to isomorphism. In the case where the automorphism is trivial, we have $C_4 \times C_7$ and $C_2 \times C_2 \times C_7$.
+	\item Let
+	\[
+	N = \langle r^2 \rangle, \quad H = \{e,r,s,sr\}	
+	\]
+	with automorphism $\varphi: H \to \text{Aut}(N)$ given by the nontrivial automorphism as above, so we indeed have $D_{28} \cong (C_2 \times C_2) \rtimes_\varphi C_7$. Note that
+	\[
+	\varphi: D_{28} \to C_2 \times D_{14}, \quad \varphi(r) = (1,r), \;\varphi(s) = (0,s)
+	\]
+	defines an isomorphism, so $D_{28} \cong C_2 \times D_{14}$. The other noncommutative group of order 28 is called the \emph{generalized quaternion group}.
+\end{itemize}
+\end{pf}
+
+\section{}
+
+\begin{problem}{IV.6.2}
+Complete the classification of groups of order 8 (cf. Exercise 2.16).
+\end{problem}
+\begin{sol}
+Abelian cases are $C_8, C_4 \times C_2, C_2 \times C_2 \times C_2$ as factorization of $8$ tells us; nonabelian cases are $D_8$ and $Q_8$ as in IV.2.16.
+\end{sol}
+
+\begin{problem}{IV.6.6}
+How many \emph{abelian} groups of order 1024 are there, up to isomorphism?
+\end{problem}
+\begin{sol}
+As $1024 = 2^{10}$, we are asking how many ways are there to distribute $10$ into unordered integer partitions. Denote $(k,n)$ to be the number of ways to partition $k$ into unordered integer partitions, with each partition no less than $n$ \emph{and} contains at least one partition of size $n$. We then see that 
+\[
+(k,0) = \sum_{i \in \N, i > k/2} (i,k-i) + 1
+\]
+For example, we solve $n=6$ (cf. IV.4.5; note that this is \emph{exactly} the count of conjugacy classes of $S_6$):
+\[
+(6,0) = (5,1)+(4,2)+(3,3)+1
+\]
+In this case, $(5,1)$ is the number of cycles that has $1$ in it, and every partition must be larger than $1$. So $(5,1)$ consist of cycles $(5,1),(4,1,1),(3,2,1),(3,1,1,1),(2,2,1,1),(2,1,1,1,1)$ and $(1,1,1,1,1,1)$; $(4,2)$ has $(4,2),(2,2,2)$, and $(3,3)$ has $(3,3)$; finally, there is $(6)$, which is the $+1$ at the end of the formula. This counts to a total of $11$ elements.
+
+So we need to solve $(10,0)$. Assuming that $(9,1) = (9,0) = 30$ (which can be shown inductively), we can calculate the remaining
+\begin{center}
+\begin{tabular}{c|c|c}
+(8,2) &(8,2), (6,2,2), (5,3,2), (4,4,2), (4,2,2,2), (3,3,2,2), (2,2,2,2,2) &7 \\
+(7,3) &(7,3), (4,3,3) &2\\
+(6,4) &(6,4) &1\\
+(5,5) &(5,5) &1\\
+\end{tabular}	
+\end{center}
+Therefore there are $32+7+2+1+1+1 = 42$ ways to partition, so there are 42 different abelian groups of order 1024, up to isomorphism.
+\end{sol}

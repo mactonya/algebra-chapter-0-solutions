@@ -227,3 +227,109 @@ Denote $\delta = (1+i\sqrt{19})/2$.
 \end{itemize}
 Since we can't find $q,r$ such that $\delta = qc+r$, the 'division with remainder' does not work in $R$, so we conclude that $R$ is not a Euclidean domain.
 \end{pf}
+
+\section{}
+
+In the following, ZL is the abbreviation of Zorn's Lemma.
+
+\begin{problem}{V.3.2}
+Prove that a totally ordered set $(Z, \preceq)$ is a woset if and only if every descending chain
+\[
+z_1 \succeq z_2 \succeq z_3 \succeq \cdots
+\]
+in $Z$ stabilizes.
+\end{problem}
+\begin{pf}
+
+\noindent $(\Rightarrow)$ If a sequence $\{z_i\}_{i \in \N}$ does not stabilize, then the set $\{z_i\}_{i \in \N}$ will not have an least element, which can't be as $Z$ is a woset. \\
+$(\Leftarrow)$ If $Z$ is not a woset, then pick $A \subseteq Z$ such that $A$ does not have a least element. Then we can find a descending chain
+\[
+z_1 \succeq z_2 \succeq z_3 \succeq \cdots
+\]
+such that it does not stabilize (as $A$ does not have a least element). This is a contradiction.
+\end{pf}
+
+\begin{problem}{V.3.6}
+Assuming the truth of Zorn's lemma and the conventional set-theoretic construction, prove the well-ordering theorem (Theorem V.3.3).
+\end{problem}
+\begin{pf}
+Let $Z$ be a nonempty set, and let $\mathscr{L}$ be the set collecting the set of pairs $(S,\leq)$ where $S$ is a subset of $Z$, and $\leq$ is a well-ordering on $S$. Define
+\[
+(S,\leq) \preceq (T,\leq')
+\]
+if and only if $S \subseteq T$ and $\leq$ is the restriction of $\leq'$ on $S$, and every element of $S$ precedes every element of $T \backslash S$ with respect to $\leq'$.
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item This is an order relation: clearly it is reflexive and antisymmetric. It is also transitive: if $(S,\leq) \preceq (T,\leq')$ and $(T,\leq') \preceq (U,\leq'')$, then clearly $S \subseteq T \subseteq U$, and every element of $S$ preeceds every element of $T \backslash S$. Since every element of $T$ also preeceds every element of $U \backslash T$, every element of $S$ preeceds $(T \backslash S) \cup (U \backslash T) = U \backslash S$.
+	\item The upper bound exists for every chain $(S_1,\leq) \preceq (S_2,\leq') \preceq (S_3,\leq'') \preceq \cdots$: it is the union of all sets $\cup_{i} S_i$.  
+	\item Therefore by ZL, there is a maximal element in $\mathscr{L}$; call it $(M, \leq)$. We claim that $M = Z$. Suppose not, then there is some $a \in Z \backslash M$. Now notice that we clearly have
+	\[
+	(M, \leq) \preceq (M \cup \{a\}, \leq')
+	\]
+	by define $a \leq' m$ for all $m \in M$. This is a contradiction, so we must have $M = Z$.
+\end{itemize}
+Therefore every set admits a well-ordering, as required.
+\end{pf}
+
+\begin{problem}{V.3.8}
+Prove that every nontrivial finitely generated group has a maximal proper subgroup. Prove that $(\Q,+)$ has no maximal proper subgroup.
+\end{problem}
+\begin{pf}
+Let $G = \langle g_1,\dotsc,g_n \rangle$ be finitely generated. By ZL, if every chain of subgroups of $G$ has an upper bound, then a maximal element exists in $G$. In order to apply ZL, let $G_1 \subseteq G_2 \subseteq G_3 \subseteq \cdots$ be a chain of \emph{proper} subgroups of $G$. Consider
+\[
+H = \bigcup_{i}G_i
+\]
+we claim that this is a subgroup: if $a,b \in H$, then $a$ must be in some $G_{i_a}$, and $b$ (and also $b^{-1}$) is in some $G_{i_b}$. Then
+\[
+ab^{-1} \in G_{\max\{i_a,i_b\}} \subseteq H
+\]
+so $H$ is a subgroup of $G$. We now claim that $H$ is proper. Suppose not, then the generators of $G$ is contained in some subgroup. Suppose that $g_i \in K_i$ for $i = 1,\dotsc,n$. Since they are a part of chain, if $K_1 \subseteq K_2$, then we have $g_1,g_2 \in K_2$(w/o loss of generality). Similarly, we have that some $K_i$, say $K_n$, must contain all generators of $G$, which implies $K_n = G$, a contradiction to the assumption that the elements on the chain must be proper. Therefore by ZL, a maximal proper subgroup exists in $G$, which proved the assertion.
+
+To prove the second statement, let $M$ be a subgroup of $\Q$. We show that it can't be maximal, that is, there exists $x$ such that 
+\[
+M \subsetneq M + \langle x \rangle \subsetneq \Q
+\]
+Suppose $M$ is maximal, that is, for all $x \notin M, M+ \langle x \rangle = \Q$. Let $y \in H$, and consider $x/y$: it can be expressed as a new fraction $a/b$. We claim that $x/a \notin M+ \langle x \rangle$. Suppose not, then there is equation
+\[
+x/a = m + cx
+\]
+where $m \in M, c \in \Q$. This yields $x = am + acx$, and by noting $x/y = a/b$ implies $ax = by$, we have $x = am+byc$, and since both terms are in $M$ ($y \in M$), we conclude $x \in M$, a contradiction. Therefore no subgroups of $\Q$ are maximal.
+\end{pf}
+
+\begin{problem}{V.3.9}
+Consider the rng ($=$ ring without 1) consisting of the abelian group $(\Q,+)$ endowed with the trivial multiplication $qr=0$ for all $q,r \in \Q$. Prove that this rng has no maximal ideals.
+\end{problem}
+\begin{pf}
+One notes that the absorption property of ideal is meaningless under the endowed multiplication, so we can reduce the problem to
+\begin{center}
+\emph{the group $(\Q,+)$ has no maximal subgroup}
+\end{center}
+cf. V.3.8.
+
+\end{pf}
+
+\begin{problem}{V.3.13}
+Let $R$ be a commutative ring, and let $N$ be its nilradical (III.3.12). Prove that the nilradical of $R$ equals the intersection of all prime ideals of $R$.
+\end{problem}
+\begin{pf}
+Let $r \notin N$.
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item Let
+	\[
+	\mathscr{F} := \{I \subseteq R: r^k \notin I \; \forall k>0\}
+	\]
+	i.e. the set of ideals that does not contain any power of $r$. By ordering with inclusion, every chain of $\mathcal{F}$ has a upper bound: it is the union of all ideals of that chain. The union is clearly an ideal, and it is proper since $r$ is still not in the union of ideals. Therefore by ZL, there is a maximal element in $\mathscr{F}$.
+	\item Call the maximal element $I$; we now claim that $I$ is \emph{prime}. Suppose not, that is, there are $a,b \in R \backslash I$ such that $ab \in I$. Then the ideals
+	\[
+	I + (a), I+(b)
+	\]
+	both properly contains $I$ and are proper (cf. V.1.8), and since they are outside $\mathscr{F}$, $I+Ra, I+Rb$ contains $r^i,r^j$, respectively. But then
+	\[
+	r^i r^j \in (I+(a))(I+(b)) \subseteq I
+	\]
+	so we would deduce that some power of $r$ appears in $I$, a contradiction. Therefore $I$ must be prime.
+	\item So if $r \notin N$, then there are some prime ideal $I$ that does \emph{not} contain $r$, so it can't be in the intersection of all prime ideals.
+\end{itemize}
+With III.4.18, this shows that the nilradical of $R$ equals the intersection of all prime ideals of $R$.
+\end{pf}

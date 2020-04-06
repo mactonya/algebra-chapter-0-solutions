@@ -54,6 +54,28 @@ Suppose that $|h|$ does not divide $|g|$, then we can assume that $|g| = p^mr, |
 
 \section{}
 
+\begin{problem}{II.2.5}
+Describe generators and relations for all dihedral groups $D_{2n}$.
+\end{problem}
+\begin{sol}
+There are two elements: $r$, which is rotation, and $s$ is the  reflection. We would except that 
+\begin{itemize}
+\setlength\itemsep{0pt}
+\item the $n$-gon preserves vertices after $n$ rotations, i.e. $r^n= e$;
+\item after two consecutive reflections, the vertices will return to before reflections, i.e. $s^2 = e$;
+\item doing (reflection$\to$rotation) twice would return to the original position, i.e. $(sr)^2 = e$, or $srs = r^{-1}$. Note that this also says that $sr^ks = r^{-k}$. 
+\end{itemize}
+Then we can write every element in $D_{2n}$ as $s^ar^b$ where $0 \leq s \leq 1, 0 \leq r < n$. To show that they really determine $D_{2n}$, let $a,b \in D_{2n}$, and consider their product. If $a = s^{a_1}r^{a_2}, b = s^{b_1}r^{b_2}$, then
+\[
+ab = s^{a_1}r^{a_2}s^{b_1}r^{b_2}
+\]
+if we assume that $b_1 = 1$ (or it would just be $s^{a_1}r^{a_2+b_2}$),then 
+\[
+s^{a_1}r^{a_2}sr^{b_2} = s^{a_1}s(sr^{a_2}s)r^{b_2} = s^{a_1}sr^{-a_2}r^{b_2} = s^{a_1+1}r^{-a_2+b_2}
+\]
+so $ab$ is an element of $D_{2n}$. This extends to (in)finite products, so this relations determines $D_{2n}$.
+\end{sol}
+
 \begin{problem}{II.2.10}
 Prove that $\mathbb{Z}/n\mathbb{Z}$ consists of precisely $n$ elements.
 \end{problem}
@@ -456,7 +478,7 @@ F(A) \arrow[rr, "f"] \arrow[rd, "\pi"] &                                        
 & F(A)/\mathscr{R} \arrow[ru, "\exists!\varphi_1"'] &       
 \end{tikzcd}
 \]
-In particular, we let $f$ be an quotient map, i.e. $f(w) = wH$. Then naturally we have $\varphi_1(w\mathscr{R}) = wH$. Similarly, for $G'$ we have another homomorphism $\varphi_2(v\mathscr{R}') = vH$.
+In particular, we let $f$ be the map that maps to the cosets of $H$, i.e. $f(w) = wH$. Then naturally we have $\varphi_1(w\mathscr{R}) = wH$. Similarly, for $G'$ we have another homomorphism $\varphi_2(v\mathscr{R}') = vH$.
 
 Now it suffices to check the universal property. For every homomorphism that maps $G$ and $G'$ to a group $K$, which we call them $f_1$ and $f_2$, we can define $\phi : G * G' \to K$ by
 \[ 
