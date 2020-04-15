@@ -8,101 +8,101 @@ Unless otherwise specified, all groups in this chapter are \emph{finite}.
 \begin{problem}{IV.1.1}
 Let $p$ be a prime integer, let $G$ be a $p$-group, and let $S$ be a set such that $|S| \neq 0 \text{ mod } p$. If $G$ acts on $S$, prove that the action must have fixed points.
 \end{problem}
-\begin{pf}
+\begin{proof}
 This is direct by Corollary IV.1.3: since $|S| \neq 0 \text{ mod }p $, the set of fixed points $Z$ satisfies $|S| \equiv |Z| \neq 0$.	
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.4}
 Let $G$ be a group, and let $N$ be a subgroup of $Z(G)$. Prove that $N$ is normal in $G$. 	
 \end{problem}
-\begin{pf}
+\begin{proof}
 For $g \in G$, $n \in N$,
 \[
 gng^{-1} = gg^{-1}n = n \in N.
 \]
 One should note that \emph{normal is not transitive}: if $G \unlhd H$ and $H \unlhd I$, it is in general not true that $G \unlhd I$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.5}
-Let $G$ be a group. Prove that $G/Z(G)$ is isomorphic to the group $\text{Inn}(G)$ (II.6.7). Then prove Lemma 1.5 again.
+Let $G$ be a group. Prove that $G/Z(G)$ is isomorphic to the group $\text{Inn}(G)$ (\ref{II.6.7}). Then prove Lemma 1.5 again.
 \end{problem}
-\begin{pf}
-Let $\varphi : G \to \text{Inn}(G), \varphi(g) = \gamma_g(a) := gag^{-1}$ be a homomorphism (II.4.8). By construction it is clearly surjective, and the kernel is
+\begin{proof}
+Let $\varphi : G \to \text{Inn}(G), \varphi(g) = \gamma_g(a) := gag^{-1}$ be a homomorphism (\ref{II.4.8}). By construction it is clearly surjective, and the kernel is
 \[
 \ker \varphi = \{g: gag^{-1} = a\} \Rightarrow \{g : ga = ag \}	= Z(G)
 \]
 therefore by first isomorphism theorem, $G/Z(G) \cong \text{Inn}(G)$. If $G/Z(G)$ is cyclic, then by II.6.7 $G$ is commutative.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.6}
 Let $p,q$ be prime integers, and let $G$ be a group of order $pq$. Prove that either $G$ is commutative or the center of $G$ is trivial. Conclude that every group of order $p^2$, for a prime $p$, is commutative.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The subgroups can only be of order $1,p,q$ or $pq$ by Lagrange, and $|Z(G)|$ can be one of these four. If $|Z(G)| = 1$, then there is nothing to prove; if $|Z(G)| = p (\text{or }q)$, then the quotient is cyclic, so it follows by Lemma IV.1.5 that $G$ is commutative; if $|Z(G)| = pq$, then $G$ is clearly commutative.
 
 By Corollary IV.1.9, the center of a nontrivial $p$-group is nontrivial, so the order of the center for $|G| = p^2$ can not be $1$. Then by above, all the remaining cases will conclude that $G$ is commutative. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.8}
 Let $p$ be a prime number, and let $G$ be a $p$-group: $|G| = p^r$. Prove that $G$ contains a normal subgroup of order $p^k$ for every nonnegative $k \leq r$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We proceed by induction. If $r = 1$ then there is nothing to prove, so we assume that for $n < r$, the $p$-group with order $p^n$ has a normal subgroup of order $p^k$ for $k \leq n$. 
 
-Now consider the center of $G$: it is abelian and is a nontrivial $p$-group by Corollary IV.1.9, so by II.8.20, there exists a (normal) subgroup $N$ that is of order $p$ in $Z(G)$. By IV.1.4, $N$ is normal in $G$, so we can consider the quotient $G/N$. The quotient is a $p$-group and has order $p^{r-1}$, so by induction hypothesis, $G/N$ has normal subgroups of order $p^k$ for $k \leq r-1$, which we name them $H_k$ for each $k$. By noting that $H_k$ contains $N$, we can identify each $H_k$ by $H_k/N$ via Proposition II.8.9. Finally, since $|H_k/N| = p^k$, $|H_k| = p^{k+1}$, so we've found normal subgroup of order $p^k$ for $k \leq r$, proving the statement.
-\end{pf}
+Now consider the center of $G$: it is abelian and is a nontrivial $p$-group by Corollary IV.1.9, so by \ref{II.8.20}, there exists a (normal) subgroup $N$ that is of order $p$ in $Z(G)$. By \ref{IV.1.4}, $N$ is normal in $G$, so we can consider the quotient $G/N$. The quotient is a $p$-group and has order $p^{r-1}$, so by induction hypothesis, $G/N$ has normal subgroups of order $p^k$ for $k \leq r-1$, which we name them $H_k$ for each $k$. By noting that $H_k$ contains $N$, we can identify each $H_k$ by $H_k/N$ via Proposition II.8.9. Finally, since $|H_k/N| = p^k$, $|H_k| = p^{k+1}$, so we've found normal subgroup of order $p^k$ for $k \leq r$, proving the statement.
+\end{proof}
 
 
 \begin{problem}{IV.1.9}
 Let $p$ be a prime number, $G$ a $p$-group, and $H$ a nontrivial normal subgroup of $G$. Prove that $H \cap Z(G) \neq \{e\}$. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $G$ act on itself by conjugation. Since $H$ is normal, it is the union of some conjugacy class and some element of $Z(G)$, with each conjugacy class of order $p^n$ for some $n$ by Corollary II.9.10. If $H \cap Z(G) = \{e\}$, then this means that $H$ only take $e$ from $Z(G)$, and since the order of all conjugacy classes in $H$ are divisible by $p$, we would arrive at $|H| \equiv 1 \mod p$, a contradiction since $|H|$ must be a multiple of $p$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.10}
 Prove that if $G$ is a group of odd order and $g \in G$ is conjugate to $g^{-1}$, then $g = e$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Suppose $g \neq e$. Since $[g]$ contains $g^{-1}$, there are two cases:
 \begin{itemize}
 \item If $g = g^{-1}$, then $g^2 = 1$, so $|g| = 2$. But this is impossible since $|g|$ does not divide $|G|$, a contradiction.
 \item If $g \neq g^{-1}$, then since $[g]$ must be odd order, there is some $y \in [g]$ such that $g = xyx^{-1}$. But this implies $g^{-1} = xy^{-1}x^{-1}$, so $y^{-1} \in [g]$, and $y \neq y^{-1}$ by above. So this says that $[g]$ must contain even number of elements(so must have even order), which again is impossible. 
 \end{itemize} 
 By above, we must have $g = e$, proving the assertion.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.14}
 Let $G$ be a group, and assume $[G : Z(G)] = n$ is finite. Let $A \subseteq G$ be any subset. Prove that the number of conjugates of $A$ is at most $n$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We claim that there is a surjective set function from $G/Z(G)$ to $\{gAg^{-1}\}_{g \in G}$. Define
 \[
 \varphi : G/Z(G) \to \{gAg^{-1}\}_{g \in G}, \quad \varphi(gZ) = gAg^{-1}
 \]
 We check that it is well defined: If $gZ = hZ$, then $gh^{-1} \in Z$. Now for any element $\alpha = gAg^{-1}$ we have $\alpha = gag^{-1}$ for some $a \in A$, so we have $g^{-1}\alpha g = a$, and $hg^{-1} \alpha gh^{-1} = hah^{-1}$. Since $gh^{-1} \in Z$, $hg^{-1} \alpha gh^{-1} = hg^{-1} gh^{-1} \alpha = \alpha$, so $\alpha \in hAh^{-1}$, hence $gAg^{-1} = hAh^{-1}$, which showed the well-definedness. Clearly the map is surjective by construction, and by above, there can be only at most $[G:Z(G)] = n$ distinct conjugates of $A$, which proved the assertion.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{IV.1.17}
 Let $H$ be a proper subgroup of a finite group $G$. Prove that $G$ is \emph{not} the union of the conjugates of $H$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 By Lemma IV.1.13, the numbers of conjugates of $H$ is $[G:N_G(H)]$. Since $H \subseteq N_G(H)$, $[G:N_G(H)]|H| \leq [G:H]|H| = |G|$. Even if the equality might hold, by noting that every conjugate is a subgroup and $e$ is a common element for all subgroup, there are in fact at most $([G:N_G(H)]|H| - |H| + 1)$ distinct elements in the union of all conjugates of $H$. Since this number is strictly less than $G$, $G$ will never be the union of conjugates of $H$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.18}
 Let $S$ be a set endowed with a transitive action of finite group $G$, and assume $|S| \geq 2$. Prove that there exists a $g \in G$ without fixed points in $S$, that is, such that $gs \neq s$ for all $s \in S$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 In the sense of Proposition II.9.9, we can assume that $S = G/H$ (\emph{left cosets, not quotient!}) where $H = \text{Stab}_G(s)$ for some $s \in S$, with $H$ proper in $G$ (as $|S| \geq 2$). Suppose the contrary, i.e. every $g$ satisfies $gkH = kH$ for some $k$. This means $k^{-1}gk \in H$, or equivalently, $g \in kHk^{-1}$. So every element in $G$ is in some conjugacy class of $H$, which is a contradiction to IV.1.17 that $G$ cannot be exhausted by conjugates of $H$. Hence $G$ must have some elements that has no fixed points on $S$, as desired.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{IV.1.21}
 Let $H,K$ be subgroups of a group $G$, with $H \subseteq N_G(K)$. Verify that the function $\gamma: H \to \text{Aut}_\mathsf{Grp}(K)$ defined by conjugation is a homomorphism of group and that $\ker \gamma = H \cap Z_G(K)$, where $Z_G(K)$ is the centralizer of $K$.	
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $\gamma$ maps $h$ to an automorphism $\varphi_h(k) = hkh^{-1}$. It is a group homomorphism since
 \[
 \gamma(g)\gamma(h) \mapsto \varphi_g \varphi_h(k) = ghkh^{-1}g^{-1} = \varphi(gh) \mapsto \gamma(gh).
@@ -111,14 +111,14 @@ The kernel of this map is
 \[
 \ker \gamma = \{h \in H: hkh^{-1} = k \; \forall k \in K\} = \{h \in H: hk = kh \; \forall k \in K\} = H \cap Z_G(K).	
 \]
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.1.22}
 Let $G$ be a finite group, and let $H$ be a cyclic subgroup og $G$ of order $p$. Assume that $p$ is the smallest prime dividing the order of $G$ and that $H$ is normal in $G$. Prove that $H$ is contained in the center of $G$.
 \end{problem}
-\begin{pf}
-In the sense of IV.1.21, we have a homomorphism $\gamma:G \to \text{Aut}_\mathsf{Grp}(H)$ since $H \subseteq N_G(G) = G$. By II.4.14, $\text{Aut}_\mathsf{Grp}(H)$ has order $\phi(p)=p-1$. But since $G$ does \emph{not} contain an element of order $p-1$ by the minimality of $p$, $\gamma$ can only be the trivial homomorphism, so it has kernel equal to $G$. But by IV.1.21, $\ker \gamma = G \cap Z_G(H) = Z_G(H)$, so we must have $Z_G(H) = G$, which means that the element that commutes with $h$ are the whole $G$, i.e. $H \subseteq Z(G)$, as desired. 
-\end{pf}
+\begin{proof}
+In the sense of IV.1.21, we have a homomorphism $\gamma:G \to \text{Aut}_\mathsf{Grp}(H)$ since $H \subseteq N_G(G) = G$. By \ref{II.4.14}, $\text{Aut}_\mathsf{Grp}(H)$ has order $\phi(p)=p-1$. But since $G$ does \emph{not} contain an element of order $p-1$ by the minimality of $p$, $\gamma$ can only be the trivial homomorphism, so it has kernel equal to $G$. But by IV.1.21, $\ker \gamma = G \cap Z_G(H) = Z_G(H)$, so we must have $Z_G(H) = G$, which means that the element that commutes with $h$ are the whole $G$, i.e. $H \subseteq Z(G)$, as desired. 
+\end{proof}
 
 \section{}
 
@@ -126,7 +126,7 @@ In the sense of IV.1.21, we have a homomorphism $\gamma:G \to \text{Aut}_\mathsf
 Prove Claim 2.2: 
 \textit{Let G be a finite group, let p be a prime divisor of $|G|$, and let N be the number of cyclic subgroups of G of order p. Then $N \equiv 1 \mod p$.}
 \end{problem}
-\begin{pf}
+\begin{proof}
 We proceed with the same argument as in Theorem IV.2.1. Let $S$ be a set that collects the $p$-tuple
 \[
 (a_1,\dotsc,a_p)	
@@ -140,7 +140,7 @@ By Corollary IV.1.3, $|Z| \equiv |S| \mod 0$, where $Z$ is the fixed points unde
 Np - N + 1 \equiv 0 \mod p  \Longrightarrow N \equiv 1 \mod p
 \]
 as desired.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.2}
 Let $G$ be a group. A subgroup $H$ of $G$ is \emph{characteristic} if $\varphi(H) \subseteq H$ for every automorphism $\varphi$ of $G$.
@@ -152,7 +152,7 @@ Let $G$ be a group. A subgroup $H$ of $G$ is \emph{characteristic} if $\varphi(H
 \item Let $K$ be a normal subgroup of a finite group $G$, and assume that $|K|$ and $|G/K|$ are relatively prime. Prove that $K$ is characteristic in $G$.
 \end{itemize} 
 \end{problem}
-\begin{pf}
+\begin{proof}\
 \begin{itemize}
 \setlength\itemsep{0pt}
 \item Consider $\gamma_g(h) := ghg^{-1}$ for all $g \in G$. Then $gHg^{-1} \subseteq H$ by characteristic property of $H$, so $H$ is normal.
@@ -164,68 +164,68 @@ Let $G$ be a group. A subgroup $H$ of $G$ is \emph{characteristic} if $\varphi(H
 \]
 as desired.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.4}
 Prove that a nontrivial group $G$ is simple if and only if its only homomorphic image are the trivial group and $G$ itself (up to isomorphism).
 \end{problem}
-\begin{pf}
+\begin{proof}
 
 \noindent $(\Rightarrow)$ Let $\varphi : G \to G'$ be a surjective homomorphism. By first isomorphism theorem, $G/\ker \varphi \cong G'$. But since kernel is a normal subgroup, the only possibility of $G'$ are $G/\{e\} = G$ or $G/G = \{e\}$. \\
 $(\Leftarrow)$ If $G$ is not simple, i.e. there are some nontrivial normal subgroup of $G$, which we call it $H$, then $\varphi : G \to G/H,g \mapsto gH$ is a surjective homomorphism, and $G/H$ is neither $\{e\}$ nor $G$(up to isomorphism), a contradiction. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.5}
 Let $G$ be a \emph{simple} group, and assume $\varphi: G \to G'$ is a nontrivial group homomorphism. Prove that $\varphi$ is injective.
 \end{problem}
-\begin{pf}
+\begin{proof}
 $\ker \varphi$ can only be $\{0\}$ or $G$ by simpleness. If $\ker \varphi = \{0\}$ the we are done; if $\ker \varphi = G$ then $\varphi = 0$, which can't be by hypothesis.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.6}
 Prove that there are no simple groups of order $4, 8, 9, 16, 25, 27, 32$ or $49$. In fact, prove that no $p$-group of order $\geq p^2$ is simple.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The center of $p$-group, by Corollary IV.1.9, is nontrivial. Since center is a normal subgroup, no group of order $p^n$ for $n \geq 2$ is simple.    
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.8}
 Let $G$ be a finite group, $p$ a prime integer, and let $N$ be the intersection of the $p$-Sylow subgroups of $G$. Prove that $N$ is a \emph{normal} $p$-subgroup of $G$ and that every normal $p$-subgroup of $G$ is contained in $N$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $P$ be a $p$-Sylow, then we can let $N = \bigcap_{g \in G}gPg^{-1}$. The conjugate of $N$ is $pNp^{-1} = \bigcap_{g \in G}pgP(pg)^{-1}$, which is again $N$, so $N$ is normal. Now if $N'$ is a normal $p$-subgroup, then by Sylow II we can assume that $N \subseteq P$. Then for all $g \in G$, $N' = gN'g^{-1} \subseteq gPg^{-1}$, so $N' \subseteq \bigcap_{g \in G}gPg^{-1} = N$, and $N'$ is in $N$, as required. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.9}
 Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and let $H \subseteq G$ be a $p$-subgroup. Assume $H \subseteq N_G(P)$. Prove that $H \subseteq P$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 By noting that $P$ is normal in $N_G(P)$ (Remark IV.1.12), we consider $PH$, which is a subgroup of $N_G(P)$ by Proposition II.8.11. Then by second isomorphism theorem
 \[
 \frac{PH}{P} \cong \frac{H}{P \cap H}	
 \]
-Now $|PH| = \frac{|P||H|}{|P \cap H|}$ by II.8.21, and since either $|P \cap H| = 1$ or $|H|$ by Sylow II, $PH$ is a $p$-group, and it must be $P$ since $P$ is the maximal $p$-subgroup of $G$. Then we have $H \subseteq P$ since $PH = P \Leftrightarrow H \subseteq P$.
-\end{pf}
+Now $|PH| = \frac{|P||H|}{|P \cap H|}$ by \ref{II.8.21}, and since either $|P \cap H| = 1$ or $|H|$ by Sylow II, $PH$ is a $p$-group, and it must be $P$ since $P$ is the maximal $p$-subgroup of $G$. Then we have $H \subseteq P$ since $PH = P \Leftrightarrow H \subseteq P$.
+\end{proof}
 
 
 
 \begin{problem}{IV.2.10}
 Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and act with $P$ by conjugation on the set of $p$-Sylow subgroups of $G$. Show that $P$ is the unique fixed point of this action.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $S$ be the collection of $p$-Sylow subgroups of $G$, and let $P$ act on $S$ by conjugation. If $H$ is any $p$-Sylow that is fixed by $P$, then we have $H \subseteq N_G(P)$ ($PHP^{-1} = H \Rightarrow HPH^{-1} = P$), so we can apply IV.2.9 and obtain $H \subseteq P$. But by Sylow II, $H$ must be $P$, proving the statement. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.12}
 Let $P$ be a $p$-Sylow subgroup of a finite group $G$, and let $H \subseteq G$ be a subgroup containing the normalizer $N_G(P)$. Prove that $[G:H] \equiv 1 \mod p$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 By Sylow III, $[G : N_G(P)] \equiv 1 \mod p $. Since $H$ contains $P$, $P$ is also a $p$-Sylow of $H$. Since $H \supseteq N_G(P)$, the normalizer of $P$ in $H$ is also $N_G(P)$, so $N_H(P) = N_G(P)$. Then clearly $[G : N_G(P)] = [G : N_H(P)] \equiv 1 \mod p$. Finally
 \[
 [G : H] = \frac{[G : N_G(P)]}{[H : N_G(P)]}	= \frac{[G : N_G(P)]}{[H : N_H(P)]}
 \]
 and since both numerator and the denominator are both congruent to 1 mod $p$, $[G:H] \equiv 1 \mod p$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.13}
 Let $P$ be a $p$-Sylow subgroup of a finite group $G$.
@@ -236,10 +236,10 @@ Let $P$ be a $p$-Sylow subgroup of a finite group $G$.
 \item Prove that $N_G(N_G(P)) = N_G(P)$.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof} \
 \begin{itemize}
 \setlength\itemsep{0pt}
-\item Since $\gcd(|P|, |G/P|) = 1$ as $P$ is Sylow, by the 4th point of IV.2.2, $P$ is characteristic in $G$.
+\item Since $\gcd(|P|, |G/P|) = 1$ as $P$ is Sylow, by the 4th point of \ref{IV.2.2}, $P$ is characteristic in $G$.
 \item By above, $P$ is characteristic in $H$, so by 2nd point of IV.2.2, $P$ is normal in $G$.
 \item We have the normal chain
 \[
@@ -247,12 +247,12 @@ P \trianglelefteq N_G(P) \trianglelefteq N_G(N_G(P))
 \]
 and by above, $P$ is normal in $N_G(N_G(P))$, so for any $g \in N_G(N_G(P)), gPg^{-1} = P$, i.e. $g \in N_G(P)$. Since the other inclusion is clear, we conclude that $N_G(N_G(P)) = N_G(P)$. 
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.16}
 Let $G$ be a noncommutative group of order 8. Prove that $G \cong D_8$ or $G \cong Q_8$.
 \end{problem}
-\begin{pf}
+\begin{proof} \
 \begin{itemize}
 	\setlength\itemsep{0pt}
 	\item $G$ does not contain an element of order $8$ as it would be $C_8$ by II.4.3; if all nonidentity element are of order $2$, then 
@@ -260,7 +260,7 @@ Let $G$ be a noncommutative group of order 8. Prove that $G \cong D_8$ or $G \co
 	gh = {(gh)}^{-1} = h^{-1}g^{-1} = hg
 	\]
 	so $G$ is commutative.
-	\item Let $y$ be an element of order 4: note that $\langle y \rangle$ must be normal (II.8.2). So pick an element $x \notin \langle y \rangle$, and since $\langle y \rangle \subsetneq \langle x,y \rangle$, we must have $\langle x,y \rangle = G$ by order consideration. Also $G/\langle y \rangle$ has order 2, so $x^2 \in \langle y \rangle$, and $x$ can be order 4 (which implies $x^2 = y^2$) or order 2 ($x^2 = 1$).
+	\item Let $y$ be an element of order 4: note that $\langle y \rangle$ must be normal (\ref{II.8.2}). So pick an element $x \notin \langle y \rangle$, and since $\langle y \rangle \subsetneq \langle x,y \rangle$, we must have $\langle x,y \rangle = G$ by order consideration. Also $G/\langle y \rangle$ has order 2, so $x^2 \in \langle y \rangle$, and $x$ can be order 4 (which implies $x^2 = y^2$) or order 2 ($x^2 = 1$).
 	\item Let $G = \{e,y,y^2,y^3,x,yx,y^2x,y^3x\}$. We can determine the multiplication table of $G$ by directly computing all possible products of any two elements.
 	\item $xyx^{-1}$ is an element of order 4, and by normalness
 	\[
@@ -277,38 +277,38 @@ Let $G$ be a noncommutative group of order 8. Prove that $G \cong D_8$ or $G \co
 	\]
 	It is a routine check that both are indeed homomorphisms and bijections.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.2.17}
 Let $R$ be a \emph{division ring}, and assume that $|R| = 64$. Prove that $R$ is necessarily commutative (hence, a field).
 \end{problem}
-\begin{pf}
+\begin{proof} \
 \begin{itemize}
 \setlength\itemsep{0pt}
-\item By excluding $0$, the units of $R$ form a group of order 63, and it contains a $3$-Sylow which is of order $9$. Note that such subgroup is commutative since $p^2$ groups are commutative (IV.1.6). Call this group $G$.
+\item By excluding $0$, the units of $R$ form a group of order 63, and it contains a $3$-Sylow which is of order $9$. Note that such subgroup is commutative since $p^2$ groups are commutative (\ref{IV.1.6}). Call this group $G$.
 \item The possible order of subrings of $R$ are $1,2,4,8,16,32,64$. Since it contains $G$, such sub-division ring must contain $G$ as its subgroup. But by excluding $0$, the possible order of subgroups formed by units are 
 \[
 1,3,7,15,31,63
 \]
 and only $63$ divides $9$. So the only subring that contains $G$ is $R$.
-\item However, every centralizer of a division ring forms a division ring (III.2.10), so all elements that commutes with $G$ must form a sub-division ring.
-\item Since the only sub-division ring of $R$ is $R$ itself, $G$ commutes with all elements of $R$, hence contained in the center of $R$. But again since center forms a subring (III.2.9), center must also be $R$ itself since it contains $G$. This shows that $R$ is commutative, proving the assertion. 
+\item However, every centralizer of a division ring forms a division ring (\ref{III.2.10}), so all elements that commutes with $G$ must form a sub-division ring.
+\item Since the only sub-division ring of $R$ is $R$ itself, $G$ commutes with all elements of $R$, hence contained in the center of $R$. But again since center forms a subring (\ref{III.2.9}), center must also be $R$ itself since it contains $G$. This shows that $R$ is commutative, proving the assertion. 
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{IV.3.1}
 Prove that $\Z$ has normal series of arbitrary length.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $\Z$ has a normal series $\Z \supsetneq \cdots \supsetneq n\Z$, then we have an extended normal series $\Z \supsetneq \cdots \supsetneq n\Z \supsetneq 2n\Z$, which can be further extended by infinitely times.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.3.3}
 Prove that every finite group has a composition series. Prove that $\Z$ does not have a composition series. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Proceed by induction, since groups of order $1$ has a composition series, assume that for a given positive integer $n$, all groups that has order less than $n$ admits a composition series. Then for $|G|=n$, it suffices to show that there exists some normal subgroup $H$ such that $G/H$ is simple, and the rest follows from induction. 
 
 Indeed, we can let $H$ be the \emph{largest} normal subgroup (in the sense that if $H$ is normal in $H'$, then $H' = H$, assuming $H'$ proper). Then in view of Proposition II.8.9, $G/H$ is simple if and only if $H$ is the largest normal subgroup of $G$, as required.
@@ -318,29 +318,29 @@ $\Z$ does not have a composition series: If there were one, then all decompositi
 \{0\} = \prod_{i = 1}^n p_i\Z \subsetneq \cdots \subsetneq p_1p_2p_3\Z  \subsetneq p_1p_2\Z \subsetneq p_1\Z \subsetneq 1\Z = \Z
 \]
 for $p_i$ being primes. But this is absurd since product of primes will never be zero.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.3.4}
 Find an example of two nonisomorphic groups with the same decomposition factors.
 \end{problem}
-\begin{sol}
+\begin{solution}
 The groups $D_8$ and $C_8$ both has $C_2$ and $C_4$ as their normal subgroups, so there are series 
 \begin{align*}
 D_8 \triangleright C_4 \triangleright C_2 \triangleright \{e\} \\
 C_8 \triangleright C_4 \triangleright C_2 \triangleright \{e\}
 \end{align*}
-\end{sol}
+\end{solution}
 
 \begin{problem}{IV.3.5}
 Show that if $H, K$ are \emph{normal} subgroups of a group $G$, then $HK$ is a normal subgroup of $G$. 
 \end{problem} 
-\begin{pf}
+\begin{proof}
 For $hk \in HK$, $g \in G$,
 \[
 ghkg^{-1} = ghg^{-1}gkg^{-1} \in (gHg^{-1})(gKg^{-1}) = HK
 \]
 so $gHKg^{-1} = HK$, hence normal.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.3.8}
 Prove Lemma 3.7: \emph{Let $\varphi:G_1 \to G_2$ be a group homomorphism. Then $\forall g,h \in G_1$ we have}
@@ -349,12 +349,12 @@ Prove Lemma 3.7: \emph{Let $\varphi:G_1 \to G_2$ be a group homomorphism. Then $
 \]
 and $\varphi(G_1') \subseteq G_2'$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 \[
 \varphi([g,h]) = \varphi(ghg^{-1}h^{-1}) = \varphi(g)\varphi(h)\varphi(g^{-1})\varphi(h^{-1}) = [\varphi(g), \varphi(h)].	
 \]
 The subgroup inclusion is immediate.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.3.10}
 Let $G$ be a group. Define inductively an increasing sequence $Z_0 = \{e\} \subseteq Z_1 \subseteq Z_2 \subseteq \cdots$ of subgroups of $G$ as follows: for $i \geq 1$, $Z_i$ is the subgroup of $G$ corresponding (as in Proposition II.8.9) to the center of $G/Z_{i-1}$.
@@ -369,7 +369,7 @@ A group is \emph{nilpotent} if $Z_m = G$ for some $m$.
 \item Find a solvable group that is not nilpotent.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof} \
 \begin{itemize}
 \setlength\itemsep{0pt}
 \item $Z_1 = Z(G)$ which is clearly normal in $G$; if $Z_{i-1}$ is normal in $G$, then $Z_i/Z_{i-1} \cong Z(G/Z_{i-1}) \unlhd G/Z_{i-1}$, so by Proposition II.8.10, $Z_i$ is normal in $G$.
@@ -394,12 +394,12 @@ we have $G/Z_{i-1}' \cong Z_i'/Z_{i-1}'$, so the series satisfies the definition
 then by noting that $Z_i/Z_{i-1} \cong Z(G/Z_{i-1})$, all quotient of this series is abelian, hence solvable.
 \item $S_3$ is solvable, but it has trivial center (cf. Example IV.1.10), so it can't be nilpotent.	
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.3.15}
 Let $p,q$ be prime integers, and let $G$ be a group of order $p^2q$. Prove that $G$ is solvable.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $p = q$ then there is nothing to prove ($G$ is a $p$-group), so assume two other cases:
 \begin{itemize}
 \setlength\itemsep{0pt}
@@ -411,12 +411,12 @@ p^2q - p^2(q-1) = p^2
 elements outside the union of $q$-Sylows (including $e$), which can precisely fit in a $p$-Sylow, so by the case $p>q$, $G$ is again solvable. 
 \end{itemize}
 Therefore for $|G|=p^2q$, $G$ is solvable. \emph{One should note that this is still true for all groups $G$ such that $|G|=p^nq$ where $n$ is a positive integer.} This can be proved by induction on $n$, and it follows the same pattern as above. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.3.16}
 Prove that every group of order $<120$ and $\neq 60$ is solvable.
 \end{problem}
-\begin{pf}
+\begin{proof}
 There are several tests to check that a group is solvable:
 \begin{enumerate}[label=(\roman*)]
 \setlength\itemsep{0pt}
@@ -445,7 +445,7 @@ This gives the following fancy chart (60 has $A_5$ as an exception, and 120 has 
 Now we handle the special cases. Let $n_p$ denotes the numbers of $p$-Sylow subgroup:
 \begin{itemize}
 \setlength\itemsep{0pt}
-\item $36 = 2^2 \cdot 3^2$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $9 \times 4$, and for the latter we consider the action by conjugation on $3$-Sylows; this induces a homomorphism $\varphi : G \to S_4$, and hence a homomorphism $G/\ker \varphi \hookrightarrow S_4$. Finally $\ker \varphi$ is not trivial since $36 > 24$, so $|\ker \varphi|>1$, and $|G/\ker \varphi| \leq 18$. It then follows that the quotient (and the kernel) is solvable by the chart. 
+\item $36 = 2^2 \cdot 3^2$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $9 \times 4$, and for the latter we consider the action by conjugation on $3$-Sylows; this induces a homomorphism $\varphi : G \to S_4$, and hence a homomorphism $G/\ker \varphi \hookrightarrow S_4$. Finally $\ker \varphi$ is not trivial since $36 > 24$, so $|\ker \varphi|>1$, and $|G/\ker \varphi| \leq 18$. It then follows that the quotient (and the kernel) is solvable by the table. 
 \item $72 = 2^3 \cdot 3^2$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $18 \times 4$, and the latter case is the same as in the case $36$.
 \item $84 = 2^2 \cdot 3 \cdot 7$: $n_7$ must be $1$ since $(1+7) \nmid 12$. 
 \item $90 = 2 \cdot 3^2 \cdot 5$: We only consider the cases where $n_3, n_5$ are not $1$. By simple calculation, we have $n_5 = 6, n_3 = 10$. But then if all $3$-Sylow intersects trivially, then sum of elements that has order $3$ or $5$ is $10(9-1)+6(5-1) = 104 > 90$, which is too much. \\
@@ -461,7 +461,7 @@ so $H\cap K$ is normal in $H$ and $K$ by II.9.11. We "claim" that $H \cap K$ is 
 \[
 |N| \geq 27, \quad |N| \mid 90, \quad 9 \mid |N| \; \text{(Lagrange on }H)
 \]
-and candidates of $|N|$ are $45$ and $90$. In the former case we have $[G : N] = 2$ so $N$ is normal by II.8.2, and the latter case implies $H \cap K$ is normal (Remark IV.1.12). Either way, the quotient with respect to normal subgroups has order $<45$, and by the chart, it is solvable.
+and candidates of $|N|$ are $45$ and $90$. In the former case we have $[G : N] = 2$ so $N$ is normal by \ref{II.8.2}, and the latter case implies $H \cap K$ is normal (Remark IV.1.12). Either way, the quotient with respect to normal subgroups has order $<45$, and by the chart, it is solvable.
 \item $100 = 2^2 \cdot 5^2$: We can only have $n_5 = 1$ since $(1+5) > 4$. 
 \item $108 = 2^2 \cdot 3^3$: We can have $n_3 = 1$ or $4$. The former would give a decomposition $27 \times 4$, and the latter case is the same as in the case $36$.
 \end{itemize}
@@ -484,7 +484,7 @@ qr(p-1) + p(q-1) + q(r-1) = pqr - qr + pq - p + qr - q > pqr.
 Therefore $n_k = 1$ for some $k \in \{p,q,r\}$, and the lemma is proved. \hfill\ensuremath{\square}
 
 All above finishes the proof.
-\end{pf}
+\end{proof}
 
 
 \section{}
@@ -499,18 +499,18 @@ Compute the number of elements in the conjugacy class of
 \]
 in $S_8$.
 \end{problem}
-\begin{sol}
+\begin{solution}
 This permutation is of type $(5,2,1)$, so all permutation that is of type $(5,2,1)$ is in the conjugacy class. There are 
 \[
 \frac{8\cdot 7 \cdot 6 \cdot 5 \cdot 4}{5} \cdot \frac{3 \cdot 2}{2} = 3360
 \]
 elements in the conjugacy class of this permutation.
-\end{sol}
+\end{solution}
 
 \begin{problem}{IV.4.5}
 Find the class formula for $S_n, n \leq 6$.
 \end{problem}
-\begin{sol}
+\begin{solution}
 The case $n = 1,2,3,5$ has been done in the book, and the case $n=4$ will be done in the next problem, so we only do $n = 6$:
 \begin{center}
 \begin{tabular}{l|l|l|l}
@@ -525,13 +525,13 @@ Cycle type & Counts &Cycle type & Counts \\
 \end{tabular}	
 \end{center}
 
-\end{sol}
+\end{solution}
 
 \begin{problem}{IV.4.6}
 Let $N$ be a \emph{normal} subgroup of $S_4$. Prove that $|N| = 1,4,12,$ or $24$. 
 \end{problem}
-\begin{pf}
-We only need to prove the case $|N|=4$ ($12$ follows from II.8.2). Note that normal subgroups are the union of conjugates, so by noting that the class formula 
+\begin{proof}
+We only need to prove the case $|N|=4$ ($12$ follows from \ref{II.8.2}). Note that normal subgroups are the union of conjugates, so by noting that the class formula 
 \[
 24 = \underbrace{1}_e + \underbrace{6}_{(a b)} + \underbrace{8}_{(a b c)} + \underbrace{3}_{(a b)(c d)} + \underbrace{6}_{(a b c d)}
 \]
@@ -540,13 +540,13 @@ we can pick
 N = \{e, (1 2)(3 4), (1 3)(2 4), (1 4)(2 3)\}	
 \]
 and this is indeed normal and of order 4.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{IV.4.7}
 Prove that $S_n$ is generated by $(12)$ and $(12\dotsc n)$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 It suffices to get all transpositions. Denote $\tau = (12\dotsc n)$, and note $\tau^{-1}=(n \; n-1 \dotsc 1)$. First we observe that 
 \[
 \tau(12)\tau^{-1} = \tau^{-1}(12) = (n 1)
@@ -560,16 +560,16 @@ and replace $(1 2)$ by $(1 3)$ obtains $(1 4)$, so we have all transpositions of
 (m n) = (1 m)(1 n)(m 1)	
 \]
 therefore $S_n$ is generated by $(12)$ and $(12\dotsc n)$.
-\end{pf}
+\end{proof}
 
-\begin{problem}{IV.4.10} \el
+\begin{problem}{IV.4.10} \
 \begin{itemize}
 \setlength\itemsep{0pt}
 \item Prove that there are exactly $(n-1)!$ $n$-cycles in $S_n$.
 \item More generally, find a formula for the size of the conjugacy class of a permutation of given type in $S_n$.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 There are $n!$ way to arrange $n$ elements in a line, but since cycles are invariant under "rotation", i.e.
 \[
 (1 2 \cdots n) = (n 1 2 \cdots n-1) = \cdots = (2 3 \cdots n 1)	
@@ -584,12 +584,12 @@ Finally for repeated choice of cycles (i.e. $t_i = t_{i+1} = \cdots = t_{i+m}$),
 \[
 \frac{n!}{t_1 t_2 \cdots t_k} \cdot \frac{1}{c_1! c_2! \cdots c_n!}.
 \]
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.4.11}
-Let $p$ be a prime integer. Compute the number of $p$-Sylow subgroups of $S_p$. Use this result and Sylow's third theorem to prove again the 'only if' implication in Wilson's theorem (cf. Exercise II.4.16.)
+Let $p$ be a prime integer. Compute the number of $p$-Sylow subgroups of $S_p$. Use this result and Sylow's third theorem to prove again the 'only if' implication in Wilson's theorem (cf. Exercise \ref{II.4.16}.)
 \end{problem}
-\begin{pf}
+\begin{proof}
 There are $(p-1)!$ $p$-cycles in $S_p$ by IV.4.10, and any of them belongs to some $p$-Sylow. Since $p$-Sylows only intersects at $e$ as $p$ is a prime, if there are $m$ $p$-Sylow subgroups, then there is $m(p-1)$ $p$-cycles. A simple comparsion gives $m = (p-2)!$.
 
 By Sylow III we must have
@@ -601,13 +601,13 @@ so
 (p-1)! \equiv p-1 \equiv -1 \mod p
 \]
 which is the result.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.4.21}
 Prove that $A_6$ is simple, by using its class formula.
 \end{problem}
-\begin{pf}
-By excluding all odd cycles from the class formula in IV.4.5, we have
+\begin{proof}
+By excluding all odd cycles from the class formula in \ref{IV.4.5}, we have
 \[
 360 = 144 + 90 + 40 + 40 + 45 + 1
 \]
@@ -616,7 +616,7 @@ the divisors of 360 excluding 1 and 360 are
 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24 ,30, 36 ,40, 45, 60, 72, 90, 120, 180
 \]
 and they must be the sum of the numbers appearing in the class equation, with $1$ being a must. But this is not possible by a simple calculation. 
-\end{pf}
+\end{proof}
 
 \section{}
 
@@ -628,16 +628,16 @@ Let $G$ be a finite group, and let $P_1, \dotsc, P_r$ be its Sylow subgroups. As
 	\item Prove that $G$ is nilpotent.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 A $p$-Sylow is normal if and only if it is the only $p$-Sylow in the group. Also, for $p \neq q$, $p, q$ being primes, the $p$-Sylow and $q$-Sylow have trivial intersection (i.e. $\{e\}$), by order consideration. Therefore by Proposition IV.5.3 and a simple induction, $P_1P_2 \cdots P_r \cong P_1 \times \cdots \times P_r$. Finally, since $|G| = |P_1||P_2| \cdots |P_r|$, we conclude that $G \cong P_1P_2 \cdots P_r \cong P_1 \times \cdots \times P_r$. 
 
 Now let $|G| = p_1\cdots p_r$, with $P_i$ being the only $p_i$-Sylow in G (hence normal). Then $G \cong P_1 \times \cdots \times P_r$, and clearly it is nilpotent (cyclic) since it is the product of cyclic groups. Now assume that for fixed $k_1,\dotsc, k_r$, all groups that is of order $p_1^{l_1}\cdots p_r^{l_r}$ where $l_i < k_i, i = 1,\dotsc r$, and has only one $p_i$ Sylow for each $i$, is nilpotent. Now assume $|G| = p_1^{k_1}\cdots p_r^{k_r}$. Then by observing that $Z(G) \cong Z(P_1) \times \cdots Z(P_r)$, we have 
 \[
 \frac{G}{Z(G)} \cong \frac{P_1}{Z(P_1)} \times \cdots \times \frac{P_r}{Z(P_r)}	
 \]
-This group has order $p_1^{l_1}\cdots p_r^{l_r}$ where $l_i < k_i, i = 1,\dotsc r$ ($p$-groups has nontrivial center, so each quotient has less order), and by noting for groups $H, K, H (K) \unlhd H \times K$, we have that $P_i/Z(P_i)$ is normal for each $i$. By order consideration, they are the \emph{only} $p_i$-Sylow for each $i$. Therefore by induction hypothesis, $G/Z(G)$ is nilpotent, and by IV.3.10, $G$ is nilpotent, proving the assertion.
+This group has order $p_1^{l_1}\cdots p_r^{l_r}$ where $l_i < k_i, i = 1,\dotsc r$ ($p$-groups has nontrivial center, so each quotient has less order), and by noting for groups $H$ and $K, H (K) \unlhd H \times K$, we have that $P_i/Z(P_i)$ is normal for each $i$. By order consideration, they are the \emph{only} $p_i$-Sylow for each $i$. Therefore by induction hypothesis, $G/Z(G)$ is nilpotent, and by \ref{IV.3.10}, $G$ is nilpotent, proving the assertion.
 
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.5.4}
 Prove that the sequence
@@ -648,9 +648,9 @@ Prove that the sequence
 \]
 is exact but does not split.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Exactness is a simple routine check; all subgroups of $\Z$ are $k\Z$ for integers $k$, and $\Z/2\Z$ can't be any of them.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.5.5}
 In Proposition III.7.5 we have seen that if an exact sequence
@@ -661,7 +661,7 @@ In Proposition III.7.5 we have seen that if an exact sequence
 \]
 of \emph{abelian} groups splits, then $\varphi$ has a left-inverse. Is it necessarily the case for split sequence of \emph{groups}?
 \end{problem}
-\begin{sol}
+\begin{solution}
 It is not the case for groups: consider
 \[
 \begin{tikzcd}
@@ -673,7 +673,7 @@ There are nontrivial maps $\varphi$ by sending $1$ to a given 3-cycle. However t
 (12)(13) = (1 2 3) \quad (1 2)(2 3) = (1 3 2)
 \]
 we have that 3-cycles must also map to $0$. Therefore no nontrivial maps from $S_3$ to $C_3$ exists, and every nontrivial $\varphi$ can't have a left-inverse. 
-\end{sol}
+\end{solution}
 
 \begin{problem}{IV.5.6}
 Prove Lemma 5.8: 
@@ -682,7 +682,7 @@ Prove Lemma 5.8:
 The structure $(N \times H, \bullet_\theta)$ is a group, with identity element $(e_N, e_H)$.
 }
 \end{problem}
-\begin{pf}
+\begin{proof}
 The existence of inverse is already proven in Lemma 5.8; $(e_N, e_H)$ is indeed the identity since for $(n,h)\in (N \times H, \bullet_\theta)$,
 \[
 (n, h) \bullet_\theta (e_N, e_H) = (n\theta_h(e_N), he_H) = (n, h)
@@ -696,24 +696,24 @@ the associativity holds: for $(n_i,h_i)\in (N \times H, \bullet_\theta), i = 1,2
 &= (n_1, h_1) \bullet_\theta (n_2\theta_{h_2}(n_3), h_2h_3) \\
 &= (n_1, h_1) \bullet_\theta ((n_2, h_2) \bullet_\theta (n_3,h_3))
 \end{align*}
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.5.8}
 Prove that if $G = N \rtimes H$ is commutative, then $G \cong N \times H$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 It suffices to show that the action $\theta_h$ is trivial for each $h$, i.e. $\theta_h(n) = n$ for all $n \in N, h \in H$. This can be shown by the identity
 \[
 (n,h) = (n\theta_{e_H}(e_N), h) = (n,e_H)(e_N,h) \overset{!}{=} (e_N,h)(n,e_H) = (e_N\theta_h(n), h) = (\theta_h(n), h)
 \]
 Abelian property is used in !.
-\end{pf}
+\end{proof}
 
 \begin{problem}{IV.5.15}
 Let $G$ be a group of order 28. Prove that there are four groups of order 28 up to isomorphism.
 \end{problem}
-\begin{pf}
-\begin{itemize}
+\begin{proof}
+\begin{itemize} \
 	\setlength\itemsep{0pt}
 	\item Notice that there can be only one $7$-Sylow as $(1+2)\nmid 4$ and $1 + 4 > 4$. Such group (call it $N$) must be normal.
 	\item Note $\text{Aut}_\mathsf{Grp}(N) \cong C_6 $. There are two possibility for homomorphisms $\varphi : C_4 \to \text{Aut}_\mathsf{Grp}(N)$: One being the trivial map, and another being $\varphi(1) = (1 \to 4)$ or $\varphi(3) = (1 \to 4)$ ($|\varphi(1)| = |(1 \to 4)| = 2$ must divide $|1| = 4$). For the case $\varphi : C_2 \times C_2 \to \text{Aut}_\mathsf{Grp}(N)$, there is trivial map, and another map $\varphi((1,0)) = (1 \to 4)$ or $\varphi((0,1)) = (1 \to 4)$.
@@ -728,26 +728,26 @@ Let $G$ be a group of order 28. Prove that there are four groups of order 28 up 
 	\]
 	defines an isomorphism, so $D_{28} \cong C_2 \times D_{14}$. The other noncommutative group of order 28 is called the \emph{generalized quaternion group}.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{IV.6.2}
-Complete the classification of groups of order 8 (cf. Exercise 2.16).
+Complete the classification of groups of order 8 (cf. Exercise \ref{IV.2.16}).
 \end{problem}
-\begin{sol}
+\begin{solution}
 Abelian cases are $C_8, C_4 \times C_2, C_2 \times C_2 \times C_2$ as factorization of $8$ tells us; nonabelian cases are $D_8$ and $Q_8$ as in IV.2.16.
-\end{sol}
+\end{solution}
 
 \begin{problem}{IV.6.6}
 How many \emph{abelian} groups of order 1024 are there, up to isomorphism?
 \end{problem}
-\begin{sol}
+\begin{solution}
 As $1024 = 2^{10}$, we are asking how many ways are there to distribute $10$ into unordered integer partitions. Denote $(k,n)$ to be the number of ways to partition $k$ into unordered integer partitions, with each partition no less than $n$ \emph{and} contains at least one partition of size $n$. We then see that 
 \[
 (k,0) = \sum_{i \in \N, i > k/2} (i,k-i) + 1
 \]
-For example, we solve $n=6$ (cf. IV.4.5; note that this is \emph{exactly} the count of conjugacy classes of $S_6$):
+For example, we solve $n=6$ (cf. \ref{IV.4.5}; note that this is \emph{exactly} the count of different conjugacy classes of $S_6$):
 \[
 (6,0) = (5,1)+(4,2)+(3,3)+1
 \]
@@ -763,4 +763,4 @@ So we need to solve $(10,0)$. Assuming that $(9,1) = (9,0) = 30$ (which can be s
 \end{tabular}	
 \end{center}
 Therefore there are $32+7+2+1+1+1 = 42$ ways to partition, so there are 42 different abelian groups of order 1024, up to isomorphism.
-\end{sol}
+\end{solution}

@@ -5,59 +5,59 @@ Unless otherwise specified, in the following $G$ denotes a group, $e$ denotes th
 \begin{problem}{II.1.8}
 Let $G$ be a finite abelian group with exactly one element $f$ of order 2. Prove that $\prod_{g \in G}g = f.$
 \end{problem}
-\begin{pf}
+\begin{proof}
 For all elements that is not of order 2, they have an inverse that is not itself, so they canceled out in the product $\prod_{g \in G}g$, leaving only elements that is of order 2, i.e. $f$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.1.10}
 If the order of $g$ is odd, what can you say about the order of $g^2$ ?
 \end{problem}
-\begin{sol}
+\begin{solution}
 The order of $g^2$ is $|g|$ since the only number that divides $|g|$ and in $\{2, 4, ..., 2|g|\}$ is $2|g|$ if $|g|$ is odd.
-\end{sol}
+\end{solution}
 
 \begin{problem}{II.1.11}
 Prove that for all $g, h$ in a group $G$, $|gh| = |hg|$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Simply observe that $e = (gh)^{|gh|} = g(hg)^{(|gh|-1)}h$, therefore 
 \[
 g^{-1}h^{-1} = (hg)^{-1} = (hg)^{|gh|-1}
 \]
 hence $(hg)^{|gh|} = e$. The other case ($(gh)^{|hg|} = e$)is the same.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.1.13}
 Give an example showing that $|gh| \neq \text{lcm}(|g|, |h|)$ even if $g$ and $h$ commute.
 \end{problem}
-\begin{sol}
+\begin{solution}
 In $C_4$, $|1 + 3| = |0| = 1$ but $\text{lcm}(|1|, |3|) = 4$. Clearly $C_4$ is abelian.
-\end{sol}
+\end{solution}
 
 \begin{problem}{II.1.14}
 As a counterpoint of II.1.13, prove that if $g$ and $h$ commute and gcd$(|g|, |h|) = 1$, then $|gh| = |g||h|$. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 One has $|gh|$ divides $\text{lcm}(|g|, |h|) = |g||h|$ by Proposition II.1.14, so it suffices to prove that $|g||h|$ divides $|gh|$. Let $N = |gh|$. By noting that $(gh)^N = g^Nh^N$ since $g$ and $h$ commutes, we have
 \[
 (gh)^{N|h|} = e^{|h|} = g^{N|h|}h^{N|h|} = g^{N|h|}
 \]
 so $|g|$ divides $N|h|$, which implies $|g|$ divides $N$ since $\text{gcd}(|g|, |h|) = 1$. Similarly $|h|$ divides $N$, therefore $|g||h|$ divides $N = |gh|$, as desired.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.1.15}
 Let $G$ be a commutative group, and let $g\in G$ be an element of maximal \emph{finite} order. Prove that if $h$ has finite order in $G$, then $|h|$ \emph{divides} $|g|$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Suppose that $|h|$ does not divide $|g|$, then we can assume that $|g| = p^mr, |h| = p^ns$, where $p$ is a prime, $r, s$ relatively prime to $p$ and $m<n$. Since $|h|$ does not divide $|g|$, $\text{gcd}(h,g) = 1$. Then by II.1.14 we can calculate the order of $g^{p^m}h^s$, which is $p^nr$. But this element has order bigger than $g$, which contradicts to the maximality of $g$. Hence $|h|$ must divide $|g|$.
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.2.5}
 Describe generators and relations for all dihedral groups $D_{2n}$.
 \end{problem}
-\begin{sol}
+\begin{solution}
 There are two elements: $r$, which is rotation, and $s$ is the  reflection. We would except that 
 \begin{itemize}
 \setlength\itemsep{0pt}
@@ -74,48 +74,48 @@ if we assume that $b_1 = 1$ (or it would just be $s^{a_1}r^{a_2+b_2}$),then
 s^{a_1}r^{a_2}sr^{b_2} = s^{a_1}s(sr^{a_2}s)r^{b_2} = s^{a_1}sr^{-a_2}r^{b_2} = s^{a_1+1}r^{-a_2+b_2}
 \]
 so $ab$ is an element of $D_{2n}$. This extends to (in)finite products, so this relations determines $D_{2n}$.
-\end{sol}
+\end{solution}
 
 \begin{problem}{II.2.10}
-Prove that $\mathbb{Z}/n\mathbb{Z}$ consists of precisely $n$ elements.
+Prove that $\Z/n\Z$ consists of precisely $n$ elements.
 \end{problem}
-\begin{pf}
-Trivial.
-\end{pf}
+\begin{proof}
+The elements are $[0]_n, [1]_n, \dotsc, [n-1]_n$, and notice that $[n]_n=[0]_n, [n+1]_n = [1]_n$, and so on. No two elements listed above are the same by a simple check. 
+\end{proof}
 
 \begin{problem}{II.2.14}
-Show that the multiplication in $\mathbb{Z}/n\mathbb{Z}$ is a well-defined action.
+Show that the multiplication in $\Z/n\Z$ is a well-defined action.
 \end{problem}
-\begin{pf}
-If $a \equiv a' \mod n$ and $b \equiv b' \mod n$, then $a = a' + kn, \: b = b' + ln$ for $k, l \in \mathbb{Z}$, therefore
+\begin{proof}
+If $a \equiv a' \mod n$ and $b \equiv b' \mod n$, then $a = a' + kn, \: b = b' + ln$ for $k, l \in \Z$, therefore
 \[
 (ab) - (a'b') = (a' + kn)(b' + ln) - a'b' = a'ln + b'kn + kln^2 \equiv 0 \mod n
 \]
 as desired.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.2.16}
 Find the last digit of $1238237^{18238456}$.
 \end{problem}
-\begin{sol}
+\begin{solution}
 $
 1238237^{18238456} \equiv 7^{18238456} = 49^{9119228} = 2401^{4559614} \equiv 1^{4559614} = 1 \mod 10.
 $
-\end{sol}
+\end{solution}
 
 \begin{problem}{II.2.17}
-Show that if $m \equiv m' \mod n$, then $\gcd(m, n) = 1$ \iffw $\gcd(m', n) = 1$.
+Show that if $m \equiv m' \mod n$, then $\gcd(m, n) = 1$ if and only if $\gcd(m', n) = 1$.
 \end{problem}
-\begin{pf}
-We can write $m = nk + m'$ for $n \in \mathbb{Z}$ and use Euclidean Algorithm to conclude.
-\end{pf}
+\begin{proof}
+We can write $m = nk + m'$ for $n \in \Z$ and use Euclidean Algorithm to conclude.
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.3.1}
 Let $\varphi: G \to H$ be a morphism in a category \textsf{C} with products. Explain why there is a unique morphism $(\varphi \times \varphi) : G \times G \to H \times H$ compatible in the evident way with the natural projections.  
 \end{problem}
-\begin{sol}
+\begin{solution}
 The compatibility of $(\varphi \times \varphi)$ comes from the commutative diagram
 \[
 \begin{tikzcd}
@@ -133,12 +133,12 @@ G \times G \arrow[rru, bend left] \arrow[rrd, bend right] \arrow[r, "\exists ! (
 \end{tikzcd}
 \]
 commutes.
-\end{sol}
+\end{solution}
 
 \begin{problem}{II.3.3}
 Show that if $G, H$ are abelian groups, then $G \times H$ satisfies the universal property for coproducts in \textsf{Ab}.
 \end{problem}
-\begin{pf} 
+\begin{proof} 
 Let $A$ be an arbitrary abelian group, $f_G, f_H$ be homomorphisms, $i_G, i_H$ be inclusions. We are required to prove the commutativity of the diagram
 \[
 \begin{tikzcd}
@@ -155,68 +155,68 @@ To check the universal property, define $\varphi(g,h) := f_G(g)f_H(h)$. It is di
 \end{split}
 \]
 as desired.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.3.6}
 Consider the product $C_2 \times C_3$, which is a coproduct in \textsf{Ab}. Show that it is \textit{not} a coproduct of $C_2$ and $C_3$ in \textsf{Grp}.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $C_2 \times C_3$ is a coproduct, then take $A = S_3$. Although there are injective homomorphisms
 \begin{align*}
 &\varphi_1:C_2 \to S_3 \text{ by } \varphi_1(1) = (12) \text{ or other two cycle}\\
 &\varphi_2:C_3 \to S_3 \text{ by } \varphi_2(1) = (123)\text{ or other three cycle} 
 \end{align*}
 but there are no homomorphisms $\varphi:C_2 \times C_3 \to S_3$ that satisfies the universal property of coproducts: Observe that any choice of cycles in $\varphi_1$ and $\varphi_2$ will exhaust all possible element of $S_3$, hence forces $\varphi$ to be an isomorphism. But the element $\varphi(1,1)$ must be either a 2(or 3)-cycle (i.e. $\varphi^2(1,1)$ (or $\varphi^3(1,1)$) is zero), and neither $(1,1)^2$ nor $(1,1)^3$ are $(0,0)$, and $\varphi$ will map a non-identity element to the identity, a contradiction (since $\varphi$ is an isomorphism and must map $(0,0)$ to the trivial cycle).
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.4.3}
-Prove that a group of order $n$ is isomorphic to $\mathbb{Z}/n\mathbb{Z}$ \iffw it contains an element of order $n$.
+Prove that a group of order $n$ is isomorphic to $\Z/n\Z$ if and only if it contains an element of order $n$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $G$ be such group. \\
-$(\Rightarrow)$ Trivial. \\
-$(\Leftarrow)$ Let $g$ be an element of order $n$. Then consider a homomorphism $\varphi: G \to \mathbb{Z}/n\mathbb{Z}$ with $\varphi(g) = \bar{1}$. It is a direct check that this is an isomorphism.
-\end{pf}
+$(\Rightarrow)$ Trivial: $\bar{1}$ has order $n$. \\
+$(\Leftarrow)$ Let $g$ be an element of order $n$. Then consider a homomorphism $\varphi: G \to \Z/n\Z$ with $\varphi(g) = \bar{1}$. This map is injective: if it weren't, then there are some integers $0 \leq i < j < n$ such that $\varphi(g^i) = \varphi(g^j)$. But then $\varphi(g^{j-i}) = \bar{0}$, which says $g^{j-i} = e_G$, so $g$ has order less than $n$, a contradiction.
+\end{proof}
 
 \begin{problem}{II.4.8}
-Let $g \in G$. Prove that the function $\gamma_g:G \to G$ defined by $\gamma_g(a)=gag^{-1}$ is an automorphism of $G$. Prove that the function $G \to \text{Aut}(G)$ defined by $g \to \gamma_g$ is a homomorphism, and show that this homomorphism is trivial \iffw $G$ is abelian.
+Let $g \in G$. Prove that the function $\gamma_g:G \to G$ defined by $\gamma_g(a)=gag^{-1}$ is an automorphism of $G$. Prove that the function $G \to \text{Aut}(G)$ defined by $g \to \gamma_g$ is a homomorphism, and show that this homomorphism is trivial if and only if $G$ is abelian.
 \end{problem}
-\begin{pf}
-$\gamma_g$ is injective since if $gag^{-1} = gbg^{-1}$ then $a = b$; it is surjective since for $k \in G$ we can find $g^{-1}kg$ so that $\gamma_g(g^{-1}kg) = k$; it is a homomorphism since \[\gamma_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = \gamma_g(a)\gamma_g(b).\]
+\begin{proof}
+$\gamma_g$ is injective since if $gag^{-1} = gbg^{-1}$ then $a = b$; it is surjective since for $k \in G$ we can let $g^{-1}kg$ so that $\gamma_g(g^{-1}kg) = k$; it is a homomorphism since \[\gamma_g(ab) = gabg^{-1} = gag^{-1}gbg^{-1} = \gamma_g(a)\gamma_g(b).\]
 
 If $G$ is abelian then the automorphism is simply $\gamma_g(a)=a$; conversely if $gag^{-1} = a$ then $ga = ag$ for all $a, g \in G$, hence abelian.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.4.9}
 Prove that if $m, n$ are positive integers such that $\gcd(m,n) = 1$, then $C_{mn} \cong C_m \times C_n$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 \[
 \varphi:C_{mn} \to C_m \times C_n ,\: \varphi(a) = (a \text{ mod } m, a \text{ mod } n)
 \]
-is a homomorphism and a bijection.
-\end{pf}
+is a homomorphism and a bijection, as one can check directly.
+\end{proof}
 
 \begin{problem}{II.4.11}
-Assuming the fact that the equation $x^d = 1$ can have at most $d$ solutions in $\mathbb{Z}/p\mathbb{Z}$ for a prime $p$, prove that $(\mathbb{Z}/p\mathbb{Z})^*$ is cyclic.
+Assuming the fact that the equation $x^d = 1$ can have at most $d$ solutions in $\Z/p\Z$ for a prime $p$, prove that $(\Z/p\Z)^*$ is cyclic.
 \end{problem}
-\begin{pf}
-Let $g$ be an element of maximal order, and by II.1.15, all elements have degree that divides $|g|$, i.e. $|h|^{|g|} = 1$ for all $h \in G$. Using the fact, we have $|G| \leq |d|$, since only at most $|g|$ elements can be the solution to $h^{|g|} = 1$. Clearly we also have $|G| \geq |d|$, so $|G| = |d|$. Thus the proof is complete by II.4.3.
-\end{pf}
+\begin{proof}
+Let $g$ be an element of maximal order, and by \ref{II.1.15}, all elements have degree that divides $|g|$, i.e. $|h|^{|g|} = 1$ for all $h \in G$. Using the fact, we have $|G| \leq |d|$, since only at most $|g|$ elements can be the solution to $h^{|g|} = 1$. Clearly we also have $|G| \geq |d|$, so $|G| = |d|$. Thus the proof is complete by \ref{II.4.3}.
+\end{proof}
 
 \begin{problem}{II.4.13}
-Prove that $\text{Aut}_\textsf{Grp}(\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}) \cong S_3$.
+Prove that $\text{Aut}_\textsf{Grp}(\Z/2\Z \times \Z/2\Z) \cong S_3$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 To make an automorphism $\varphi$, $\varphi$ must fix $(0,0)$, leaving 6 possible permutations for elements $(0,1), (1,0), (1,1)$. It suffices to check that all permutations of these elements are homomorphisms(hence isomorphisms). 
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.4.14}
-Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integers $r \leq n$ that are \emph{relatively prime} to $n$ (cf. II.6.14).	
+Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integers $r \leq n$ that are \emph{relatively prime} to $n$ (cf. \ref{II.6.14}).	
 \end{problem}
-\begin{pf}
+\begin{proof}
 We shall first show that every endomorphism of cyclic group $C$ is of form $\varphi_n(x) = x^n$ for some $n$. Indeed, if $\sigma$ is a endomomorphism that $\sigma(x) = x^a = \varphi_a(x)$, then for every $x^b \in C$ we have
 \[
 \sigma(x^b) = \sigma(x)^b = (x^a)^b = (x^b)^a = \varphi(x^b)	
@@ -226,20 +226,20 @@ so every endomorphism is of form $\varphi_n : x \mapsto x^n$ for some $n$. Now t
 \varphi_k(x^{n/r}) = x^{n/r \cdot k} = x^{n \cdot k/r} = (x^{n})^{k/r} = e^{k/r} = e
 \]
 and since $n/r$ is not $n$, $\varphi_k$ maps a non-identity element to $e$, in which it is already mapped by $e \in C_n$, so $\varphi_k$ fails to be a bijection. Therefore the order of $\text{Aut}(C_n)$ is the number of positive integers that is relatively prime to $n$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.4.16}
-Prove the \textit{Wilson's theorem}: for $p \in \mathbb{N}_{>1}$, $p$ is a prime \iffw
+Prove the \textit{Wilson's theorem}: for $p \in \N_{>1}$, $p$ is a prime if and only if
 \[
 (p-1)! \equiv -1 \mod p
 \]
 \end{problem}
-\begin{pf}
-$(\Rightarrow)$ Assuming that the result of II.1.8 and II.4.11 is true, consider $G = (\mathbb{Z}/n\mathbb{Z})^*$. It is cyclic, and has exactly one element of order 2 since for $0 \leq k \leq p - 2$,
+\begin{proof}
+$(\Rightarrow)$ Assuming that the result of \ref{II.1.8} and \ref{II.4.11} is true, consider $G = (\Z/n\Z)^*$. It is cyclic, and has exactly one element of order 2 since for $0 \leq k \leq p - 2$,
 \[
 (p-1-k)^2 \equiv 1 + 2k + k^2 \equiv 1 \mod p \iff k(k+2) \equiv 0 \mod p 
 \]
-and such solution can only be $k = 0 \text { or } p-2$ since $p$ is a prime, which correspond to $p-1$ and $1$ (identity). Therefore by II.1.8
+and such solution can only be $k = 0 \text { or } p-2$ since $p$ is a prime, which correspond to $p-1$ and $1$ (identity). Therefore by \ref{II.1.8}
 \[
 \prod_{g \in G} g = (p-1)! \equiv (p-1) \equiv -1 \mod p
 \]
@@ -247,24 +247,24 @@ as desired.
 
 \noindent $(\Leftarrow)$ If $p$ is not a prime, then there exists $1 < k < p$ such that $k|p$. Since $k < p$ we have $k | (p-1)!$, i.e. 
 \[
-(p-1)! \equiv rk \mod p \text{ for some } r \in \mathbb{Z}
+(p-1)! \equiv rk \mod p \text{ for some } r \in \Z
 \]
 and clearly no choice of $r$ will make $rk \equiv -1 \mod p$ by the fact that $k|p$. Therefore $p$ must be a prime.
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.5.3}
 Use the universal property of free groups to prove that the map $j:A \to F(A)$ is injective.
 \end{problem}
-\begin{pf}
-If there is $a,b \in A$ such that $j(a) = j(b)$ but $a \neq b$, then let $f$ be a set function such that $f(a) \neq f(b)$; in particular, let $G = \mathbb{Z}$ and let $f(a) = 1, f(b) = 2$. Then there are no homomorphisms that will make the diagram commute, therefore $j$ must be injective. 
-\end{pf}
+\begin{proof}
+If there is $a,b \in A$ such that $j(a) = j(b)$ but $a \neq b$, then let $f$ be a set function such that $f(a) \neq f(b)$; in particular, let $G = \Z$ and let $f(a) = 1, f(b) = 2$. Then there are no homomorphisms that will make the diagram commute, therefore $j$ must be injective. 
+\end{proof}
 
 \begin{problem}{II.5.6}
-Prove that the group $F(\{x,y\})$ is a coproduct $\mathbb{Z} * \mathbb{Z}$ of $\mathbb{Z}$ by itself in the category \textsf{Grp}.
+Prove that the group $F(\{x,y\})$ is a coproduct $\Z * \Z$ of $\Z$ by itself in the category \textsf{Grp}.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We are given the universal property of free group: for $j:\{x,y\} \to F(\{x,y\})$, $\exists G, f$ such that the diagram
 \[
 \begin{tikzcd}
@@ -286,14 +286,14 @@ To check the coproduct diagram commutes, it suffices to check $f = \varphi \circ
 f \circ \gamma (x) = f(0) = \varphi (x) = \varphi \circ j(x), \quad f \circ \gamma (y) = f(1) = \varphi (y) = \varphi \circ j(y)
 \]
 Since $f(1) = \varphi \circ i (1) = \varphi (y)$, the homomorphisms agree on the generator, hence are the same. 
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.6.5}
 Let $G$ be a \emph{commutative} group, and let $n>0$ be an integer. Prove that $\{g^n : g \in G\}$ is a subgroup of $G$. Prove that this is not necessarily the case if $G$ is not commutative. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 For any two elements $a,b$ in the set, they can be represented as $g^n$ and $h^n$ respectively. Now 
 \[
 ab^{-1} = g^nh^{-n} = (gh^{-1})^n
@@ -303,12 +303,12 @@ which shows that $ab^{-1}$ is also in the set, proving the set is a subgroup. A 
 \{g^3 : g \in D_3\} = \{1, r^3, r^{2 \cdot 3}, s^3, (sr)^3, (sr^2)^3\} = \{1, 1, 1, s, sr, sr^2\}
 \]
 this set is not a subgroup, as $s^{-1}sr = r$ is not an element of this set.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.6.7}
-Show that inner automorphisms (the collection of $\gamma_g$ in II.4.8) form a subgroup $\text{Inn}(G)$ of $\text{Aut}(G)$, and show that $\text{Inn}(G)$ is cyclic \iffw $\text{Inn}(G)$ is trivial \iffw $G$ is abelian. Deduce that if $\text{Aut}(G)$ is cyclic, then $G$ is abelian.
+Show that inner automorphisms (the collection of $\gamma_g$ in \ref{II.4.8}) form a subgroup $\text{Inn}(G)$ of $\text{Aut}(G)$, and show that $\text{Inn}(G)$ is cyclic if and only if $\text{Inn}(G)$ is trivial if and only if $G$ is abelian. Deduce that if $\text{Aut}(G)$ is cyclic, then $G$ is abelian.
 \end{problem}
-\begin{pf}
+\begin{proof}
 $\text{Inn}(G)$ is a subgroup since
 \[
 \gamma_g \circ \gamma_{h^{-1}} = gh^{-1}ahg^{-1} = (gh^{-1})a(gh^{-1})^{-1} \in \text{Inn}(G).
@@ -317,23 +317,23 @@ $\text{Inn}(G)$ is a subgroup since
 If $\text{Inn}(G)$ is cyclic, then let $\gamma_g(a) = gag^{-1}$ be a generator of order $n$. Then for any $b \in G$, we have $\gamma_b(x) = \gamma_g^n(x)$, for some integer $n$. Then by plug in $b$ into the homomorphism, we have $gbg^{-1} = b^nbb^{-n}$. This gives $gb = bg \:\: \forall b \in G$, so $\gamma_g$ is in fact trivial. Since the generator is trivial, we conclude that $\text{Inn}(G)$ is trivial. If $\text{Inn}(G)$ is trivial, then the function given in II.4.8 can only be the trivial map, so $G$ is abelian by II.4.8. Finally, if $G$ is abelian, then all inner automorphisms are trivial, and clearly trivial group is cyclic.
 
 The last statement follows from Proposition II.6.11 that every subgroup of cyclic group is cyclic.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.6.9}
 Prove that an \emph{abelian} group $G$ is finitely generated if and only if there is a surjective homomorphism
 \[
-    \underbrace{\mathbb{Z} \oplus \cdots \oplus \mathbb{Z}}_{n \text{ times}}\twoheadrightarrow G   
+    \underbrace{\Z \oplus \cdots \oplus \Z}_{n \text{ times}}\twoheadrightarrow G   
 \]
 for some $n$.
 \end{problem}
-\begin{pf} \\
+\begin{proof} \
 $(\Rightarrow)$ As the group is abelian, for $G = \langle a_1, \cdots a_n \rangle$, we can represent an element $g$ uniquely as
 \[
     g = a_1^{p_1} \cdots a_n^{p_n}    
 \]
-where $p_i\in \mathbb{Z}, \; i = 1, \cdots n$. Therefore we can explicitly write down the surjective homomorphism
+where $p_i\in \Z, \; i = 1, \cdots n$. Therefore we can explicitly write down the surjective homomorphism
 \[
-\varphi : \underbrace{\mathbb{Z} \oplus \cdots \oplus \mathbb{Z}}_{n \text{ times}}\twoheadrightarrow G \quad \text{ by } \quad \varphi(p_1,\cdots ,p_n) = a_1^{p_1} \cdots a_n^{p_n} = g      
+\varphi : \underbrace{\Z \oplus \cdots \oplus \Z}_{n \text{ times}}\twoheadrightarrow G \quad \text{ by } \quad \varphi(p_1,\cdots ,p_n) = a_1^{p_1} \cdots a_n^{p_n} = g      
 \]
 as desired. \\
 $(\Leftarrow)$ By the universal property of $\Z^{\oplus n}$ we have the following diagram that commutes:
@@ -352,15 +352,15 @@ To prove, it suffices to "replace" the set $\{1,\cdots,n\}$ by a subset of $G$.
 \end{tikzcd}
 \]
 By the diagram $(^*)$, we have $i \circ f = \varphi \circ j$. It is a fast check that the diagram formed by $\tilde{j}, i$ and $\varphi$ commutes. Finally since $A$ is a finite set and $\im \varphi = G$, it follows by definition that $G$ is finitely generated.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.6.14}
-Let $\phi$ be the Euler's $\phi$-function. Prove that for $n \in \mathbb{N}$, 
+Let $\phi$ be the Euler's $\phi$-function. Prove that for $n \in \N$, 
 \[
 \sum_{m>0, m|n} \phi(m) = n.
 \]
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $\langle x \rangle = C_n$. We have the trivial equation 
 \[
 \sum_{g \in C_n} 1 = n
@@ -380,21 +380,21 @@ Now we count the generators of each subgroup of $C_n$, which is $\phi(d)$ for ev
 \sum_{g \in C_n} 1 = \sum_{m : m|n} \phi(m) = n
 \]
 which proved the assertion.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.6.15}
 Prove that if $\varphi:G \to G'$ has a left inverse, then $\varphi$ is a monomorphism.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $a, b \in G$ are distinct elements that satisfies $\varphi(a) = \varphi(b)$, then having left inverse means there exists a homomorphism $\psi$ such that $\psi \circ \varphi = id_G$. Then we would have $\psi \circ \varphi(a) = \psi \circ \varphi(b)$, which means $a = b$, a contradiction.
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.7.3}
 Verify that the equivalent conditions for normality given in $\S 7.1$ are indeed equivalent.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $g \in G$ be fixed.
 \begin{itemize}
     \setlength\itemsep{0pt}
@@ -404,34 +404,34 @@ Let $g \in G$ be fixed.
     \item ($gN \subseteq Ng \Rightarrow gN = Ng$): If $gN \subseteq Ng$, then we also have $g^{-1}N \subseteq Ng^{-1}$, which is $Ng \subseteq gN$.
     \item ($gN = Ng \Rightarrow gng^{-1} \in N$): If $gn = n'g$, then $gng^{-1} = n'$. Since $N$ is a subgroup, $gng^{-1} \in N$. 
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.7.7}
 Let $n$ be a positive integer. Let $H \subset G$ be the subgroup generated by all elements of order $n$ in $G$. Prove that $H$ is normal.
 \end{problem}
-\begin{pf}
+\begin{proof}
 For $a \in H, g \in G$, since $a^n = e$,
 \[
 (gag^{-1})^n = ga^ng^{-1} = e
 \]
 we have $gag^{-1} \in H$, hence normal.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.7.11}
 Prove that the commutator subgroup $[G,G]$ is normal, and the quotient $G/[G,G]$ is commutative.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Observe
 \[
 gaba^{-1}b^{-1}g^{-1} = (gag^{-1})(gbg^{-1})(ga^{-1}g^{-1})(gb^{-1}g^{-1}) = xyx^{-1}y^{-1} \in [G,G]
 \]
 for $x = gag^{-1}, y = gbg^{-1}$. The quotient is commutative since $aba^{-1}b^{-1}[G,G] = [G,G]$ implies $ab[G,G] = ba[G,G]$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.7.12}
 Let $F=F(A)$ be a free group, and let $f:A \to G$ be a set-function from the set $A$ to a \emph{commutative} group $G$. Prove that $f$ induces a unique homomorphism $F/[F,F] \to G$, where $[F,F]$ is the commutator subgroup of $F$ defined in Exercise 7.11. Conclude that $F/[F,F] \cong F^{ab}(A)$.	
 \end{problem}
-\begin{pf}
+\begin{proof}
 We need to define a proper homomorphism $\tilde{f} : F/[F,F] \to G$. By the universal property of free group, we have a unique homomorphism $\varphi : F \to G$ induced from $f$. Now observe that for $g,h \in A$, 
 $$
 \varphi(g)\varphi(h)\varphi(g)^{-1}\varphi(h)^{-1} = \varphi(ghg^{-1}h^{-1}) = e
@@ -449,20 +449,20 @@ A \arrow[rru, "f"] \arrow[u, "j"]                           &                   
 \end{tikzcd}	
 \]
 Since both triangles commutes, the "triangle" formed by the edges $\pi \circ j, f$ and $\tilde{f}$ also commutes. By general nonsense (Proposition I.5.4), we conclude that $F/[F,F] \cong F^{ab}(A)$.
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.8.2}
 Extend Example 8.6 as follows. Suppose $G$ is a group and $H \subseteq G$ is a subgroup of \emph{index} $2$, that is, such that there are precisely two (say, left-) cosets of $H$ in $G$. Prove that $H$ is normal in $G$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $x \in H$, and we need to prove that $gxg^{-1} \in H$ for all $g \in G$. If $g \in H$ then there is nothing to prove, so assume that $g \in aH$, another coset of $H$ in $G$. We can write $g = ah$ for some $h$, so it remains to study $ahxh^{-1}a^{-1}$. By noting that $ahxh^{-1} \in aH$, we know that $ahxh^{-1}$ does not belong to $H$, and in the sense of right cosets, $ahxh^{-1}$ must belong to $Ha$, so there exists $h' \in H$ such that $ahxh^{-1} = h'a$. Finally
 \[
 gxg^{-1} = ahxh^{-1}a^{-1} = h'aa^{-1} = h' \in H	
 \]
 which shows that $H$ is normal.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.7}
 Let $(A|\mathscr{R}), (A'|\mathscr{R'})$, be the presentation for groups $G, G'$, respectively, and assume that $A$ and $A'$ are disjoint. Prove that
@@ -471,7 +471,7 @@ G * G' := (A \cup A' \; |\; \mathscr{R} \cup \mathscr{R'})
 \]
 satisfies the universal property for the coproduct of $G$ and $G'$ in \textsf{Grp}.
 \end{problem}
-\begin{pf} Write $H = \mathscr{R} \cup \mathscr{R'}$. Let us construct a homomorphism from $G$ to $G * G'$. As $G = F(A)/R$, by the universal property of quotient we have a commutative diagram
+\begin{proof} Write $H = \mathscr{R} \cup \mathscr{R'}$. Let us construct a homomorphism from $G$ to $G * G'$. As $G = F(A)/R$, by the universal property of quotient we have a commutative diagram
 \[
 \begin{tikzcd}
 F(A) \arrow[rr, "f"] \arrow[rd, "\pi"] &                                                   & G * G' \\
@@ -485,34 +485,34 @@ Now it suffices to check the universal property. For every homomorphism that map
 \phi(wH) = \prod_{i = 1}^{|w|} \left( f_1(w_i\mathscr{R}) \chi_{F(A)}(w_i) +  f_2(w_i\mathscr{R}') \chi_{F(A')}(w_i) \right)
 \]
 where $w = w_1 \cdots w_n$, $\chi$ is the indicator function. The commutative of the coproduct diagram is clear, and $\phi$ is clearly a homomorphism since we can clearly combine two finite product to one.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.13}
 Let $G$ be a finite group, and assume $|G|$ is odd. Prove that every element of $G$ is a square.
 \end{problem}
-\begin{pf}
-Let $|G|=2n-1$, $n \in \mathbb{N}$. For every $g \in G$, we have
+\begin{proof}
+Let $|G|=2n-1$, $n \in \N$. For every $g \in G$, we have
 \[
 g = g \cdot g^{2n-1} = g^{2n} = (g^n)^2    
 \]
 which implies that every element in $G$ is a square.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.14}
 Generalize the result of II.8.13: if $G$ is a group of order $n$ and k is an integer relatively prime to $n$, then the function $G \to G, g \to g^k$ is surjective.
 \end{problem}
-\begin{pf}
+\begin{proof}
 By the prime condition, we can apply Bezout's identity, namely there exists integers $a,b$ such that $an + bk = 1$. Then for every $g \in G$, we have
 \[
 g = g \cdot g^{-an} = g^{1-an} = g^{bk} = (g^b)^k    
 \]
 which implies that every element in $G$ is a $k$-power of some element in $G$.
-\end{pf}    
+\end{proof}    
 
 \begin{problem}{II.8.17}
 Assume that $G$ is a finite abelian group, and let $p$ be a prime divisor of $|G|$. Prove that there exists an element in $G$ of order $p$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We proceed by induction. Clearly if $|G| = 1$ then the statement is true. Now suppose for all abelian group with order less than $n$, we can find a element whose order is a prime and a divisor of $G$. Then for any group $G$ that has order $n$, consider an element $g \in G$, and consider the subgroup generated by $g$, $H = \langle g \rangle$. 
 
 Clearly $H$ is cyclic, so we can find a element $g^{|g|/ q}$ of order $q$ where $q$ is a prime since
@@ -524,13 +524,13 @@ provided that $q\;|\;|g|$. Now if $q = p$, then we are done; otherwise, we repla
 (mh^{q})^p = m^pg^{p|g|} = 1
 \]
 Note that the commutativity is used here.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.20}
 Assume that $G$ is a finite abelian group, and let $d$ be a divisor of $|G|$. Prove that there exists a \textit{subgroup} $H \subseteq G$ of order $d$.
 \end{problem}
-\begin{pf}
-We proceed by induction. Clearly if $|G| = 1$ then the statement is true. Now suppose for all abelian group with order less than $n$, we can find a subgroup whose order is a divisor of $|G|$. Then if $|G| = n$, then by II.8.18, we have an element in $G$ that is of order $p$, where $p$ is a prime and a divisor of $d$. If $p = d$, then we are done. Otherwise, we consider the quotient $G/\langle p \rangle$. This group has order $|G|/p$, and by induction hypothesis, we can find a subgroup $H$ in the quotient that is of order $d/p$. Now we claim that the set
+\begin{proof}
+We proceed by induction. Clearly if $|G| = 1$ then the statement is true. Now suppose for all abelian group with order less than $n$, we can find a subgroup whose order is a divisor of $|G|$. Then if $|G| = n$, then by \ref{II.8.17}, we have an element in $G$ that is of order $p$, where $p$ is a prime and a divisor of $d$. If $p = d$, then we are done. Otherwise, we consider the quotient $G/\langle p \rangle$. This group has order $|G|/p$, and by induction hypothesis, we can find a subgroup $H$ in the quotient that is of order $d/p$. Now we claim that the set
 \[
 H' = \{ gp^n : n \in \{0, \cdots, p-1\}, g\langle p \rangle \in H \}
 \]
@@ -539,7 +539,7 @@ is a subgroup of order $d$. It is indeed a subgroup since for $g, h \in H'$,
 gh^{-1} = ap^kb^{-1}p^{-l} = ab^{-1}p^{k-l} \in H'
 \]
 for some $a, b$ that is a coset representative ($ab^{-1}\langle p \rangle \in H$ since $H$ is a subgroup). As the cosets are disjoint, there are precisely $p \cdot d/p = d$ elements in $H'$, proving the assertion.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.21}
 Let $H,K$ be subgroups of a group $G$. Construct a bijection between the set of cosets $hK$ with $h \in H$ and the set of left-cosets of $H \cap K$ in $H$. If $H$ and $K$ are finite, prove that 
@@ -547,18 +547,18 @@ Let $H,K$ be subgroups of a group $G$. Construct a bijection between the set of 
 |HK| = \frac{|H| \cdot |K|}{|H \cap K|}.	
 \]
 \end{problem}
-\begin{pf}
+\begin{proof}
 The map $hK \leftrightarrow h(K \cap H), h \in H$ is a bijection: it is well-defined since for $g, h \in H$, $gK = hK$ implies $gh^{-1} \in K$, and since $g,h \in H$, $gh^{-1} \in H \cap K$ and hence $g(H \cap K) = h(H \cap K).$ It is injective by reversing the above argument, and surjective by construction.
 \[
 \{hK:h \in H\} \longleftrightarrow \{h(H \cap K): h \in H\}	
 \]
 Now the set on the left has $|HK|/|H|$ elements in total, and the set on the right has $|H|/|H\cap K|$. A simple rearrangement gives the result.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.22}
 Let $\varphi:G \to G'$ be a group homomorphism, and let $N$ be the smallest normal subgroup containing im $\varphi$. Prove that $G'/N$ satisfies the universal property of $\text{coker }\varphi$ in \textsf{Grp}.
 \end{problem}
-\begin{pf}
+\begin{proof}
 By universal property of quotient, for every homomorphism $\alpha : G' \to L$,  the homomorphism $\bar{\alpha} : G'/N \to L$ exists and is unique. Now it suffices to check the universal property of cokernel. For any $\alpha : G' \to L$ such that $\alpha \circ \varphi = 0$, define $\bar{\alpha}(gN) = \alpha(g)$. We need to check that this is well defined. If $\bar{\alpha}(gN) = \bar{\alpha}(hN)$ but $\alpha(g) \neq \alpha(h)$, then $gh^{-1} \notin \ker \alpha$. However since $\alpha \circ \varphi = 0$, $\im \varphi \subseteq \ker \alpha$. By noting that $N$ is normal and minimal, we have \[
 \ker \alpha \supseteq N \ni gh^{-1}
 \]
@@ -567,36 +567,36 @@ since $gN = hN$. This is a contradiction, therefore $\alpha(g) = \alpha(h)$, sho
 \bar{\alpha}(\pi(\varphi(g)) = \bar{\alpha}(N) = \alpha(e) = e_L
 \]
 for all $g \in G$. This shows $\bar{\alpha} \circ \pi \circ \varphi = 0$, and the assertion is proved.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.8.24}
 Show that epimorphisms in \textsf{Grp} do not necessarily have right-inverses.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let 
 \[
 \varphi : \Z \to \Z_2, \quad \varphi(x) = x\mod 2
 \]
 this map has no right inverses as any homomorphism from $\Z_2$ to $\Z$ can only be the identity map.
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{II.9.7}
 Prove that stabilizers are indeed subgroups.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Assume $G$ acts on $A$, and pick $a \in A$. For $g,h \in \text{Stab}_G(a)$, we have
 \[
 gh^{-1}a = g(h^{-1}(ha)) = ga = a
 \]
 as required.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.9.11}
 Let $G$ be a finite group, and let $H$ be a subgroup of index $p$, where $p$ is the \emph{smallest prime dividing} $|G|$. Prove that $H$ is normal in $G$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We consider the left-multiplication action of $G$ on the left cosets of $H$, which is $g \cdot hH = ghH$. This induces a homomorphism $\varphi : G \to S_p$, whose kernel includes $H$ since
 \[
 \text{if } g \in \ker \varphi, \text{ then } aH = gaH \; \forall a \in G \Rightarrow g = gH \Rightarrow g \in H.
@@ -606,23 +606,23 @@ Then $G/\ker \varphi \cong \im \varphi$, so $G/\ker \varphi$ is a subgroup of $S
 p = [G : H] = [G : \ker \varphi][\ker \varphi : H] = p[\ker \varphi : H]
 \]
 which leads to $[\ker \varphi : H] = 1$. Since $\ker \varphi \subseteq H$, $\ker \varphi = H$ by index consideration, proving the assertion. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.9.12}
 Let $G$ be a group, and let $H \subseteq G$ be a subgroup of index $n$. Prove that $H$ contains a subgroup $K$ that is normal in $G$ and such that $[G : K]$ divides the gcd of $|G|$ and $n!$. (In particular, $[G:K] \leq n!$.)
 \end{problem}
-\begin{pf}
+\begin{proof}
 Following the same pattern from II.9.11, consider the left-multiplication action of $G$ on the left cosets of $H$, which is $g \cdot hH = ghH$. This induces a homomorphism $\varphi : G \to S_n$ (as there are $n$ left cosets), whose kernel includes $H$ since
 \[
 \text{if } g \in \ker \varphi, \text{ then } aH = gaH \; \forall a \in G \Rightarrow g = gH \Rightarrow g \in H.
 \]
 Define $K = \ker \varphi$. Then $G/K \cong \im \varphi$, so $G/K$ is a subgroup of $S_n$, therefore it has order dividing $n!$. By Lagrange, such order also divides $|G|$, so we've found the required $K$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{II.9.13}
 Prove 'by hand' that that for all subgroups $H$ of a group $G$ and $\forall g \in G$, $G/H$ and $G/(gHg^{-1})$ (endowed with the action of $G$ by left-multiplication) are isomorphic in $G$-\textsf{Set}.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We want to find a \emph{bijection} function $\varphi : G/H \to G/gHg^{-1}$ such that the diagram
 \[
 \begin{tikzcd}
@@ -636,17 +636,17 @@ We now check that this is a bijection, by explicitly give the inverse
 \phi : G/gHg^{-1} \to G/H, \quad \phi(xgHg^{-1}) = (g^{-1}xg)H
 \]
 so $\varphi \circ \phi = id$. Therefore $G/H$ and $G/(gHg^{-1})$ are isomorphic in $G$-\textsf{Set}. Note that if we assume $\varphi(xH) = xgHg^{-1}$, then $H$ would need to be normal in order to be well-defined.
-\end{pf}
+\end{proof}
 
 
 
 \begin{problem}{II.9.17}
 Consider $G$ as a $G$-set, by acting with left-multiplication. Prove that \\ $\text{Aut}_{G-\textsf{Set}(G)}\cong G$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The set of automorphisms on $G-\textsf{Set}(G)$ are bijections that satisfies $g\varphi(h) = \varphi(gh)$. In particular we can define
 \[
 \varphi_g(h) = g^{-1}h
 \]
 this is clearly a bijection and forms a group structure by $\varphi_g \varphi_h = \varphi_{gh}$. We now consider the map $\psi : \text{Aut}_{G-\textsf{Set}(G)} \to G$ by $\psi(\varphi_g) = g$. We claim that this is an isomorphism. Indeed, its kernel is precisely $\varphi_e$, which is the identity of $\text{Aut}_{G-\textsf{Set}(G)}$. The map is clearly surjective, and it is an homomorphism by construction. Therefore $\text{Aut}_{G-\textsf{Set}(G)}\cong G$.
-\end{pf}
+\end{proof}

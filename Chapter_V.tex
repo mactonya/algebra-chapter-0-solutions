@@ -6,44 +6,44 @@ Unless otherwise stated, all rings in this chapter are \emph{commutative}.
 \begin{problem}{V.1.1}
 Let $R$ be an Notherian ring, and let $I$ be an ideal of $R$. Prove that $R/I$ is a Notherian ring.
 \end{problem}
-\begin{pf}
-The projection $\varphi: R \to R/I$ is clearly an surjective homomorphism, and by III.4.2 $R/I$ is Notherian.
-\end{pf}
+\begin{proof}
+The projection $\varphi: R \to R/I$ is clearly an surjective homomorphism, and by \ref{III.4.2} $R/I$ is Notherian.
+\end{proof}
 
 \begin{problem}{V.1.2}
 Prove that if $R[x]$ is Notherian, then so is $R$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 \[
 \pi: R[x] \to R[x]/(x) \cong R
 \]
 is surjective, and by V.1.1 $R$ is Notherian.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.1.4}
 Let $R$ be the ring of real-valued continuous functions on the interval $[0,1]$. Prove that $R$ is not Noetherian.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $\{f_n\}_{n = 1}^\infty$ be continuous functions so that $f_n$ has support on $[0,1-2^{-n}]$ (i.e. $f_n = 0$ on $(1-2^{-n},1]$). Then  
 \[
 (f_1) \subseteq (f_2) \subseteq \cdots (f_n) \subseteq \cdots	
 \] 
 is an increasing sequence of ideals that does not terminate. By Proposition V.1.1, $R$ is not Noetherian.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.1.6}
 Let $I$ be an ideal of $R[x]$, and let $A \subseteq R$ be the set defined in the proof of Theorem 1.2. Prove that $A$ is an ideal of $R$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 $A$ is a subgroup of $(R,+)$: For $a, b \in A$, there is some $f, g \in I$ so that the leading coefficient of $f$ (resp. $g$) is $a$ (resp. $b$). Assume that $\deg(f) \geq \deg(g)$. Then $f - x^{\deg(f)-\deg(g)}g$ is an element of $I$, and it has leading coefficient $a-b$, which is in $A$, so $A$ is a subgroup.
 
 $A$ satisfies absorption property: If $a \in R$, then there is some $f \in I$ such that $a$ is the leading coefficient of $f$. Then $rf \in I$ has leading coefficient $ra$, which is in $A$, so $ra \in A$ for all $r \in R$. Therefore $A$ is an ideal.   
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.1.8}
 Prove that every ideal in a Noetherian ring $R$ contains a finite product of prime ideals. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Suppose there are some ideals that does not contain a finite product of prime ideals. Let us collect these ideals and form a family $\mathscr{F}$, which clearly is nonempty. Since $R$ is Noetherian, there is an maximal ideal with respect to inclusion in $\mathscr{F}$, which we call it $M$. Since $M$ is not prime, there exists $a,b \notin M$ such that $ab \in M$. Now consider two ideals that are larger than $M$ (so they contain a finite product of prime ideals):
 \[
 M + (a), M + (b)
@@ -53,16 +53,16 @@ Note that both of them are \emph{proper}: If $M+aR = R$, then $bM + baR = bR$, a
 (M+(a))(M+(b)) \subseteq M
 \]
 and since the product on the left contains a finite product of prime ideals, $M$ contains a finite product of prime ideals, a contradiction. Therefore $\mathscr{F} = \varnothing$, and the assertion is proved.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.1.12}
 Let $R$ be an integral domain. Prove that a nonzero $a$ is irreducible if and only if $(a)$ is maximal among proper principle ideal of $R$.
 \end{problem}
-\begin{pf}
+\begin{proof} \
 
 \noindent $(\Rightarrow)$ If $a$ is irreducible but there is some $b \in R$ such that $(a) \subseteq (b)$, then we can write $a = bc$ for some $c \in R$. Then either $b$ is a unit, or $c$ is a unit. The former would lead to that $(b) = R$, and the latter says that there is also $c^{-1}$ such that $ac^{-1} = b$, so $(a)\supseteq (b)$, so $(a) = (b)$. Either way, $(a)$ is the maximal amongst all principle ideals. \\
 $(\Leftarrow)$ If $a = bc$, then $(a) \subseteq (b)$. Since $(a)$ is maximal amongst all principle ideal, we must have $(b) = R$ or $(b) = (a)$. In the former we have that $b$ is a unit, and the latter implies that $c$ is a unit. In both cases at least one of $b$ and $c$ is a unit, so $a$ is irreducible. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.1.17}
     Consider the subring of $\C$:
@@ -70,19 +70,19 @@ $(\Leftarrow)$ If $a = bc$, then $(a) \subseteq (b)$. Since $(a)$ is maximal amo
     \Z[\sqrt{-5}] := \{a+bi\sqrt{5} \; | \; a,b\in Z\}	
     \]
     Prove that $\Z[\sqrt{-5}]$ is not a UFD.
-    \end{problem}
-    \begin{pf}
+\end{problem}
+\begin{proof} \
 \begin{itemize}
     \setlength\itemsep{0pt}
-    \item By the same argument as in the 4th point of III.4.10, $\Z[\sqrt{-5}] \cong \Z[t]/(t^2-5)$.
-    \item $\Z[t]$ is Noetherian ($\Z$ is Noetherian and Hilbert Basis), so $\Z[t]/(t^2-5) \cong \Z[\sqrt{-5}]$ is Noetherian by V.1.1. Since $(t^2 + 5)$ is maximal (hence prime), the quotient $\Z[t]/(t^2-5) \cong \Z[\sqrt{-5}]$ is a domain.
+    \item By the same argument as in the 4th point of \ref{III.4.10}, $\Z[\sqrt{-5}] \cong \Z[t]/(t^2-5)$.
+    \item $\Z[t]$ is Noetherian ($\Z$ is Noetherian and Hilbert Basis), so $\Z[t]/(t^2-5) \cong \Z[\sqrt{-5}]$ is Noetherian by \ref{V.1.1}. Since $(t^2 + 5)$ is maximal (hence prime), the quotient $\Z[t]/(t^2-5) \cong \Z[\sqrt{-5}]$ is a domain.
     \item The norm $N(a+bi\sqrt{5}) = a^2 + 5b^2$ satisfies the multiplicative property by the same argument as in the 2nd point of III.4.10.
     \item If an element $u$ is a unit, then we must have $N(u)N(u^{-1}) = N(1) = 1$, and this forces $N(u) = 1$ as the definition of norm guarantees $N(a) \geq 1$ for all nonzero $a$, so $u = \pm 1 $.
     \item If $a, b \in \Z[\sqrt{-5}]$ satisfies $ab = 2$ (resp. $3, 1+i\sqrt{5}, 1-i\sqrt{5}$), then we have $N(a)N(b) = 4$ (resp. $9,6,6$). If $N(a) \geq N(b)$, then we must have $N(a) = 4$ (resp. $9,6,6$) since $\Z[\sqrt{-5}]$ does not contain elements such that $N(a) = 2 \text{ or } 3$.
     \item $6 = 2 \cdot 3 = (1 + i \sqrt{5}) (1 - i \sqrt{5})$.
     \item Since the factorization of $6$ is not unique, $\Z[\sqrt{-5}]$ is not a UFD.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \section{}
 
@@ -99,14 +99,14 @@ Let R be a UFD, and let a,b,c be nonzero elements of R. Then
 \end{itemize}
 }
 \end{problem}
-\begin{pf}
+\begin{proof}
 \begin{itemize}	
     \setlength\itemsep{0pt}
     \item The inclusion on the right implies $a = bp$ for some $p$, so clearly the multiset of $a$ contains the multiset of $b$. Conversely, we can let $p$ be the product of difference of the multiset of $a$ and $b$. Then $a = pb$ (up to associates), so $(a)\subseteq(b)$.
     \item A unit $u$ is \emph{not} a product of irreducibles by definition. Therefore if $(a) = (b)$, then $a = bn$ for some unit $n$, and since $n$ does not contain irreducibles, the multiset must coincide. The converse is just the reverse of this argument.
     \item Direct by expanding $b$ and $c$.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.5}
 Let $R$ be the subring of $\Z[t]$ consisting of polynomials with no term of degree 1.
@@ -117,19 +117,19 @@ Let $R$ be the subring of $\Z[t]$ consisting of polynomials with no term of degr
     \item Prove that $t^5$ and $t^6$ have no gcd in $R$.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 \begin{itemize}
     \setlength\itemsep{0pt}
     \item Clearly $R$ is a subring since the difference of two polynomials in $R$ has no term of degree 1. It is a domain since you still can't have two nonzero polynomials that has product $0$.
     \item If $(t^5, t^6) \subseteq (p)$, then $p$ can be $1, t, t^2, t^3, t^4$ or $t^5$.
     \item gcd did not exist since for any $k \in \{0,1,2,3,4,5\}$, $t^{k-1} \mid t^5, t^{k-1} \mid t^6$, but $t^{k-1} \nmid t^k$ since $R$ does not contain $t$.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.7}
 Let $R$ be a Notherian domain, and assume that for all nonzero $a,b$ in $R$, the greatest common divisors of $a$ and $b$ are linear combinations of $a$ and $b$. Prove that $R$ is a PID.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We have the clear inclusion
 \[
 (a,b) \subseteq (\gcd(a,b))	
@@ -139,23 +139,23 @@ and since $\gcd(a,b)$ is the linear combination of $a$ and $b$, we also have $(a
 (\gcd(p_1, \gcd(p_2, \gcd(\cdots,\gcd(p_{n-1}, p_n)))))
 \]
 Since $R$ is Notherian, all ideals are finitely generated, so $R$ is a PID.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.9}
 The \emph{height} of a prime ideal $P$ in a ring $R$ is (if finite) the maximum length $h$ of a chain of prime ideals $P_0 \subsetneq P_1 \subsetneq \cdots \subsetneq P_h = P$ in $R$. Prove that if $R$ is a UFD, then every prime ideal of height $1$ in $R$ is principle.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $P$ be a prime ideal that is of height 1. Since $P$ is prime and $R$ is a UFD, there is some irreducible element $p \in P$. Since irreducible implies prime, the ideal $(p)$ is prime. Then we would have a chain of prime ideals 
 \[
 0 \subseteq (p) \subseteq P
 \]
 but since this chain must be of height $1$, we must have $(p) = P$, showing that $P$ is principle.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.10}
 Assuming that every nonzero, nonunit element in a Notherian domain is contained in a prime ideal of height 1. Prove a converse of Exercise 2.9, and conclude that a Notherian domain $R$ is a UFD if and only if every prime ideal of height 1 in $R$ is principle.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $R$ be a Notherian domain, and assuming that every prime ideal of height 1 is principle in $R$. By Theorem V.2.5, we need to show that
 \begin{itemize}
 	\setlength\itemsep{0pt}
@@ -163,23 +163,23 @@ Let $R$ be a Notherian domain, and assuming that every prime ideal of height 1 i
 	\item every irreducible element of $R$ is prime: let $x$ be irreducible, and by assumption, it is contained in a prime ideal of height 1 (hence principle), say $x \in P = (p)$. This says that $x = pa$ for some $a \in R$, and since $x$ is irreducible, either $p$ is a unit (then $P=R$, which can't be), or $a$ is a unit. Then we can write $p = xa^{-1}$, and since $p$ is prime, $x$ must be prime (a unit can't be prime).
 \end{itemize}
 Hence $R$ is a UFD.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.12}
 Prove that if $R[x]$ is a PID, then $R$ is a field.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Recall that $(x-c)$ is a prime ideal of $R[x]$ (cf. Example III.4.7), and PID implies prime $\Rightarrow$ maximal (Proposition III.4.13). Therefore the quotient
 \[
 \frac{R[x]}{(x-c)} \cong R
 \]
 is a field, by definition.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.15}
 Prove that if $R$ is a Euclidean domain, then $R$ admits a Euclidean valuation $\bar{v}$ such that $\bar{v}(ab) \geq \bar{v}(b)$ for all nonzero $a,b \in R$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $v$ be a valuation on $R$. Define 
 \[
 \bar{v}(a) = \min\{v(ab): b \in R\}
@@ -189,30 +189,30 @@ then it follows that $v(ab) \geq \bar{v}(b)$ for all $a \in R$, so $\bar{v}(ab) 
 \bar{v}(b) = v(bc) > v(rc) \geq \bar{v}(r) 
 \]
 a contradiction to our assumption. Therefore $\bar{v}(r) < \bar{v}(b)$, and $\bar{v}$ is indeed a Euclidean valuation.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.16}
 Let $R$ be a Euclidean domain with Euclidean valuation $v$; assume that $v(ab) \geq v(b)$ for all nonzero $a,b \in R$ (cf. Exercise 2.15). Prove that associate elements have the same valuation and that units have minimum valuation.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $a = ub$ with $u$ being a unit. Then $v(a) = v(ub) \geq v(b)$. We also have $v(b) = v(u^{-1}a) \geq v(a)$, so $v(a) = v(b)$. If $u$ is a unit, then $v(au) \geq v(u)$ for all nonzero $a$, and since $au$ exhaust all elements of $R$ ($Ru = R$), $u$ must be minimal.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.17}
 Let $R$ be a Euclidean domain that is not a field. Prove that there exists a nonzero, nonunit element $c \in R$ such that $\forall a \in R, \exists q,r \in R$ with $a = qc+r$ and either $r = 0$ or $r$ is a unit.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $c$ be irreducible in $R$ that is \emph{minimal} in the norm sense. Since $R$ is a ED, there is a valuation $v$ such that $v(ab) \geq v(b)$ for all nonzero $a,b \in R$ (V.2.15). Now for every $a \in R$, there exists $q,r \in R$ such that $a = qc+r$ and $v(r) < v(c)$. But then $r$ must be a unit, as all nonunit element admits a factorization $p_1\cdots p_np_0$ (up to associates), and we have
 \[
 v(p_1\cdots p_np_0) \geq v(p_2\cdots p_np_0) \geq \cdots v(p_np_0) \geq v(p_0) \geq v(c)
 \]
 Therefore $r$ must be a unit (V.2.16) or $0$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.2.18}
-Prove that the subring of $\Q(\sqrt{-19})$, $\Z[(1+\sqrt{-19})/2]$, is not a Euclidean domain (cf. V.1.17).
+Prove that the subring of $\Q(\sqrt{-19})$, $\Z[(1+\sqrt{-19})/2]$, is not a Euclidean domain (cf. \ref{V.1.17}).
 \end{problem}
-\begin{pf}
+\begin{proof}
 Denote $\delta = (1+i\sqrt{19})/2$.
 \begin{itemize}
 	\setlength\itemsep{0pt}
@@ -226,7 +226,7 @@ Denote $\delta = (1+i\sqrt{19})/2$.
 	Note that $N(\delta) = 5, N(-1+\delta) = 5, N(1+\delta) = 7$, and all of them are not divisible by 2 or 3, so such $q$ does not exist.
 \end{itemize}
 Since we can't find $q,r$ such that $\delta = qc+r$, the 'division with remainder' does not work in $R$, so we conclude that $R$ is not a Euclidean domain.
-\end{pf}
+\end{proof}
 
 \section{}
 
@@ -239,7 +239,7 @@ z_1 \succeq z_2 \succeq z_3 \succeq \cdots
 \]
 in $Z$ stabilizes.
 \end{problem}
-\begin{pf}
+\begin{proof} \
 
 \noindent $(\Rightarrow)$ If a sequence $\{z_i\}_{i \in \N}$ does not stabilize, then the set $\{z_i\}_{i \in \N}$ will not have an least element, which can't be as $Z$ is a woset. \\
 $(\Leftarrow)$ If $Z$ is not a woset, then pick $A \subseteq Z$ such that $A$ does not have a least element. Then we can find a descending chain
@@ -247,12 +247,12 @@ $(\Leftarrow)$ If $Z$ is not a woset, then pick $A \subseteq Z$ such that $A$ do
 z_1 \succeq z_2 \succeq z_3 \succeq \cdots
 \]
 such that it does not stabilize (as $A$ does not have a least element). This is a contradiction.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.3.6}
 Assuming the truth of Zorn's lemma and the conventional set-theoretic construction, prove the well-ordering theorem (Theorem V.3.3).
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $Z$ be a nonempty set, and let $\mathscr{L}$ be the set collecting the set of pairs $(S,\leq)$ where $S$ is a subset of $Z$, and $\leq$ is a well-ordering on $S$. Define
 \[
 (S,\leq) \preceq (T,\leq')
@@ -269,12 +269,12 @@ if and only if $S \subseteq T$ and $\leq$ is the restriction of $\leq'$ on $S$, 
 	by define $a \leq' m$ for all $m \in M$. This is a contradiction, so we must have $M = Z$.
 \end{itemize}
 Therefore every set admits a well-ordering, as required.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.3.8}
 Prove that every nontrivial finitely generated group has a maximal proper subgroup. Prove that $(\Q,+)$ has no maximal proper subgroup.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $G = \langle g_1,\dotsc,g_n \rangle$ be finitely generated. By ZL, if every chain of subgroups of $G$ has an upper bound, then a maximal element exists in $G$. In order to apply ZL, let $G_1 \subseteq G_2 \subseteq G_3 \subseteq \cdots$ be a chain of \emph{proper} subgroups of $G$. Consider
 \[
 H = \bigcup_{i}G_i
@@ -294,24 +294,24 @@ Suppose $M$ is maximal, that is, for all $x \notin M, M+ \langle x \rangle = \Q$
 x/a = m + cx
 \]
 where $m \in M, c \in \Q$. This yields $x = am + acx$, and by noting $x/y = a/b$ implies $ax = by$, we have $x = am+byc$, and since both terms are in $M$ ($y \in M$), we conclude $x \in M$, a contradiction. Therefore no subgroups of $\Q$ are maximal.
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.3.9}
 Consider the rng ($=$ ring without 1) consisting of the abelian group $(\Q,+)$ endowed with the trivial multiplication $qr=0$ for all $q,r \in \Q$. Prove that this rng has no maximal ideals.
 \end{problem}
-\begin{pf}
+\begin{proof}
 One notes that the absorption property of ideal is meaningless under the endowed multiplication, so we can reduce the problem to
 \begin{center}
 \emph{the group $(\Q,+)$ has no maximal subgroup}
 \end{center}
 cf. V.3.8.
 
-\end{pf}
+\end{proof}
 
 \begin{problem}{V.3.13}
-Let $R$ be a commutative ring, and let $N$ be its nilradical (III.3.12). Prove that the nilradical of $R$ equals the intersection of all prime ideals of $R$.
+Let $R$ be a commutative ring, and let $N$ be its nilradical (\ref{III.3.12}). Prove that the nilradical of $R$ equals the intersection of all prime ideals of $R$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $r \notin N$.
 \begin{itemize}
 	\setlength\itemsep{0pt}
@@ -324,12 +324,37 @@ Let $r \notin N$.
 	\[
 	I + (a), I+(b)
 	\]
-	both properly contains $I$ and are proper (cf. V.1.8), and since they are outside $\mathscr{F}$, $I+Ra, I+Rb$ contains $r^i,r^j$, respectively. But then
+	both properly contains $I$ and are proper (cf. \ref{V.1.8}), and since they are outside $\mathscr{F}$, $I+Ra, I+Rb$ contains $r^i,r^j$, respectively. But then
 	\[
 	r^i r^j \in (I+(a))(I+(b)) \subseteq I
 	\]
 	so we would deduce that some power of $r$ appears in $I$, a contradiction. Therefore $I$ must be prime.
 	\item So if $r \notin N$, then there are some prime ideal $I$ that does \emph{not} contain $r$, so it can't be in the intersection of all prime ideals.
 \end{itemize}
-With III.4.18, this shows that the nilradical of $R$ equals the intersection of all prime ideals of $R$.
-\end{pf}
+With \ref{III.4.18}, this shows that the nilradical of $R$ equals the intersection of all prime ideals of $R$.
+\end{proof}
+
+\begin{problem}{V.3.15}
+Recall that a (commutative) ring $R$ is Notherian if every ideal of $R$ if finitely generated. Prove the weaker condition that if every \emph{prime} ideal of $R$ is finitely generated, then $R$ is Notherian.
+\end{problem}
+\begin{proof}
+Let $\mathscr{F}$ be the collection of all ideals of $R$ that are \emph{not} finitely generated: we will prove that $\mathscr{F} = \varnothing$.
+\begin{itemize}
+	\setlength\itemsep{0pt}
+	\item Suppose not, so $\mathscr{F}$ is nonempty. If there is a chain in $\mathscr{F}$, then the upper bound of this chain is the union of all ideals, which is clearly an ideal and is not finitely generated. So by ZL, there is an maximal element in $\mathscr{F}$; call it $I$. It is important to note that by hypothesis, $I$ is \emph{not} prime.
+	\item $R/I$ is indeed Notherian: if it weren't, then there are some ideals $J \subseteq R/I$ that is not finitely generated. But then $JI$ would be a non-finitely generated ideal bigger than $I$, which can't be as $I$ is maximal amongst all non-finitely generated ideals.
+	\item Now since $I$ is not prime, there are $a,b \in R\backslash I$ such that $ab \in I$. Then we let 
+	\[
+	J_1 = I + (a), \quad J_2 = I + (b)	
+	\]
+	then $J_1$ and $J_2$ contains $I$ and is not $I$, and their product is in $I$. (If you notice, this is the third time we use this trick; cf. \ref{V.1.8}.)
+	\item We can define a scalar multiplication
+	\[
+	(x + I)(y + J_1J_2) = xy + J_1J_2	
+	\]
+	By absorption property, $xy \in J_1$, so this gives a $R/I$ module structure on $I/J_1J_2$. Simliarly, we can give a $R/I$ module structure to $J_1/J_1J_2$. Notice that $I/J_1J_2$ is a submodule of $J_1/J_1J_2$.
+	\item Now since $I \subsetneq J_1$, $J_1$ is finitely generated in $R$, so the submodule $J_1/J_1J_2$ is finitely generated as a $R$-module, hence as a finitely generated $R/I$-module. Since $R/I$ is Notherian, by Corollary III.6.8 $J_1/J_1J_2$ is Notherian, so its submodule, $I/J_1J_2$, is finitely generated as an $R/I$-module.
+	\item Since $J_1J_2$ is finitely generated as it is the product of two finitely generated ideals (note that this is \emph{not} true if $R$ is not commutative!) and $I/J_1J_2$ is finitely generated, $I$ is finitely generated. This is a contradiction. 
+\end{itemize}
+Therefore $\mathscr{F}$ is empty, which implies that $R$ is Notherian.
+\end{proof}

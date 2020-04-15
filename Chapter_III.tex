@@ -7,22 +7,22 @@ Some description and hints are omitted for simplicity.
 \begin{problem}{III.1.1}
 Prove that if $0 = 1$ in a ring $R$, then $R$ is a zero ring.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $r$ is any element in $R$, then
 \[
 r = r \cdot 1 = r \cdot 0 = 0  
 \]
 showing that $R = 0$.
-\end{pf}
+\end{proof}
 \begin{problem}{III.1.6}
 Prove that if $a$ and $b$ are nilpotent in $R$ and $ab = ba$, then so is $a+b$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $a^n = 0, b^m = 0$, then
 \[
 (a+b)^{n+m} = a^{n+m} +\binom{n+m-1}{1} a^{n+m-1}b + ... + b^{n+m}
 \]
-and all terms are zeros since every term either have $a^n$ or $b^m$. If we do not assume that $ab = ba$, then the statement would be false, for example, in $M_n(\mathbb{Z})$,
+and all terms are zeros since every term either have $a^n$ or $b^m$. If we do not assume that $ab = ba$, then the statement would be false, for example, in $M_n(\Z)$,
 \[
 \begin{pmatrix} 
 1 & 0 \\
@@ -47,12 +47,12 @@ $\begin{pmatrix}
 1 & 1 \\
 1 & 1
 \end{pmatrix}$ is not nilpotent.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.1.7}
 Prove that $[m]$ is nilpotent in $\Z/n\Z$ if and only if $m$ is divisible by all prime factors of $n$. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 
 \noindent $(\Rightarrow)$ If $[m]^k = [0]$ for some integer $k$, then this implies $m^k = dn$ for some integer $d$. Now we write $n = p_1^{a_1} \cdots p_n^{a_n}$, where $p_i$ are primes, and $a_i$ are positive integers. Then
 \[
@@ -72,7 +72,7 @@ then let $r = m^f/n$, which is an integer larger than 0 by the choice of $f$. Fi
 m^f = nr = 0 \mod n
 \]
 showing that $m$ is nilpotent in $\Z/n\Z$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.1.9}
 Prove Proposition 1.12, that is:
@@ -84,7 +84,7 @@ Prove Proposition 1.12, that is:
 \end{itemize}
 }
 \end{problem}
-\begin{pf}
+\begin{proof}
 For a two-sided unit $v$, we have $uv = 1$ and $vw = 1$ for some $u,w \in R$. Then 
 \[
 w = 1 \cdot w = uvw = u \cdot 1 = u    
@@ -96,28 +96,28 @@ showing that $w = u$, so the inverse can be uniquely defined as $v^{-1} = u$. No
 	\item for a unit $u$, $u^{-1}$ is also a unit;
 	\item associativity is clear.
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.1.15}
-Prove that $R[x]$ is a domain \iffw $R$ is a domain.
+Prove that $R[x]$ is a domain if and only if $R$ is a domain.
 \end{problem}
-\begin{pf}
+\begin{proof} \
 
 \noindent $(\Rightarrow)$ Trivial since $R \subset R[x]$. \\
 $(\Leftarrow)$ Assume the contrary that $R[x]$ is not a domain. Then we can find $f = \sum_{i=0}^n a_ix^i, \: g = \sum_{j=0}^m b_jx^j$, $f \neq 0, g \neq 0$ such that $fg = 0$. Then we would have $a_nb_m = 0$, and since $R$ is a domain, either $a_n$ or $b_m$ is zero. Without loss of generality, we can reduce the case to $f = a_0 \neq 0$. Then by the same argument, we would arrive at $a_0b_0 = 0$, since all higher terms must be zero. But this contradict to the assumption that $R$ is a domain, since $f = a_0$ and $g = b_0$ are nonzero. Hence $R[x]$ must be a domain.
-\end{pf}
+\end{proof}
 
 \section{}
 \begin{problem}{III.2.1}
 Prove that if there is a homomorphism from a zero ring to a ring $R$, then $R$ is a zero ring.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $1_R$ is the multiplicative identity of $R$, then for any homomorphism $\varphi : 0 \to R$, 
 \[
 0_R = \varphi(0) = \varphi(1) = 1_R
 \]
-and by III.1.1, $R$ is a zero-ring.
-\end{pf}
+and by \ref{III.1.1}, $R$ is a zero-ring.
+\end{proof}
 
 \begin{problem}{III.2.6}
 Verify the 'extension property' of polynomial ring:
@@ -126,18 +126,18 @@ Verify the 'extension property' of polynomial ring:
 Let $\alpha : R \to S$ be a fixed ring homomorphism, and let $s \in S$ be an element commuting with $\alpha(r)$ for all $r \in R$. Then there is a unique ring homomorphism $\bar{\alpha} : R[x] \to S$ extending $\alpha$ and sending $x$ to $s$.
 }
 \end{problem}
-\begin{pf}
+\begin{proof}
 Indeed, for $\sum_{i \geq 0} a_ix^i \in R[x]$, we have no choice but to define
 \[
 \bar{\alpha}\left(\sum_{i \geq 0} a_ix^i\right) = \sum_{i \geq 0}\alpha(a_i)s^{i}  \tag{1}
 \]
 so that $\bar{\alpha}(r) = \alpha(r)$ and $x$ sends to $s$ in this map. It is clearly a homomorphism (note that the commutativity of $s$ is used in the proof of $\bar{\alpha}(fg) = \bar{\alpha}(f)\bar{\alpha}(g)$), so it suffices to check that $\bar{\alpha}$ is unique. But it is clear by the fact that any map that extends $\alpha$ and send $x$ to $s$ must have the same value evaluated as in $(1)$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.2.9}
 Prove that the center of $R$ is a subring. Moreover, prove that the center of a division ring is a field.
 \end{problem}
-\begin{pf}
+\begin{proof}
 A subset of a ring $S$ is a subring if it is a subgroup of $(R,+)$, closed under multiplication, and $1$ is in it. So we check that:
 \begin{itemize}
 \setlength\itemsep{0pt}
@@ -156,12 +156,12 @@ showing that $ab \in C$;
 
 
 Clearly the center forms a commutative ring since for $a,b \in C$, $ab = ba$. Then it follows by definition that a commutative division ring is a field. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.2.10}
 Prove that the centralizer of $a$ is a subring for every $a \in R$. Prove that the center is the intersection of all its centralizers, and prove that every centralizer of a division ring is a division ring.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We use the same test as above. Let $C_x$ denotes the centralizer of $x$.
 \begin{itemize}
 \setlength\itemsep{0pt}
@@ -182,36 +182,36 @@ It is easy that the center is the intersection of all its centralizers, since su
 ax = xa \Rightarrow axa^{-1} = x \Rightarrow xa^{-1} = a^{-1}x
 \]
 Therefore every element in $C_x$ has a inverse, and by definition, $C_x$ is a division ring.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.2.11}
 Prove that a division ring $R$ which consists of $p^2$ elements where $p$ is a prime, is commutative. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Suppose the contrary that $R$ is not commutative. Then the center $C$ must be a proper subring, which can only consist of $p$ elements by Lagrange. Now let $r \in R \backslash C$. Then the centralizer of $r$ will contain at least $r$ and $C$ by III.2.10, therefore the centralizer of $r$ must be $R$ itself (again by Lagrange), for every $r \in R \backslash C$. But then the intersection of all centralizer are now $R$ (element of center has centralizer $R$ clearly), which is a contradiction to that $C$ is proper. Therefore $R$ must be commutative, i.e. a field.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.2.12}
 Consider the inclusion map $\iota : \Z \xhookrightarrow{} \Q$. Describe the cokernel of $\iota$ in \textsf{Ab} and its cokernel in \textsf{Ring}.
 \end{problem}
-\begin{sol}
+\begin{solution}
 In \textsf{Ab}, this is easy: it is just $\Q/\im \iota = \Q / \Z$. However in \textsf{Ring}, we notice that for any map $\alpha : \Q \to F$ that satisfy $\alpha \circ \iota = 0$, we have
 \[
 0_F = \alpha (1) = \alpha \circ \iota (1) = \alpha (1) = 1_F  
 \] 
-which shows that $F$ must be the zero ring by III.1.1. Now the unique homomorphism $\bar{\alpha} :\text{coker } \iota \to F$ must also be the zero map, and by the requirement $\bar{\alpha} \circ \pi \circ \iota = 0$, we finally have $\pi \circ \iota = 0$, and by the same argument as above, we have that the codomain of $\pi$ is the zero ring, i.e. $\text{coker } \iota = 0$.
-\end{sol}
+which shows that $F$ must be the zero ring by \ref{III.1.1}. Now the unique homomorphism $\bar{\alpha} :\text{coker } \iota \to F$ must also be the zero map, and by the requirement $\bar{\alpha} \circ \pi \circ \iota = 0$, we finally have $\pi \circ \iota = 0$, and by the same argument as above, we have that the codomain of $\pi$ is the zero ring, i.e. $\text{coker } \iota = 0$.
+\end{solution}
 
 \section{}
 
 \begin{problem}{III.3.2}
 Let $\varphi:R \to S$ be a ring homomorphism, and let $J$ be an ideal of $S$. Prove that $\varphi^{-1}(J)$ is an ideal.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The ideal is clearly nonempty, so it suffices to check that $\varphi^{-1}(J)$ is a additive subgroup and satisfies the absorption property. For $x, y \in \varphi^{-1}(J)$, we have $\varphi(x), \varphi(y) \in J$, so $\varphi(x)-\varphi(y) = \varphi(x-y) \in J$, therefore $x-y \in \varphi^{-1}(J)$, showing that it is a subgroup of $(R,+)$.
 
 Now for any $r \in R, a \in \varphi^{-1}(J)$, we have $\varphi(a) \in J$, so $\varphi(r)\varphi(a) = \varphi(ra) \in J$, and hence $ra \in \varphi^{-1}(J)$, showing the left-absorption property. The right case is the same.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.3.3}
 Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an ideal of $R$.
@@ -225,7 +225,7 @@ Let $\varphi : R \to S$ be a ring homomorphism, and let $J$ be an ideal of $R$.
 \frac{R/I}{\bar{J}} \cong \frac{R}{I+J}.	
 \]
 \end{itemize}
-\begin{pf}
+\begin{proof}
 Let $\varphi : \Z \xhookrightarrow{} \R$ be inclusion (and clearly a homomorphism). Then every ideal of $\Z$ will be directly transformed into $\R$. But since $\R$ is a field, by III.3.8 (which will be proved later) the possible ideal of $\R$ are only $\{0\}$ and $\R$ itself, so the image of a homomorphism need not to be an ideal.
 
 However, If $\varphi$ is surjective, Then $\varphi(J)$ is indeed an ideal: if $\varphi(x), \varphi(y) \in \varphi(J)$, then so is $\varphi(x) - \varphi(y) = \varphi(x-y) \in \varphi(J)$. The absorption property is also true since $\varphi(r)\varphi(x) = \varphi(rx) \in \varphi(J)$.
@@ -251,23 +251,23 @@ therefore
 \frac{R/I}{\bar{J}} \cong \frac{R}{I+J}
 \]
 as required.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.3.7}
 Let $R$ be a ring, and let $a \in R$. Prove that $Ra$ is a left-ideal of $R$ and $aR$ is a right-ideal of $R$. Prove that $a$ is a left-, resp. right-, unit if and only if $R = aR$, resp. $R = Ra$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We prove only the left-ideal case since the same argument holds for right-ideal case. $Ra$ is a subgroup of $(R,+)$ since for $ra, sa \in Ra$, $ra - sa = (r-s)a \in Ra$. The absorption property follows easily since $rsa = (rs)a \in Ra$.
 
 If $a$ is a right unit, then there exists $u$ such that $ua = 1$. Then $1$ is contained in $Ra$, and since for all $r\in R$, $r \cdot 1 \in Ra$, we conclude that $R = Ra$.   
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.3.8}
-Prove that $R$ is a division ring \iffw its only left-ideals and right-ideals are $\{0\}$ and $R$.
+Prove that $R$ is a division ring if and only if its only left-ideals and right-ideals are $\{0\}$ and $R$.
 
 In particular, a commutative ring $R$ is a field if and only if the only ideals of $R$ are $\{0\}$ and $R$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 
 \noindent $(\Rightarrow)$ If a nonzero element $a$ is in the left-ideal $I$, then so is $1$ since 
 \[
@@ -276,43 +276,43 @@ In particular, a commutative ring $R$ is a field if and only if the only ideals 
 Therefore any nonzero left-ideals are automatically $R$ itself. The right-ideal case is the same.
 
 \noindent $(\Leftarrow)$ If a nonzero element $a$ does not have a left inverse, then $aR$ would be a proper right-ideal by III.3.7. Therefore all elements must have left(and hence right) inverse.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.3.10}
 Let $\varphi : k \to R$ be a ring homomorphism, where $k$ is a field and $R$ is a nonzero ring. Prove that $\varphi$ is \emph{injective}.
 \end{problem}
-\begin{pf}
+\begin{proof}
 $\varphi$ is injective if and only if $\ker \varphi = \{0\}$ by Proposition III.2.4. Also, the ideals of $k$ are only $\{0\}$ and $k$ by III.3.8. If $\ker \varphi = \{0\}$ then there is nothing to prove, so let $\ker \varphi = k$. But this means that $\varphi = 0$, so we have
 \[
 1_R = \varphi(1) = 0 = \varphi(0) = 0_R    
 \]
 and by III.1.1, $R$ is a zero ring, a contradiction to the hypothesis. Therefore $\ker \varphi = \{0\}$, showing that $\varphi$ is injective.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{III.3.12}
 Let $R$ be a \emph{commutative} ring. Prove that the set of nilpotent elements forms an ideal of $R$. This ideal is called the \emph{nilradical} of $R$.
 \end{problem}
-\begin{pf}
-From III.1.6 we already know that it forms a subgroup of $(R,+)$ by relpacing b with $-b$, so it remains to check that it is an ideal. Let $I$ be such ideal. If $a \in R, r \in I$ and $r^n = 0$, then since
+\begin{proof}
+From \ref{III.1.6} we already know that it forms a subgroup of $(R,+)$ by relpacing $b$ with $-b$, so it remains to check that it is an ideal. Let $I$ be such ideal. If $a \in R, r \in I$ and $r^n = 0$, then since
 \[
 (ar)^n \overset{!}{=} a^nr^n = 0    
 \]
 in which ! is where commutativity is used. Therefore $ar \in I$, proving the absorption property.
 
 For an counter-example where $R$ is not commutative, simply consider the example of III.1.6: it is not even a subgroup of $(R, +)$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.3.13}
 Let $R$ be a commutative ring, and let $N$ be its nilradical. Prove that $R/N$ contains no nonzero nilpotent elements. Such a ring is said to be \emph{reduced}.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Pick an element $a \in R \backslash N$. Then for every integer $n > 0$, 
 \[
 (a + N)^n = a^n + \binom{n}{1} a^{n-1} N + \cdots + N^n = a^n + N
 \]
 Since $a$ is not nilpotent, $a^n \neq 0$ for every $n$, showing that $a + N$ is not nilpotent for $a \in R \backslash N$.
-\end{pf}
+\end{proof}
 
 \section{}
 \begin{problem}{III.4.1}
@@ -322,62 +322,62 @@ Let $R$ be a ring, and let $\{I_\alpha\}_{\alpha \in A}$ be a family of ideals o
 \]
 Prove that $\{I_\alpha\}_{\alpha \in A}$ is an ideal of $R$ and that it is the smallest ideal containing all of the ideals $I_\alpha$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We only consider the case when $A = \{1,2\}$: Any other $A$ follows the same exact argument. 
 
 Let $I = I_1 + I_2$. $I$ is a subgroup of $(R,+)$ : the two elements in $I$ can be represented as $r_1 + r_2$ and $r'_1 + r'_2$, and clearly $(r_1 - r'_1) + (r_2 - r'_2)$ is in $I$. The absorption property is also clear, since $r (r_1 + r_2) = (rr_1 + rr_2) \in I$. 
 
 Now it suffice to show that $I$ is minimal. For every ideal that contains $I_1$ and $I_2$, they must also contain $r_1 + r_2$ for $r_1 \in I_1$ and $r_2 \in I_2$, since ideal is a subgroup of $(R,+)$. Therefore every such ideal must also contain $I$, proving the minimality of $I$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.2}
 Prove that the homomorphic image of a Noetherian ring is Noetherian.
 \end{problem}
-\begin{pf}
-Let $R$ be Noetherian, $S$ be any ring, $\varphi:R \to S$ be a surjective ring homomorphism. Let $J$ be an ideal of $S$. By III.3.2, the preimage is an ideal, which we call $I = \langle a_1, ... a_n \rangle$. We claim that $J = \langle \varphi(a_1), ... \varphi(a_n) \rangle$, so every finitely generated ideal will map to a finitely generated ideal, proving that $S$ is Noetherian. 
+\begin{proof}
+Let $R$ be Noetherian, $S$ be any ring, $\varphi:R \to S$ be a surjective ring homomorphism. Let $J$ be an ideal of $S$. By \ref{III.3.2}, the preimage is an ideal, which we call $I = \langle a_1, ... a_n \rangle$. We claim that $J = \langle \varphi(a_1), ... \varphi(a_n) \rangle$, so every finitely generated ideal will map to a finitely generated ideal, proving that $S$ is Noetherian. 
 
 Indeed, since $a_i \in \varphi^{-1}(J)$, $\varphi(a_i) \in J$ for $i = 1,...,n$, so $\langle \varphi(a_1), ... \varphi(a_n) \rangle \subseteq J$. On the other hand, for an element $j \in J$, there exists $i \in R$ such that $\varphi(i) = j$ by surjectivity, therefore $i \in I$, so $i$ is generated by elements $a_1, ... ,a_n$, i.e. $i = r_1a_1 + ... + r_na_n$. Then since $\varphi$ is a homomorphism, 
 \[
 \varphi(i) = j = \varphi(r_1a_1 + ... + r_na_n) = s_1\varphi(a_1) + ... + s_n\varphi(a_n)
 \]
 so $J \subseteq \langle \varphi(a_1), ... \varphi(a_n) \rangle$, and the claim is proved.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.3}
 Prove that the ideal $(2,x)$ of $\Z[x]$ is not principal. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Assume that $(f) = (2,x)$. Then there is some $q \in \Z[x]$ such that $fq = 2$. Then $f,q$ are constant and $f$ must be $2$ since $1$ is not in it. But we also have $fg = x$ for some $g \in Z[x]$, and there are no possible choice of $g$ such that $2g = x$. Hence $(2,x)$ is not principal.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.4}
 Prove that if $k$ is a field, then $k[x]$ is a PID.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $I$ be any ideal of $k[x]$. If $I = (0)$, then there is nothing to prove. Otherwise, there is some polynomial $f\in I$ that has minimal degree in $I$ and is monic (since you can do scalar division). We claim that $I = (f)$. Indeed, for $g \in I$, we can use division algorithm to write
 \[
 g(x) = f(x)q(x) + r(x)  
 \]  
 where $\deg r(x) < \deg f(x)$. Since $k[x]$ is a subgroup, $r = g - fq \in I$, and by the minimality of $f$, $r(x) = 0$, so every element of $I$ can be written as $g(x)f(x)$ for some $g \in k[x]$, showing that $k[x]$ is a PID.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.5}
 Let $I, J$ be ideals in a commutative ring $R$, such that $I+J = (1)$. Prove that $IJ = I \cap J$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $x \in IJ$, then it can be represented as $ij$ for some $i \in I, j \in J$, and by the property of ideal, $ji \in I, ij \in J$, so $ij \in I \cap J$. Conversely, we have
 \[
 I \cap J = (I \cap J) (1) = (I\cap J)(I+J) = (I \cap J)I + (I \cap J)J \subseteq IJ + IJ = IJ 
 \]
 showing the identity.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.7}
 Let $R = k$ be a field. Prove that every nonzero (principle) ideal in $k[x]$ is generated by a unique \emph{monic} polynomial.
 \end{problem}
-\begin{pf}
+\begin{proof}
 From III.4.4 we already know that every ideal is generated by a single polynomial $f$. Since $k$ is a field, we can do division, so there is a monic polynomial $f(x)/a$ where $a$ is the coefficient of the largest degree in $f$. Then it's trivial that $(f) = (f/a)$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.10}
 Let $d$ be an integer that is not the square of an integer, and consider the subset of $\C$ defined by 
@@ -392,7 +392,7 @@ Let $d$ be an integer that is not the square of an integer, and consider the sub
     \item Prove that $\Q(\sqrt{d}) \cong \Q[t]/(t^2-d)$.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 \begin{itemize}
     \item Subring property is clear by $a+b\sqrt{d} - (c+d\sqrt{d}) = (a-c) + (b-d)\sqrt{d} \in \Q(\sqrt{d})$.
     \item If $N(a+b\sqrt{d}) = 0$, then $a^2 = b^2d$, and since $d$ is not a square, $a$ cannot be a rational number, so $a = 0 = b$. The multiplicative property is easily checked by 
@@ -411,7 +411,7 @@ Let $d$ be an integer that is not the square of an integer, and consider the sub
     \]
     has kernel $(t^2-d)$, and the result is immediate by first isomorphism theorem. 
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.11}
 Let $R$ be a commutative ring, $a \in R$, and $f_1(x),\dotsc,f_r(x) \in R[x]$.
@@ -427,7 +427,7 @@ Let $R$ be a commutative ring, $a \in R$, and $f_1(x),\dotsc,f_r(x) \in R[x]$.
 \]
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 We consider only the case $k = 1$; the other cases are just extending the same argument. We are required to prove that 
 \[
 (f(x), x-a) = (f(a), x-a)
@@ -453,12 +453,12 @@ we have
 \frac{R}{(f_1(a),\dotsc,f_r(a))} \cong \frac{R[x]}{(f_1(x),\dotsc,f_r(x),x-a)} 
 \]
 as desired (note that $\varphi$ is surjective).
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.13}
 Let $R$ be an integral domain. For all $k = 1,\dotsc, n$, prove that $(x_1,\dotsc, x_k)$ is prime in $R[x_1,\dotsc, x_n]$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We proceed by induction. For the case $k = 1$, we have
 \[
 \frac{R[x]}{(x)} \cong R	\quad \text{(p.p.151)}
@@ -467,7 +467,7 @@ and since $R$ is a domain, it follows by definition that $(x)$ is a prime ideal.
 \[
 J = (x_1,\dotsc,x_{n-1}), \quad \varphi : R[x_1,\dotsc,x_{n}] \xhookrightarrow{} R[x_1,\dotsc,x_{n-1}]
 \]
-where $\varphi$ is the inclusion map and $\ker \varphi = (x_n)$. Then by III.3.3
+where $\varphi$ is the inclusion map and $\ker \varphi = (x_n)$. Then by \ref{III.3.3}
 \[
 \frac{R[x_1,\dotsc,x_{n}]/(x_n)}{(x_1,\dotsc,x_{n-1})} \cong \frac{R[x_1,\dotsc,x_{n}]}{(x_1,\dotsc,x_{n-1})+(x_n)}
 \]
@@ -476,45 +476,43 @@ which simplifies to
 \frac{R[x_1,\dotsc,x_{n-1}]}{(x_1,\dotsc,x_{n-1})} \cong \frac{R[x_1,\dotsc,x_{n}]}{(x_1,\dotsc,x_n)}	
 \]
 By induction hypothesis, the quotient on the left is a domain since $(x_1,\dotsc,x_{n-1})$ is a prime ideal, therefore by definition, $(x_1,\dotsc,x_n)$ is a prime ideal.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{III.4.16}
 Let $R$ be a commutative ring, and let $P$ be a prime ideal of $R$. Suppose $0$ is the only zero-divisor of $R$ contained in $P$. Prove that $R$ is an integral domain. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $a,b \in R$ such that $ab = 0$. Then since $0 \in P$, $ab \in P$, so either $a\in P$ or $b \in P$. Without loss of generality, let $a \in P$. If $a = 0$, then we are done; otherwise, $a \neq 0$, and since $ab = 0$, we must have $b = 0$ as $a$ is not a zero divisor ($0$ is the only zero-divisor in $P$). In both cases, we show that $ab = 0$ implies $a = 0$ or $b = 0$, showing that $R$ is a domain.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.18}
 Let $R$ be a commutative ring, and let $N$ be its nilradical (III.3.12). Prove that $N$ is contained in every prime ideal of $R$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $x^n = 0$ for some positive integer $n$, and $P$ a prime ideal. Then since $0 \in P$, we have
 \[
 P \ni 0 = x^n = x \cdot x^{n-1}
 \]
 By the property of prime ideal, either $x \in P$ or $x^{n-1}$ in $P$. If the former case is true, then we are done; else, we can reduce to the case where either $x \in P$ or $x^{n-2} \in P$. By continuing this process, we will arrive at either $x \in P$ or $x \in P$, showing that in any cases, $x \in P$. Therefore all nilpotent elements are in $P$, proving the statement. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.4.21}
 Let $k$ be an algebraic closed field, and let $I \subseteq k[x]$ be an ideal. Prove that $I$ is maximal if and only if $I = (x-c)$ for some $c \in k$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 
 \noindent $(\Leftarrow)$ We have 
 \[
 \frac{k[x]}{(x-c)} \cong k 	\quad \text{(p.p.151)}	
 \]
 and since $k$ is a field, it follows by definition that $(x-c)$ is maximal. \\
-$(\Rightarrow)$ Let $J$ be a maximal ideal. By III.4.4, $k[x]$ is a PID, hence every ideal is being generated by a single \emph{monic} polynomial $f(x) \in k[x]$ (III.4.7). Since $k$ is algebraic closed, we can write $f(x) = q(x)(x-c)$ for some $q(x) \in k[x],\; c \in k$. Then  
+$(\Rightarrow)$ Let $J$ be a maximal ideal. By \ref{III.4.4}, $k[x]$ is a PID, hence every ideal is being generated by a single \emph{monic} polynomial $f(x) \in k[x]$ (\ref{III.4.7}). Since $k$ is algebraic closed, we can write $f(x) = q(x)(x-c)$ for some $q(x) \in k[x],\; c \in k$. Then  
 \[
 J = (f(x)) = (q(x)(x-c)) \subseteq (x-c)
 \]
 and by Proposition III.4.11, either $J = (x-c)$ or $J = k[x]$. The latter case could not happen since the maximal can not be $k[x]$ itself, therefore $J = (x-c)$, as desired. 
-\end{pf}
-
-\el
+\end{proof}
 
 Unless otherwise specified, in the following $M$ denotes a (left-)module over $R$.
 
@@ -523,7 +521,7 @@ Unless otherwise specified, in the following $M$ denotes a (left-)module over $R
 \begin{problem}{III.5.2}
 Prove claim 5.1.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $\sigma : R \to \text{End}_\mathsf{Ab}(M)$ be a ring homomorphism and $\rho : R \times M \to M$ a function. We verify the following properties:
 \begin{itemize}
 \setlength\itemsep{0pt}
@@ -545,21 +543,21 @@ Note that $\sigma(r)$ is a endomorphism on $M$. Then
 \rho(1,m) = \sigma(1)(m) = 1(m) = m	
 \]
 \end{itemize}
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.5.3}
 Prove that $0\cdot m = 0$ and that $(-1) \cdot m = -m$ for all $m \in M$. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 Since $0m = (0+0)m = 0m + 0m, 0m = 0$. Since $0 = 0m = (-1+1)m = (-1)m+m, (-1)m = -m$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.5.4}
 Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or \emph{irreducible}) if its only 
 submodules are $\{0\}$ and $M$. Let $M, N$ be simple modules, and let $\varphi: M \to N$ be 
 a homomorphism of $R$-modules. Prove that either $\varphi = 0$ or $\varphi$ is an isomorphism. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 The kernel of a $R$-module homomorphism is a submodule of $M$, which can only be $\{0\}$ or $M$. If $\ker \varphi = M$ then $\varphi = 0$, and if $\ker \varphi = \{0\}$ then $\varphi$ is injective. The image of a $R$-module homomorphism is a submodule of $N$, which again can only be $\{0\}$ or $M$. if $\im \varphi = \{0\}$ then $\varphi = 0$, and if $\im \varphi = N$ then $\varphi$ is surjective. 
 
 So there are four different combination of images and kernels:
@@ -571,12 +569,12 @@ So there are four different combination of images and kernels:
     \item $\ker \varphi = \{0\}, \im \varphi = N \Rightarrow \varphi$ is an isomorphism.
 \end{itemize}
 so either $\varphi = 0$ or $\varphi$ is an isomorphism. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.5.11}
 Let $R$ be commutative, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ (extending the given $R$-module structure) and $\text{End}_{R-\mathsf{Mod}}(M)$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 If $f \in \text{End}_{R-\textsf{Mod}}(M)$, then we have to show that there are some suitable maps
 \begin{align*}
 R[x] \times M &\to M \\
@@ -587,12 +585,12 @@ that makes $M$ into a $R[x]$-module. We consider $(g(x),m) \to g(f)(m)$, where i
 \sigma(f,m) = \sum_{i} a_i f^i(m) \text{ where } f^i = \underbrace{f \circ \cdots \circ f}_{i\text{ times}}
 \]
 We can easily check by definition that $M$ is a $R[x]$-module. Conversely, if $M$ is a $R[x]$-module, then define $f(m) = xm$. Then $f$ is indeed an endomorphism (note that the commutativity of $R$ ensures that $rxm = xrm$ for $r \in R$, so $f$ is an endomorphism), proving the statement.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.5.12}
 Let $M,N$ be $R$-modules, and let $\varphi:M \to N$ be a homomorphism of $R$-modules which has a inverse (therefore a bijection). Prove that $\varphi^{-1}$ is also a homomorphism of $R$-modules. Conclude that a bijective $R$-module homomorphism is a $R$-module isomorphism.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Since
 \[
 \varphi(\varphi^{-1}(m) + \varphi^{-1}(n)) = m + n = \varphi(\varphi^{-1}(m + n))
@@ -602,7 +600,7 @@ we have $\varphi^{-1}(m) + \varphi^{-1}(n) = \varphi^{-1}(m + n)$. And
 \varphi(r\varphi^{-1}(m)) = r\varphi(\varphi^{-1}(m)) = rm = \varphi(\varphi^{-1}(rm))
 \]
 so $r\varphi^{-1}(m) = \varphi^{-1}(rm)$ indeed. 
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{III.5.14}
@@ -619,7 +617,7 @@ Prove Proposition 5.18, that is:
 \end{itemize}
 }
 \end{problem}
-\begin{pf}
+\begin{proof}
 Every element of $N+P$ can be written as $n+p$ where $n \in N, p \in P$. Then it is clear that $r(n+p)$ = $rn + rp \in N+P$ for $r \in M$. For the intersection $N \cap P$, it is also clear that for $p \in P, n \in N \cap P$, $pr \in N$ since $r \in N$, and $pr \in P$ since $p \in P$.
 
 The proof for the second isomorphism theorem follows exactly the same as in groups (Proposition II.8.11). Consider the homomorphism
@@ -634,14 +632,14 @@ finally it follows by first isomorphism theorem that
 \[
 \frac{N+P}{N} \cong \frac{P}{N \cap P}.
 \]
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{III.6.1}
 Prove Claim 6.3, that is, $F^R(A) \cong R^{\oplus A}$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Observe that every element in $R^{\oplus A}$ can be uniquely written as
 \[
 \sum_{a \in A}r_a \chi(a)	
@@ -663,12 +661,12 @@ then the diagram clearly commutes (and is unique). Finally, $\varphi$ is a $R\ma
 = \varphi\left(\sum_{a \in A}(r_a+r_a') \chi(a)\right) = \varphi\left(\sum_{a \in A}r_a \chi(a) + \sum_{a \in A}r_a' \chi(a)\right)	
 \end{align*}
 Note that $R$-module's definition gurantees the commutativity of $\checkmark$ (scalar multiplication is direct).
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.3}
 Let $R$ be a ring, $M$ an $R$-module, and $p : M \to M$ an $R$-module homomorphism such that $p^2 = p$. Prove that $M \cong \ker p \oplus \im p$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 We are required to prove that the diagram
 \[
 \begin{tikzcd}[column sep=large]
@@ -694,7 +692,7 @@ But what about $x \in \ker p \cap \im p$? In fact, the only element in the inter
 x = p(y) = p(p(y)) = p(x) = 0
 \]
 so $\varphi$ is well-defined. Now it suffices to check that $\varphi$ is a homomorphism, which is direct since $p, f_k$ and $f_m$ are both $R$-homomorphisms, so it preserves the action on $M$ (check yourself if you're not convinced). Therefore by the universal property of coproduct, $\ker p \oplus \im p \cong M$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.4}
 Let $R$ be a ring, and let $n > 1$. View $R^{\oplus(n-1)}$ as a submodule of $R^{\oplus n}$, via the injective homomorphism $R^{\oplus(n-1)} \xhookrightarrow{} R^{\oplus n}$ defined by
@@ -706,7 +704,7 @@ Give a one-line proof that
 \frac{R^{\oplus n}}{R^{\oplus (n-1)}} \cong R.	
 \] 
 \end{problem}
-\begin{pf}
+\begin{proof}
 The surjective map
 \[
 (r_1,\dotsc,r_{n-1}, r_n) \twoheadrightarrow r_n.
@@ -715,13 +713,13 @@ has kernel precisely $R^{\oplus (n-1)}$, therefore by first isomorphism theorem
 \[
 \frac{R^{\oplus n}}{R^{\oplus (n-1)}} \cong R.	
 \]  
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.5}
 For any ring $R$ and any two sets $A_1, A_2$, prove that $(R^{\oplus A_1})^{\oplus A_2} \cong R^{\oplus(A_1 \times A_2)}$.
 \end{problem}
-\begin{pf}
-By III.6.1, it is equivalent to prove the following diagram commutes:
+\begin{proof}
+By \ref{III.6.1}, it is equivalent to prove the following diagram commutes:
 \[
 \begin{tikzcd}
 (R^{\oplus A_1})^{\oplus A_2} \arrow[r, "\exists!\varphi"] & M \\
@@ -744,7 +742,7 @@ where $\chi$ is the indicator function. Then it follows the same pattern as in I
 \varphi \left(\sum_{a_1 \in A_1, a_2 \in A_2} r_{a_1,a_2} (j_{a_1,a_2}(b_2))(b_1)\right) = \sum_{a_1 \in A_1, a_2 \in A_2} r_{a_1,a_2} f(a_1,a_2)
 \]
 The commutativity of the diagram is direct. Finally, the check for $\varphi$ is a $R-\mathsf{Mod}$ homomorphism is the same as in III.6.1.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.7}
 Let $A$ be any set, and for any module $M$ over a ring $R$, define 
@@ -753,7 +751,7 @@ M^A	:= \prod_{a \in A}M, \quad M^{\oplus A} := \bigoplus_{a \in A}M.
 \]
 Prove that $\Z^\N \ncong \Z^{\oplus \N}$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Note that $\Z^\N$ can be regarded as the collection of functions
 \[
 f: \Z \to \N 
@@ -763,12 +761,12 @@ which is the collection of all infinite sequences in $\Z$. This set has uncounta
 f(n) = 0 \text{ for all but finitely many }	n \in Z
 \]
 which says that this set collects all finite sequence in $\Z$, and as we know (i.e. can construct a bijection to $\Z$), this set is countable. As the cardinality does not match, $\Z^\N \ncong \Z^{\oplus \N}$, as required.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.9}
 Let $R$ be a ring, $F$ a nonzero free $R$-module, and let $\varphi: M \to N$ be a homomorphism of $R$-modules. Prove that $\varphi$ is onto if and only if for all $R$-module homomorphisms $\alpha: F \to N$ there exists an $R$-module homomorphism $\beta:F \to M$ such that $\alpha = \varphi \circ \beta$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 As $M$ is free, it is generated by a set $X = \{x_i\}$ (not necessarily finite). 
 
 \noindent $(\Rightarrow)$ Let $\{n_i\} \in N$ be such that $\varphi(x_i) = n_i$. If $\varphi$ is onto, then each $n_i$ corresponds to a $m_i \in M$ such that $\varphi(m_i) = n_i$. We then just define $\beta(x_i) = m_i$, and the commutativity is clear (note that $\beta$ might not be unique, but that's fine). \\
@@ -777,18 +775,18 @@ $(\Leftarrow)$ If $\varphi$ is not onto, i.e. there exists $n \in N$ such that $
 \alpha(x_i) = n	
 \]
 for all $i$. Then the commutativity does not hold for any choice of $\beta$, a contradiction. Therefore $\varphi$ must be surjective.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{III.6.10}
-Let $M,N,$ and $Z$ be $R$-modules, and let $\mu:M \to Z, \nu:N \to Z$ be homomorphism of $R$-modules. Prove that $R-\mathsf{Mod}$ has 'fibered products'(I.5.12).
+Let $M,N,$ and $Z$ be $R$-modules, and let $\mu:M \to Z, \nu:N \to Z$ be homomorphism of $R$-modules. Prove that $R-\mathsf{Mod}$ has 'fibered products'(cf. Exercise \ref{I.5.12}).
 \end{problem}
-\begin{pf}
-As in the case \textsf{Set}(I.5.12), we define fibered coproduct by the set of elements that agrees on $Z$ after being pushed by $\mu$ and $\nu$:
+\begin{proof}
+As in the case \textsf{Set}(I.5.12), we define fibered coproduct to be  the set of elements that agrees on $Z$ after being pushed by $\mu$ and $\nu$:
 \[
-M \times_Z N := \{(m,n)\in M \oplus N:m\in M, n \in N, \mu(m) = \nu(n)\}    
+M \times_Z N := \{(m,n)\in M \oplus N:m\in M, n \in N, \mu(m) = \nu(n)\}
 \]
-By the universal property of fibered product on \textsf{Set}, the diagram with the choice $\varphi(z) := (f_M(z),f_N(z))$ makes the following diagram 
+By the universal property of fibered product on \textsf{Set}, the diagram with the \emph{set-function} $\varphi(z) := (f_M(z),f_N(z))$ makes the following diagram 
 \[
 \begin{tikzcd}
 P \arrow[rd, "\exists!\varphi", dashed] \arrow[rdd, "f_M"', bend right] \arrow[rrd, "f_N", bend left] & & \\
@@ -799,14 +797,14 @@ P \arrow[rd, "\exists!\varphi", dashed] \arrow[rdd, "f_M"', bend right] \arrow[r
 commutes, regarding in \textsf{Set}. Now we check that $M \times_Z N$ indeed is a submodule of $M \oplus N$: for $(m,n) \in M \times_Z N$, $r (m,n) = (rm,rn)$, and since $\mu(m)=\nu(n)$, $r\mu(m) = \mu(rm) = \nu(rn) = r\nu(n)$, so $(rm,rn) \in M \times_Z N$ as required.	
 
 Now it remains to check $\varphi$ is a $R$-module homomorphism, which is direct.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.11}
-Define a notion of \emph{fibered coproduct} of two $R$-modules $M, N$, along an $R$-module $A$, in the style of III.6.10 (and cf. I.5.12).
+Define a notion of \emph{fibered coproduct} of two $R$-modules $M, N$, along an $R$-module $A$, in the style of Exercise III.6.10 (and cf. \ref{I.5.12}).
 
 Prove that fibered coproducts exist in $R$-\textsf{Mod}. The fibered coproduct $M \oplus_A N$ is called the \emph{push-out} of $M$ along $\nu$ (or of $N$ along $\mu$).
 \end{problem}
-\begin{pf}
+\begin{proof}
 The universal property is as the same stated in I.5.12, but by replacing every set with $R$-modules and every morphism with $R\mhyphen\mathsf{Mod}$ homomorphisms. We now show that the fibered coproduct is almost the same in \textsf{Set}: define an equivalence relation
 \[
 S = \{(\mu(x), \nu(x)) \in M \oplus N : x \in A\}
@@ -838,14 +836,14 @@ i_N \nu (x) = (0, \nu(x)) + S = (\mu(x), 0) + S = i_M \mu(x)
 \varphi	i_M (m) = \varphi((m,0)+S) = f_M(m).
 \]
 \end{itemize}
-\end{pf}
+\end{proof}
 
 
 
 \begin{problem}{III.6.14}
 Prove that the ideal $(x_1,x_2,\dotsc)$ of the ring $R = \Z[x_1,x_2,\dotsc]$ is not finitely generated (as an ideal, i.e. as an $R$-module).
 \end{problem}
-\begin{pf}
+\begin{proof}
 If it were, then there exists a surjective $R\mhyphen\mathsf{Mod}$ homomorphism
 \[
 \varphi : R^{\oplus n} \twoheadrightarrow (x_1,x_2,\dotsc).
@@ -855,13 +853,13 @@ Then we collect the polynomials
 \{\varphi(0,\dotsc,\underset{i\text{-th place}}{1},\dotsc,0)\}_{i = 1}^n	
 \]
 Since each polynomials can only contain finitely many indeterminates, and there are only finite polynomials, there must be some indeterminates $x_j$ that is not in the domain of $\varphi$ (as there are countably many indeterminates in the ideal), contradicting to the surjectivity of $\varphi$. Therefore $(x_1,x_2,\dotsc)$ is not finitely generated.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.16}
-Let $R$ be a ring. A (left-)$R$-module $M$ is \emph{cyclic} if $M = \langle m \rangle$ for some $m \in M$. Prove that simple modules (cf. Exercise III.5.4) are cyclic. Prove that an $R$-module $M$ is cyclic if and only if $M \cong R/I$ for some (left-)ideal $I.$ Prove that 
+Let $R$ be a ring. A (left-)$R$-module $M$ is \emph{cyclic} if $M = \langle m \rangle$ for some $m \in M$. Prove that simple modules (cf. Exercise \ref{III.5.4}) are cyclic. Prove that an $R$-module $M$ is cyclic if and only if $M \cong R/I$ for some (left-)ideal $I.$ Prove that 
 every quotient of a cyclic module is cyclic. 
 \end{problem}
-\begin{pf}
+\begin{proof}
 By the universal property of free module there is a unique homomorphism of $R$-modules
 \[
 \varphi : R^{\{m\}} \to M	
@@ -872,7 +870,7 @@ If $M = \langle m \rangle$, then we define a $R$-module homomorphism $\varphi: R
 Conversely if $M \cong R/I$, then there is a surjective $R$-module homomorphism $\varphi: R \to M$ such that its kernel is $I$. By identifing $R$ with $R^{\{m\}}$, the result is now clear.
 
 The last statement follows from that you can restrict a surjective map $\varphi: R \to M$ to another surjective map $\varphi': R \to M/N$. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.17}
 Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a (left-)ideal $I$, and let $N$ be another $R$-module.
@@ -882,7 +880,7 @@ Let $M$ be a cyclic $R$-module, so that $M \cong R/I$ for a (left-)ideal $I$, an
     \item For $a, b \in \Z$, prove that $\Hom_{R \mhyphen \mathsf{Mod}}(\Z/a\Z, \Z/b\Z) \cong \Z/\gcd(a,b)\Z$.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 Every homomorphism $\varphi: M \to N$ is begin fixed by the generator of $M$, so we only need to investigate $\varphi(m)$ where $M = \langle m \rangle$. To make $\varphi$ into an $R$-module homomorphism, we must have
 \[
 \varphi(a+I+b+I) = \varphi(a+I) + \varphi(b+I) \quad \text{ and } \quad  r\varphi(a+I) = \varphi(ra+rI)	
@@ -896,18 +894,18 @@ so if $rm \in I$, i.e. $r \in I$, then $rn = 0$. So the set of all possibe $\var
 \Hom_{R \mhyphen \mathsf{Mod}}(\Z/a\Z, \Z/b\Z) \cong \{n \in \Z/b\Z : (\forall a \in a\Z) an = 0\}
 \]
 which is precisely $Z/\gcd(a,b)\Z$.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.6.18}
 Let $M$ be an $R$-module, and let $N$ be a submodule of $M$. Prove that if $N$ and $M/N$ are both finitely generated, then $M$ is finitely generated.
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $\{a_i + N\}_{i = 1}^m$ be generators of $M/N$, and $\{b_i\}_{i = 1}^n$ be generators of $N$. Then for every $m \in M$, we consider
 \[
 m + N = \sum_{i=1}^m r_i (a_i + N) = \sum_{i=1}^m r_i a_i + N
 \]
 this says that $m - \sum_{i=1}^m r_i a_i \in N$, and therefore we can again write $m - \sum_{i=1}^m r_i a_i = \sum_{j=1}^n s_i b_i$. To this point we showed that every element in $M$ can be generated by $\{a_i,b_j\}_{1 \leq i \leq m, 1 \leq j \leq n}$, showing that $M$ is finitely generated.
-\end{pf}
+\end{proof}
 
 \section{}
 
@@ -920,11 +918,11 @@ Assume that the complex
 \]
 is exact. Prove that $M \cong 0$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 \[
 0 = \im (0 \longrightarrow M) = \ker (M \longrightarrow 0) = M.
 \]
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.7.2}
 Assume that the complex
@@ -935,9 +933,9 @@ Assume that the complex
 \]
 is exact. Prove that $M \cong M'$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The map $(M \longrightarrow M')$ is both a monomorphism and an epimorphism by Example III.7.1 and Example III.7.2. By definition, the map is an isomorphism. 
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.7.3}
 Assume that the complex
@@ -948,7 +946,7 @@ Assume that the complex
 \]
 is exact. Show that, up to natural identifications, $L = \ker \varphi$ and $N = \text{coker }\varphi$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The map $(L \longrightarrow M)$ is a monomorphism, so by canonical decomposition 
 \[
 L = \frac{L}{\ker (L \longrightarrow M)} \cong \im(L \longrightarrow M) = \ker (M \longrightarrow M') = \ker \varphi.
@@ -957,7 +955,7 @@ The map $(M' \longrightarrow N)$ is an epimorphism, so it follows by first isomo
 \[
 \text{coker }\varphi=\frac{M'}{\im \varphi}=\frac{M'}{\im(M \longrightarrow M')}= \frac{M'}{\ker(M' \longrightarrow N)} \cong N.
 \]
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.7.6}
 Prove the 'split epimorphism' part of Proposition 7.5, that is,
@@ -970,7 +968,7 @@ Prove the 'split epimorphism' part of Proposition 7.5, that is,
 \textit{ splits.}
 \]
 \end{problem}
-\begin{pf}
+\begin{proof}
 
 \noindent $(\Leftarrow)$ If the sequence splits, then by identifying $\varphi$ with the projection map from $\ker \varphi \oplus N$ to $N$, we can let $\psi : N \to \ker \varphi \oplus N $ to be the inclusion, and it gives a right-inverse. \\
 $(\Rightarrow)$ Assume that $\varphi$ has a right inverse, which says that 
@@ -997,7 +995,7 @@ and $m-\psi\varphi(m)$ is in $\ker \varphi$ since
 \varphi(m-\psi\varphi(m)) = \varphi(m) - \varphi\psi\varphi(m) = 0
 \]
 and the claim is proved.
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.7.7}
 Let
@@ -1015,12 +1013,12 @@ be a short exact sequence of $R$-modules, and let $L$ be an $R$-module.
     0 \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(P,L) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(N,L) \arrow[r] &\Hom_\mathsf{R\mhyphen Mod}(M,L).
     \end{tikzcd}
     \]
-    \item Redo Exercise 6.17.
+    \item Redo Exercise \ref{III.6.17}.
     \item Construct an example showing that the rightmost homomorphism in (i) need not to be onto.
     \item Show that if the original sequence splits, then the rightmost homomorphism in (i) is onto.
 \end{enumerate}
 \end{problem}
-\begin{pf}
+\begin{proof}
 \begin{enumerate}[label=(\roman*)]
     \setlength\itemsep{0pt}
     \item     
@@ -1090,7 +1088,7 @@ be a short exact sequence of $R$-modules, and let $L$ be an $R$-module.
     \]
     is clearly surjective: for each $\varphi: M \to L$, we can find $\varphi': M\oplus P \to L$ defined by $\varphi'((m,p)) = \varphi(m)$, so that the restriction of $\varphi'$ on $M$ is precisely $\varphi$.
 \end{enumerate}
-\end{pf}
+\end{proof}
 
 \begin{problem}{III.7.8}
 Prove that every exact sequence
@@ -1101,8 +1099,8 @@ Prove that every exact sequence
 \]
 of $R$-modules, with $F$ \emph{free}, splits.
 \end{problem}
-\begin{pf}
-By exactness, $\varphi :N \longrightarrow F$ is surjective. Therefore by III.6.9, for every $\alpha : F \to F$, there is $\beta : F \to N$ such that $\alpha = \varphi \circ \beta$. In particular, let $\alpha = id_F$, then $\varphi \circ \beta = id_F$. 
+\begin{proof}
+By exactness, $\varphi :N \longrightarrow F$ is surjective. Therefore by \ref{III.6.9}, for every $\alpha : F \to F$, there is $\beta : F \to N$ such that $\alpha = \varphi \circ \beta$. In particular, let $\alpha = id_F$, then $\varphi \circ \beta = id_F$. 
 \[
 \begin{tikzcd}
 &  &  & F \arrow[d, "1"] \arrow[ld, "\beta"'] &   \\
@@ -1126,4 +1124,4 @@ so we have the candidate of $f$. Now it remains to decide $m$ in which $i(m) = n
 \varphi(n - \beta(\varphi(n)) = \varphi(n) - \varphi \circ \beta \circ \varphi(n) = \varphi(n) - \varphi(n) = 0
 \]
 Hence $h$ is an isomorphism, and by definition, the sequence splits.
-\end{pf}
+\end{proof}

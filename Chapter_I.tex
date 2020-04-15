@@ -12,22 +12,22 @@ Locate a discussion of Russel's paradox, and understand it.
 \begin{problem}{I.1.2}
 Prove that if $\sim$ is an equivalence relation on a set $S$, then the corresponding family $\mathscr{P}_\sim$ defined in $\S 1.5$ is indeed a partition of $S$.
 \end{problem}
-\begin{pf}
+\begin{proof}
 The union of such class must contain $S$ by definition, as at worse the elements can be in the equivalence class formed by themselves. It suffices to check disjointness: If $a \in [x], a \in [y]$ but $x \nsim y$, then transitivity implies $x \sim a, a \sim y \Rightarrow x \sim y$, a contradiction. 
-\end{pf}
+\end{proof}
 
 \section{}
 \begin{problem}{I.2.1}
 How many different bijection are there between a set $S$ with $n$ elements and itself?
 \end{problem}
-\begin{sol}
+\begin{solution}
 The first number has $n$ choices; to make the map a bijection, the next number has only $(n-1)$ choices remaining. By continuing choosing, we have $n!$ different bijections.
-\end{sol}
+\end{solution}
 
 \begin{problem}{I.2.5}
 Formulate a notion of \emph{epimorphism}, in the style of the notion of \emph{monomorphism}, and prove a result analogous to Proposition 2.3, for epimorphisms and surjections.
 \end{problem}
-\begin{sol}
+\begin{solution}
 Epimorphism are \emph{right-cancelable}; that is,
 \begin{center}
 A function $f : A \to B$ is a epimorphism if for all sets $Z$ and all functions $\beta, \beta' : Z \to A$, 
@@ -56,7 +56,7 @@ Then since
 \beta \circ f = \beta' \circ f  \Rightarrow \beta = \beta'
 \] 
 this implies that beta receives \emph{only} values in $\im f$, so $\im f \supseteq B$. Since we have $\im f \subseteq B$ clearly for any function $f$, we conclude that $\im f = B$, which is the definition of surjectivity.
-\end{sol}
+\end{solution}
 
 \section{}
 \begin{problem}{I.3.1}
@@ -68,7 +68,7 @@ Let \textsf{C} be a category. Consider a structure $\mathsf{C}^{op}$ with
 \end{itemize}
 Show how to make this into a category.
 \end{problem}
-\begin{sol}
+\begin{solution}
 For $f \in \Hom_{\mathsf{C}^{op}}(A,B), g \in \Hom_{\mathsf{C}^{op}}(B,C)$, define the composite of morphisms by
 \[
 g \circ f := fg     
@@ -87,12 +87,12 @@ where $fg$ is defined in the sense of the category $\mathsf{C}$. Now we check th
 1_A \circ f = f1_A = f, \quad f \circ 1_A = 1_Af = f.	
 \]
 \end{itemize}
-\end{sol}
+\end{solution}
 
 \begin{problem}{I.3.11}
 Draw the relevant diagrams and define composition and identities for the category $\mathsf{C}^{A,B}$ mentioned in Example 3.9. Do the same for the category $\mathsf{C}^{\alpha, \beta}$ mentioned in Example 3.10. 
 \end{problem}
-\begin{sol}
+\begin{solution}
 By reversing the arrow of $\mathsf{C}_{A,B}$, we obtain:
 \begin{itemize}
 \setlength\itemsep{0pt}
@@ -161,7 +161,7 @@ C \arrow[ru, "\alpha"] \arrow[rd, "\beta"'] &  & Z_1 \arrow[r, "\sigma"] & Z_2 \
 \]
 \end{itemize}
 composition and identity are defined analogously as in Example 3.5. 
-\end{sol}
+\end{solution}
 
 
 \section{}
@@ -173,7 +173,7 @@ Let $A,B$ be objects of a category \textsf{C}, and let $f \in \Hom_\mathsf{C}(A,
 \item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
 \end{itemize}
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $g$ be the right inverse of $f$, i.e. $fg = 1$. Then for any morphism $h, h' \in \Hom_\mathsf{C}(B,Z)$,
 \[
 h \circ f = h' \circ f \Rightarrow h \circ f \circ g = h' \circ f \circ g \Rightarrow h \circ 1 = h' \circ 1 \Rightarrow h = h'
@@ -183,28 +183,28 @@ showing that $f$ is an epimorphism. For a counterexample in which the converse d
 f : 1 \to 2	
 \]
 is an epimorphism, but there are no right inverse for $f$, since there are no morphisms in $\Hom_\mathsf{C}(2,1)$.
-\end{pf}
+\end{proof}
 
 \section{}
 
 \begin{problem}{I.5.1}
 Prove that a final object in a category \textsf{C} is initial in the opposite category $\mathsf{C}^{op}$ (I.3.1).	
 \end{problem}
-\begin{pf}
+\begin{proof}
 Let $F$ be a final object in \textsf{C}, which means that the set $\Hom_\mathsf{C}(A, F)$ is a singleton for all $A \in \text{Obj}(\mathsf{C})$. Since
 \[
 \Hom_\mathsf{C}(A, F) = \Hom_\mathsf{C^{op}}(F, A)
 \]
 we have that $F$ is initial in $\mathsf{C}^{op}$.
-\end{pf}
+\end{proof}
 
 
 \begin{problem}{I.5.12}
-Define the notions of \emph{fibered products} and \emph{fibered coproducts}, as terminal objects of the categories $\mathsf{C}_{\alpha, \beta}, \mathsf{C}^{\alpha, \beta}$ considered in Example 3.10 (cf. also I.3.11), by stating carefully the corresponding universal properties. 
+Define the notions of \emph{fibered products} and \emph{fibered coproducts}, as terminal objects of the categories $\mathsf{C}_{\alpha, \beta}, \mathsf{C}^{\alpha, \beta}$ considered in Example 3.10 (cf. also \ref{I.3.11}), by stating carefully the corresponding universal properties. 
 
 As it happens, \textsf{Set} has both fibered products and fibered coproducts. Define these objects 'concretely', in terms of naive set theory.
 \end{problem}
-\begin{sol}
+\begin{solution}
 Fibered product is \emph{final} in $\mathsf{C}_{\alpha, \beta}$; that is, there are only one morphism in 
 \[
 \Hom\left(
@@ -305,4 +305,4 @@ By the above analysis, as all elements in the same equivalence class connects to
 a = \alpha(x_1) \sim \beta(x_1) = \beta(x_2) \sim \alpha(x_2) = \alpha(x_3) \cdots = b,
 \]
 and since every $\sim$ preserves the result, $\varphi$ is well-defined.
-\end{sol}
+\end{solution}

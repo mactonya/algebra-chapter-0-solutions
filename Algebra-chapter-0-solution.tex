@@ -15,6 +15,7 @@
 \usepackage{extarrows}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{indentfirst}
 \hypersetup{
 	colorlinks=true,
 	linkcolor=blue,
@@ -38,11 +39,6 @@
   tabsize=3
 }
 \geometry{a4paper,margin=0.6in}
-\newcommand{\dl}{\vspace{12pt}}
-\newcommand{\dt}{$\bullet \:$}
-\newcommand{\nl}{\noindent\textbf}
-\newcommand{\el}{\textcolor{White}{a}}
-\newcommand{\iffw}{if and only if }
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -61,22 +57,17 @@
 \renewcommand\thechapter{\Roman{chapter}}
 \renewcommand\thesection{\thechapter.\arabic{section}}
 \newcommand\myeq{}
-\usepackage{indentfirst}
 
-\newenvironment{problem}[2][Problem]{\begin{trivlist}
-\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
-\newenvironment{pf}
-	{\emph{Proof.}
-	}
-	{
-	\qed
-	}
-\newenvironment{sol}
-	{\emph{Solution.}
-	}
-	{
-	\qed
-	}
+\theoremstyle{definition}
+\newtheorem{innerproblem}{Problem}
+
+\newenvironment{problem}[1]
+{\renewcommand\theinnerproblem{#1}\innerproblem\label{#1}}
+{\endinnerproblem}
+
+\newenvironment{solution}
+{\begin{proof}[Solution]}
+{\end{proof}}
 	
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\rank}{rank}
@@ -84,6 +75,7 @@
 \DeclareMathOperator{\Hom}{Hom}
 \mathchardef\mhyphen="2D
 %\DeclareMathOperator{\dim}{dim}
+
 
 \title{Solution to Algebra : Chapter 0 by Paolo Aluffi}
 \author{macyayaya\thanks{\href{https://github.com/macyayaya/}{https://github.com/macyayaya/}}}
