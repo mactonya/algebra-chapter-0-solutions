@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"editor.fontSize": 20,
+		"editor.fontSize": 18,
 		"editor.wordWrap": "on",
 		"latex-workshop.bibtex-format.tab": "tab",
 		"latex-workshop.chktex.run": "onType",
