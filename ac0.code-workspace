@@ -9,6 +9,7 @@
 		"editor.wordWrap": "on",
 		"latex-workshop.bibtex-format.tab": "tab",
 		"latex-workshop.chktex.run": "onType",
-		"latex-workshop.intellisense.update.aggressive.enabled": true
+		"latex-workshop.intellisense.update.aggressive.enabled": true,
+		"editor.insertSpaces": false
 	}
 }

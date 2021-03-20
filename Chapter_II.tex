@@ -2,8 +2,29 @@ Unless otherwise specified, in the following $G$ denotes a group, $e$ denotes th
 
 \section{}
 
+\begin{problem}{II.1.3}
+Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g,h$ of a group $G$.
+\end{problem}
+\begin{proof}
+We knew that $(gh)^{-1} (gh) = e$, so multiply both sides by $h^{-1}g^{-1}$ gives the desired equation.
+\end{proof}
+
+\begin{problem}{II.1.4}
+Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
+\end{problem}
+\begin{proof}
+For any $g,h \in G$ we can form a new element $gh$; this element is still in $G$, so it must hold that $(gh)^2 = ghgh = e$. As $g^2 = h^2 = e$, multiply both sides by $hg$ gives the commutative requirement.
+\end{proof}
+
+\begin{problem}{II.1.7}
+Prove Corollary 1.11: \textit{Let $g$ be an element of finite order, and let $N \in \Z$. Then $g^N = e$ if and only if $N$ is a multiple of $|g|$.}
+\end{problem}
+\begin{proof}
+If $g^N = e$, by Lemma 1.10 this implies $|g|\mid N$, which is equivalent to $N$ is a multiple of $|g|$. Conversely if $N = k|g|$ for some $k \in \N$, then $g^N = g^{k|g|} = e^k = e$.
+\end{proof}
+
 \begin{problem}{II.1.8}
-Let $G$ be a finite abelian group with exactly one element $f$ of order 2. Prove that $\prod_{g \in G}g = f.$
+Let $G$ be a finite abelian group with exactly one element $f$ of order 2. Prove that $\prod_{g \in G}g = f$.
 \end{problem}
 \begin{proof}
 For all elements that is not of order 2, they have an inverse that is not itself, so they canceled out in the product $\prod_{g \in G}g$, leaving only elements that is of order 2, i.e. $f$.
@@ -24,7 +45,7 @@ Simply observe that $e = (gh)^{|gh|} = g(hg)^{(|gh|-1)}h$, therefore
 \[
 g^{-1}h^{-1} = (hg)^{-1} = (hg)^{|gh|-1}
 \]
-hence $(hg)^{|gh|} = e$. The other case ($(gh)^{|hg|} = e$)is the same.
+hence $(hg)^{|gh|} = e$. The other case ($(gh)^{|hg|} = e$) is similar.
 \end{proof}
 
 \begin{problem}{II.1.13}
@@ -169,6 +190,24 @@ If $C_2 \times C_3$ is a coproduct, then take $A = S_3$. Although there are inje
 but there are no homomorphisms $\varphi:C_2 \times C_3 \to S_3$ that satisfies the universal property of coproducts: Observe that any choice of cycles in $\varphi_1$ and $\varphi_2$ will exhaust all possible element of $S_3$, hence forces $\varphi$ to be an isomorphism. But the element $\varphi(1,1)$ must be either a 2(or 3)-cycle (i.e. $\varphi^2(1,1)$ (or $\varphi^3(1,1)$) is zero), and neither $(1,1)^2$ nor $(1,1)^3$ are $(0,0)$, and $\varphi$ will map a non-identity element to the identity, a contradiction (since $\varphi$ is an isomorphism and must map \emph{only} $(0,0)$ to the trivial cycle).
 \end{proof}
 
+\begin{problem}{II.3.8}
+Define a group $G$ with two generators $x,y$, subject to the relations $x^2 = e, y^3 = e$. Prove that $G$ is a coproduct of $C_2$ and $C_3$ in $\mathsf{Grp}$.
+\end{problem}
+\begin{proof}
+\[
+\begin{tikzcd}
+C_2 \arrow[rrrd, "f"', bend left] \arrow[rd, "i_1"'] &    &  &   \\
+& G \arrow[rr, "\exists!\varphi"] &  & A \\
+C_3 \arrow[rrru, "g", bend right] \arrow[ru, "i_2"]  &  &  &  
+\end{tikzcd}
+\]
+To define $\varphi$ properly so that the diagram commutes, we have no choice but to define
+\[
+\varphi(x) = f(x), \quad \varphi(y) = g(y)
+\]
+Commutativity and uniqueness is immediate, so it remains to show that $\varphi$ is a group homomorphism, which is immediate if you just explicitly list two items $g,h \in G$ and evaluate $\varphi(g)\varphi(h)$ and $\varphi(gh)$.
+\end{proof}
+
 \section{}
 
 \begin{problem}{II.4.3}
@@ -178,6 +217,21 @@ Prove that a group of order $n$ is isomorphic to $\Z/n\Z$ if and only if it cont
 Let $G$ be such group. \\
 $(\Rightarrow)$ Trivial: $\bar{1}$ has order $n$. \\
 $(\Leftarrow)$ Let $g$ be an element of order $n$. Then consider a homomorphism $\varphi: G \to \Z/n\Z$ with $\varphi(g) = \bar{1}$. This map is injective: if it weren't, then there are some integers $0 \leq i < j < n$ such that $\varphi(g^i) = \varphi(g^j)$. But then $\varphi(g^{j-i}) = \bar{0}$, which says $g^{j-i} = e_G$, so $g$ has order less than $n$, a contradiction.
+\end{proof}
+
+\begin{problem}{II.4.7}
+Let $G$ be a group. Prove that the function $G \to G$ defined by $g \mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian. Prove that $g \mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
+\end{problem}
+\begin{proof}
+Let $g,h \in G$. If $\varphi: g \mapsto g^{-1}$ is a homomorphism, then it must satisfy
+\[
+g^{-1}h^{-1} = \varphi(g)\varphi(h) = \varphi(gh) = (gh)^{-1} = h^{-1}g^{-1}
+\]
+take inverse to both sides shows that $G$ is abelian. If $\varphi: g \mapsto g^{2}$ is a homomorphism, then it must satisfy
+\[
+gghh = g^{2}h^{2} = \varphi(g)\varphi(h) = \varphi(gh) = (gh)^2 = ghgh
+\]
+multiply by $g^{-1}$ on the left and $h^{-1}$ on the right shows that $G$ is abelian. The converse to both statements are easy: we can simply rearrange the terms on the two sides of above equations to "achive homomorphism" by the commutativity of $G$. 
 \end{proof}
 
 \begin{problem}{II.4.8}
@@ -319,7 +373,7 @@ If $\text{Inn}(G)$ is cyclic, then let $\gamma_g(a) = gag^{-1}$ be a generator o
 The last statement follows from Proposition II.6.11 that every subgroup of cyclic group is cyclic.
 \end{proof}
 
-\begin{problem}{II.6.9}
+\begin{problem}{II.6.8}
 Prove that an \emph{abelian} group $G$ is finitely generated if and only if there is a surjective homomorphism
 \[
     \underbrace{\Z \oplus \cdots \oplus \Z}_{n \text{ times}}\twoheadrightarrow G   
@@ -391,6 +445,13 @@ If $a, b \in G$ are distinct elements that satisfies $\varphi(a) = \varphi(b)$, 
 
 \section{}
 
+\begin{problem}{II.7.2}
+Is the \emph{image} of a group homomorphism necessarily a \emph{normal} subgroup of the target?
+\end{problem}
+\begin{solution}
+Well no: the image of $\varphi: C_2 \to S_3$ defined by $\varphi(1) = (1 \; 2)$ is $\im \varphi = \{e,(1 \; 2)\}$, which is not normal.
+\end{solution}
+
 \begin{problem}{II.7.3}
 Verify that the equivalent conditions for normality given in $\S 7.1$ are indeed equivalent.
 \end{problem}
@@ -415,6 +476,24 @@ For $a \in H, g \in G$, since $a^n = e$,
 (gag^{-1})^n = ga^ng^{-1} = e
 \]
 we have $gag^{-1} \in H$, hence normal.
+\end{proof}
+
+\begin{problem}{II.7.8}
+Prove Proposition 7.6: \textit{If $H$ is any subgroup of a group $G$, the relation $\sim_L$ defined by $a \sim_L b \Leftrightarrow a^{-1}b \in H$ is an equivalence relation.}
+\end{problem}
+\begin{proof}\
+\begin{itemize}
+    \item It is reflexive: for any $g \in G$, $g^{-1}g = e \in H$, so it is always true that $g \sim_L g$;
+    \item It is symmetric: for $g,h \in G$ in which $g \sim_L h$, we have $g^{-1}h \in H$, and its inverse, which is $h^{-1}g$ must also be in $G$, which implies $h \sim_L g$;
+    \item It is transitive: for $a,b,c \in G$ in which $a \sim_L b, b \sim_L c$, we have $a^{-1}b \in H$ and $b^{-1}c \in H$. This implies $a^{-1}c \in H$, so $a \sim_L c$.
+\end{itemize}
+\end{proof}
+
+\begin{problem}{II.7.10}
+Let $G$ be a group, and $H \subseteq G$ be a subgroup. Show that $H$ is normal in $G$ if and only if for all $\gamma \in \text{Inn}(G)$ (\ref{II.6.7}), $\gamma(H) \subseteq H$.
+\end{problem}
+\begin{proof}
+One side is trivial: if $H$ is normal then for all $g \in G$, $\gamma_g(h) = ghg^{-1} \in H$ for all $h \in H$. The other side is also trivial because $gHg^{-1} \subseteq H$ implies normality for $H$.
 \end{proof}
 
 \begin{problem}{II.7.11}

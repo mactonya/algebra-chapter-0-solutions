@@ -571,6 +571,18 @@ So there are four different combination of images and kernels:
 so either $\varphi = 0$ or $\varphi$ is an isomorphism. 
 \end{proof}
 
+\begin{problem}{III.5.5}
+Let $R$ be a commutative ring, viewed as an $R$-module over itself, and let $M$ be an $R$-module. Prove that $\Hom_{R\textsf{-Mod}}(R,M) \cong M$ as $R$-modules.
+\end{problem}
+\begin{proof}
+Every module homomorphism $f: R \to M$ is uniquely determined by the result of $f(1)$ (which is a unit). Therefore 
+\begin{align*}
+    \Hom_{R\textsf{-Mod}}(R,M) &\to M \\
+    f &\mapsto f(1)
+\end{align*}
+is an isomorphism of $R$-modules.
+\end{proof}
+
 \begin{problem}{III.5.11}
 Let $R$ be commutative, and let $M$ be an $R$-module. Prove that there is a natural bijection between the set of $R[x]$-module structures on $M$ (extending the given $R$-module structure) and $\text{End}_{R-\mathsf{Mod}}(M)$.
 \end{problem}
@@ -968,8 +980,7 @@ Prove the 'split epimorphism' part of Proposition 7.5, that is,
 \textit{ splits.}
 \]
 \end{problem}
-\begin{proof}
-
+\begin{proof} \
 \noindent $(\Leftarrow)$ If the sequence splits, then by identifying $\varphi$ with the projection map from $\ker \varphi \oplus N$ to $N$, we can let $\psi : N \to \ker \varphi \oplus N $ to be the inclusion, and it gives a right-inverse. \\
 $(\Rightarrow)$ Assume that $\varphi$ has a right inverse, which says that 
 \[
@@ -1018,8 +1029,8 @@ be a short exact sequence of $R$-modules, and let $L$ be an $R$-module.
     \item Show that if the original sequence splits, then the rightmost homomorphism in (i) is onto.
 \end{enumerate}
 \end{problem}
-\begin{proof}
-\begin{enumerate}[label=(\roman*)]
+\begin{proof} \
+\begin{enumerate}[label=(\roman*)] 
     \setlength\itemsep{0pt}
     \item     
     \[

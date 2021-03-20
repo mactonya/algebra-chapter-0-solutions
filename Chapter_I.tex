@@ -199,6 +199,14 @@ we have that $F$ is initial in $\mathsf{C}^{op}$.
 \end{proof}
 
 
+\begin{problem}{I.5.2}
+Prove that $\varnothing$ is the \emph{unique} initial object in $\mathsf{Set}$.
+\end{problem}
+\begin{proof}
+Let $A$ be another initial object. By definition, there is only one function that maps $\varnothing$ to $A$: it's the empty function. Note that empty function $0: \varnothing \to A$ does make sense: recall the definition of function from $X$ to $Y$ is that for all $x \in X$, there exists a unique $y \in Y$ such that $f(x) = y$. In order to let $0$ fails to be a function, we want to find $x \in \varnothing$ such that there exist $y,y' \in A$ such that $y' = 0(x) = y$. But as there is no element in $\varnothing$, you can't even find $x$ to begin with, so $0$ is indeed a function. \\
+Now to continue, since $A$ by assumption is also initial, there exists a unique function that sends elements of $A$ to $\varnothing$. But such function cannot exist unless $A = \varnothing$: for all $x \in A$, there does not exist a unique $y \in \varnothing$ such that $f(x) = y$: there is nothing to begin with finding a $y$ as we can't find anything in an empty set! 
+\end{proof}
+
 \begin{problem}{I.5.12}
 Define the notions of \emph{fibered products} and \emph{fibered coproducts}, as terminal objects of the categories $\mathsf{C}_{\alpha, \beta}, \mathsf{C}^{\alpha, \beta}$ considered in Example 3.10 (cf. also \ref{I.3.11}), by stating carefully the corresponding universal properties. 
 

@@ -11,3 +11,8 @@ template copy.synctex.gz
 template copy.pdf
 template copy.tex
 ac0.code-workspace
+template copy.aux
+template copy.fdb_latexmk
+template copy.fls
+template copy.log
+quicklist.txt
