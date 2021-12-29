@@ -549,10 +549,10 @@ Note that $\sigma(r)$ is a endomorphism on $M$. Then
 Prove that $0\cdot m = 0$ and that $(-1) \cdot m = -m$ for all $m \in M$. 
 \end{problem}
 \begin{proof}
-Since $0m = (0+0)m = 0m + 0m, 0m = 0$. Since $0 = 0m = (-1+1)m = (-1)m+m, (-1)m = -m$.
+$0m = (0+0)m = 0m + 0m, 0m = 0$. Since $0 = 0m = (-1+1)m = (-1)m+m, (-1)m = -m$.
 \end{proof}
 
-\begin{problem}{III.5.4}
+\begin{problem}{III.5.4} (\emph{Schur's Lemma})
 Let $R$ be a ring. A nonzero $R$-module $M$ is \emph{simple} (or \emph{irreducible}) if its only 
 submodules are $\{0\}$ and $M$. Let $M, N$ be simple modules, and let $\varphi: M \to N$ be 
 a homomorphism of $R$-modules. Prove that either $\varphi = 0$ or $\varphi$ is an isomorphism. 
@@ -970,17 +970,16 @@ The map $(M' \longrightarrow N)$ is an epimorphism, so it follows by first isomo
 \end{proof}
 
 \begin{problem}{III.7.6}
-Prove the 'split epimorphism' part of Proposition 7.5, that is,
-
-\textit{$\varphi$ has a right-inverse if and only if the sequence} 
+Prove the 'split epimorphism' part of Proposition 7.5, that is,\emph{$\varphi$ has a right-inverse if and only if the sequence} 
 \[
 \begin{tikzcd}
 0 \arrow[r] & \ker \varphi \arrow[r] & M \arrow[r, "\varphi"] & N \arrow[r] & 0
 \end{tikzcd}	
-\textit{ splits.}
 \]
+\emph{splits.}
 \end{problem}
 \begin{proof} \
+    
 \noindent $(\Leftarrow)$ If the sequence splits, then by identifying $\varphi$ with the projection map from $\ker \varphi \oplus N$ to $N$, we can let $\psi : N \to \ker \varphi \oplus N $ to be the inclusion, and it gives a right-inverse. \\
 $(\Rightarrow)$ Assume that $\varphi$ has a right inverse, which says that 
 \[
