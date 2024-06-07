@@ -30,11 +30,12 @@ Formulate a notion of \emph{epimorphism}, in the style of the notion of \emph{mo
 \begin{solution}
 Epimorphism are \emph{right-cancelable}; that is,
 \begin{center}
-A function $f : A \to B$ is a epimorphism if for all sets $Z$ and all functions $\beta, \beta' : Z \to A$, 
+A function $f : A \to B$ is a epimorphism if for all sets $Z$ and all functions $\beta, \beta' : B \to Z$, 
 \[
 \beta \circ f = \beta' \circ f \Longrightarrow \beta = \beta'.
 \]
 \end{center}
+
 We shall prove the following:
 
 \noindent \textbf{Proposition. }\textit{A function is surjective if and only if it is an epimorphism.} \\
@@ -121,9 +122,9 @@ B \arrow[ur, "g_2"']
 which are commutative diagrams
 \[
 \begin{tikzcd}[column sep=small, row sep=small]
-A \arrow[dr, "f_2"] \arrow[drr, bend left, "f_1"] \\
+A \arrow[dr, "f_1"] \arrow[drr, bend left, "f_2"] \\
 &Z_1 \arrow[r, "\sigma"] &Z_2 \\
-B \arrow[ur, "g_2"'] \arrow[urr, bend right, "g_1"']
+B \arrow[ur, "g_1"'] \arrow[urr, bend right, "g_2"']
 \end{tikzcd}.
 \]
 \end{itemize}
