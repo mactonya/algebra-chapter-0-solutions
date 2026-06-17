@@ -358,3 +358,78 @@ Let $\mathscr{F}$ be the collection of all ideals of $R$ that are \emph{not} fin
 \end{itemize}
 Therefore $\mathscr{F}$ is empty, which implies that $R$ is Notherian.
 \end{proof}
+\section{}
+\begin{problem}{V.4.1}
+	Let $R$ be a ring and $I \subseteq R$ an ideal. Then
+	\[
+	R[x]/IR[x] \cong (R/I)[x].
+	\]
+\end{problem}
+\begin{proof} \
+	
+	\noindent Define a ring homomorphism
+	\[
+	\varphi : R[x] \longrightarrow (R/I)[x]
+	\]
+	by reducing coefficients modulo $I$:
+	\[
+	\varphi\!\left(\sum a_i x^i\right)
+	=
+	\sum (a_i + I)x^i.
+	\]
+	This map is surjective since every polynomial over $R/I$
+	has a representative in $R[x]$.
+	
+	 Its kernel consists of those polynomials whose coefficients
+	lie in $I$, that is,
+	\[
+	\ker \varphi = IR[x].
+	\]
+	By the First Isomorphism Theorem,
+	\[
+	R[x]/IR[x] \cong (R/I)[x].
+	\]
+\end{proof}
+
+\begin{problem}{V.4.5}
+	Let $R$ be a UFD and let $f \in R[x]$.
+	
+	\begin{itemize}
+		\item $(f) = (\operatorname{cont} f)(\overline f)$, where $\overline f$ is primitive.
+		\item If $(f) = (c)(g)$ with $c \in R$ and $g$ primitive, then
+		$(c) = (\operatorname{cont} f)$.
+	\end{itemize}
+\end{problem}
+\begin{proof} \
+	
+	\noindent Let $f = \sum a_i x^i$ and define
+	\[
+	\operatorname{cont} f = \gcd(a_0,\dots,a_n).
+	\]
+	Write
+	\[
+	f = (\operatorname{cont} f)\,\overline f,
+	\]
+	where $\overline f$ has coefficients with no non-unit common divisor,
+	so $\overline f$ is primitive. Hence
+	\[
+	(f) = (\operatorname{cont} f)(\overline f).
+	\]
+	
+	\medskip
+	
+	\noindent Suppose $(f) = (c)(g)$ with $g$ primitive. Then
+	\[
+	f = c g.
+	\]
+	Since $g$ is primitive and $R$ is a UFD, Gauss' Lemma implies
+	\[
+	\operatorname{cont}(f) = u c
+	\]
+	for some unit $u \in R^\times$.
+	Therefore
+	\[
+	(c) = (\operatorname{cont} f).
+	\]
+\end{proof}
+

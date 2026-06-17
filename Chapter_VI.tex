@@ -1,0 +1,394 @@
+\section{}
+\begin{problem}{VI.1.7}
+	Let $R$ be an integral domain, and let $M = R \oplus A$ be a free $R$-module. Let $K$ be the field of fractions of $R$, and view $M$ as a subset of $V = K \oplus A$ in the evident way. Prove that a subset $S \subseteq M$ is linearly independent in $M$ (over $R$) if and only if it is linearly independent in $V$ (over $K$). Conclude that the rank of $M$ (as an $R$-module) equals the dimension of $V$ (as a $K$-vector space). Prove that if $S$ generates $M$ over $R$, then it generates $V$ over $K$. Is the converse true?
+\end{problem}
+
+\begin{proof} \
+	
+	 \textbf{Linear independence:} Suppose $S \subseteq M$ is linearly independent over $R$. Take a finite linear combination in $V$:
+	\[
+	\sum_{i=1}^n c_i s_i = 0, \quad s_i \in S, \ c_i \in K.
+	\]
+	Write each $c_i = r_i/d_i$ with $r_i, d_i \in R$ and $d_i \neq 0$. Let $D = \prod_{i=1}^n d_i \in R \setminus \{0\}$. Multiply the equation by $D$ to eliminate denominators:
+	\[
+	\sum_{i=1}^n \left(D c_i\right) s_i = \sum_{i=1}^n \left(r_i \frac{D}{d_i}\right) s_i = 0 \quad \text{in } M.
+	\]
+	Since $S$ is linearly independent over $R$, each coefficient $r_i \frac{D}{d_i}$ must vanish, so $c_i = 0$ for all $i$. Thus $S$ is linearly independent over $K$ in $V$.
+	
+	 Conversely, if $S$ is linearly independent over $K$, then any $R$-linear combination is also a $K$-linear combination. Therefore, $S$ is linearly independent over $R$.  
+	
+	 \textbf{Rank and dimension:} By the previous argument, maximal linearly independent subsets of $M$ and $V$ correspond exactly, so
+	\[
+	\text{rank}_R(M) = \dim_K(V).
+	\]
+	
+	 \textbf{Generating sets:} Suppose $S$ generates $M$ over $R$. Take $v \in V$, and write $v = \sum_i c_i s_i$ with $c_i \in K$, $s_i \in S$. Write $c_i = r_i/d_i$ with $r_i,d_i \in R$ and $d_i \neq 0$, and let $D = \prod_i d_i$. Then $Dv \in M$, and since $S$ generates $M$, we have
+	\[
+	Dv = \sum_i r_i' s_i, \quad r_i' \in R.
+	\]
+	Divide by $D$ to write $v = \sum_i (r_i'/D) s_i \in \text{span}_K(S)$. Hence $S$ generates $V$ over $K$.
+	
+	 \textbf{Converse:} The converse is false. For example, let $R = \mathbb{Z}$, $K = \mathbb{Q}$, $M = \mathbb{Z}$, $V = \mathbb{Q}$, and $S = \{1/2\} \subset V$. Then $S$ generates $V$ over $\mathbb{Q}$, but $S$ does not generate $M$ over $\mathbb{Z}$.  
+	
+
+\begin{problem}{VI.1.8}
+	Let $R$ be an integral domain, and let $A,B$ be sets. Prove that 
+	\[
+	F^R(A) \cong F^R(B) \quad \iff  \quad A \cong B.
+	\]
+\end{problem}
+
+\begin{proof} \
+	
+	 $(\Rightarrow)$ Suppose $F^R(A) \cong F^R(B)$ as $R$-modules. Let $\phi: F^R(A) \to F^R(B)$ be an $R$-module isomorphism. Recall the universal property of free modules:
+	\[
+	\begin{tikzcd}
+		A \arrow[r,"f"] \arrow[d,"\iota_A"'] & M \\
+		F^R(A) \arrow[ru,"\tilde f"'] &
+	\end{tikzcd}
+	\]
+	
+	 Since $\phi$ is an isomorphism, the set $\phi(\iota_A(A)) \subset F^R(B)$ is linearly independent over $R$. By Proposition 1.9, all bases of a free module over an integral domain have the same cardinality. Therefore,
+	\[
+	|A| = |\phi(\iota_A(A))| = |B|,
+	\]
+	so $A \cong B$ as sets.
+	
+	 $(\Leftarrow)$ If $A \cong B$, then there exists a bijection $f: A \to B$. By the universal property of free modules, $f$ extends uniquely to an $R$-module isomorphism $\tilde f: F^R(A) \to F^R(B)$, so
+	\[
+	F^R(A) \cong F^R(B).
+	\]
+	
+	 Therefore, $F^R(A) \cong F^R(B)$ if and only if $A \cong B$.
+\end{proof}
+
+\begin{problem}{VI.1.10}
+	Let $R$ be a commutative ring, and let 
+	\[
+	F = R^{\oplus B} = \{ \alpha : B \to R \mid \alpha(b) \neq 0 \text{ for only finitely many } b \in B \}
+	\] 
+	be a free $R$-module. Let $\mathfrak{m}$ be a maximal ideal of $R$, and let $k = R/\mathfrak{m}$ be the quotient field. Prove that
+	\[
+	F/\mathfrak{m}F \cong k^{\oplus B}
+	\]
+	as $k$-vector spaces.
+\end{problem}
+
+\begin{proof} \
+	
+	 Define the canonical projection
+	\[
+	\pi : R \longrightarrow k = R/\mathfrak{m}, \quad r \mapsto r + \mathfrak{m}.
+	\]
+	
+	 This induces a map on the direct sum:
+	\[
+	\tilde{\pi} : F = R^{\oplus B} \longrightarrow k^{\oplus B}, \quad \alpha \mapsto \big(b \mapsto \pi(\alpha(b))\big) = ( \alpha(b) + \mathfrak{m} )_{b \in B}.
+	\]
+	
+	 The map $\tilde{\pi}$ is $R$-linear, and its kernel consists of all functions $\alpha: B \to R$ whose values lie in $\mathfrak{m}$:
+	\[
+	\ker(\tilde{\pi}) = \{ \alpha \in R^{\oplus B} \mid \alpha(b) \in \mathfrak{m} \text{ for all } b \in B \} = \mathfrak{m}F.
+	\]
+	
+	 By the First Isomorphism Theorem for modules (III, 5.16), we then have
+	\[
+	F/\mathfrak{m}F \cong \mathrm{Im}(\tilde{\pi}) = k^{\oplus B}.
+	\]
+	
+	 Since $k^{\oplus B}$ is naturally a $k$-vector space, we conclude
+	\[
+	F/\mathfrak{m}F \cong k^{\oplus B}
+	\]
+	as $k$-vector spaces, as required.
+\end{proof}
+
+\begin{problem}{1.11}
+	Prove that every commutative ring $R$ satisfies the IBN property.
+\end{problem}
+
+\begin{proof} \
+	
+ 	Let $S \subseteq M$ be linearly independent, and let $B \subseteq M$ be a maximal linearly independent subset.  
+	
+	Write each $s \in S$ as a finite $R$-linear combination of elements of $B$:
+	\[
+	s = \sum_{b \in B_s} r_b b, \quad r_b \in R, \ B_s \subseteq B \text{ finite}.
+	\]
+	Let
+	\[
+	I := \langle r_b \mid s \in S, b \in B_s \rangle \subseteq R
+	\]
+	be the ideal generated by all coefficients appearing in elements of $S$.  
+	
+	If $I = R$, then $1 \in I$ and some combination of elements of $S$ already expresses a linear combination equal to an element of $B$, so $|S| \le |B|$ trivially.  
+	
+ Otherwise, $I \neq R$. By Proposition V.3.5, there exists a maximal ideal $\mathfrak{m} \supseteq I$. Let
+	\[
+	k := R/\mathfrak{m}
+	\]
+	be the quotient field, and consider the quotient module
+	\[
+	M/\mathfrak{m} M.
+	\]
+	
+ By Exercise 1.10, we have an isomorphism of $k$-vector spaces
+	\[
+	M/\mathfrak{m} M \cong k^{\oplus B}.
+	\]
+	
+	The images of $S$ and $B$ in $M/\mathfrak{m}M$ are
+	\[
+	\overline{S} \subseteq M/\mathfrak{m}M, \quad \overline{B} \subseteq M/\mathfrak{m}M.
+	\]
+	
+ By construction, $\overline{S}$ is linearly independent over $k$, and $\overline{B}$ is a basis of $M/\mathfrak{m}M$ over $k$. Since $k$ is a field (an integral domain), the IBN property for vector spaces implies
+	\[
+	|\overline{S}| \leq |\overline{B}| \implies |S| \leq |B|.
+	\]
+	
+\end{proof}
+\section{}
+\section{}
+\begin{problem}{VI.3.16}
+	Claim:
+	
+	\begin{itemize}
+		\item $\chi_K$ is an Euler characteristic, that is,
+		\[
+		\chi_K(V_\bullet)=\sum_i (-1)^i [H_i(V_\bullet)].
+		\]
+		
+		\item $\chi_K$ is universal: if $G$ is an abelian group and 
+		$\delta$ assigns to each finite-dimensional vector space an element
+		of $G$ such that $\delta(V)=\delta(V')$ if $V\cong V'$ and
+		$\delta(V/U)=\delta(V)-\delta(U)$ for short exact sequences,
+		then $\delta$ induces a unique group homomorphism
+		\[
+		K(k\text{-Vect}^f)\longrightarrow G
+		\]
+		mapping $\chi_K(V_\bullet)$ to
+		\[
+		\chi_G(V_\bullet)=\sum_i (-1)^i\delta(V_i).
+		\]
+		
+		\item In particular, $\delta=\dim$ induces a homomorphism
+		\[
+		K(k\text{-Vect}^f)\longrightarrow \mathbb{Z}
+		\]
+		sending $\chi_K(V_\bullet)$ to the classical Euler characteristic
+		$\chi(V_\bullet)=\sum_i (-1)^i \dim(V_i)$.
+		
+		\item This homomorphism is an isomorphism.
+	\end{itemize}
+\end{problem}
+
+\begin{proof} \
+	
+	 \textbf{(1) $\chi_K$ is an Euler characteristic.}
+	
+	Let $V_\bullet$ be a bounded complex of finite-dimensional
+	$k$-vector spaces. For each $i$, we have short exact sequences
+	\[
+	0 \to Z_i \to V_i \to B_{i-1} \to 0
+	\]
+	and
+	\[
+	0 \to B_i \to Z_i \to H_i(V_\bullet) \to 0.
+	\]
+	
+	 In the Grothendieck group these give
+	\[
+	[V_i]=[Z_i]+[B_{i-1}]
+	\]
+	and
+	\[
+	[Z_i]=[B_i]+[H_i(V_\bullet)].
+	\]
+	
+	 Substituting,
+	\[
+	[V_i]=[B_i]+[H_i(V_\bullet)]+[B_{i-1}].
+	\]
+	
+	 Multiply by $(-1)^i$ and sum over $i$. The $[B_i]$
+	terms cancel telescopically, yielding
+	\[
+	\sum_i (-1)^i [V_i]
+	=
+	\sum_i (-1)^i [H_i(V_\bullet)].
+	\]
+	
+	 Hence
+	\[
+	\chi_K(V_\bullet)=\sum_i (-1)^i [H_i(V_\bullet)].
+	\]
+	
+	\medskip
+	
+	 \textbf{(2) Universality.}
+	
+	Let $\delta$ satisfy the stated properties. Because
+	$\delta(V)=\delta(U)+\delta(W)$ for every short exact sequence,
+	$\delta$ respects the defining relations of the Grothendieck group.
+	Hence it induces a unique group homomorphism
+	\[
+	\Phi_\delta : K(k\text{-Vect}^f)\to G
+	\]
+	with
+	\[
+	\Phi_\delta([V])=\delta(V).
+	\]
+	
+	 Therefore,
+	\[
+	\Phi_\delta(\chi_K(V_\bullet))
+	=
+	\sum_i (-1)^i \delta(V_i)
+	=
+	\chi_G(V_\bullet).
+	\]
+	
+	 Uniqueness follows from the universal property of the quotient.
+	
+	\medskip
+	
+	 \textbf{(3) The case $\delta=\dim$.}
+	
+	The dimension function is invariant under isomorphism and additive
+	on short exact sequences. Hence it induces a homomorphism
+	\[
+	\Phi : K(k\text{-Vect}^f)\to \mathbb{Z}
+	\]
+	with
+	\[
+	\Phi([V])=\dim_k(V).
+	\]
+	
+	 Consequently,
+	\[
+	\Phi(\chi_K(V_\bullet))
+	=
+	\sum_i (-1)^i \dim(V_i),
+	\]
+	the classical Euler characteristic.
+	
+	\medskip
+	
+	 \textbf{(4) $\Phi$ is an isomorphism.}
+	
+	Every finite-dimensional vector space satisfies
+	\[
+	V\cong k^{\oplus n}
+	\]
+	for a uniquely determined $n=\dim V$ (IBN for fields).
+	Thus in the Grothendieck group,
+	\[
+	[V]=n[k].
+	\]
+	
+	 Hence $K(k\text{-Vect}^f)$ is generated by $[k]$,
+	so it is cyclic. Since
+	\[
+	\Phi([k])=\dim(k)=1,
+	\]
+	the map $\Phi$ is surjective. If $\Phi(n[k])=0$,
+	then $n=0$, so $\ker\Phi=0$.
+	
+	 Therefore $\Phi$ is an isomorphism, and
+	\[
+	K(k\text{-Vect}^f)\cong \mathbb{Z}.
+	\]
+\end{proof}
+
+\section{}
+\section{}
+\section{}
+\begin{problem}{VI.6.8}
+	Let $A \in M_n(R)$ be a square matrix, and let $A^t$ be its transpose.  
+	Prove that $A$ and $A^t$ have the same characteristic polynomial and the same annihilator ideals.
+\end{problem}
+
+\begin{proof}
+	The characteristic polynomial of $A$ is $P_A(t)=\det(tI-A)$. Since $(tI-A)^t=tI-A^t$ and $\det(B)=\det(B^t)$ for every matrix $B$, we obtain
+	\[
+	P_A(t)=\det(tI-A)=\det\big((tI-A)^t\big)=\det(tI-A^t)=P_{A^t}(t).
+	\]
+	
+	Now let $f(t)=a_0+a_1t+\cdots+a_mt^m \in R[t]$. Since $(A^t)^k=(A^k)^t$ for all $k$, we have
+	\[
+	f(A^t)=a_0I+a_1A^t+\cdots+a_m(A^t)^m
+	=\big(a_0I+a_1A+\cdots+a_mA^m\big)^t
+	=f(A)^t.
+	\]
+	Thus $f(A)=0$ if and only if $f(A^t)=0$, so $A$ and $A^t$ have the same annihilator ideals.
+\end{proof}
+
+\section{}
+\begin{problem}{VI.7.1}
+	Complete the proof of Lemma 7.2.
+\end{problem}
+\begin{proof}
+	Let $F_\alpha, F_\beta$ be $R[t]$-modules and let $\pi^* : F_\alpha \to F_\beta$ be a $R[t]$-module isomorphism. We want to show that there is a corresponding linear transformation $\pi \in \operatorname{End}_R(F)$ such that $\beta = \pi \circ \alpha \circ \pi^{-1}$.
+	On $F_\alpha, F_\beta$ the module is given by $tv=\alpha(v), t \in R[t], v \in F$ etc. Since $\pi$ is $R[t]$-linear, we have $t \pi^*(v)=\pi^*(tv) \iff \beta \circ \pi^*(v)=\pi^* \circ \alpha(v)$ for all $v \in F$. Choosing $\pi := \pi^*\vert_{R}$ yields our result. $\pi$ is invertible since $\pi^*$ is, and $R$-linear since $R^*$ is $R[t]$-linear.
+\end{proof}
+
+\begin{problem}{VI.7.2}
+	Let 
+	\[
+	f(t)=t^n+r_{n-1}t^{n-1}+\cdots+r_0
+	\]
+	be a monic polynomial, and let $C_{f(t)}$ be its companion matrix. Prove that the characteristic polynomial of $C_{f(t)}$ equals $f(t)$; equivalently, show that
+	\[
+	\det\!\begin{pmatrix}
+		t & 0 & 0 & \cdots & 0 & r_0 \\
+		-1 & t & 0 & \cdots & 0 & r_1 \\
+		0 & -1 & t & \cdots & 0 & r_2 \\
+		\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+		0 & 0 & 0 & \cdots & t & r_{n-2} \\
+		0 & 0 & 0 & \cdots & -1 & t+r_{n-1}
+	\end{pmatrix}
+	= f(t).
+	\]
+\end{problem}
+
+\begin{proof}
+	Let $D_n(t)$ denote the above determinant. We prove by induction on $n$ that
+	\[
+	D_n(t)=t^n+r_{n-1}t^{n-1}+\cdots+r_0.
+	\]
+	
+	For $n=1$, the matrix is $(t+r_0)$, so $D_1(t)=t+r_0$.
+	
+	Assume the statement holds for $n-1$. Expand $D_n(t)$ along the first row. Since all entries except the first and last are zero,
+	\[
+	D_n(t)
+	= t\,D_{n-1}(t)
+	+ (-1)^{1+n} r_0 \det(M),
+	\]
+	where $M$ is obtained by deleting the first row and last column. The matrix $M$ is lower triangular with diagonal entries all $-1$, hence
+	\[
+	\det(M)=(-1)^{n-1}.
+	\]
+	Thus
+	\[
+	(-1)^{1+n}\det(M)=(-1)^{1+n}(-1)^{n-1}=1,
+	\]
+	and therefore
+	\[
+	D_n(t)=t\,D_{n-1}(t)+r_0.
+	\]
+	
+	By the induction hypothesis,
+	\[
+	D_{n-1}(t)=t^{n-1}+r_{n-1}t^{n-2}+\cdots+r_1,
+	\]
+	so
+	\[
+	D_n(t)
+	= t\bigl(t^{n-1}+r_{n-1}t^{n-2}+\cdots+r_1\bigr)+r_0
+	= t^n+r_{n-1}t^{n-1}+\cdots+r_0.
+	\]
+\end{proof}
+
+
